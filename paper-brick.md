@@ -16,4 +16,9 @@ The paper I used is mostly 190gsm.
 
 ![20230218_184545](https://user-images.githubusercontent.com/273837/219881458-3969b39d-2dd9-42d4-915b-78ab3745e340.jpg)
 
+The image below shows how the bricks can be connected by weaving strips of paper under their walls.
+The gaps visible in the image below can be hidden by rotating the assembly &mdash;
+I'm showcasing them here to make it more clear how to do the weaving.
+Alternatively, some smarter connecting pieces could also possibly conceal them.
+
 ![20230218_184721](https://user-images.githubusercontent.com/273837/219881473-9b57bd17-f50a-4d62-b3ff-840881d7d834.jpg)
