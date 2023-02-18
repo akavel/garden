@@ -8,6 +8,8 @@ The specimens presented below are ~2x2x4cm after folding,
 but the idea should work with other dimensions as well (I intend to try 2x2x2cm next).
 The paper I used is mostly 190gsm.
 
+After drawing a grid of 2x2cm squares, I was able to get 6 cutouts of the brick from a sheet of A4 paper.
+
 ![20230218_184017](https://user-images.githubusercontent.com/273837/219881347-96e0a110-ed02-4a5a-8d91-cb952c5e8f03.jpg)
 
 ![20230218_184334](https://user-images.githubusercontent.com/273837/219881397-cd133b8a-9f4e-4626-b12c-98f73eba664a.jpg)
