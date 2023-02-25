@@ -21,7 +21,7 @@ Then, consider one or more of the approaches below:
   The resolution of the previously challenging situation is currently unknown and shrouded in mystery,
   and the character is reluctant to talk about it, or describes it in a way that tends to raise listeners' eyebrows.
   You may revisit that part of your character's history at a later time
-  when you get new inspiration or otherwise feel excited about it, but it is not mandatory 
+  when you get new inspiration or otherwise feel excited about it, but it is not mandatory —
   a person's life is too detailed to ever know everything about it,
   even if they were fully open about it and had a perfect memory, which rarely happens completely.
   If the jump ahead is long, review your vows and clocks, suspending any of them by marking as "shrouded in mystery".
