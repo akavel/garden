@@ -41,12 +41,12 @@ Then, consider one or more of the approaches below:
   remember a similar situation occurring to a character in a movie, book, story,
   or other narration that you like, and envision how the resolution employed there could apply to,
   or inspire, your character's future.
-* Ask for help, advice and/or support on r/ironsworn and Take A Break.
+* Ask for help, advice and/or support on [r/ironsworn](https://old.reddit.com/r/ironsworn) and Take A Break.
 * Take A Break and/or Change Your Fate.
 
 After resolving the situation in some way, take +1 momentum,
 corresponding to your character emerging victorious from a mysterious invisible entanglement of fate paths.
 
 (If you like the above enough to consider copying it somewhere,
-I'd be super grateful if you could attribute it to me, as u/akavel,
+I'd be super grateful if you could attribute it to me, as [u/akavel](https://old.reddit.com/u/akavel),
 and could do it under the terms of the rather liberal [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.)
