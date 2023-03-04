@@ -2,6 +2,7 @@ Some possible ideas and notes for making it easier to get into writing mood
 for *"Ironsworn: Starforged":* 
 
  - a "Soft start" subset of rules: http://redd.it/115xkpe (discussion);
+ - see the custom ["Get Unstuck" Session Move](ironsworn-get-unstuck.md);
  - writing in pencil may feel less final & obliging;
  - rerolling oracles multiple times is fine —
    a later result may suddenly trigger some cool idea in your mind;
