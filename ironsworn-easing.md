@@ -15,4 +15,10 @@ for *"Ironsworn: Starforged":*
    while toying with the game is probably the most important "product"
    that Starforged has a chance to buy you
    (any "written story" being very optional secondary one);
+ - experiment (with rules, etc.).
+   the more you experiment, the more you will learn
+   and increase your understanding and "feel" of the system,
+   and how *you personally* most like to use it.
+   your preferences and style will differ from others',
+   and there is no other way to learn them than through experimenting.
  - "JUST TRY" — acting on this minimal invitation seems to go fine.
