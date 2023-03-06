@@ -3,8 +3,11 @@ Ideas on [how to interpret the results of the *Swear an Iron Vow* move][discussi
 [discussion]: https://old.reddit.com/r/Ironsworn/comments/11jv5iq/swear_an_iron_vow_how_to_narrate_a_difference/jb5at19/
 
  - **Strong hit:** you have time to "prepare for the journey";
-   you are ahead of things and have time to comfortably prepare/already have some advantage.
+   you are ahead of things and have time to comfortably prepare/already have some advantage.  
+   Alternatively: some valuable piece of the path forward is handed to you on a silver plate.
  - **Weak hit:** you have to leave right away;
-   you are in haste and kinda entering "carpe diem" with what you have on yourself.
+   you are in haste and kinda entering "carpe diem" with what you have on yourself.  
+   Alternatively: you must do some proactive steps to find the path forward.
  - **Miss:** you left yesterday and still have a flat tire;
-   you just woke up from a hangover with missing clothes and no wallet.
+   you just woke up from a hangover with missing clothes and no wallet.  
+   Alternatively: you must do some reactive steps to overcome an active obstacle obstructing the path forward.
