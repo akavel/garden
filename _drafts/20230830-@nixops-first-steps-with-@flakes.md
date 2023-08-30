@@ -141,6 +141,17 @@ Shows up, NixOps seems to like to *completely* take over a remote NixOS machine'
 This means that you apparently need to fully reproduce whole `/etc/nixos/configuration.nix`
 (with all included files)
 on your local (controlling) machine.
+In my case, the original `/etc/nixos/configuration.nix` and `/etc/nixos/hardware-configuration.nix`
+were created by the *nixos-infect* tool that I used on the remote machine
+to convert it from an Ubuntu deployment to a NixOS one.
+I copied them (with `scp`) verbatim from the remote machine to the local one
+into a subdirectory.
+I then had to tweak them further,
+as the `//` merge operator of Nix shows up to be **non-recursive**
+(a.k.a. shallow merge, not deep merge).
+
+<<TODO[LATER]: lib.recursivelyMerge/Update or something>>
+<<TODO[LATER]: linkify nixos-infect>>
 
 <details>
     <summary>File <code>racknerd/configuration.nix</code></summary>
@@ -174,3 +185,45 @@ on your local (controlling) machine.
 }
 ```
 </details>
+
+```diff
+     nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
+   };
+ 
+   outputs = { self, ... }@inputs: {
+     nixopsConfigurations.default = {
+       inherit (inputs) nixpkgs;     # required! nixops complains if not present
++
++      network.description = "akavel's servers";
+       network.storage.legacy = {};  # required! nixops complains if not present
+ 
+-      ## TODO: here we will specify all the "regular" NixOps properties,
+-      ## like network.description, machine definitions, etc.
+-      ## ...
+-
++      ### Machines ###
++
++      my-machine = { pkgs, ... }:
++        (import ./racknerd/configuration.nix {}) // {
++        deployment.targetHost = "1.2.3.4";   # replace with your machine's IP
++
++        networking.hostName = "my-hostname";
++        networking.domain = "";
++        # Allow nginx SSH through the firewall - TODO: is it required or automatic?
++        networking.firewall.allowedTCPPorts = [ 22 ];
++
++        services.openssh.enable = true;
++        users.users.root.openssh.authorizedKeys.keys = [
++          ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP85cjGLDUGWsYWzlJbr/r6Bsdi30ZGZb5/5IzQipYpS me@local-machine''
++        ];
++      };
+     };
+   };
+```
+
+<<TODO: VERIFY>>
+
+Now, I could finally run it:
+
+    $ nixops deploy
+
