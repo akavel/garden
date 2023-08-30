@@ -73,7 +73,7 @@ After this went fine, I removed it...
     27 flake:nixpkgs#legacyPackages.x86_64-linux.nixopsUnstable [...]
     $ nix profile remove 27
 
-...so that I could put it in my regular declarative config instead:
+...so that I could put it in my main, [home-manager]-based declarative config instead:
 
 ```diff
 diff --git a/modules/host-ux305c.nix b/modules/host-ux305c.nix
