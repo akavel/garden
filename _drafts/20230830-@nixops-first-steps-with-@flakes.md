@@ -60,7 +60,41 @@ is that it [apparently adds support for Nix Flakes][nixops2-flakes]
 The not-so-nice thing is,
 that with lacking and chaotic (but improving! 💖) documentation being the norm in the Nix core toolset,
 the [NixOps documentation][nixops-doc] seems comparably *very* lacking ([state at time of writing][nixops-doc-today]),
-and the [NixOps 2.0 documentation][nixops2-flakes] is then more in some vague hints territory...
+and the [NixOps 2.0 documentation][nixops2-flakes] is then more in some [vague hints territory][nixops2-nodoc]...
 
 [nixops-doc]: https://nixos.org/nixops/manual
 [nixops-doc-today]: https://hydra.nixos.org/build/115931128/download/1/manual/manual.html
+[nixops2-nodoc]: https://github.com/NixOS/nixops/issues/1553
+
+Fortunately, with some previous experience with Flakes, as well as luck and determination,
+I was [able to piece together][nixops2-nodoc] a (not so) simple `flake.nix`
+that I managed to get to work and deploy on my remote machine without making it inaccessible.
+To break it down into steps for easier understanding,
+we can start with...
+
+### Phase 1: barebones Flake scaffolding for NixOps
+
+```nix
+{
+  description = "NixOps config of my servers";
+
+  inputs = {
+    # I used NixOS 22.11, as this matches what was recommended by the
+    # nix-infect usage guide at the time of writing. And nix-infect was
+    # what I used to install NixOS on my remote machine. 
+    nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
+  };
+
+  outputs = { self, ... }@inputs: {
+    nixopsConfigurations.default = {
+      inherit (inputs) nixpkgs;     # required! nixops complains if not present
+      network.storage.legacy = {};  # required! nixops complains if not present
+
+      ## TODO: here we will specify all the "regular" NixOps properties,
+      ## like network.description, machine definitions, etc.
+      ## ...
+
+    };
+  };
+}
+```
