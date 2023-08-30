@@ -14,8 +14,8 @@ With, obviously, Flakes wherever possible!
 (See also Xe Iaso's [excellent writeup of their own adventures with NixOps][xe-nixops]).
 
 [^nixos-slackware]:
-    Unfortunately, I'm not convinced yet that going all-in on NixOS on a
-    critical personal machine is feasible yet, even for a rather tech-savvy person.
+    Unfortunately, I'm not convinced that going all-in on NixOS on a
+    critical personal machine is feasible (yet?...), even for a rather tech-savvy person.
     Using it constantly floods me with a kind of "nostalgia",
     reminding me of the painful, neverending struggles of trying to do anything
     at all with Linux sometime in the '90s, until Ubuntu came around.
@@ -26,7 +26,7 @@ With, obviously, Flakes wherever possible!
     smashed together. But with some *crazy amazing* pink pony unicorns farting
     rainbows of declarative reproducibility and ultimate control
     smeared all over. Yes, with all the blood, gore, and a thousand papercuts.
-    No, *not* the ["Equoid" kind of unicorns][https://www.tor.com/2013/09/24/equoid/].
+    No, *not* the ["Equoid" kind of unicorns](https://www.tor.com/2013/09/24/equoid/).
     I think. Right?
 
 [Nix]: https://en.wikipedia.org/wiki/Nix_(package_manager)
