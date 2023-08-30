@@ -209,7 +209,7 @@ as the `//` merge operator of Nix shows up to be **non-recursive**
 +
 +        networking.hostName = "my-hostname";
 +        networking.domain = "";
-+        # Allow nginx SSH through the firewall - TODO: is it required or automatic?
++        # Allow SSH through the firewall - TODO: is it required or automatic?
 +        networking.firewall.allowedTCPPorts = [ 22 ];
 +
 +        services.openssh.enable = true;
@@ -227,3 +227,47 @@ Now, I could finally run it:
 
     $ nixops deploy
 
+
+### Phase 3: Nginx "hello world"
+
+To make Nginx run with its default *"Welcome to Nginx!"* page, the following changes were needed:
+
+```diff 
+         networking.hostName = "my-hostname";
+         networking.domain = "";
+-        # Allow SSH through the firewall - TODO: is it required or automatic?
+-        networking.firewall.allowedTCPPorts = [ 22 ];
++        # Allow nginx (and ssh) through the firewall
++        networking.firewall.allowedTCPPorts = [ 80 22 ];
+ 
++        services.nginx.enable = true;
++
+         services.openssh.enable = true;
+         users.users.root.openssh.authorizedKeys.keys = [
+```
+
+Then, to make it display something more interesting and custom,
+I grabbed the following snippet from somewhere over the InterWebs:
+
+```diff
+         # Allow nginx (and ssh) through the firewall
+         networking.firewall.allowedTCPPorts = [ 80 22 ];
+ 
+-        services.nginx.enable = true;
++        services.nginx = {
++          enable = true;
++          virtualHosts.vhost1 = {
++            default = true;
++            locations."/" = {
++              root = pkgs.writeTextDir "index.html" "Hello akavel's world!";
++            };
++          };
++        };
+ 
+         services.openssh.enable = true;
+         users.users.root.openssh.authorizedKeys.keys = [
+```
+
+Each of those two steps should be deployable with:
+
+    $ nixops deploy
