@@ -54,7 +54,7 @@ flowchart LR
 ```
 
 
-## Installing NixOps on local NixOs machine
+## Installing NixOps on a local machine with Nix
 
 Unfortunately, the recommended `nix-env -i nixops`
 (or rather, on my all-in experimental Nix tech machine: `nix profile install nixpkgs#nixops`)
