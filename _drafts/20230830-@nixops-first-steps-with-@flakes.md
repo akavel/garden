@@ -1,3 +1,4 @@
+
 I use [Nix] a lot where I can,
 managing my dotfiles through *[home-manager]*,
 and dabble with [NixOS] on a secondary, "non-critical" personal laptop[^nixos-slackware].
@@ -40,6 +41,18 @@ With, obviously, Flakes wherever possible!
 [xe-nixops]: https://xeiaso.net/blog/backslash-kubernetes-2021-01-03
 
 <<TODO[LATER]: howto for NixOS on RackNerd hosting - nix-infect, lowendbox.com>>
+
+```mermaid
+flowchart LR
+    subgraph "👨‍💻 local "
+      L("NixOps")
+    end
+    subgraph "🖥 remote VPS "
+      R("NixOS")
+    end
+    L== SSH ==>R
+```
+
 
 ## Installing NixOps on local NixOs machine
 
