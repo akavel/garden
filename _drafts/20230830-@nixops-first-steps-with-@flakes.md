@@ -46,3 +46,21 @@ index 464d6d1..ac1cab4 100644
  
      home.username = "akavel";
 ```
+
+
+## Deploying "hello world" nginx website with NixOps 2.0 + Flakes
+
+The nice added benefit of NixOps 2.0
+(making me really happy that I actually was forced to use it)
+is that it [apparently adds support for Nix Flakes][nixops2-flakes]
+&mdash; yay for all-in Nix experimentality! 🥳
+
+[nixops2-flakes]: https://nixops.readthedocs.io/en/latest/manual/migrating.html
+
+The not-so-nice thing is,
+that with lacking and chaotic (but improving! 💖) documentation being the norm in the Nix core toolset,
+the [NixOps documentation][nixops-doc] seems comparably *very* lacking ([state at time of writing][nixops-doc-today]),
+and the [NixOps 2.0 documentation][nixops2-flakes] is then more in some vague hints territory...
+
+[nixops-doc]: https://nixos.org/nixops/manual
+[nixops-doc-today]: https://hydra.nixos.org/build/115931128/download/1/manual/manual.html
