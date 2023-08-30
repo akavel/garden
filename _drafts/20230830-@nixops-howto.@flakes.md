@@ -1,3 +1,4 @@
+# First steps in NixOps, with Flakes
 
 I use [Nix] a lot where I can,
 managing my dotfiles through *[home-manager]*,
