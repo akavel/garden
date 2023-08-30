@@ -141,3 +141,36 @@ Shows up, NixOps seems to like to *completely* take over a remote NixOS machine'
 This means that you apparently need to fully reproduce whole `/etc/nixos/configuration.nix`
 (with all included files)
 on your local (controlling) machine.
+
+<details>
+    <summary>File <code>racknerd/configuration.nix</code></summary>
+
+```nix
+# Initially created by `nix-infest`, on 2023-08-29.
+# Afterwards edited & tweaked for nixops.
+{ ... }: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
+  boot.cleanTmpDir = true;
+  zramSwap.enable = false;
+  system.stateVersion = "22.11";
+}
+```
+</details>
+
+<details>
+    <summary>File <code>racknerd/hardware-configuration.nix</code></summary>
+
+```nix
+{ modulesPath, ... }:
+{
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
+  boot.loader.grub.device = "/dev/vda";
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "xen_blkfront" "vmw_pvscsi" ];
+  boot.initrd.kernelModules = [ "nvme" ];
+  fileSystems."/" = { device = "/dev/vda1"; fsType = "ext4"; };
+  swapDevices = [ { device = "/dev/vda2"; } ];
+}
+```
+</details>
