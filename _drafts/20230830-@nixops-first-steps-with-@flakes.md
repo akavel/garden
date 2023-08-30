@@ -72,7 +72,7 @@ that I managed to get to work and deploy on my remote machine without making it 
 To break it down into steps for easier understanding,
 we can start with...
 
-### Phase 1: barebones Flake scaffolding for NixOps
+### Phase 1: Barebones Flake scaffolding for NixOps 2.0
 
 ```nix
 {
@@ -98,3 +98,46 @@ we can start with...
   };
 }
 ```
+
+Interestingly, already at this point you can start playing with `nixops` subcommands,
+even though there's not really even any machine defined yet.
+The naming here is somewhat weird and confusing to me,
+as seems quite typical usually in the core Nix world, unfortunately...
+(though Nix 2.0 fortunately improves on this,
+although not without its own new quirks...)
+
+<<TODO: VERIFY BELOW TRUE>>
+<<TODO: git add & commit? + nix flake update>>
+
+Specifically, the following will now work:
+
+    $ nixops create
+
+Weirdly named as it is, this doesn't really do much practically useful,
+but is still required.
+Personally, at my current (lack of) understanding level of NixOps,
+I see it more as a kind of *"nixops init"* command.
+What it seems to do,
+is initialize some data in a local SQLite database
+used by NixOps to store cached state data and metadata about machines etc.
+
+With that said,
+please note I don't yet know nor understand
+why NixOps allows calling `nixops create` multiple times
+and thus create multiple so-called "deployments" in its database.
+Maybe I'll learn some day.
+For now, after I called it twice,
+I had to then call `nixops delete` to keep just one "deployment" in the DB
+and save myself some trouble
+(otherwise NixOps doesn't know which "deployment" to use as the default one).
+
+### Phase 2: Adding the first machine, without losing SSH connectivity
+
+Ok, from the title you may have guessed what happened to me...
+After I happily added some basic config for my machine and managed to deploy it,
+I promptly lost SSH connectivity to it.
+
+Shows up, NixOps seems to like to *completely* take over a remote NixOS machine's config.
+This means that you apparently need to fully reproduce whole `/etc/nixos/configuration.nix`
+(with all included files)
+on your local (controlling) machine.
