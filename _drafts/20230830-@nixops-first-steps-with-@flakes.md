@@ -1,6 +1,6 @@
 I use [Nix] a lot where I can,
 managing my dotfiles through *[home-manager]*,
-and dabble with [NixOS] on a secondary, "non-critical" personal laptop.
+and dabble with [NixOS] on a secondary, "non-critical" personal laptop[^nixos-slackware].
 I absolutely love its premise,
 especially with its [determinism improved even further][flake-det] thanks to [Nix Flakes][flakes].
 Recently, for a number of reasons, I decided to pull the trigger
@@ -12,6 +12,22 @@ controlling a [NixOS-based VPS][nixos-hosting] remotely
 by the means of a local [NixOps] description.
 With, obviously, Flakes wherever possible!
 (See also Xe Iaso's [excellent writeup of their own adventures with NixOps][xe-nixops]).
+
+[^nixos-slackware]:
+    Unfortunately, I'm not convinced yet that going all-in on NixOS on a
+    critical personal machine is feasible yet, even for a rather tech-savvy person.
+    Using it constantly floods me with a kind of "nostalgia",
+    reminding me of the painful, neverending struggles of trying to do anything
+    at all with Linux sometime in the '90s, until Ubuntu came around.
+    Specifically, the name "Slackware" is the key word,
+    which seems to spring to my mind almost magically...
+    As of yet, the NixOS experience is not like Ubuntu.
+    The NixOS experience today is more like the '90s Slackware and Gentoo
+    smashed together. But with some *crazy amazing* pink pony unicorns farting
+    rainbows of declarative reproducibility and ultimate control
+    smeared all over. Yes, with all the blood, gore, and a thousand papercuts.
+    No, *not* the ["Equoid" kind of unicorns][https://www.tor.com/2013/09/24/equoid/].
+    I think. Right?
 
 [Nix]: https://en.wikipedia.org/wiki/Nix_(package_manager)
 [NixOS]: https://en.wikipedia.org/wiki/NixOS
