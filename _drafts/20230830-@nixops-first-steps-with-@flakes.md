@@ -1,12 +1,29 @@
-I use Nix a lot where I can, and dabble with NixOS on a secondary, "non-critical" personal laptop.
-I like the idea a lot, especially with the improved determinism thanks to Nix Flakes.
-For a number of reasons, I decided to try and migrate my (currently barebones) personal website
-from a shared, PHP-only host to a VPS, which would hopefully let me experiment with more cool apps.
-I thought it would be super cool if I could provision the new website Nix style, with NixOps.
+I use [Nix] a lot where I can,
+managing my dotfiles through *[home-manager]*,
+and dabble with [NixOS] on a secondary, "non-critical" personal laptop.
+I absolutely love its premise,
+especially with its [determinism improved even further][flake-det] thanks to [Nix Flakes][flakes].
+Recently, for a number of reasons, I decided to pull the trigger
+to try and migrate my (currently barebones) [personal website][akavel]
+from a shared, PHP-only hosting service to a VPS,
+which would hopefully let me experiment with more cool apps.
+I thought it would be super cool if I could provision the new website Nix style:
+controlling a [NixOS-based VPS][nixos-hosting] remotely
+by the means of a local [NixOps] description.
+With, obviously, Flakes wherever possible!
+(See also Xe Iaso's [excellent writeup of their own adventures with NixOps][xe-nixops]).
 
-<<TODO: LINKIFY ABOVE>>
+[Nix]: https://en.wikipedia.org/wiki/Nix_(package_manager)
+[NixOS]: https://en.wikipedia.org/wiki/NixOS
+[home-manager]: https://github.com/nix-community/home-manager
+[flakes]: https://nixos.wiki/wiki/Flakes
+[flake-det]: https://www.tweag.io/blog/2020-05-25-flakes/
+[akavel]: http://akavel.com
+[nixos-hosting]: https://nixos.wiki/wiki/NixOS_friendly_hosters
+[NixOps]: https://nixos.org/nixops
+[xe-nixops]: https://xeiaso.net/blog/backslash-kubernetes-2021-01-03
+
 <<TODO[LATER]: howto for NixOS on RackNerd hosting - nix-infect, lowendbox.com>>
-<<TODO[LATER]: maybe more fluff>>
 
 ## Installing NixOps on local NixOs machine
 
