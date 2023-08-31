@@ -11,7 +11,7 @@ from a shared, PHP-only hosting service to a VPS,
 which would hopefully let me experiment with more cool apps.
 I thought it would be super cool if I could provision the new website Nix style:
 controlling a [NixOS-based VPS][nixos-hosting] remotely
-by the means of a local [NixOps] description.
+by the means of a local [NixOps] description[^nixops-alt].
 With, obviously, Flakes wherever possible!
 (See also Xe Iaso's [excellent writeup of their own adventures with NixOps][xe-nixops]).
 
@@ -30,6 +30,15 @@ With, obviously, Flakes wherever possible!
     smeared all over. Yes, with all the blood, gore, and a thousand papercuts.
     No, *not* the ["Equoid" kind of unicorns](https://www.tor.com/2013/09/24/equoid/).
     I think. Right?
+
+[^nixops-alt]:
+    Since originally doing & writing this,
+    I stumbled upon [a post on r/NixOS about various alternatives to NixOps](
+    https://old.reddit.com/r/NixOS/comments/vnajkg/lollypops_simple_parallel_stateless_nixos/ie7afdo/).
+    For now I plan to stick with NixOps, given its official capacity
+    plus a look through the lens of the [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect).
+    Also, at least [some](https://colmena.cli.rs/unstable/tutorial/migration.html) of them
+    seem to try and provide some backwards-compatibility with NixOps.
 
 [Nix]: https://en.wikipedia.org/wiki/Nix_(package_manager)
 [NixOS]: https://en.wikipedia.org/wiki/NixOS
