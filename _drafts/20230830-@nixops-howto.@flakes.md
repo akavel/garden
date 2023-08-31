@@ -62,7 +62,8 @@ Unfortunately, the recommended `nix-env -i nixops`
 incantation did not work for me.
 It failed with a [fairly cryptic message about python-2.7.18.6 being "insecure", or EOLed][py2insecure].
 What I eventually somehow found, is that a newer version of NixOps is being developed,
-IIUC dubbed "NixOps 2.0", and seemingly using python3, given that it installed successfully: 
+IIUC dubbed "NixOps 2.0", and it installed successfully on my machine
+— which presumably also means that it is maybe using Python 3.x already?
 
 [py2insecure]: https://github.com/NixOS/nixops/issues/1564
 
