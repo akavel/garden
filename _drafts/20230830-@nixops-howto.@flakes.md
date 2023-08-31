@@ -107,11 +107,19 @@ is that it [apparently adds support for Nix Flakes][nixops2-flakes]
 The not-so-nice thing is,
 that with lacking and chaotic (but improving! 💖) documentation being the norm in the Nix core toolset,
 the [NixOps documentation][nixops-doc] seems comparably *very* lacking ([state at time of writing][nixops-doc-today]),
-and the [NixOps 2.0 documentation][nixops2-flakes] is then more in some [vague hints territory][nixops2-nodoc]...
+and then the [NixOps 2.0 documentation][nixops2-flakes] is currently more in what I'd call [vague hints territory][nixops2-nodoc]...
+***UPDATE:*** I just stumbled upon [a very helpful comment][nixops17-note]
+(on a NixOps issue #1452, aptly named *"Documentation (...) is incomplete"*...).
+This comment contains [a link to NixOps 1.7 documentation](https://releases.nixos.org/nixops/nixops-1.7/manual/manual.html),
+which seems to provide **the last most complete docs of NixOps in the 1.x version line**.
+I recommend taking a look, and juggling that together with the provisional 2.0 docs,
+plus possibly Flakes docs, NixOS/Nixpkgs docs, and Nix expression language docs
+to achieve what you want with NixOps... 😅
 
 [nixops-doc]: https://nixos.org/nixops/manual
 [nixops-doc-today]: https://hydra.nixos.org/build/115931128/download/1/manual/manual.html
 [nixops2-nodoc]: https://github.com/NixOS/nixops/issues/1553
+[nixops17-note]: https://github.com/NixOS/nixops/issues/1452#issue-862860327
 
 Fortunately, with some previous experience with Flakes, as well as luck and determination,
 I was [able to piece together][nixops2-nodoc] a (not so) simple `flake.nix`
