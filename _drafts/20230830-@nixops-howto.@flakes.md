@@ -197,6 +197,8 @@ I then had to tweak them further,
 as the `//` merge operator of Nix shows up to be **non-recursive**
 (a.k.a. shallow merge, not deep merge).
 
+**<<FIXME: convert to use `pkgs.lib.recursiveUpdate`, [as recommended in nix.dev/recipes/best-practices](https://nix.dev/recipes/best-practices#updating-nested-attribute-sets).>>**
+
 <<TODO[LATER]: lib.recursivelyMerge/Update or something>>
 <<TODO[LATER]: linkify nixos-infect>>
 
