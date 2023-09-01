@@ -16,7 +16,6 @@
 
 use glob::glob;
 use log::{error, info, warn};
-use pulldown_cmark::{html, Options, Parser};
 use std::path::{Path, PathBuf};
 
 mod logging;
@@ -70,15 +69,18 @@ fn main() {
 
 fn md_to_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     let markdown = std::fs::read_to_string(source_path)?;
-    let parser = Parser::new(&markdown);
-    let mut html_buf = String::new();
-    html::push_html(&mut html_buf, parser);
+
+    let parser = &mut markdown_it::MarkdownIt::new();
+    markdown_it::plugins::cmark::add(parser);
+    markdown_it::plugins::extra::add(parser);
+    let ast = parser.parse(&markdown);
+    let html = ast.render();
     // FIXME: add header & footer html from template
     // FIXME: fix relative links - strip .md etc.
     // TODO: copy images, css
     let mut destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
     destination.set_extension("html");
     info!("Writing {destination:?}.");
-    std::fs::write(destination, html_buf)?;
+    std::fs::write(destination, html)?;
     Ok(())
 }

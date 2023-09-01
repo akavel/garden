@@ -15,9 +15,10 @@ anyhow = "1.0.75"
 env_logger = "0.10.0"
 glob = "0.3.1"
 log = "0.4.20"
-peg = "0.8.1"
-# Chosen due to mentioning source-map info availability (offsets in source text)
-# and mention in comrak readme; as a bonus, authored by raphlinus.
+# Chosen due to extensibility & mentioning source-map info availability
+# (offsets in source text).
 # Could also consider e.g.: comrak, cmark-gfm, markdown-rs, ...others.
-pulldown-cmark = "0.9.3"
+# Unfortunately, pulldown-cmark does not allow extensibility.
+markdown-it = "0.6.0"
+peg = "0.8.1"
 thiserror = "1.0.47"
