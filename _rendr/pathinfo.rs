@@ -20,20 +20,18 @@ impl PathInfo {
         if path.file_name().is_none() {
             return Err(Error::MissingFileName);
         }
-        use std::path::Component;
-        let utf8_dir_tags: Option<Vec<String>> = path
+        let unwrap_normal_component = |c| match c {
+            std::path::Component::Normal(s) => Some(s),
+            _ => None,
+        };
+        let mut dir_tags: Vec<String> = path
             .components()
             .rev()
             .skip(1)
-            .filter_map(|c| match c {
-                Component::Normal(s) => Some(s),
-                _ => None,
-            })
+            .filter_map(unwrap_normal_component)
             .map(|s| s.to_str().map(String::from))
-            .collect();
-        let Some(mut dir_tags) = utf8_dir_tags else {
-            return Err(Error::NotUTF8);
-        };
+            .collect::<Option<Vec<_>>>()
+            .ok_or(Error::NotUTF8)?;
         let Some(stem) = path.file_stem().unwrap_or_default().to_str() else {
             return Err(Error::NotUTF8);
         };
