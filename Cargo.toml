@@ -11,6 +11,7 @@ name = "scribbles-render"
 path = "_rendr/main.rs"
 
 [dependencies]
+anyhow = "1.0.75"
 env_logger = "0.10.0"
 glob = "0.3.1"
 log = "0.4.20"

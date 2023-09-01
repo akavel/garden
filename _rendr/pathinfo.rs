@@ -9,10 +9,10 @@ pub struct DateTime(String);
 
 #[derive(Debug, PartialEq)]
 pub struct PathInfo {
-    slug: String,
-    datetime: DateTime,
-    tags: Vec<String>,
-    extension: String,
+    pub slug: String,
+    pub datetime: DateTime,
+    pub tags: Vec<String>,
+    pub extension: String,
 }
 
 impl PathInfo {

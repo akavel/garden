@@ -15,7 +15,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use glob::glob;
-use log::{info, warn};
+use log::{error, info, warn};
+use pulldown_cmark::{html, Options, Parser};
+use std::path::{Path, PathBuf};
 
 mod logging;
 mod pathinfo;
@@ -52,6 +54,31 @@ fn main() {
     println!("{paths:?}");
 
     // TODO: render articles to _html/
+    // FIXME: purge targed dir before writing
+    if let Err(err) = std::fs::create_dir_all(OUT_DIR) {
+        error!("Could not create directory {OUT_DIR}: {err}");
+    }
+    for (path, info) in paths {
+        if let Err(err) = md_to_html(&path, &info) {
+            error!("Could not write {path:?}: {err}");
+        }
+    }
+
     // TODO: render list to _html/
     // TODO[LATER]: handle images
+}
+
+fn md_to_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
+    let markdown = std::fs::read_to_string(source_path)?;
+    let parser = Parser::new(&markdown);
+    let mut html_buf = String::new();
+    html::push_html(&mut html_buf, parser);
+    // FIXME: add header & footer html from template
+    // FIXME: fix relative links - strip .md etc.
+    // TODO: copy images, css
+    let mut destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
+    destination.set_extension("html");
+    info!("Writing {destination:?}.");
+    std::fs::write(destination, html_buf)?;
+    Ok(())
 }
