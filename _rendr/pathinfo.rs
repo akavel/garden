@@ -20,28 +20,35 @@ impl PathInfo {
         if path.file_name().is_none() {
             return Err(Error::MissingFileName);
         }
+        let extension = path
+            .extension()
+            .unwrap_or_default()
+            .to_str()
+            .ok_or(Error::NotUTF8)?
+            .to_string();
+
         let unwrap_normal_component = |c| match c {
             std::path::Component::Normal(s) => Some(s),
             _ => None,
         };
-        let mut dir_tags: Vec<String> = path
+        let mut directory_names: Vec<String> = path
             .components()
             .rev()
-            .skip(1)
+            .skip(1) // skip filename
             .filter_map(unwrap_normal_component)
-            .map(|s| s.to_str().map(String::from))
-            .collect::<Option<Vec<_>>>()
+            .map(|s| s.to_str().map(String::from)) // OsStr -> Option<String>
+            .collect::<Option<_>>() // Vec<Option<_>> -> Option<Vec<_>>
             .ok_or(Error::NotUTF8)?;
-        let Some(stem) = path.file_stem().unwrap_or_default().to_str() else {
-            return Err(Error::NotUTF8);
-        };
+
+        let stem = path
+            .file_stem()
+            .unwrap_or_default()
+            .to_str()
+            .ok_or(Error::NotUTF8)?;
         let mut info = file_stem::parse_info(stem)?;
-        info.tags.append(&mut dir_tags);
+        info.tags.append(&mut directory_names);
         info.tags.sort();
-        let Some(extension) = path.extension().unwrap_or_default().to_str() else {
-            return Err(Error::NotUTF8);
-        };
-        let extension = extension.to_string();
+
         Ok(PathInfo { extension, ..info })
     }
 }
