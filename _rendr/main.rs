@@ -34,20 +34,23 @@ fn main() {
     let paths: Vec<_> = [BASE_SOURCES, DRAFT_SOURCES]
         .iter()
         .flat_map(|s| glob(s).unwrap())
-        .map(|result| result.map(|p| PathInfo::parse(&p)))
-        .flat_map(|maybe_path| {
-            // TODO: use inspect_err when stabilized
-            maybe_path.map_err(|e| {
+        .filter_map(|result| match result {
+            Err(e) => {
                 warn!("{e}");
-            })
+                None
+            }
+            Ok(path) => Some(path),
+        })
+        .filter_map(|path| match PathInfo::parse(&path) {
+            Ok(info) => Some((path, info)),
+            Err(err) => {
+                warn!("Could not parse {path:?}: {err}");
+                None
+            }
         })
         .collect();
     println!("{paths:?}");
 
-    // TODO: parse filename (slug, tags, date, file extension)
-    // "_drafts/NNNN-NN-NN-foo-bar.md"
-    // "NNNNNNNNNN.@foo-bar.@baz.md"
-    // -< PEG or parser-combinator, ideally with DSL/macro/annotation
     // TODO: render articles to _html/
     // TODO: render list to _html/
     // TODO[LATER]: handle images
