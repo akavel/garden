@@ -2,13 +2,12 @@
 
 /// Date and time digits, presumed in big-endian order.
 /// Precision unspecified (may be YYYYMMDD, or just YYYYMM, or YYYYMMDDHHMM, etc.).
-
 use std::path::Path;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct DateTime(String);
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct PathInfo {
     slug: String,
     datetime: DateTime,
@@ -60,4 +59,25 @@ pub enum Error {
     MissingFileName,
     #[error("path does not conform to UTF-8")]
     NotUTF8,
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+    use std::path::PathBuf;
+
+    #[test]
+    fn parse_draft_path_with_date() {
+        let path = PathBuf::from("_drafts/2023090101-@foo-bar.@baz.md");
+        let info = PathInfo::parse(&path).unwrap();
+        assert_eq!(
+            info,
+            PathInfo {
+                slug: "foo-bar".into(),
+                datetime: DateTime("2023090101".to_string()),
+                tags: ["@baz".into(), "@foo".into(), "_drafts".into()].into(),
+                extension: "md".to_string(),
+            }
+        );
+    }
 }
