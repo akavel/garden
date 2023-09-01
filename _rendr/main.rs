@@ -1,5 +1,10 @@
+use log::info;
+
+mod logging;
+
 fn main() {
-    println!("hello rendr!");
+    logging::init_info();
+    info!("👋😃");
 
     // TODO: load sources: *.md & _drafts/*.md
     // TODO: parse filename (slug, tags, date, file extension)
