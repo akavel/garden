@@ -127,4 +127,19 @@ mod test {
             }
         );
     }
+
+    #[test]
+    fn parse_nondraft_path_no_date() {
+        let path = PathBuf::from("foo-@bar.@baz.md");
+        let info = PathInfo::parse(&path).unwrap();
+        assert_eq!(
+            info,
+            PathInfo {
+                slug: "foo-bar".into(),
+                datetime: DateTime(String::default()),
+                tags: ["bar", "baz"].map(String::from).to_vec(),
+                extension: "md".to_string(),
+            }
+        );
+    }
 }
