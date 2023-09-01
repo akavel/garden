@@ -44,10 +44,7 @@ impl PathInfo {
             return Err(Error::NotUTF8);
         };
         let extension = extension.to_string();
-        Ok(PathInfo {
-            extension,
-            ..info
-        })
+        Ok(PathInfo { extension, ..info })
     }
 }
 
@@ -63,7 +60,7 @@ pub enum Error {
 
 // TODO: this is very ad-hoc, and not necessarily covers everything in a sensible way. Let's start
 // with whatever and tweak if needed, see how it evolves with time.
-peg::parser!{ grammar file_stem() for str {
+peg::parser! { grammar file_stem() for str {
     pub rule parse_info() -> PathInfo
         = when:datetime_prefix()? slug:slug_with_tags() extra:extra_tags()? {
             let (slug, mut tags) = slug;
@@ -71,7 +68,8 @@ peg::parser!{ grammar file_stem() for str {
                 tags.append(&mut extra);
             }
             PathInfo {
-                slug, tags,
+                slug,
+                tags,
                 datetime: when.unwrap_or(DateTime(String::default())),
                 extension: String::default(),
             }
@@ -91,10 +89,10 @@ peg::parser!{ grammar file_stem() for str {
                 .collect();
             (slug_words.join("-"), tags)
         }
-    rule extra_tags() -> Vec<String>
-        = "." tags:(tag() ** ".") { tags }
     rule maybe_tag() -> (bool, String)
         = is_tag:"@"? w:word() { (is_tag.is_some(), w.to_string()) }
+    rule extra_tags() -> Vec<String>
+        = "." tags:(tag() ** ".") { tags }
     rule tag() -> String
         = "@" w:word() { w }
     rule word() -> String
@@ -115,7 +113,7 @@ mod test {
             PathInfo {
                 slug: "foo-bar".into(),
                 datetime: DateTime("2023090101".to_string()),
-                tags: ["@baz".into(), "@foo".into(), "_drafts".into()].into(),
+                tags: ["_drafts", "baz", "foo"].map(String::from).to_vec(),
                 extension: "md".to_string(),
             }
         );
