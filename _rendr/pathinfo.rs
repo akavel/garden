@@ -59,41 +59,52 @@ pub enum Error {
     MissingFileName,
     #[error("path does not conform to UTF-8")]
     NotUTF8,
-    #[error("bad file stem format")]
-    BadStemFormat(#[from] peg::ParseError),
+    // #[error("bad file stem format")]
+    // BadStemFormat(#[from] peg::error::ParseError),
 }
 
 // TODO: this is very ad-hoc, and not necessarily covers everything in a sensible way. Let's start
 // with whatever and tweak if needed, see how it evolves with time.
-peg::parser!( grammar file_stem() for str {
+peg::parser!{ grammar file_stem() for str {
     pub rule file_stem() -> PathInfo
-        = (when:datetime() ['.' | '-'])? slug:slug_with_tags() extra:('.' extra_tags())? {
-            let (slug, tags) = slug;
-            tags.append(extra);
+        = when:datetime_prefix()? slug:slug_with_tags() extra:extra_tags()? {
+            let (slug, mut tags) = slug;
+            if let Some(mut extra) = extra {
+                tags.append(&mut extra);
+            }
             PathInfo {
                 slug, tags,
-                datetime: when.unwrap_or(Datetime(String::default())),
+                datetime: when.unwrap_or(DateTime(String::default())),
                 extension: String::default(),
             }
         }
     // pub rule parse() -> PathInfo =
-    rule datetime() -> DateTime
-        = digits:$(['0'..='9']+) { DateTime(digits.into()) }
+    rule datetime_prefix() -> DateTime
+        = digits:$(['0'..='9']+) ['.' | '-'] { DateTime(digits.into()) }
     rule slug_with_tags() -> (String, Vec<String>)
-        = words:(maybe_tag() ** '-') {
-            let slug = words.iter().map(|t| t.1).collect().join("-");
-            let tags = words.iter().filter_map(|t| t.0.then_some(t.1)).collect();
-            (slug, tags)
+        = words:(maybe_tag() ** "-") {
+            let mut tags = Vec::new();
+            let slug_words: Vec<_> = words.into_iter()
+                .map(|t| {
+                    if t.0 {
+                        tags.push(t.1.clone())
+                    }
+                    t.1
+                })
+                .collect();
+            // let tags = words.iter().filter_map(|t| t.0.then_some(t.1)).collect();
+            // let slug_words: Vec<_> = words.iter().map(|t| t.1).collect();
+            (slug_words.join("-"), tags)
         }
     rule extra_tags() -> Vec<String>
-        = tags:(tag() ** '.') { tags }
+        = "." tags:(tag() ** ".") { tags }
     rule maybe_tag() -> (bool, String)
-        = is_tag:'@'? w:word() = { (is_tag.is_some(), w.to_string()) }
+        = is_tag:"@"? w:word() { (is_tag.is_some(), w.to_string()) }
     rule tag() -> String
-        = '@' w:word() { w }
+        = "@" w:word() { w }
     rule word() -> String
         = slice:$(['a'..='z']) { slice.to_string() }
-})
+}}
 
 #[cfg(test)]
 mod test {
