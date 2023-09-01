@@ -106,7 +106,7 @@ peg::parser!{ grammar file_stem() for str {
     rule tag() -> String
         = "@" w:word() { w }
     rule word() -> String
-        = slice:$(['a'..='z']) { slice.to_string() }
+        = slice:$(['a'..='z']+) { slice.to_string() }
 }}
 
 #[cfg(test)]
