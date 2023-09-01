@@ -77,6 +77,7 @@ fn md_to_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     let ast = parser.parse(&markdown);
     let html = ast.render();
     // FIXME: add header & footer html from template
+    // FIXME: extract H1 title from AST, put in <html><head><title>...</title>
     // FIXME: fix relative links - strip .md etc.
     // TODO: copy images, css
     let mut destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
