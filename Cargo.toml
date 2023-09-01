@@ -20,5 +20,6 @@ log = "0.4.20"
 # Could also consider e.g.: comrak, cmark-gfm, markdown-rs, ...others.
 # Unfortunately, pulldown-cmark does not allow extensibility.
 markdown-it = "0.6.0"
+markdown-it-footnote = "0.2.0"
 peg = "0.8.1"
 thiserror = "1.0.47"
