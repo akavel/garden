@@ -12,6 +12,7 @@ path = "_rendr/main.rs"
 
 [dependencies]
 env_logger = "0.10.0"
+glob = "0.3.1"
 log = "0.4.20"
 # Chosen due to mentioning source-map info availability (offsets in source text)
 # and mention in comrak readme; as a bonus, authored by raphlinus.
