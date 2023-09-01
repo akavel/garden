@@ -61,6 +61,7 @@ pub enum Error {
 // TODO: this is very ad-hoc, and not necessarily covers everything in a sensible way. Let's start
 // with whatever and tweak if needed, see how it evolves with time.
 peg::parser! { grammar file_stem() for str {
+    /// Parse PathInfo from a filename stem.
     pub rule parse_info() -> PathInfo
         = when:datetime_prefix()? slug:slug_with_tags() extra:extra_tags()? {
             let (slug, mut tags) = slug;
@@ -74,29 +75,32 @@ peg::parser! { grammar file_stem() for str {
                 extension: String::default(),
             }
         }
+
+    // Helper sub-parsers.
     rule datetime_prefix() -> DateTime
-        = digits:$(['0'..='9']+) ['.' | '-'] { DateTime(digits.into()) }
+        = digits:$( ['0'..='9']+ ) ['.'|'-'] { DateTime(digits.into()) }
+    rule extra_tags() -> Vec<String>
+        = "." tags:( tag() ** "." ) { tags }
     rule slug_with_tags() -> (String, Vec<String>)
-        = words:(maybe_tag() ** "-") {
+        = words:( maybe_tag() ** "-" ) {
+            let mut slug_words = Vec::new();
             let mut tags = Vec::new();
-            let slug_words: Vec<_> = words.into_iter()
-                .map(|t| {
-                    if t.0 {
-                        tags.push(t.1.clone())
-                    }
-                    t.1
-                })
-                .collect();
+            for (is_tag, word) in words {
+                if is_tag {
+                    tags.push(word.clone())
+                }
+                slug_words.push(word);
+            }
             (slug_words.join("-"), tags)
         }
+
+    // Lowest-level "words" parsers.
     rule maybe_tag() -> (bool, String)
-        = is_tag:"@"? w:word() { (is_tag.is_some(), w.to_string()) }
-    rule extra_tags() -> Vec<String>
-        = "." tags:(tag() ** ".") { tags }
+        = marker:"@"? w:word() { (marker.is_some(), w) }
     rule tag() -> String
         = "@" w:word() { w }
     rule word() -> String
-        = slice:$(['a'..='z']+) { slice.to_string() }
+        = slice:$( ['a'..='z']+ ) { slice.to_string() }
 }}
 
 #[cfg(test)]
