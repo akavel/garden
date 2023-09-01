@@ -31,24 +31,20 @@ impl PathInfo {
             })
             .map(|s| s.to_str().map(String::from))
             .collect();
-        let Some(dir_tags) = utf8_dir_tags else {
+        let Some(mut dir_tags) = utf8_dir_tags else {
             return Err(Error::NotUTF8);
         };
         let Some(stem) = path.file_stem().unwrap_or_default().to_str() else {
             return Err(Error::NotUTF8);
         };
-        let info = file_stem::parse_info(stem)?;
-        // let slug = stem.to_string(); // FIXME
-        // let datetime = DateTime(String::default()); // FIXME
-        // let tags = dir_tags; // FIXME
+        let mut info = file_stem::parse_info(stem)?;
+        info.tags.append(&mut dir_tags);
+        info.tags.sort();
         let Some(extension) = path.extension().unwrap_or_default().to_str() else {
             return Err(Error::NotUTF8);
         };
         let extension = extension.to_string();
         Ok(PathInfo {
-            // slug,
-            // datetime,
-            // tags,
             extension,
             ..info
         })
@@ -62,7 +58,6 @@ pub enum Error {
     #[error("path does not conform to UTF-8")]
     NotUTF8,
     #[error("bad file stem format")]
-    // BadStemFormat(#[from] file_stem::ParseError),
     BadStemFormat(#[from] peg::error::ParseError<peg::str::LineCol>),
 }
 
@@ -81,7 +76,6 @@ peg::parser!{ grammar file_stem() for str {
                 extension: String::default(),
             }
         }
-    // pub rule parse() -> PathInfo =
     rule datetime_prefix() -> DateTime
         = digits:$(['0'..='9']+) ['.' | '-'] { DateTime(digits.into()) }
     rule slug_with_tags() -> (String, Vec<String>)
@@ -95,8 +89,6 @@ peg::parser!{ grammar file_stem() for str {
                     t.1
                 })
                 .collect();
-            // let tags = words.iter().filter_map(|t| t.0.then_some(t.1)).collect();
-            // let slug_words: Vec<_> = words.iter().map(|t| t.1).collect();
             (slug_words.join("-"), tags)
         }
     rule extra_tags() -> Vec<String>
