@@ -76,8 +76,40 @@ fn md_to_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     markdown_it_footnote::add(parser);
     let ast = parser.parse(&markdown);
     let html = ast.render();
+
+    // Parts stolen from: http://ghostlevel.net/days/blip.css
+    const STYLES: &str = r#"
+<style type="text/css">
+
+body {
+  font: 1.125rem / 1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+h2 {
+  margin-top: 2.5em; }
+h3 {
+  margin-top: 2.5em; }
+
+@media screen and (min-width: 714px) {
+    body {
+        width: 700px;
+        margin: 0 auto;
+    }
+}
+
+</style>
+</head><body>
+
+<main>
+"#;
+
     // FIXME: add header & footer html from template
     // FIXME: extract H1 title from AST, put in <html><head><title>...</title>
+    // FIXME: add <article> & <main> (via template) -> maybe replace <main> with rendered markdown
     // FIXME: fix relative links - strip .md etc.
     // TODO: copy images, css
     let mut destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
