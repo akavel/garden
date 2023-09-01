@@ -37,18 +37,20 @@ impl PathInfo {
         let Some(stem) = path.file_stem().unwrap_or_default().to_str() else {
             return Err(Error::NotUTF8);
         };
-        let slug = stem.to_string(); // FIXME
-        let datetime = DateTime(String::default()); // FIXME
-        let tags = dir_tags; // FIXME
+        let info = file_stem::parse_info(stem)?;
+        // let slug = stem.to_string(); // FIXME
+        // let datetime = DateTime(String::default()); // FIXME
+        // let tags = dir_tags; // FIXME
         let Some(extension) = path.extension().unwrap_or_default().to_str() else {
             return Err(Error::NotUTF8);
         };
         let extension = extension.to_string();
         Ok(PathInfo {
-            slug,
-            datetime,
-            tags,
+            // slug,
+            // datetime,
+            // tags,
             extension,
+            ..info
         })
     }
 }
@@ -59,14 +61,15 @@ pub enum Error {
     MissingFileName,
     #[error("path does not conform to UTF-8")]
     NotUTF8,
-    // #[error("bad file stem format")]
-    // BadStemFormat(#[from] peg::error::ParseError),
+    #[error("bad file stem format")]
+    // BadStemFormat(#[from] file_stem::ParseError),
+    BadStemFormat(#[from] peg::error::ParseError<peg::str::LineCol>),
 }
 
 // TODO: this is very ad-hoc, and not necessarily covers everything in a sensible way. Let's start
 // with whatever and tweak if needed, see how it evolves with time.
 peg::parser!{ grammar file_stem() for str {
-    pub rule file_stem() -> PathInfo
+    pub rule parse_info() -> PathInfo
         = when:datetime_prefix()? slug:slug_with_tags() extra:extra_tags()? {
             let (slug, mut tags) = slug;
             if let Some(mut extra) = extra {
