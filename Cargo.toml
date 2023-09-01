@@ -14,6 +14,7 @@ path = "_rendr/main.rs"
 env_logger = "0.10.0"
 glob = "0.3.1"
 log = "0.4.20"
+peg = "0.8.1"
 # Chosen due to mentioning source-map info availability (offsets in source text)
 # and mention in comrak readme; as a bonus, authored by raphlinus.
 # Could also consider e.g.: comrak, cmark-gfm, markdown-rs, ...others.
