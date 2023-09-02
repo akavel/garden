@@ -126,7 +126,7 @@ mod test {
             parse_path("_drafts/2023090101-@foo-bar.@baz.md"),
             PathInfo {
                 slug: "foo-bar".into(),
-                datetime: DateTime("2023090101".to_string()),
+                datetime: "2023090101".to_string(),
                 tags: ["_drafts", "baz", "foo"].map(String::from).to_vec(),
                 extension: "md".to_string(),
             }
@@ -139,7 +139,7 @@ mod test {
             parse_path("foo-@bar.@baz.md"),
             PathInfo {
                 slug: "foo-bar".into(),
-                datetime: DateTime(String::default()),
+                datetime: String::default(),
                 tags: ["bar", "baz"].map(String::from).to_vec(),
                 extension: "md".to_string(),
             }
@@ -152,7 +152,7 @@ mod test {
             parse_path("20211022-001-@go-loose.md"),
             PathInfo {
                 slug: "go-loose".into(),
-                datetime: DateTime("20211022001".into()),
+                datetime: "20211022001".into(),
                 tags: ["go"].map(String::from).to_vec(),
                 extension: "md".into(),
             },
