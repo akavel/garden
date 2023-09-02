@@ -83,7 +83,7 @@ peg::parser! { grammar file_stem() for str {
 
     // Helper sub-parsers.
     rule datetime_prefix() -> DateTime
-        = digits:$( ['0'..='9']+ ) ['.'|'-'] { DateTime(digits.into()) }
+        = digits:digits()+ { DateTime(digits.join("")) }
     rule extra_tags() -> Vec<String>
         = "." tags:( tag() ** "." ) { tags }
     rule slug_with_tags() -> (String, Vec<String>)
@@ -106,6 +106,8 @@ peg::parser! { grammar file_stem() for str {
         = "@" w:word() { w }
     rule word() -> String
         = slice:$( ['a'..='z']+ ) { slice.to_string() }
+    rule digits() -> String
+        = slice:$( ['0'..='9']+ ) ['.'|'-'] { slice.to_string() }
 }}
 
 #[cfg(test)]
@@ -113,12 +115,15 @@ mod test {
     use super::*;
     use std::path::PathBuf;
 
+    fn parse_path(path: &str) -> PathInfo {
+        let path = PathBuf::from(path);
+        PathInfo::parse(&path).unwrap()
+    }
+
     #[test]
     fn parse_draft_path_with_date() {
-        let path = PathBuf::from("_drafts/2023090101-@foo-bar.@baz.md");
-        let info = PathInfo::parse(&path).unwrap();
         assert_eq!(
-            info,
+            parse_path("_drafts/2023090101-@foo-bar.@baz.md"),
             PathInfo {
                 slug: "foo-bar".into(),
                 datetime: DateTime("2023090101".to_string()),
@@ -130,16 +135,27 @@ mod test {
 
     #[test]
     fn parse_nondraft_path_no_date() {
-        let path = PathBuf::from("foo-@bar.@baz.md");
-        let info = PathInfo::parse(&path).unwrap();
         assert_eq!(
-            info,
+            parse_path("foo-@bar.@baz.md"),
             PathInfo {
                 slug: "foo-bar".into(),
                 datetime: DateTime(String::default()),
                 tags: ["bar", "baz"].map(String::from).to_vec(),
                 extension: "md".to_string(),
             }
+        );
+    }
+
+    #[test]
+    fn parse_datetime_with_dashes() {
+        assert_eq!(
+            parse_path("20211022-001-@go-loose.md"),
+            PathInfo {
+                slug: "go-loose".into(),
+                datetime: DateTime("20211022001".into()),
+                tags: ["go"].map(String::from).to_vec(),
+                extension: "md".into(),
+            },
         );
     }
 }
