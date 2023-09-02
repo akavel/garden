@@ -28,7 +28,7 @@ use pathinfo::PathInfo;
 const BASE_SOURCES: &str = "*.md";
 const DRAFT_SOURCES: &str = "_drafts/*.md";
 const HTML_TEMPLATE: &str = "_bloat/bloat.html";
-const OUT_DIR: &str = "_html";
+const OUT_DIR: &str = "_html.out";
 
 fn main() {
     logging::init_info();
@@ -106,8 +106,7 @@ fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     // FIXME: extract H1 title from AST, put in <html><head><title>...</title>
     // FIXME: fix relative links - strip .md etc.
     // TODO: copy images, css
-    let mut destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
-    destination.set_extension("html");
+    let destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
     info!("Writing {destination:?}.");
     let html = html_template;
     std::fs::write(destination, html.html())?;
