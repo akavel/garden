@@ -71,6 +71,10 @@ fn main() {
         .create_function(|_, (text,): (String,)| Ok(Htmler::from(md_to_html(&text))))
         .unwrap();
     html_mod.set("from_md", from_md).unwrap();
+    let new = lua
+        .create_function(|_, ()| Ok(Htmler::from(Html::new_document())))
+        .unwrap();
+    html_mod.set("new", new).unwrap();
     lua.globals().set("html", html_mod).unwrap();
 
     // TODO: render list to _html/
@@ -106,9 +110,7 @@ impl From<scraper::Html> for Htmler {
 
 impl mlua::UserData for Htmler {
     fn add_methods<'lua, M: mlua::UserDataMethods<'lua, Self>>(methods: &mut M) {
-        methods.add_method("to_string", |_, htmler, ()| {
-            Ok(htmler.html.html())
-        });
+        methods.add_method("to_string", |_, htmler, ()| Ok(htmler.html.html()));
 
         methods.add_method("clone", |_, htmler, ()| {
             Ok(Htmler::from(htmler.html.clone()))

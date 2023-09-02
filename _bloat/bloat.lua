@@ -16,11 +16,13 @@ end
 local function main()
   local template = html.parse(readfile '_bloat/bloat.html')
 
+  -- Render articles.
   for _, article in ipairs(articles) do
 
     -- Parse markdown article from disk into HTML.
     print("RENDERING " .. article.slug)
     local text = html.from_md(readfile(article.src))
+    article.html = text
 
     -- Put the main text of the article in #content node in the template.
     local template = template:clone()
@@ -43,6 +45,25 @@ local function main()
     -- Write filled template to disk.
     writefile('_html.out/'..article.slug, template:to_string())
   end
+
+  -- Render index.
+  -- Sort articles, newest first.
+  table.sort(articles, function(a, b) return a.datetime > b.datetime end)
+  local index = html.parse(readfile '_bloat/index.html')
+  local list = index:find '#articles'
+  local template = html.new()
+  template:add_children(template:root(), index, list)
+  template:delete_children(template:find 'h2 a')
+  index:delete_children(list)
+  for _, art in ipairs(articles) do
+    local template = template:clone()
+
+    local art_h1 = art.html:find 'h1'
+    template:add_children(template:find 'h2 a', art.html, art_h1)
+
+    index:add_children(list, template, template:root())
+  end
+  writefile('_html.out/index.html', index:to_string())
 end
 
 main()
