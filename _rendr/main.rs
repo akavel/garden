@@ -53,7 +53,6 @@ fn main() {
             }
         })
         .collect();
-    println!("{paths:?}");
 
     // FIXME: purge target dir before writing
     if let Err(err) = std::fs::create_dir_all(OUT_DIR) {
