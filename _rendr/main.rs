@@ -73,15 +73,14 @@ fn main() {
 
     // Expose limited HTML parser & DOM functionality to Lua
     let html_mod = lua.create_table().unwrap();
-    let parse_fun = lua
-        .create_function(|_lua, (text,): (String,)| {
-            let htmler = Htmler {
-                html: Html::parse_document(&text),
-            };
-            Ok(htmler)
-        })
+    let parse = lua
+        .create_function(|_, (text,): (String,)| Ok(Htmler::from(Html::parse_document(&text))))
         .unwrap();
-    html_mod.set("parse", parse_fun).unwrap();
+    html_mod.set("parse", parse).unwrap();
+    let from_md = lua
+        .create_function(|_, (text,): (String,)| Ok(Htmler::from(md_to_html(&text))))
+        .unwrap();
+    html_mod.set("from_md", from_md).unwrap();
     lua.globals().set("html", html_mod).unwrap();
 
     // TODO: render list to _html/
@@ -106,6 +105,12 @@ fn main() {
 #[derive(Clone)]
 struct Htmler {
     html: scraper::Html,
+}
+
+impl From<scraper::Html> for Htmler {
+    fn from(html: scraper::Html) -> Self {
+        Self { html }
+    }
 }
 
 impl mlua::UserData for Htmler {

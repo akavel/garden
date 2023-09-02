@@ -15,7 +15,8 @@ local node = parsed:find("#content")
 -- print(node)
 parsed:delete_children(node)
 
-local other = html.parse("<b>HELLO OTHER</b>")
+-- local other = html.parse("<b>HELLO OTHER</b>")
+local other = html.from_md 'HELLO **WORLD**'
 local other_node = other:root();
 parsed:add_children(node, other, other_node)
 
