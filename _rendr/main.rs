@@ -82,10 +82,7 @@ fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     // Build the result. Idea of working on HTML blatantly stolen from Soupault.app <3
     // TODO[LATER]: move this either to Lua, or .ini, or something akin
     // FIXME: remove unwrap
-    let selector = Selector::parse("#content").unwrap();
-    let mut selection = html_template.select(&selector);
-    let node_id = selection.next().map(|n| n.id());
-    if let Some(id) = node_id {
+    if let Some(id) = node_id_by_selector(&html_template, "#content") {
         replace_children(
             &mut html_template,
             id,
@@ -97,17 +94,11 @@ fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     // TODO[LATER]: strip any html tags etc. - they're not allowed IIUC
     // TODO[LATER]: add suffix in <title>
     let mut clipboard = Html::new_fragment();
-    let selector = Selector::parse("h1").unwrap();
-    let mut selection = html_fragment.select(&selector);
-    let node_id = selection.next().map(|n| n.id());
-    if let Some(id) = node_id {
+    if let Some(id) = node_id_by_selector(&html_fragment, "h1") {
         let clipboard_root = clipboard.tree.root().id();
         replace_children(&mut clipboard, clipboard_root, &html_fragment, id);
     }
-    let selector = Selector::parse("html head title").unwrap();
-    let mut selection = html_template.select(&selector);
-    let node_id = selection.next().map(|n| n.id());
-    if let Some(id) = node_id {
+    if let Some(id) = node_id_by_selector(&html_template, "html head title") {
         let clipboard_root = clipboard.tree.root().id();
         replace_children(&mut html_template, id, &clipboard, clipboard_root);
     }
@@ -170,4 +161,9 @@ fn replace_children(dst: &mut Html, dst_id: NodeId, src: &Html, src_id: NodeId) 
             queue.push_back((new_id, child.id()));
         }
     }
+}
+
+fn node_id_by_selector(html: &Html, selector: &str) -> Option<NodeId> {
+    let selector = Selector::parse(selector).ok()?;
+    html.select(&selector).next().map(|n| n.id())
 }
