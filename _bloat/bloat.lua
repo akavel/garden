@@ -13,6 +13,14 @@ local function writefile(name, content)
   fh:close()
 end
 
+local function table_transpose(t)
+  local r = {}
+  for k, v in pairs(t) do
+    r[v] = k
+  end
+  return r
+end
+
 local function main()
   local template = html.parse(readfile '_bloat/bloat.html')
 
@@ -55,16 +63,31 @@ local function main()
   template:add_children(template:root(), index, list)
   template:delete_children(template:find 'h2 a')
   template:delete_children(template:find 'time')
+  template:delete_children(template:find 'ul li a')
   index:delete_children(list)
   for _, art in ipairs(articles) do
-    local template = template:clone()
+    local tags = table_transpose(art.tags)
+    if not tags._drafts then
+      local template = template:clone()
 
-    local art_h1 = art.html:find 'h1'
-    template:add_children(template:find 'h2 a', art.html, art_h1)
-    local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
-    template:add_text(template:find 'time', datetime)
+      local art_h1 = art.html:find 'h1'
+      template:add_children(template:find 'h2 a', art.html, art_h1)
 
-    index:add_children(list, template, template:root())
+      local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
+      template:add_text(template:find 'time', datetime)
+
+      local tag_tmpl = html.new()
+      tag_tmpl:add_children(tag_tmpl:root(), template, template:find 'ul')
+      template:delete_children(template:find 'ul')
+      for _, tag in ipairs(art.tags) do
+        -- print(tag_tmpl:to_string())
+        tag_tmpl:delete_children(tag_tmpl:find 'li a')
+        tag_tmpl:add_text(tag_tmpl:find 'li a', '@'..tag)
+        template:add_children(template:find 'ul', tag_tmpl, tag_tmpl:root())
+      end
+
+      index:add_children(list, template, template:root())
+    end
   end
   writefile('_html.out/index.html', index:to_string())
 end
