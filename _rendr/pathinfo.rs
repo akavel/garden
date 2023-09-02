@@ -1,11 +1,11 @@
 //! Article metadata extracted from a specially formatted Path.
 
-/// Date and time digits, presumed in big-endian order.
-/// Precision unspecified (may be YYYYMMDD, or just YYYYMM, or YYYYMMDDHHMM, etc.).
 use std::path::Path;
 
-#[derive(Debug, PartialEq)]
-pub struct DateTime(String);
+/// Date and time digits, presumed in big-endian order.
+/// Precision unspecified (may be YYYYMMDD, or just YYYYMM, or YYYYMMDDHHMM, etc.).
+// #[derive(Debug, PartialEq)]
+pub type DateTime = String;
 
 #[derive(Debug, PartialEq)]
 pub struct PathInfo {
@@ -76,14 +76,14 @@ peg::parser! { grammar file_stem() for str {
             PathInfo {
                 slug,
                 tags,
-                datetime: when.unwrap_or(DateTime(String::default())),
+                datetime: when.unwrap_or(String::default()),
                 extension: String::default(),
             }
         }
 
     // Helper sub-parsers.
     rule datetime_prefix() -> DateTime
-        = digits:digits()+ { DateTime(digits.join("")) }
+        = digits:digits()+ { digits.join("") }
     rule extra_tags() -> Vec<String>
         = "." tags:( tag() ** "." ) { tags }
     rule slug_with_tags() -> (String, Vec<String>)

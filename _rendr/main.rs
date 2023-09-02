@@ -17,6 +17,7 @@
 use ego_tree::NodeId;
 use glob::glob;
 use log::{error, info, warn};
+use mlua::prelude::*;
 use scraper::{Html, Selector};
 use std::path::{Path, PathBuf};
 
@@ -28,6 +29,7 @@ use pathinfo::PathInfo;
 const BASE_SOURCES: &str = "*.md";
 const DRAFT_SOURCES: &str = "_drafts/*.md";
 const HTML_TEMPLATE: &str = "_bloat/bloat.html";
+const SCRIPT_PATH: &str = "_bloat/bloat.lua";
 const OUT_DIR: &str = "_html.out";
 
 fn main() {
@@ -59,13 +61,30 @@ fn main() {
     if let Err(err) = std::fs::create_dir_all(OUT_DIR) {
         error!("Could not create directory {OUT_DIR}: {err}");
     }
+    /*
     for (path, info) in paths {
         if let Err(err) = make_html(&path, &info) {
             error!("Could not write {path:?}: {err}");
         }
     }
+    */
 
     // TODO: render list to _html/
+    let lua = Lua::new();
+    let articles = lua.create_table().unwrap();
+    for (path, info) in paths {
+        let tags = lua.create_sequence_from(info.tags).unwrap();
+        let article = lua.create_table().unwrap();
+        article.set("slug", info.slug).unwrap();
+        article.set("datetime", info.datetime).unwrap();
+        article.set("extension", info.extension).unwrap();
+        article.set("tags", tags).unwrap();
+        articles.push(article).unwrap();
+    }
+    lua.globals().set("articles", articles).unwrap();
+    let script = std::fs::read_to_string(SCRIPT_PATH).unwrap();
+    lua.load(script).exec().unwrap();
+
     // TODO[LATER]: handle images
 }
 
