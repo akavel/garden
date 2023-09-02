@@ -74,7 +74,7 @@ fn main() {
     // Expose limited HTML parser & DOM functionality to Lua
     let html_mod = lua.create_table().unwrap();
     let parse_fun = lua
-        .create_function(|lua, (text,): (String,)| {
+        .create_function(|_lua, (text,): (String,)| {
             let htmler = Htmler {
                 html: Html::parse_document(&text),
             };
@@ -86,7 +86,7 @@ fn main() {
 
     // TODO: render list to _html/
     let articles = lua.create_table().unwrap();
-    for (path, info) in paths {
+    for (_path, info) in paths {
         let tags = lua.create_sequence_from(info.tags).unwrap();
         let article = lua.create_table().unwrap();
         article.set("slug", info.slug).unwrap();
@@ -117,7 +117,7 @@ impl mlua::UserData for Htmler {
 
         methods.add_method("find", |_, htmler, (selector,): (String,)| {
             let maybe_id = node_id_by_selector(&htmler.html, &selector);
-            Ok(maybe_id.map(|id| NodeIdWrap(id)))
+            Ok(maybe_id.map(NodeIdWrap))
         });
 
         methods.add_method_mut("delete_children", |_, htmler, (id,): (NodeIdWrap,)| {
