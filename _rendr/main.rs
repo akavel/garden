@@ -114,6 +114,30 @@ impl mlua::UserData for Htmler {
             let text = htmler.html.html();
             Ok(text)
         });
+
+        methods.add_method("find", |_, htmler, (selector,): (String,)| {
+            let maybe_id = node_id_by_selector(&htmler.html, &selector);
+            Ok(maybe_id.map(|id| NodeIdWrap(id)))
+        });
+
+        methods.add_method_mut("delete_children", |_, htmler, (id,): (NodeIdWrap,)| {
+            delete_children(&mut htmler.html, id.0);
+            Ok(())
+        });
+    }
+}
+
+#[derive(Copy, Clone)]
+struct NodeIdWrap(NodeId);
+
+impl mlua::UserData for NodeIdWrap {}
+
+impl<'lua> mlua::FromLua<'lua> for NodeIdWrap {
+    fn from_lua(value: mlua::Value<'lua>, _: &'lua Lua) -> mlua::Result<Self> {
+        match value {
+            mlua::Value::UserData(ud) => Ok(*ud.borrow::<Self>()?),
+            _ => unreachable!(),
+        }
     }
 }
 

@@ -9,6 +9,9 @@ end
 
 local f = assert(io.open '_bloat/index.html')
 local raw = assert(f:read '*a')
-local parsed = html.parse(raw)
-print(parsed:to_string())
 -- print(raw)
+local parsed = html.parse(raw)
+local node = parsed:find("#content")
+-- print(node)
+parsed:delete_children(node)
+print(parsed:to_string())
