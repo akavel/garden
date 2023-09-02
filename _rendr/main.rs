@@ -137,6 +137,11 @@ impl mlua::UserData for Htmler {
             add_children(&mut htmler.html, dst_node.0, &src.html, src_node.0);
             Ok(())
         });
+
+        // TODO: set_attr(id, String, String)
+        // TODO: add_text(id, String)    // to allow adding suffix in <html><head><title>...
+        // TODO: get_text(id) -> String  // concatenated from whole subtree
+        // TODO: get_attr(id, String) -> String
     }
 }
 
