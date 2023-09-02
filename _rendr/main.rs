@@ -130,44 +130,18 @@ impl mlua::UserData for Htmler {
         });
 
         methods.add_method_mut("add_children", |_, htmler, args: LuaMultiValue| {
-            // TODO[LATER]: shorten repetition below somehow
             let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
-            // let dst_node = *args.get(0).and_then(|v| borrow_ud::<NodeIdWrap>(v))
-            //     .unwrap();
-            // let dst_node = *args.get(0).and_then(|v| v.as_userdata())
-            //     .and_then(|ud| ud.borrow::<NodeIdWrap>().ok()).unwrap();
-            // info!("ARG0: {arg0:?}");
-            let src = args.get(1).and_then(|v| v.as_userdata())
-                .and_then(|ud| ud.borrow::<Htmler>().ok()).unwrap();
-            let src_node = *args.get(2).and_then(|v| v.as_userdata())
-                .and_then(|ud| ud.borrow::<NodeIdWrap>().ok()).unwrap();
+            let src = borrow_ud::<Htmler>(args.get(1)).unwrap();
+            let src_node = *borrow_ud::<NodeIdWrap>(args.get(2)).unwrap();
             add_children(&mut htmler.html, dst_node.0, &src.html, src_node.0);
-
-            // match args.len() {
-            //     3 => {
-            //         let LuaValue::UserData(ud) = args.get(0).unwrap() else {
-            //             panic("bad 1st arg");
-            //         }kk
-            //     },
-            //     // 2 // TODO
-            //     // 1 // TODO
-            //     _ => panic!("must have 1-3 args"), // FIXME: return error, not panic?
-            // }
             Ok(())
         });
-        // methods.add_method_mut("add_children", |_, htmler, (dst_id, src, src_id)| {
-        //     add_children(&mut htmler.html, dst_id.0, &src.html, src_id.0);
-        //     Ok(())
-        // });
     }
 }
 
 fn borrow_ud<'a, T: 'static>(v: Option<&'a LuaValue<'a>>) -> Option<std::cell::Ref<'a, T>> {
     v.and_then(|v| v.as_userdata().and_then(|ud| ud.borrow::<T>().ok()))
 }
-// fn borrow_ud<'a, T: 'static>(v: &'a LuaValue<'a>) -> Option<std::cell::Ref<'a, T>> {
-//     v.as_userdata().and_then(|ud| ud.borrow::<T>().ok())
-// }
 
 #[derive(Copy, Clone, Debug)]
 struct NodeIdWrap(NodeId);
