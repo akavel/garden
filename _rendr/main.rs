@@ -113,9 +113,20 @@ fn md_to_html(markdown: &str) -> scraper::Html {
 }
 
 fn replace_children(html: &mut Html, node_id: ego_tree::NodeId, fragment: Html) {
+    // Note: per https://github.com/causal-agent/scraper/issues/125, it seems
+    // we cannot delete nodes from a tree while iterating over it.
+
+    // Delete old nodes.
     let node_ref = html.tree.get(node_id).unwrap(); // FIXME: unwrap
     let children = node_ref.children().map(|n| n.id()).collect::<Vec<_>>();
     for child in children {
         html.tree.get_mut(child).unwrap().detach(); // FIXME: unwrap
+    }
+
+    // Add new nodes.
+    let mut node_mut = html.tree.get_mut(node_id).unwrap(); // FIXME: unwrap
+    // for src in fragment.tree.nodes() {
+    for src in fragment.tree.root().children() {
+        node_mut.append(src.value().clone());
     }
 }
