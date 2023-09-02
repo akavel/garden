@@ -25,6 +25,7 @@ use pathinfo::PathInfo;
 
 const BASE_SOURCES: &str = "*.md";
 const DRAFT_SOURCES: &str = "_drafts/*.md";
+const HTML_TEMPLATE: &str = "_bloat/bloat.html";
 const OUT_DIR: &str = "_html";
 
 fn main() {
@@ -52,13 +53,12 @@ fn main() {
         .collect();
     println!("{paths:?}");
 
-    // TODO: render articles to _html/
-    // FIXME: purge targed dir before writing
+    // FIXME: purge target dir before writing
     if let Err(err) = std::fs::create_dir_all(OUT_DIR) {
         error!("Could not create directory {OUT_DIR}: {err}");
     }
     for (path, info) in paths {
-        if let Err(err) = md_to_html(&path, &info) {
+        if let Err(err) = make_html(&path, &info) {
             error!("Could not write {path:?}: {err}");
         }
     }
@@ -67,45 +67,24 @@ fn main() {
     // TODO[LATER]: handle images
 }
 
-fn md_to_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
-    let markdown = std::fs::read_to_string(source_path)?;
+fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
+    use scraper::{Html, Selector};
+    use std::fs;
 
-    let parser = &mut markdown_it::MarkdownIt::new();
-    markdown_it::plugins::cmark::add(parser);
-    markdown_it::plugins::extra::add(parser);
-    markdown_it_footnote::add(parser);
-    let ast = parser.parse(&markdown);
-    let html = ast.render();
+    let markdown = fs::read_to_string(source_path)?;
+    let html_fragment = md_to_html(&markdown);
+    // FIXME[optimization]: reuse, don't load every time anew
+    // TODO[LATER]: configurable HTML_TEMPLATE
+    // TODO[LATER]: different templates for different files; don't really need yet
+    let html_template = Html::parse_document(&fs::read_to_string(HTML_TEMPLATE)?);
 
-    // Parts stolen from: http://ghostlevel.net/days/blip.css
-    const STYLES: &str = r#"
-<style type="text/css">
-
-body {
-  font: 1.125rem / 1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-h2 {
-  margin-top: 2.5em; }
-h3 {
-  margin-top: 2.5em; }
-
-@media screen and (min-width: 714px) {
-    body {
-        width: 700px;
-        margin: 0 auto;
-    }
-}
-
-</style>
-</head><body>
-
-<main>
-"#;
+    // Build the result. Idea of working on HTML blatantly stolen from Soupault.app <3
+    // TODO[LATER]: move this either to Lua, or .ini, or something akin
+    // FIXME: remove unwrap
+    let selector = Selector::parse("#content").unwrap();
+    // for element in html_template.select(&selector) {
+    //     replace_children(element, html_fragment);
+    // }
 
     // FIXME: add header & footer html from template
     // FIXME: extract H1 title from AST, put in <html><head><title>...</title>
@@ -115,6 +94,17 @@ h3 {
     let mut destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
     destination.set_extension("html");
     info!("Writing {destination:?}.");
-    std::fs::write(destination, html)?;
+    let html = html_template;
+    std::fs::write(destination, html.html())?;
     Ok(())
+}
+
+fn md_to_html(markdown: &str) -> scraper::Html {
+    let parser = &mut markdown_it::MarkdownIt::new();
+    markdown_it::plugins::cmark::add(parser);
+    markdown_it::plugins::extra::add(parser);
+    markdown_it_footnote::add(parser);
+    let ast = parser.parse(markdown);
+    let html = ast.render();
+    scraper::Html::parse_fragment(&html)
 }
