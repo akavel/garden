@@ -72,6 +72,7 @@ local function main()
 
       local art_h1 = art.html:find 'h1'
       template:add_children(template:find 'h2 a', art.html, art_h1)
+      template:set_attr(template:find 'h2 a', 'href', art.slug)
 
       local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
       template:add_text(template:find 'time', datetime)
@@ -83,6 +84,7 @@ local function main()
         -- print(tag_tmpl:to_string())
         tag_tmpl:delete_children(tag_tmpl:find 'li a')
         tag_tmpl:add_text(tag_tmpl:find 'li a', '@'..tag)
+        tag_tmpl:set_attr(tag_tmpl:find 'li a', 'href', '@'..tag)
         template:add_children(template:find 'ul', tag_tmpl, tag_tmpl:root())
       end
 

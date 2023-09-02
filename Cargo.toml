@@ -23,6 +23,7 @@ log = "0.4.20"
 # Unfortunately, pulldown-cmark does not allow extensibility.
 markdown-it = "0.6.0"
 markdown-it-footnote = "0.2.0"
+markup5ever = "0.11.0"
 mlua = { version = "0.9.1", features = ["lua54", "vendored"] }
 peg = "0.8.1"
 # HTML5 parsin and querying with CSS selectors. Should I consider `tl` instead?

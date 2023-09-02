@@ -145,8 +145,20 @@ impl mlua::UserData for Htmler {
             Ok(())
         });
 
-        // TODO: set_attr(id, String, String)
-        // TODO: add_text(id, String)    // to allow adding suffix in <html><head><title>...
+        methods.add_method_mut(
+            "set_attr",
+            |_, htmler, (id, k, v): (NodeIdWrap, String, String)| {
+                let mut dst = htmler.html.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
+                use scraper::Node;
+                if let Node::Element(el) = dst.value() {
+                    use markup5ever::{LocalName, Namespace, QualName};
+                    let attr = QualName::new(None, Namespace::from(""), LocalName::from(k));
+                    el.attrs.insert(attr, v.into());
+                }
+                Ok(())
+            },
+        );
+
         // TODO: get_text(id) -> String  // concatenated from whole subtree
         // TODO: get_attr(id, String) -> String
     }

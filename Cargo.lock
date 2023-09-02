@@ -986,6 +986,7 @@ dependencies = [
  "log",
  "markdown-it",
  "markdown-it-footnote",
+ "markup5ever",
  "mlua",
  "peg",
  "scraper",
