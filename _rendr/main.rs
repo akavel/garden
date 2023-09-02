@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+use ego_tree::NodeId;
 use glob::glob;
 use log::{error, info, warn};
 use scraper::{Html, Selector};
@@ -85,13 +86,8 @@ fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     let mut selection = html_template.select(&selector);
     let node_id = selection.next().unwrap().id(); // FIXME: unwrap
     replace_children(&mut html_template, node_id, html_fragment);
-    // for element in html_template.select(&selector) {
-    //     replace_children(element, html_fragment);
-    // }
 
-    // FIXME: add header & footer html from template
     // FIXME: extract H1 title from AST, put in <html><head><title>...</title>
-    // FIXME: add <article> & <main> (via template) -> maybe replace <main> with rendered markdown
     // FIXME: fix relative links - strip .md etc.
     // TODO: copy images, css
     let mut destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
@@ -112,7 +108,7 @@ fn md_to_html(markdown: &str) -> scraper::Html {
     scraper::Html::parse_fragment(&html)
 }
 
-fn replace_children(html: &mut Html, node_id: ego_tree::NodeId, fragment: Html) {
+fn replace_children(html: &mut Html, node_id: NodeId, fragment: Html) {
     // Note: per https://github.com/causal-agent/scraper/issues/125, it seems
     // we cannot delete nodes from a tree while iterating over it.
 
@@ -124,9 +120,28 @@ fn replace_children(html: &mut Html, node_id: ego_tree::NodeId, fragment: Html) 
     }
 
     // Add new nodes.
-    let mut node_mut = html.tree.get_mut(node_id).unwrap(); // FIXME: unwrap
-    // for src in fragment.tree.nodes() {
-    for src in fragment.tree.root().children() {
-        node_mut.append(src.value().clone());
+    // TODO[LATER]: arrrrgh, it looks so complex and inefficient; is there simpler way?
+    use std::collections::VecDeque;
+    let mut queue = VecDeque::<(NodeId, NodeId)>::new();
+    let src_node_id = fragment.tree.root().children().next().unwrap().id();
+    queue.push_back((node_id, src_node_id));
+    loop {
+        let Some((dst_id, src_id)) = queue.pop_front() else {
+            break;
+        };
+        let mut dst_node = html.tree.get_mut(dst_id).unwrap(); // FIXME: unwrap
+        let src_node_ref = fragment.tree.get(src_id).unwrap(); // FIXME: unwrap
+        let src_node = src_node_ref.value();
+        // HACK
+        let name_is_html = |e: &&scraper::node::Element| e.name() == "html";
+        let not_html_node = src_node.as_element().filter(name_is_html).is_none();
+        let new_id = if not_html_node {
+            dst_node.append(src_node.clone()).id()
+        } else {
+            dst_id
+        };
+        for child in src_node_ref.children() {
+            queue.push_back((new_id, child.id()));
+        }
     }
 }
