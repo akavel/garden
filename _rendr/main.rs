@@ -69,8 +69,22 @@ fn main() {
     }
     */
 
-    // TODO: render list to _html/
     let lua = Lua::new();
+
+    // Expose limited HTML parser & DOM functionality to Lua
+    let html_mod = lua.create_table().unwrap();
+    let parse_fun = lua
+        .create_function(|lua, (text,): (String,)| {
+            let htmler = Htmler {
+                html: Html::parse_document(&text),
+            };
+            Ok(htmler)
+        })
+        .unwrap();
+    html_mod.set("parse", parse_fun).unwrap();
+    lua.globals().set("html", html_mod).unwrap();
+
+    // TODO: render list to _html/
     let articles = lua.create_table().unwrap();
     for (path, info) in paths {
         let tags = lua.create_sequence_from(info.tags).unwrap();
@@ -82,10 +96,25 @@ fn main() {
         articles.push(article).unwrap();
     }
     lua.globals().set("articles", articles).unwrap();
+
     let script = std::fs::read_to_string(SCRIPT_PATH).unwrap();
-    lua.load(script).exec().unwrap();
+    lua.load(script).set_name(SCRIPT_PATH).exec().unwrap();
 
     // TODO[LATER]: handle images
+}
+
+#[derive(Clone)]
+struct Htmler {
+    html: scraper::Html,
+}
+
+impl mlua::UserData for Htmler {
+    fn add_methods<'lua, M: mlua::UserDataMethods<'lua, Self>>(methods: &mut M) {
+        methods.add_method("to_string", |_, htmler, ()| {
+            let text = htmler.html.html();
+            Ok(text)
+        });
+    }
 }
 
 fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
