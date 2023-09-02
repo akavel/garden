@@ -16,6 +16,7 @@
 
 use glob::glob;
 use log::{error, info, warn};
+use scraper::{Html, Selector};
 use std::path::{Path, PathBuf};
 
 mod logging;
@@ -68,7 +69,6 @@ fn main() {
 }
 
 fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
-    use scraper::{Html, Selector};
     use std::fs;
 
     let markdown = fs::read_to_string(source_path)?;
@@ -76,12 +76,15 @@ fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     // FIXME[optimization]: reuse, don't load every time anew
     // TODO[LATER]: configurable HTML_TEMPLATE
     // TODO[LATER]: different templates for different files; don't really need yet
-    let html_template = Html::parse_document(&fs::read_to_string(HTML_TEMPLATE)?);
+    let mut html_template = Html::parse_document(&fs::read_to_string(HTML_TEMPLATE)?);
 
     // Build the result. Idea of working on HTML blatantly stolen from Soupault.app <3
     // TODO[LATER]: move this either to Lua, or .ini, or something akin
     // FIXME: remove unwrap
     let selector = Selector::parse("#content").unwrap();
+    let mut selection = html_template.select(&selector);
+    let node_id = selection.next().unwrap().id(); // FIXME: unwrap
+    replace_children(&mut html_template, node_id, html_fragment);
     // for element in html_template.select(&selector) {
     //     replace_children(element, html_fragment);
     // }
@@ -107,4 +110,12 @@ fn md_to_html(markdown: &str) -> scraper::Html {
     let ast = parser.parse(markdown);
     let html = ast.render();
     scraper::Html::parse_fragment(&html)
+}
+
+fn replace_children(html: &mut Html, node_id: ego_tree::NodeId, fragment: Html) {
+    let node_ref = html.tree.get(node_id).unwrap(); // FIXME: unwrap
+    let children = node_ref.children().map(|n| n.id()).collect::<Vec<_>>();
+    for child in children {
+        html.tree.get_mut(child).unwrap().detach(); // FIXME: unwrap
+    }
 }
