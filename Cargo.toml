@@ -23,6 +23,7 @@ log = "0.4.20"
 # Unfortunately, pulldown-cmark does not allow extensibility.
 markdown-it = "0.6.0"
 markdown-it-footnote = "0.2.0"
+mlua = "0.9.1"
 peg = "0.8.1"
 # HTML5 parsin and querying with CSS selectors. Should I consider `tl` instead?
 scraper = "0.17.1"
