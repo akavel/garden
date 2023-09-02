@@ -124,17 +124,26 @@ fn md_to_html(markdown: &str) -> scraper::Html {
 }
 
 fn replace_children(dst: &mut Html, dst_id: NodeId, src: &Html, src_id: NodeId) {
+    delete_children(dst, dst_id);
+    add_children(dst, dst_id, src, src_id);
+}
+
+fn node_id_by_selector(html: &Html, selector: &str) -> Option<NodeId> {
+    let selector = Selector::parse(selector).ok()?;
+    html.select(&selector).next().map(|n| n.id())
+}
+
+fn delete_children(html: &mut Html, parent_id: NodeId) {
     // Note: per https://github.com/causal-agent/scraper/issues/125, it seems
     // we cannot delete nodes from a tree while iterating over it.
-
-    // Delete old nodes.
-    let node_ref = dst.tree.get(dst_id).unwrap(); // FIXME: unwrap
+    let node_ref = html.tree.get(parent_id).unwrap(); // FIXME: unwrap
     let children = node_ref.children().map(|n| n.id()).collect::<Vec<_>>();
     for child in children {
-        dst.tree.get_mut(child).unwrap().detach(); // FIXME: unwrap
+        html.tree.get_mut(child).unwrap().detach(); // FIXME: unwrap
     }
+}
 
-    // Add new nodes.
+fn add_children(dst: &mut Html, dst_id: NodeId, src: &Html, src_id: NodeId) {
     // TODO[LATER]: arrrrgh, it looks so complex and inefficient; is there simpler way?
     use std::collections::VecDeque;
     let mut queue = VecDeque::<(NodeId, NodeId)>::new();
@@ -160,9 +169,4 @@ fn replace_children(dst: &mut Html, dst_id: NodeId, src: &Html, src_id: NodeId) 
             queue.push_back((new_id, child.id()));
         }
     }
-}
-
-fn node_id_by_selector(html: &Html, selector: &str) -> Option<NodeId> {
-    let selector = Selector::parse(selector).ok()?;
-    html.select(&selector).next().map(|n| n.id())
 }
