@@ -54,12 +54,15 @@ local function main()
   local template = html.new()
   template:add_children(template:root(), index, list)
   template:delete_children(template:find 'h2 a')
+  template:delete_children(template:find 'time')
   index:delete_children(list)
   for _, art in ipairs(articles) do
     local template = template:clone()
 
     local art_h1 = art.html:find 'h1'
     template:add_children(template:find 'h2 a', art.html, art_h1)
+    local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
+    template:add_text(template:find 'time', datetime)
 
     index:add_children(list, template, template:root())
   end
