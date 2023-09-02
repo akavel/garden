@@ -84,8 +84,33 @@ fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
     // FIXME: remove unwrap
     let selector = Selector::parse("#content").unwrap();
     let mut selection = html_template.select(&selector);
-    let node_id = selection.next().unwrap().id(); // FIXME: unwrap
-    replace_children(&mut html_template, node_id, html_fragment);
+    let node_id = selection.next().map(|n| n.id());
+    if let Some(id) = node_id {
+        replace_children(
+            &mut html_template,
+            id,
+            &html_fragment,
+            html_fragment.tree.root().id(),
+        );
+    }
+    // set title from <h1> contents
+    // TODO[LATER]: strip any html tags etc. - they're not allowed IIUC
+    // TODO[LATER]: add suffix in <title>
+    let mut clipboard = Html::new_fragment();
+    let selector = Selector::parse("h1").unwrap();
+    let mut selection = html_fragment.select(&selector);
+    let node_id = selection.next().map(|n| n.id());
+    if let Some(id) = node_id {
+        let clipboard_root = clipboard.tree.root().id();
+        replace_children(&mut clipboard, clipboard_root, &html_fragment, id);
+    }
+    let selector = Selector::parse("html head title").unwrap();
+    let mut selection = html_template.select(&selector);
+    let node_id = selection.next().map(|n| n.id());
+    if let Some(id) = node_id {
+        let clipboard_root = clipboard.tree.root().id();
+        replace_children(&mut html_template, id, &clipboard, clipboard_root);
+    }
 
     // FIXME: extract H1 title from AST, put in <html><head><title>...</title>
     // FIXME: fix relative links - strip .md etc.
@@ -108,29 +133,30 @@ fn md_to_html(markdown: &str) -> scraper::Html {
     scraper::Html::parse_fragment(&html)
 }
 
-fn replace_children(html: &mut Html, node_id: NodeId, fragment: Html) {
+fn replace_children(dst: &mut Html, dst_id: NodeId, src: &Html, src_id: NodeId) {
     // Note: per https://github.com/causal-agent/scraper/issues/125, it seems
     // we cannot delete nodes from a tree while iterating over it.
 
     // Delete old nodes.
-    let node_ref = html.tree.get(node_id).unwrap(); // FIXME: unwrap
+    let node_ref = dst.tree.get(dst_id).unwrap(); // FIXME: unwrap
     let children = node_ref.children().map(|n| n.id()).collect::<Vec<_>>();
     for child in children {
-        html.tree.get_mut(child).unwrap().detach(); // FIXME: unwrap
+        dst.tree.get_mut(child).unwrap().detach(); // FIXME: unwrap
     }
 
     // Add new nodes.
     // TODO[LATER]: arrrrgh, it looks so complex and inefficient; is there simpler way?
     use std::collections::VecDeque;
     let mut queue = VecDeque::<(NodeId, NodeId)>::new();
-    let src_node_id = fragment.tree.root().children().next().unwrap().id();
-    queue.push_back((node_id, src_node_id));
+    for child in src.tree.get(src_id).iter().flat_map(|n| n.children()) {
+        queue.push_back((dst_id, child.id()));
+    }
     loop {
         let Some((dst_id, src_id)) = queue.pop_front() else {
             break;
         };
-        let mut dst_node = html.tree.get_mut(dst_id).unwrap(); // FIXME: unwrap
-        let src_node_ref = fragment.tree.get(src_id).unwrap(); // FIXME: unwrap
+        let mut dst_node = dst.tree.get_mut(dst_id).unwrap(); // FIXME: unwrap
+        let src_node_ref = src.tree.get(src_id).unwrap(); // FIXME: unwrap
         let src_node = src_node_ref.value();
         // HACK
         let name_is_html = |e: &&scraper::node::Element| e.name() == "html";
