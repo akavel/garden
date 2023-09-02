@@ -19,7 +19,6 @@ use glob::glob;
 use log::{error, info, warn};
 use mlua::prelude::*;
 use scraper::{Html, Selector};
-use std::path::{Path, PathBuf};
 
 mod logging;
 mod pathinfo;
@@ -28,7 +27,6 @@ use pathinfo::PathInfo;
 
 const BASE_SOURCES: &str = "*.md";
 const DRAFT_SOURCES: &str = "_drafts/*.md";
-const HTML_TEMPLATE: &str = "_bloat/bloat.html";
 const SCRIPT_PATH: &str = "_bloat/bloat.lua";
 const OUT_DIR: &str = "_html.out";
 
@@ -61,13 +59,6 @@ fn main() {
     if let Err(err) = std::fs::create_dir_all(OUT_DIR) {
         error!("Could not create directory {OUT_DIR}: {err}");
     }
-    /*
-    for (path, info) in paths {
-        if let Err(err) = make_html(&path, &info) {
-            error!("Could not write {path:?}: {err}");
-        }
-    }
-    */
 
     let lua = Lua::new();
 
@@ -85,9 +76,10 @@ fn main() {
 
     // TODO: render list to _html/
     let articles = lua.create_table().unwrap();
-    for (_path, info) in paths {
+    for (path, info) in paths {
         let tags = lua.create_sequence_from(info.tags).unwrap();
         let article = lua.create_table().unwrap();
+        article.set("src", path.to_str()).unwrap();
         article.set("slug", info.slug).unwrap();
         article.set("datetime", info.datetime).unwrap();
         article.set("extension", info.extension).unwrap();
@@ -116,8 +108,11 @@ impl From<scraper::Html> for Htmler {
 impl mlua::UserData for Htmler {
     fn add_methods<'lua, M: mlua::UserDataMethods<'lua, Self>>(methods: &mut M) {
         methods.add_method("to_string", |_, htmler, ()| {
-            let text = htmler.html.html();
-            Ok(text)
+            Ok(htmler.html.html())
+        });
+
+        methods.add_method("clone", |_, htmler, ()| {
+            Ok(Htmler::from(htmler.html.clone()))
         });
 
         methods.add_method("find", |_, htmler, (selector,): (String,)| {
@@ -162,50 +157,6 @@ impl<'lua> mlua::FromLua<'lua> for NodeIdWrap {
     }
 }
 
-fn make_html(source_path: &Path, info: &PathInfo) -> anyhow::Result<()> {
-    use std::fs;
-
-    let markdown = fs::read_to_string(source_path)?;
-    let html_fragment = md_to_html(&markdown);
-    // FIXME[optimization]: reuse, don't load every time anew
-    // TODO[LATER]: configurable HTML_TEMPLATE
-    // TODO[LATER]: different templates for different files; don't really need yet
-    let mut html_template = Html::parse_document(&fs::read_to_string(HTML_TEMPLATE)?);
-
-    // Build the result. Idea of working on HTML blatantly stolen from Soupault.app <3
-    // TODO[LATER]: move this either to Lua, or .ini, or something akin
-    // FIXME: remove unwrap
-    if let Some(id) = node_id_by_selector(&html_template, "#content") {
-        replace_children(
-            &mut html_template,
-            id,
-            &html_fragment,
-            html_fragment.tree.root().id(),
-        );
-    }
-    // set title from <h1> contents
-    // TODO[LATER]: strip any html tags etc. - they're not allowed IIUC
-    // TODO[LATER]: add suffix in <title>
-    let mut clipboard = Html::new_fragment();
-    if let Some(id) = node_id_by_selector(&html_fragment, "h1") {
-        let clipboard_root = clipboard.tree.root().id();
-        replace_children(&mut clipboard, clipboard_root, &html_fragment, id);
-    }
-    if let Some(id) = node_id_by_selector(&html_template, "html head title") {
-        let clipboard_root = clipboard.tree.root().id();
-        replace_children(&mut html_template, id, &clipboard, clipboard_root);
-    }
-
-    // FIXME: extract H1 title from AST, put in <html><head><title>...</title>
-    // FIXME: fix relative links - strip .md etc.
-    // TODO: copy images, css
-    let destination: PathBuf = [OUT_DIR, &info.slug].iter().collect();
-    info!("Writing {destination:?}.");
-    let html = html_template;
-    std::fs::write(destination, html.html())?;
-    Ok(())
-}
-
 fn md_to_html(markdown: &str) -> scraper::Html {
     let parser = &mut markdown_it::MarkdownIt::new();
     markdown_it::plugins::cmark::add(parser);
@@ -214,11 +165,6 @@ fn md_to_html(markdown: &str) -> scraper::Html {
     let ast = parser.parse(markdown);
     let html = ast.render();
     scraper::Html::parse_fragment(&html)
-}
-
-fn replace_children(dst: &mut Html, dst_id: NodeId, src: &Html, src_id: NodeId) {
-    delete_children(dst, dst_id);
-    add_children(dst, dst_id, src, src_id);
 }
 
 fn node_id_by_selector(html: &Html, selector: &str) -> Option<NodeId> {
