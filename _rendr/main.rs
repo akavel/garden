@@ -130,8 +130,12 @@ impl mlua::UserData for Htmler {
         });
 
         methods.add_method_mut("add_children", |_, htmler, args: LuaMultiValue| {
-            let dst_node = *args.get(0).and_then(|v| v.as_userdata())
-                .and_then(|ud| ud.borrow::<NodeIdWrap>().ok()).unwrap();
+            // TODO[LATER]: shorten repetition below somehow
+            let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
+            // let dst_node = *args.get(0).and_then(|v| borrow_ud::<NodeIdWrap>(v))
+            //     .unwrap();
+            // let dst_node = *args.get(0).and_then(|v| v.as_userdata())
+            //     .and_then(|ud| ud.borrow::<NodeIdWrap>().ok()).unwrap();
             // info!("ARG0: {arg0:?}");
             let src = args.get(1).and_then(|v| v.as_userdata())
                 .and_then(|ud| ud.borrow::<Htmler>().ok()).unwrap();
@@ -157,6 +161,13 @@ impl mlua::UserData for Htmler {
         // });
     }
 }
+
+fn borrow_ud<'a, T: 'static>(v: Option<&'a LuaValue<'a>>) -> Option<std::cell::Ref<'a, T>> {
+    v.and_then(|v| v.as_userdata().and_then(|ud| ud.borrow::<T>().ok()))
+}
+// fn borrow_ud<'a, T: 'static>(v: &'a LuaValue<'a>) -> Option<std::cell::Ref<'a, T>> {
+//     v.as_userdata().and_then(|ud| ud.borrow::<T>().ok())
+// }
 
 #[derive(Copy, Clone, Debug)]
 struct NodeIdWrap(NodeId);
