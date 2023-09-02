@@ -43,9 +43,7 @@ local function main()
     template:delete_children(title)
     -- TODO: should strip html tags from the text - not allowed really
     template:add_children(title, text, text:find 'h1')
-    -- TODO: add suffix text
-    -- local suffix = html.parse ' - scribble by akavel'
-    -- template:add_children(title, suffix, suffix:find 'body')
+    template:add_text(title, ' — scribbles by akavel')
 
     -- FIXME: fix relative links - strip .md etc.
     -- TODO: copy images, css
