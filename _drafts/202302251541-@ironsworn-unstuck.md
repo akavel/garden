@@ -1,5 +1,8 @@
-A new custom Session Move for the *"Ironsworn: Starforged"* solo roleplaying game.
-May work for other *Powered by the Apocalypse* RPGs as well:
+A new custom Session Move for the *["Ironsworn: Starforged"][I:S]* solo roleplaying game.
+May work for other [*Powered by the Apocalypse* RPGs][PbtA] as well:
+
+[I:S]: https://www.ironswornrpg.com/product-ironsworn-starforged
+[PbtA]: https://rpggeek.com/rpgsystem/17185/powered-apocalypse
 
 **GET UNSTUCK** (Session Move)
 
