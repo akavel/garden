@@ -34,9 +34,7 @@ local function main()
 
     -- Put the main text of the article in #content node in the template.
     local template = template:clone()
-    local slot = template:find '#content'
-    slot:delete_children()
-    slot:add_children(text)
+    template:find('#content'):set_children(text)
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
@@ -61,16 +59,13 @@ local function main()
   local index = html.parse(readfile '_bloat/index.html')
   local list_slot = index:find '#articles'
   local art_tmpl = list_slot:eject_children()
-  art_tmpl:find('h2 a'):delete_children()
-  art_tmpl:find('time'):delete_children()
-  art_tmpl:find('ul li a'):delete_children()
   for _, art in ipairs(articles) do
     local tags = table_transpose(art.tags)
     if not tags._drafts then
       local art_tmpl = art_tmpl:clone()
 
       local title_slot = art_tmpl:find('h2 a')
-      title_slot:add_children(art.html:find 'h1')
+      title_slot:set_children(art.html:find 'h1')
       title_slot:set_attr('href', art.slug)
 
       local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
