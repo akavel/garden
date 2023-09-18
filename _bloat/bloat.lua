@@ -72,9 +72,8 @@ local function main()
     if not tags._drafts then
       local template = template:clone()
 
-      local art_h1 = art.html:find 'h1'
       local tmpl_h2_a = template:find('h2 a')
-      tmpl_h2_a:add_children(art_h1)
+      tmpl_h2_a:add_children(art.html:find 'h1')
       tmpl_h2_a:set_attr('href', art.slug)
 
       local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
