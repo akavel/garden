@@ -14,15 +14,16 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use ego_tree::NodeId;
 use glob::glob;
 use log::{error, info, warn};
 use mlua::prelude::*;
-use scraper::{Html, Selector};
+use scraper::Html as RawHtml;
 
+mod html;
 mod logging;
 mod pathinfo;
 
+use html::Html;
 use pathinfo::PathInfo;
 
 const BASE_SOURCES: &str = "*.md";
@@ -64,15 +65,15 @@ fn main() {
     // Expose limited HTML parser & DOM functionality to Lua
     let html_mod = lua.create_table().unwrap();
     let parse = lua
-        .create_function(|_, (text,): (String,)| Ok(Htmler::from(Html::parse_document(&text))))
+        .create_function(|_, (text,): (String,)| Ok(Html::from(RawHtml::parse_document(&text))))
         .unwrap();
     html_mod.set("parse", parse).unwrap();
     let from_md = lua
-        .create_function(|_, (text,): (String,)| Ok(Htmler::from(md_to_html(&text))))
+        .create_function(|_, (text,): (String,)| Ok(Html::from(md_to_html(&text))))
         .unwrap();
     html_mod.set("from_md", from_md).unwrap();
     let new = lua
-        .create_function(|_, ()| Ok(Htmler::from(Html::new_document())))
+        .create_function(|_, ()| Ok(Html::from(RawHtml::new_document())))
         .unwrap();
     html_mod.set("new", new).unwrap();
     lua.globals().set("html", html_mod).unwrap();
@@ -97,140 +98,12 @@ fn main() {
     // TODO[LATER]: handle images
 }
 
-#[derive(Clone)]
-struct Htmler {
-    html: scraper::Html,
-}
-
-impl From<scraper::Html> for Htmler {
-    fn from(html: scraper::Html) -> Self {
-        Self { html }
-    }
-}
-
-impl mlua::UserData for Htmler {
-    fn add_methods<'lua, M: mlua::UserDataMethods<'lua, Self>>(methods: &mut M) {
-        methods.add_method("to_string", |_, htmler, ()| Ok(htmler.html.html()));
-
-        methods.add_method("clone", |_, htmler, ()| {
-            Ok(Htmler::from(htmler.html.clone()))
-        });
-
-        methods.add_method("find", |_, htmler, (selector,): (String,)| {
-            let maybe_id = node_id_by_selector(&htmler.html, &selector);
-            Ok(maybe_id.map(NodeIdWrap))
-        });
-
-        methods.add_method("root", |_, htmler, ()| {
-            Ok(NodeIdWrap(htmler.html.tree.root().id()))
-        });
-
-        methods.add_method_mut("delete_children", |_, htmler, (id,): (NodeIdWrap,)| {
-            delete_children(&mut htmler.html, id.0);
-            Ok(())
-        });
-
-        methods.add_method_mut("add_children", |_, htmler, args: LuaMultiValue| {
-            let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
-            let src = borrow_ud::<Htmler>(args.get(1)).unwrap();
-            let src_node = *borrow_ud::<NodeIdWrap>(args.get(2)).unwrap();
-            add_children(&mut htmler.html, dst_node.0, &src.html, src_node.0);
-            Ok(())
-        });
-
-        methods.add_method_mut("add_text", |_, htmler, (id, s): (NodeIdWrap, String)| {
-            let mut dst = htmler.html.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
-            let text = scraper::node::Text { text: s.into() };
-            dst.append(scraper::Node::Text(text));
-            Ok(())
-        });
-
-        methods.add_method_mut(
-            "set_attr",
-            |_, htmler, (id, k, v): (NodeIdWrap, String, String)| {
-                let mut dst = htmler.html.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
-                use scraper::Node;
-                if let Node::Element(el) = dst.value() {
-                    use markup5ever::{LocalName, Namespace, QualName};
-                    let attr = QualName::new(None, Namespace::from(""), LocalName::from(k));
-                    el.attrs.insert(attr, v.into());
-                }
-                Ok(())
-            },
-        );
-
-        // TODO: get_text(id) -> String  // concatenated from whole subtree
-        // TODO: get_attr(id, String) -> String
-    }
-}
-
-fn borrow_ud<'a, T: 'static>(v: Option<&'a LuaValue<'a>>) -> Option<std::cell::Ref<'a, T>> {
-    v.and_then(|v| v.as_userdata().and_then(|ud| ud.borrow::<T>().ok()))
-}
-
-#[derive(Copy, Clone, Debug)]
-struct NodeIdWrap(NodeId);
-
-impl mlua::UserData for NodeIdWrap {}
-
-impl<'lua> mlua::FromLua<'lua> for NodeIdWrap {
-    fn from_lua(value: mlua::Value<'lua>, _: &'lua Lua) -> mlua::Result<Self> {
-        match value {
-            mlua::Value::UserData(ud) => Ok(*ud.borrow::<Self>()?),
-            _ => unreachable!(),
-        }
-    }
-}
-
-fn md_to_html(markdown: &str) -> scraper::Html {
+fn md_to_html(markdown: &str) -> RawHtml {
     let parser = &mut markdown_it::MarkdownIt::new();
     markdown_it::plugins::cmark::add(parser);
     markdown_it::plugins::extra::add(parser);
     markdown_it_footnote::add(parser);
     let ast = parser.parse(markdown);
     let html = ast.render();
-    scraper::Html::parse_fragment(&html)
-}
-
-fn node_id_by_selector(html: &Html, selector: &str) -> Option<NodeId> {
-    let selector = Selector::parse(selector).ok()?;
-    html.select(&selector).next().map(|n| n.id())
-}
-
-fn delete_children(html: &mut Html, parent_id: NodeId) {
-    // Note: per https://github.com/causal-agent/scraper/issues/125, it seems
-    // we cannot delete nodes from a tree while iterating over it.
-    let node_ref = html.tree.get(parent_id).unwrap(); // FIXME: unwrap
-    let children = node_ref.children().map(|n| n.id()).collect::<Vec<_>>();
-    for child in children {
-        html.tree.get_mut(child).unwrap().detach(); // FIXME: unwrap
-    }
-}
-
-fn add_children(dst: &mut Html, dst_id: NodeId, src: &Html, src_id: NodeId) {
-    // TODO[LATER]: arrrrgh, it looks so complex and inefficient; is there simpler way?
-    use std::collections::VecDeque;
-    let mut queue = VecDeque::<(NodeId, NodeId)>::new();
-    for child in src.tree.get(src_id).iter().flat_map(|n| n.children()) {
-        queue.push_back((dst_id, child.id()));
-    }
-    loop {
-        let Some((dst_id, src_id)) = queue.pop_front() else {
-            break;
-        };
-        let mut dst_node = dst.tree.get_mut(dst_id).unwrap(); // FIXME: unwrap
-        let src_node_ref = src.tree.get(src_id).unwrap(); // FIXME: unwrap
-        let src_node = src_node_ref.value();
-        // HACK
-        let name_is_html = |e: &&scraper::node::Element| e.name() == "html";
-        let not_html_node = src_node.as_element().filter(name_is_html).is_none();
-        let new_id = if not_html_node {
-            dst_node.append(src_node.clone()).id()
-        } else {
-            dst_id
-        };
-        for child in src_node_ref.children() {
-            queue.push_back((new_id, child.id()));
-        }
-    }
+    RawHtml::parse_fragment(&html)
 }
