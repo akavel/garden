@@ -19,6 +19,7 @@
 use ego_tree::NodeId;
 use mlua::prelude::*;
 use scraper::{Html as RawHtml, Selector};
+use std::sync::Arc;
 
 #[derive(Clone)]
 pub struct Html {
@@ -52,7 +53,26 @@ impl mlua::UserData for Html {
         });
 
         methods.add_method_mut("add_children", |_, html, args: LuaMultiValue| {
-            let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
+            // let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
+            let arg0 = args.get(0).ok_or(LuaError::BadArgument {
+                to: Some("html:add_children".to_string()),
+                pos: 1,
+                name: Some("self".to_string()),
+                cause: Arc::new(LuaError::RuntimeError(
+                    "got nil, expected html userdata".into(),
+                )),
+            })?;
+            let ud0 = arg0.as_userdata().ok_or(LuaError::BadArgument {
+                to: Some("html:add_children".to_string()),
+                pos: 1,
+                name: Some("self".to_string()),
+                cause: Arc::new(LuaError::RuntimeError(format!(
+                    "got {}, expected html userdata",
+                    arg0.type_name()
+                ))),
+            })?;
+            let dst_node = ud0.borrow::<NodeIdWrap>()?;
+
             let src = borrow_ud::<Html>(args.get(1)).unwrap();
             let src_node = *borrow_ud::<NodeIdWrap>(args.get(2)).unwrap();
             add_children(&mut html.raw, dst_node.0, &src.raw, src_node.0);
