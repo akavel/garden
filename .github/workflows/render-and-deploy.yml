@@ -34,4 +34,4 @@ jobs:
         source: "_html.out/"
         strip_components: 1
         target: ${{ secrets.PUBLISH_TARGET_DIR }}
-        rm: true
+        #rm: true  # TODO: how to clear it instead?
