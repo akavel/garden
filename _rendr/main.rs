@@ -33,7 +33,7 @@ const OUT_DIR: &str = "_html.out";
 
 fn main() -> anyhow::Result<()> {
     logging::init_info();
-    info!("👋😃");
+    info!("Hi! 👋😃");
 
     info!("Scanning {BASE_SOURCES} & {DRAFT_SOURCES}");
     let paths: Vec<_> = [BASE_SOURCES, DRAFT_SOURCES]
@@ -78,7 +78,7 @@ fn main() -> anyhow::Result<()> {
     html_mod.set("new", new).unwrap();
     lua.globals().set("html", html_mod).unwrap();
 
-    // TODO: render list to _html/
+    // Pass articles metadata to Lua
     let articles = lua.create_table().unwrap();
     for (path, info) in paths {
         let tags = lua.create_sequence_from(info.tags).unwrap();
@@ -92,6 +92,7 @@ fn main() -> anyhow::Result<()> {
     }
     lua.globals().set("articles", articles).unwrap();
 
+    // Run Lua script intended to process the articles
     let script = std::fs::read_to_string(SCRIPT_PATH).unwrap();
     lua.load(script).set_name(SCRIPT_PATH).exec()?;
 
