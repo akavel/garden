@@ -20,7 +20,6 @@ use ego_tree::NodeId;
 use mlua::prelude::*;
 use scraper::{Html as RawHtml, Selector};
 use std::cell::RefCell;
-use std::ops::Deref;
 use std::rc::Rc;
 
 #[derive(Clone)]
@@ -39,13 +38,13 @@ impl Html {
     }
 
     fn id_or_root(&self) -> NodeId {
-        self.node_id.unwrap_or_else(|| self.raw.tree.root().id())
+        self.node_id.unwrap_or_else(|| self.raw.borrow().tree.root().id())
     }
 }
 
 impl From<RawHtml> for Html {
     fn from(raw: RawHtml) -> Self {
-        Self { raw: Rc::new(raw), node_id: None }
+        Self { raw: Rc::new(RefCell::new(raw)), node_id: None }
     }
 }
 
@@ -63,31 +62,31 @@ impl<'lua> mlua::FromLua<'lua> for Html {
 
 impl mlua::UserData for Html {
     fn add_methods<'lua, M: mlua::UserDataMethods<'lua, Self>>(methods: &mut M) {
-        methods.add_method("to_string", |_, html, ()| Ok(html.raw.html()));
+        methods.add_method("to_string", |_, html, ()| Ok(html.raw.borrow().html()));
 
-        methods.add_method("clone", |_, html, ()| Ok(Html::from(html.raw.deref().clone())));
+        methods.add_method("clone", |_, html, ()| Ok(Html::from(html.raw.borrow().clone())));
 
         methods.add_method("find", |_, html, (selector,): (String,)| {
-            let maybe_id = node_id_by_selector(&html.raw, &selector);
+            let maybe_id = node_id_by_selector(&*html.raw.borrow(), &selector);
             let maybe_html = maybe_id.map(|id| html.view_with_id(id));
             Ok(maybe_html)
         });
 
         methods.add_method("root", |_, html, ()| {
-            let id = html.raw.tree.root().id();
+            let id = html.raw.borrow().tree.root().id();
             Ok(html.view_with_id(id))
         });
 
         methods.add_method_mut("delete_children", |_, html, ()| {
             let id = html.id_or_root();
-            delete_children(Rc::get_mut(&mut html.raw).unwrap(), id);
+            delete_children(&mut *html.raw.borrow_mut(), id);
             Ok(())
         });
 
         methods.add_method_mut("add_children", |_, html, (src,): (Html,)| {
             let dst_id = html.id_or_root();
             let src_id = src.id_or_root();
-            add_children(Rc::get_mut(&mut html.raw).unwrap(), dst_id, &src.raw, src_id);
+            add_children(&mut *html.raw.borrow_mut(), dst_id, &*src.raw.borrow(), src_id);
             Ok(())
         });
         // methods.add_method_mut("add_children", |_, html, args: LuaMultiValue| {
@@ -119,7 +118,7 @@ impl mlua::UserData for Html {
 
         methods.add_method_mut("add_text", |_, html, (s,): (String,)| {
             let id = html.id_or_root();
-            let raw = Rc::get_mut(&mut html.raw).unwrap();
+            let mut raw = html.raw.borrow_mut();
             let mut dst = raw.tree.get_mut(id).unwrap(); // FIXME: unwrap
             let text = scraper::node::Text { text: s.into() };
             dst.append(scraper::Node::Text(text));
@@ -130,7 +129,7 @@ impl mlua::UserData for Html {
             "set_attr",
             |_, html, (k, v): (String, String)| {
                 let id = html.id_or_root();
-                let raw = Rc::get_mut(&mut html.raw).unwrap();
+                let mut raw = html.raw.borrow_mut();
                 let mut dst = raw.tree.get_mut(id).unwrap(); // FIXME: unwrap
                 use scraper::Node;
                 if let Node::Element(el) = dst.value() {

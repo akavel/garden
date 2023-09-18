@@ -42,9 +42,9 @@ local function main()
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
+    title:delete_children()
     local h1 = text:find 'h1'
     if h1 then
-        title:delete_children()
         -- template:delete_children(title)
         -- TODO: should strip html tags from the text - not allowed really
         title:add_children(h1)
