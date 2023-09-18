@@ -60,37 +60,37 @@ local function main()
   -- Sort articles, newest first.
   table.sort(articles, function(a, b) return a.datetime > b.datetime end)
   local index = html.parse(readfile '_bloat/index.html')
-  local list = index:find '#articles'
-  local template = html.new()
-  template:add_children(list)
-  template:find('h2 a'):delete_children()
-  template:find('time'):delete_children()
-  template:find('ul li a'):delete_children()
-  list:delete_children()
+  local list_slot = index:find '#articles'
+  local art_tmpl = html.new()
+  art_tmpl:add_children(list_slot)
+  list_slot:delete_children()
+  art_tmpl:find('h2 a'):delete_children()
+  art_tmpl:find('time'):delete_children()
+  art_tmpl:find('ul li a'):delete_children()
   for _, art in ipairs(articles) do
     local tags = table_transpose(art.tags)
     if not tags._drafts then
-      local template = template:clone()
+      local art_tmpl = art_tmpl:clone()
 
-      local tmpl_h2_a = template:find('h2 a')
-      tmpl_h2_a:add_children(art.html:find 'h1')
-      tmpl_h2_a:set_attr('href', art.slug)
+      local title_slot = art_tmpl:find('h2 a')
+      title_slot:add_children(art.html:find 'h1')
+      title_slot:set_attr('href', art.slug)
 
       local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
-      template:find('time'):add_text(datetime)
+      art_tmpl:find('time'):add_text(datetime)
 
       local tag_tmpl = html.new()
-      tag_tmpl:add_children(template:find 'ul')
-      template:find('ul'):delete_children()
+      tag_tmpl:add_children(art_tmpl:find 'ul')
+      art_tmpl:find('ul'):delete_children()
       for _, tag in ipairs(art.tags) do
         -- print(tag_tmpl:to_string())
         tag_tmpl:find('li a'):delete_children()
         tag_tmpl:find('li a'):add_text('@'..tag)
         tag_tmpl:find('li a'):set_attr('href', '@'..tag)
-        template:find('ul'):add_children(tag_tmpl)
+        art_tmpl:find('ul'):add_children(tag_tmpl)
       end
 
-      list:add_children(template)
+      list_slot:add_children(art_tmpl)
     end
   end
   writefile('_html.out/index.html', index:to_string())
