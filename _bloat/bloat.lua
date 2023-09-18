@@ -40,9 +40,14 @@ local function main()
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
-    template:delete_children(title)
-    -- TODO: should strip html tags from the text - not allowed really
-    template:add_children(title, text, text:find 'h1')
+    local h1 = text:find 'h1'
+    if h1 then
+        template:delete_children(title)
+        -- TODO: should strip html tags from the text - not allowed really
+        template:add_children(title, text, text:find 'h1')
+    else
+        template:add_text(title, article.slug)
+    end
     template:add_text(title, ' — scribbles by akavel')
 
     -- FIXME: fix relative links - strip .md etc.
