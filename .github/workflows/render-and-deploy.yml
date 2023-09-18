@@ -23,7 +23,7 @@ jobs:
     - uses: Swatinem/rust-cache@v2
       with:
         # Doesn't seem to recognize my custom target dir otherwise?
-        cache-directories: '_rust.out/debug/deps'
+        cache-directories: '_rust.out/'
 
     - name: Build
       run: cargo build --verbose
