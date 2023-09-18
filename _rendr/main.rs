@@ -31,7 +31,7 @@ const DRAFT_SOURCES: &str = "_drafts/*.md";
 const SCRIPT_PATH: &str = "_bloat/bloat.lua";
 const OUT_DIR: &str = "_html.out";
 
-fn main() {
+fn main() -> anyhow::Result<()> {
     logging::init_info();
     info!("👋😃");
 
@@ -93,9 +93,11 @@ fn main() {
     lua.globals().set("articles", articles).unwrap();
 
     let script = std::fs::read_to_string(SCRIPT_PATH).unwrap();
-    lua.load(script).set_name(SCRIPT_PATH).exec().unwrap();
+    lua.load(script).set_name(SCRIPT_PATH).exec()?;
 
     // TODO[LATER]: handle images
+
+    Ok(())
 }
 
 fn md_to_html(markdown: &str) -> RawHtml {
