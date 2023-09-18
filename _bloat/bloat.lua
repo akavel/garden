@@ -40,12 +40,11 @@ local function main()
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
-    title:delete_children()
     local h1 = text:find 'h1'
     if h1 then
-        title:add_text(h1:get_text())
+        title:set_text(h1:get_text())
     else
-        title:add_text(article.slug)
+        title:set_text(article.slug)
     end
     title:add_text(' — scribbles by akavel')
 
@@ -75,13 +74,12 @@ local function main()
       title_slot:set_attr('href', art.slug)
 
       local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
-      art_tmpl:find('time'):add_text(datetime)
+      art_tmpl:find('time'):set_text(datetime)
 
       local tag_tmpl = art_tmpl:find('ul'):eject_children()
       for _, tag in ipairs(art.tags) do
         -- print(tag_tmpl:to_string())
-        tag_tmpl:find('li a'):delete_children()
-        tag_tmpl:find('li a'):add_text('@'..tag)
+        tag_tmpl:find('li a'):set_text('@'..tag)
         tag_tmpl:find('li a'):set_attr('href', '@'..tag)
         art_tmpl:find('ul'):add_children(tag_tmpl)
       end

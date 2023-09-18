@@ -119,9 +119,15 @@ impl mlua::UserData for Html {
         methods.add_method_mut("add_text", |_, html, (s,): (String,)| {
             let id = html.id_or_root();
             let mut raw = html.raw.borrow_mut();
-            let mut dst = raw.tree.get_mut(id).unwrap(); // FIXME: unwrap
-            let text = scraper::node::Text { text: s.into() };
-            dst.append(scraper::Node::Text(text));
+            add_text(&mut raw, id, s);
+            Ok(())
+        });
+
+        methods.add_method_mut("set_text", |_, html, (s,): (String,)| {
+            let id = html.id_or_root();
+            let mut raw = html.raw.borrow_mut();
+            delete_children(&mut raw, id);
+            add_text(&mut raw, id, s);
             Ok(())
         });
 
@@ -151,6 +157,12 @@ impl mlua::UserData for Html {
 fn node_id_by_selector(html: &RawHtml, selector: &str) -> Option<NodeId> {
     let selector = Selector::parse(selector).ok()?;
     html.select(&selector).next().map(|n| n.id())
+}
+
+fn add_text(html: &mut RawHtml, id: NodeId, s: String) {
+    let mut dst = html.tree.get_mut(id).unwrap(); // FIXME: unwrap
+    let text = scraper::node::Text { text: s.into() };
+    dst.append(scraper::Node::Text(text));
 }
 
 fn get_text(html: &RawHtml, id: NodeId) -> String {
