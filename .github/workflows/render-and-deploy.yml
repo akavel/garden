@@ -29,4 +29,4 @@ jobs:
         # Generate with: ssh-keyscan -H $HOST
         known_hosts: ${{ secrets.PUBLISH_KNOWN_HOSTS }}
     - name: Deploy with rsync
-      run: rsync -avz ./_html.out/ ${{ secrets.PUBLISH_USERNAME }}@${{ secrets.PUBLISH_HOST }}:${{ secrets.PUBLISH_TARGET_DIR }}
+      run: rsync -avz ./_html.out/ ${{ secrets.PUBLISH_USERNAME }}@${{ secrets.PUBLISH_HOST }}:
