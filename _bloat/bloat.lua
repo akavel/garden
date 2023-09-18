@@ -35,20 +35,26 @@ local function main()
     -- Put the main text of the article in #content node in the template.
     local template = template:clone()
     local slot = template:find '#content'
-    template:delete_children(slot)
-    template:add_children(slot, text, text:root())
+    slot:delete_children()
+    slot:add_children(text:root())
+    -- template:delete_children(slot)
+    -- template:add_children(slot, text, text:root())
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
     local h1 = text:find 'h1'
     if h1 then
-        template:delete_children(title)
+        title:delete_children()
+        -- template:delete_children(title)
         -- TODO: should strip html tags from the text - not allowed really
-        template:add_children(title, text, text:find 'h1')
+        title:add_children(h1)
+        -- template:add_children(title, text, text:find 'h1')
     else
-        template:add_text(title, article.slug)
+        title:add_text(article.slug)
+        -- template:add_text(title, article.slug)
     end
-    template:add_text(title, ' — scribbles by akavel')
+    title:add_text(' — scribbles by akavel')
+    -- template:add_text(title, ' — scribbles by akavel')
 
     -- FIXME: fix relative links - strip .md etc.
     -- TODO: copy images, css
@@ -63,35 +69,51 @@ local function main()
   local index = html.parse(readfile '_bloat/index.html')
   local list = index:find '#articles'
   local template = html.new()
-  template:add_children(template:root(), index, list)
-  template:delete_children(template:find 'h2 a')
-  template:delete_children(template:find 'time')
-  template:delete_children(template:find 'ul li a')
-  index:delete_children(list)
+  template:root():add_children(list)
+  -- template:add_children(template:root(), index, list)
+  template:find('h2 a'):delete_children()
+  -- template:delete_children(template:find 'h2 a')
+  template:find('time'):delete_children()
+  -- template:delete_children(template:find 'time')
+  template:find('ul li a'):delete_children()
+  -- template:delete_children(template:find 'ul li a')
+  list:delete_children()
+  -- index:delete_children(list)
   for _, art in ipairs(articles) do
     local tags = table_transpose(art.tags)
     if not tags._drafts then
       local template = template:clone()
 
       local art_h1 = art.html:find 'h1'
-      template:add_children(template:find 'h2 a', art.html, art_h1)
-      template:set_attr(template:find 'h2 a', 'href', art.slug)
+      local tmpl_h2_a = template:find('h2 a')
+      tmpl_h2_a:add_children(art_h1)
+      -- template:add_children(template:find 'h2 a', art.html, art_h1)
+      tmpl_h2_a:set_attr('href', art.slug)
+      -- template:set_attr(template:find 'h2 a', 'href', art.slug)
 
       local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
-      template:add_text(template:find 'time', datetime)
+      template:find('time'):add_text(datetime)
+      -- template:add_text(template:find 'time', datetime)
 
       local tag_tmpl = html.new()
-      tag_tmpl:add_children(tag_tmpl:root(), template, template:find 'ul')
-      template:delete_children(template:find 'ul')
+      tag_tmpl:root():add_children(template:find 'ul')
+      -- tag_tmpl:add_children(tag_tmpl:root(), template, template:find 'ul')
+      template:find('ul'):delete_children()
+      -- template:delete_children(template:find 'ul')
       for _, tag in ipairs(art.tags) do
         -- print(tag_tmpl:to_string())
-        tag_tmpl:delete_children(tag_tmpl:find 'li a')
-        tag_tmpl:add_text(tag_tmpl:find 'li a', '@'..tag)
-        tag_tmpl:set_attr(tag_tmpl:find 'li a', 'href', '@'..tag)
-        template:add_children(template:find 'ul', tag_tmpl, tag_tmpl:root())
+        tag_tmpl:find('li a'):delete_children()
+        -- tag_tmpl:delete_children(tag_tmpl:find 'li a')
+        tag_tmpl:find('li a'):add_text('@'..tag)
+        -- tag_tmpl:add_text(tag_tmpl:find 'li a', '@'..tag)
+        tag_tmpl:find('li a'):set_attr('href', '@'..tag)
+        -- tag_tmpl:set_attr(tag_tmpl:find 'li a', 'href', '@'..tag)
+        template:find('ul'):add_children(tag_tmpl:root())
+        -- template:add_children(template:find 'ul', tag_tmpl, tag_tmpl:root())
       end
 
-      index:add_children(list, template, template:root())
+      list:add_children(template:root())
+      -- index:add_children(list, template, template:root())
     end
   end
   writefile('_html.out/index.html', index:to_string())

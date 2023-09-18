@@ -19,16 +19,28 @@
 use ego_tree::NodeId;
 use mlua::prelude::*;
 use scraper::{Html as RawHtml, Selector};
+use std::ops::Deref;
 use std::sync::Arc;
 
 #[derive(Clone)]
 pub struct Html {
-    raw: RawHtml,
+    raw: Arc<RawHtml>,
+    node_id: Option<NodeId>,
+}
+
+impl Html {
+    fn view_with_id(&self, id: NodeId) -> Self {
+        Self { raw: Arc::clone(&self.raw), node_id: Some(id) }
+    }
+
+    fn id_or_root(&self) -> NodeId {
+        self.node_id.or_else(|| self.raw.tree.root().id())
+    }
 }
 
 impl From<RawHtml> for Html {
     fn from(raw: RawHtml) -> Self {
-        Self { raw }
+        Self { raw: Arc::new(raw), node_id: None }
     }
 }
 
@@ -36,50 +48,55 @@ impl mlua::UserData for Html {
     fn add_methods<'lua, M: mlua::UserDataMethods<'lua, Self>>(methods: &mut M) {
         methods.add_method("to_string", |_, html, ()| Ok(html.raw.html()));
 
-        methods.add_method("clone", |_, html, ()| Ok(Html::from(html.raw.clone())));
+        methods.add_method("clone", |_, html, ()| Ok(Html::from(html.raw.deref().clone())));
 
         methods.add_method("find", |_, html, (selector,): (String,)| {
-            Ok(node_id_by_selector(&html.raw, &selector).map(NodeIdWrap))
+            let maybe_id = node_id_by_selector(&html.raw, &selector);
+            let maybe_html = maybe_id.map(|id| html.view_with_id(id));
+            Ok(maybe_html)
         });
 
         methods.add_method("root", |_, html, ()| {
-            Ok(NodeIdWrap(html.raw.tree.root().id()))
+            let id = html.raw.tree.root().id();
+            Ok(html.view_with_id(id))
         });
 
-        methods.add_method_mut("delete_children", |_, html, (id,): (NodeIdWrap,)| {
-            delete_children(&mut html.raw, id.0);
+        methods.add_method_mut("delete_children", |_, html, ()| {
+            let id = html.id_or_root();
+            delete_children(Arc::get_mut(&mut html.raw).unwrap(), id);
             Ok(())
         });
 
         methods.add_method_mut("add_children", |_, html, args: LuaMultiValue| {
-            // let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
-            let arg0 = args.get(0).ok_or(LuaError::BadArgument {
-                to: Some("html:add_children".to_string()),
-                pos: 1,
-                name: Some("self".to_string()),
-                cause: Arc::new(LuaError::RuntimeError(
-                    "got nil, expected html userdata".into(),
-                )),
-            })?;
-            let ud0 = arg0.as_userdata().ok_or(LuaError::BadArgument {
-                to: Some("html:add_children".to_string()),
-                pos: 1,
-                name: Some("self".to_string()),
-                cause: Arc::new(LuaError::RuntimeError(format!(
-                    "got {}, expected html userdata",
-                    arg0.type_name()
-                ))),
-            })?;
-            let dst_node = ud0.borrow::<NodeIdWrap>()?;
+            let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
+            // let arg0 = args.get(0).ok_or(LuaError::BadArgument {
+            //     to: Some("html:add_children".to_string()),
+            //     pos: 1,
+            //     name: Some("self".to_string()),
+            //     cause: Arc::new(LuaError::RuntimeError(
+            //         "got nil, expected html userdata".into(),
+            //     )),
+            // })?;
+            // let ud0 = arg0.as_userdata().ok_or(LuaError::BadArgument {
+            //     to: Some("html:add_children".to_string()),
+            //     pos: 1,
+            //     name: Some("self".to_string()),
+            //     cause: Arc::new(LuaError::RuntimeError(format!(
+            //         "got {}, expected html userdata",
+            //         arg0.type_name()
+            //     ))),
+            // })?;
+            // let dst_node = ud0.borrow::<NodeIdWrap>()?;
 
             let src = borrow_ud::<Html>(args.get(1)).unwrap();
             let src_node = *borrow_ud::<NodeIdWrap>(args.get(2)).unwrap();
-            add_children(&mut html.raw, dst_node.0, &src.raw, src_node.0);
+            add_children(Arc::get_mut(&mut html.raw).unwrap(), dst_node.0, &src.raw, src_node.0);
             Ok(())
         });
 
         methods.add_method_mut("add_text", |_, html, (id, s): (NodeIdWrap, String)| {
-            let mut dst = html.raw.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
+            let raw = Arc::get_mut(&mut html.raw).unwrap();
+            let mut dst = raw.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
             let text = scraper::node::Text { text: s.into() };
             dst.append(scraper::Node::Text(text));
             Ok(())
@@ -88,7 +105,8 @@ impl mlua::UserData for Html {
         methods.add_method_mut(
             "set_attr",
             |_, html, (id, k, v): (NodeIdWrap, String, String)| {
-                let mut dst = html.raw.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
+                let raw = Arc::get_mut(&mut html.raw).unwrap();
+                let mut dst = raw.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
                 use scraper::Node;
                 if let Node::Element(el) = dst.value() {
                     use markup5ever::{LocalName, Namespace, QualName};
@@ -106,23 +124,6 @@ impl mlua::UserData for Html {
 
 fn borrow_ud<'a, T: 'static>(v: Option<&'a LuaValue<'a>>) -> Option<std::cell::Ref<'a, T>> {
     v.and_then(|v| v.as_userdata().and_then(|ud| ud.borrow::<T>().ok()))
-}
-
-#[derive(Copy, Clone, Debug)]
-struct NodeIdWrap(NodeId);
-
-impl mlua::UserData for NodeIdWrap {}
-
-impl<'lua> mlua::FromLua<'lua> for NodeIdWrap {
-    fn from_lua(value: mlua::Value<'lua>, _: &'lua Lua) -> mlua::Result<Self> {
-        match value {
-            mlua::Value::UserData(ud) => Ok(*ud.borrow::<Self>()?),
-            _ => Err(LuaError::RuntimeError(format!(
-                "expected NodeId userdata, got: {}",
-                value.type_name(),
-            ))),
-        }
-    }
 }
 
 fn node_id_by_selector(html: &RawHtml, selector: &str) -> Option<NodeId> {
