@@ -1,0 +1,35 @@
+name: Render and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build-and-render-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --verbose
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Run - Render
+      run: cargo run
+    - name: Deploy
+      # FIXME: is it possible to use something more official?
+      uses: appleboy/scp-action@v0.1.4
+      env:
+        HOST: ${{ secrets.PUBLISH_HOST }}
+        PORT: ${{ secrets.PUBLISH_PORT }}
+        USERNAME: ${{ secrets.PUBLISH_USERNAME }}
+        KEY: ${{ secrets.PUBLISH_PRIV_KEY }}
+      with:
+        source: "./_html.out"
+        target: ${{ secrets.PUBLISH_TARGET_DIR }}
