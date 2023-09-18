@@ -39,8 +39,11 @@ impl mlua::UserData for Html {
         methods.add_method("clone", |_, html, ()| Ok(Html::from(html.raw.clone())));
 
         methods.add_method("find", |_, html, (selector,): (String,)| {
-            let maybe_id = node_id_by_selector(&html.raw, &selector);
-            Ok(maybe_id.map(NodeIdWrap))
+            node_id_by_selector(&html.raw, &selector)
+                .map(NodeIdWrap)
+                .ok_or_else(|| {
+                    LuaError::RuntimeError(format!("node not found for selector: {}", selector))
+                })
         });
 
         methods.add_method("root", |_, html, ()| {
