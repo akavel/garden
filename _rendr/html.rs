@@ -39,11 +39,7 @@ impl mlua::UserData for Html {
         methods.add_method("clone", |_, html, ()| Ok(Html::from(html.raw.clone())));
 
         methods.add_method("find", |_, html, (selector,): (String,)| {
-            node_id_by_selector(&html.raw, &selector)
-                .map(NodeIdWrap)
-                .ok_or_else(|| {
-                    LuaError::RuntimeError(format!("node not found for selector: {}", selector))
-                })
+            Ok(node_id_by_selector(&html.raw, &selector).map(NodeIdWrap))
         });
 
         methods.add_method("root", |_, html, ()| {
@@ -121,7 +117,10 @@ impl<'lua> mlua::FromLua<'lua> for NodeIdWrap {
     fn from_lua(value: mlua::Value<'lua>, _: &'lua Lua) -> mlua::Result<Self> {
         match value {
             mlua::Value::UserData(ud) => Ok(*ud.borrow::<Self>()?),
-            _ => unreachable!(),
+            _ => Err(LuaError::RuntimeError(format!(
+                "expected NodeId userdata, got: {}",
+                value.type_name(),
+            ))),
         }
     }
 }
