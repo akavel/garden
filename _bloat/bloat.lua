@@ -43,8 +43,7 @@ local function main()
     title:delete_children()
     local h1 = text:find 'h1'
     if h1 then
-        -- TODO: should strip html tags from the text - not allowed really
-        title:add_children(h1)
+        title:add_text(h1:get_text())
     else
         title:add_text(article.slug)
     end

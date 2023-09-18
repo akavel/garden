@@ -111,6 +111,11 @@ impl mlua::UserData for Html {
             Ok(())
         });
 
+        methods.add_method("get_text", |_, html, ()| {
+            let id = html.id_or_root();
+            Ok(get_text(&html.raw.borrow(), id))
+        });
+
         methods.add_method_mut("set_attr", |_, html, (k, v): (String, String)| {
             let id = html.id_or_root();
             let mut raw = html.raw.borrow_mut();
@@ -132,6 +137,17 @@ impl mlua::UserData for Html {
 fn node_id_by_selector(html: &RawHtml, selector: &str) -> Option<NodeId> {
     let selector = Selector::parse(selector).ok()?;
     html.select(&selector).next().map(|n| n.id())
+}
+
+fn get_text(html: &RawHtml, id: NodeId) -> String {
+    // FIXME[LATER]: optimize
+    let mut buf = String::new();
+    for node_ref in html.tree.get(id).unwrap().descendants() {
+        if let scraper::Node::Text(text) = node_ref.value() {
+            buf.push_str(&text.to_string())
+        }
+    }
+    buf
 }
 
 fn delete_children(html: &mut RawHtml, parent_id: NodeId) {
