@@ -29,18 +29,34 @@ pub struct Html {
 }
 
 impl Html {
+    fn view(&self) -> Self {
+        Self { raw: Arc::clone(&self.raw), node_id: self.node_id }
+    }
+
     fn view_with_id(&self, id: NodeId) -> Self {
         Self { raw: Arc::clone(&self.raw), node_id: Some(id) }
     }
 
     fn id_or_root(&self) -> NodeId {
-        self.node_id.or_else(|| self.raw.tree.root().id())
+        self.node_id.unwrap_or_else(|| self.raw.tree.root().id())
     }
 }
 
 impl From<RawHtml> for Html {
     fn from(raw: RawHtml) -> Self {
         Self { raw: Arc::new(raw), node_id: None }
+    }
+}
+
+impl<'lua> mlua::FromLua<'lua> for Html {
+    fn from_lua(value: LuaValue<'lua>, _: &'lua Lua) -> mlua::Result<Self> {
+        match value {
+            LuaValue::UserData(ud) => Ok(ud.borrow::<Self>()?.view()),
+            _ => Err(LuaError::RuntimeError(format!(
+                "expected Html userdata, got: {}",
+                value.type_name(),
+            ))),
+        }
     }
 }
 
@@ -67,36 +83,43 @@ impl mlua::UserData for Html {
             Ok(())
         });
 
-        methods.add_method_mut("add_children", |_, html, args: LuaMultiValue| {
-            let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
-            // let arg0 = args.get(0).ok_or(LuaError::BadArgument {
-            //     to: Some("html:add_children".to_string()),
-            //     pos: 1,
-            //     name: Some("self".to_string()),
-            //     cause: Arc::new(LuaError::RuntimeError(
-            //         "got nil, expected html userdata".into(),
-            //     )),
-            // })?;
-            // let ud0 = arg0.as_userdata().ok_or(LuaError::BadArgument {
-            //     to: Some("html:add_children".to_string()),
-            //     pos: 1,
-            //     name: Some("self".to_string()),
-            //     cause: Arc::new(LuaError::RuntimeError(format!(
-            //         "got {}, expected html userdata",
-            //         arg0.type_name()
-            //     ))),
-            // })?;
-            // let dst_node = ud0.borrow::<NodeIdWrap>()?;
-
-            let src = borrow_ud::<Html>(args.get(1)).unwrap();
-            let src_node = *borrow_ud::<NodeIdWrap>(args.get(2)).unwrap();
-            add_children(Arc::get_mut(&mut html.raw).unwrap(), dst_node.0, &src.raw, src_node.0);
+        methods.add_method_mut("add_children", |_, html, (src,): (Html,)| {
+            let dst_id = html.id_or_root();
+            let src_id = src.id_or_root();
+            add_children(Arc::get_mut(&mut html.raw).unwrap(), dst_id, &src.raw, src_id);
             Ok(())
         });
+        // methods.add_method_mut("add_children", |_, html, args: LuaMultiValue| {
+        //     let dst_node = *borrow_ud::<NodeIdWrap>(args.get(0)).unwrap();
+        //     // let arg0 = args.get(0).ok_or(LuaError::BadArgument {
+        //     //     to: Some("html:add_children".to_string()),
+        //     //     pos: 1,
+        //     //     name: Some("self".to_string()),
+        //     //     cause: Arc::new(LuaError::RuntimeError(
+        //     //         "got nil, expected html userdata".into(),
+        //     //     )),
+        //     // })?;
+        //     // let ud0 = arg0.as_userdata().ok_or(LuaError::BadArgument {
+        //     //     to: Some("html:add_children".to_string()),
+        //     //     pos: 1,
+        //     //     name: Some("self".to_string()),
+        //     //     cause: Arc::new(LuaError::RuntimeError(format!(
+        //     //         "got {}, expected html userdata",
+        //     //         arg0.type_name()
+        //     //     ))),
+        //     // })?;
+        //     // let dst_node = ud0.borrow::<NodeIdWrap>()?;
 
-        methods.add_method_mut("add_text", |_, html, (id, s): (NodeIdWrap, String)| {
+        //     let src = borrow_ud::<Html>(args.get(1)).unwrap();
+        //     let src_node = *borrow_ud::<NodeIdWrap>(args.get(2)).unwrap();
+        //     add_children(Arc::get_mut(&mut html.raw).unwrap(), dst_node.0, &src.raw, src_node.0);
+        //     Ok(())
+        // });
+
+        methods.add_method_mut("add_text", |_, html, (s,): (String,)| {
+            let id = html.id_or_root();
             let raw = Arc::get_mut(&mut html.raw).unwrap();
-            let mut dst = raw.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
+            let mut dst = raw.tree.get_mut(id).unwrap(); // FIXME: unwrap
             let text = scraper::node::Text { text: s.into() };
             dst.append(scraper::Node::Text(text));
             Ok(())
@@ -104,9 +127,10 @@ impl mlua::UserData for Html {
 
         methods.add_method_mut(
             "set_attr",
-            |_, html, (id, k, v): (NodeIdWrap, String, String)| {
+            |_, html, (k, v): (String, String)| {
+                let id = html.id_or_root();
                 let raw = Arc::get_mut(&mut html.raw).unwrap();
-                let mut dst = raw.tree.get_mut(id.0).unwrap(); // FIXME: unwrap
+                let mut dst = raw.tree.get_mut(id).unwrap(); // FIXME: unwrap
                 use scraper::Node;
                 if let Node::Element(el) = dst.value() {
                     use markup5ever::{LocalName, Namespace, QualName};
