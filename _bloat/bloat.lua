@@ -36,7 +36,7 @@ local function main()
     local template = template:clone()
     local slot = template:find '#content'
     slot:delete_children()
-    slot:add_children(text:root())
+    slot:add_children(text)
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
@@ -63,7 +63,7 @@ local function main()
   local index = html.parse(readfile '_bloat/index.html')
   local list = index:find '#articles'
   local template = html.new()
-  template:root():add_children(list)
+  template:add_children(list)
   template:find('h2 a'):delete_children()
   template:find('time'):delete_children()
   template:find('ul li a'):delete_children()
@@ -82,17 +82,17 @@ local function main()
       template:find('time'):add_text(datetime)
 
       local tag_tmpl = html.new()
-      tag_tmpl:root():add_children(template:find 'ul')
+      tag_tmpl:add_children(template:find 'ul')
       template:find('ul'):delete_children()
       for _, tag in ipairs(art.tags) do
         -- print(tag_tmpl:to_string())
         tag_tmpl:find('li a'):delete_children()
         tag_tmpl:find('li a'):add_text('@'..tag)
         tag_tmpl:find('li a'):set_attr('href', '@'..tag)
-        template:find('ul'):add_children(tag_tmpl:root())
+        template:find('ul'):add_children(tag_tmpl)
       end
 
-      list:add_children(template:root())
+      list:add_children(template)
     end
   end
   writefile('_html.out/index.html', index:to_string())

@@ -84,11 +84,6 @@ impl mlua::UserData for Html {
             Ok(maybe_html)
         });
 
-        methods.add_method("root", |_, html, ()| {
-            let id = html.raw.borrow().tree.root().id();
-            Ok(html.view_with_id(id))
-        });
-
         methods.add_method_mut("delete_children", |_, html, ()| {
             let id = html.id_or_root();
             delete_children(&mut html.raw.borrow_mut(), id);
