@@ -19,22 +19,23 @@
 use ego_tree::NodeId;
 use mlua::prelude::*;
 use scraper::{Html as RawHtml, Selector};
+use std::cell::RefCell;
 use std::ops::Deref;
-use std::sync::Arc;
+use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct Html {
-    raw: Arc<RawHtml>,
+    raw: Rc<RefCell<RawHtml>>,
     node_id: Option<NodeId>,
 }
 
 impl Html {
     fn view(&self) -> Self {
-        Self { raw: Arc::clone(&self.raw), node_id: self.node_id }
+        Self { raw: Rc::clone(&self.raw), node_id: self.node_id }
     }
 
     fn view_with_id(&self, id: NodeId) -> Self {
-        Self { raw: Arc::clone(&self.raw), node_id: Some(id) }
+        Self { raw: Rc::clone(&self.raw), node_id: Some(id) }
     }
 
     fn id_or_root(&self) -> NodeId {
@@ -44,7 +45,7 @@ impl Html {
 
 impl From<RawHtml> for Html {
     fn from(raw: RawHtml) -> Self {
-        Self { raw: Arc::new(raw), node_id: None }
+        Self { raw: Rc::new(raw), node_id: None }
     }
 }
 
@@ -79,14 +80,14 @@ impl mlua::UserData for Html {
 
         methods.add_method_mut("delete_children", |_, html, ()| {
             let id = html.id_or_root();
-            delete_children(Arc::get_mut(&mut html.raw).unwrap(), id);
+            delete_children(Rc::get_mut(&mut html.raw).unwrap(), id);
             Ok(())
         });
 
         methods.add_method_mut("add_children", |_, html, (src,): (Html,)| {
             let dst_id = html.id_or_root();
             let src_id = src.id_or_root();
-            add_children(Arc::get_mut(&mut html.raw).unwrap(), dst_id, &src.raw, src_id);
+            add_children(Rc::get_mut(&mut html.raw).unwrap(), dst_id, &src.raw, src_id);
             Ok(())
         });
         // methods.add_method_mut("add_children", |_, html, args: LuaMultiValue| {
@@ -118,7 +119,7 @@ impl mlua::UserData for Html {
 
         methods.add_method_mut("add_text", |_, html, (s,): (String,)| {
             let id = html.id_or_root();
-            let raw = Arc::get_mut(&mut html.raw).unwrap();
+            let raw = Rc::get_mut(&mut html.raw).unwrap();
             let mut dst = raw.tree.get_mut(id).unwrap(); // FIXME: unwrap
             let text = scraper::node::Text { text: s.into() };
             dst.append(scraper::Node::Text(text));
@@ -129,7 +130,7 @@ impl mlua::UserData for Html {
             "set_attr",
             |_, html, (k, v): (String, String)| {
                 let id = html.id_or_root();
-                let raw = Arc::get_mut(&mut html.raw).unwrap();
+                let raw = Rc::get_mut(&mut html.raw).unwrap();
                 let mut dst = raw.tree.get_mut(id).unwrap(); // FIXME: unwrap
                 use scraper::Node;
                 if let Node::Element(el) = dst.value() {
