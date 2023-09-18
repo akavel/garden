@@ -79,7 +79,7 @@ impl mlua::UserData for Html {
         });
 
         methods.add_method("find", |_, html, (selector,): (String,)| {
-            let maybe_id = node_id_by_selector(&*html.raw.borrow(), &selector);
+            let maybe_id = node_id_by_selector(&html.raw.borrow(), &selector);
             let maybe_html = maybe_id.map(|id| html.view_with_id(id));
             Ok(maybe_html)
         });
@@ -91,7 +91,7 @@ impl mlua::UserData for Html {
 
         methods.add_method_mut("delete_children", |_, html, ()| {
             let id = html.id_or_root();
-            delete_children(&mut *html.raw.borrow_mut(), id);
+            delete_children(&mut html.raw.borrow_mut(), id);
             Ok(())
         });
 
@@ -99,9 +99,9 @@ impl mlua::UserData for Html {
             let dst_id = html.id_or_root();
             let src_id = src.id_or_root();
             add_children(
-                &mut *html.raw.borrow_mut(),
+                &mut html.raw.borrow_mut(),
                 dst_id,
-                &*src.raw.borrow(),
+                &src.raw.borrow(),
                 src_id,
             );
             Ok(())
