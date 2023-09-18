@@ -21,6 +21,9 @@ jobs:
     # before the caching plugin, as the cache uses the current rustc version as its cache key
     - run: rustup toolchain install stable --profile minimal
     - uses: Swatinem/rust-cache@v2
+      with:
+        # Doesn't seem to recognize my custom target dir otherwise?
+        cache-directories: '_rust.out/debug/deps'
 
     - name: Build
       run: cargo build --verbose
