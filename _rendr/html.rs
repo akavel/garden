@@ -102,6 +102,20 @@ impl mlua::UserData for Html {
             Ok(())
         });
 
+        methods.add_method_mut("eject_children", |_, html, ()| {
+            let ejected = Html::from(RawHtml::new_document());
+            let dst_id = ejected.id_or_root();
+            let src_id = html.id_or_root();
+            add_children(
+                &mut ejected.raw.borrow_mut(),
+                dst_id,
+                &html.raw.borrow(),
+                src_id,
+            );
+            delete_children(&mut html.raw.borrow_mut(), src_id);
+            Ok(ejected)
+        });
+
         methods.add_method_mut("add_text", |_, html, (s,): (String,)| {
             let id = html.id_or_root();
             let mut raw = html.raw.borrow_mut();
