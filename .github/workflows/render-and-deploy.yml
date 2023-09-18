@@ -22,16 +22,11 @@ jobs:
       run: cargo test --verbose
     - name: Run - Render
       run: cargo run
-    - name: Deploy
-      # FIXME: is it possible to use something more official?
-      uses: appleboy/scp-action@v0.1.4
-      env:
-        HOST: ${{ secrets.PUBLISH_HOST }}
-        PORT: ${{ secrets.PUBLISH_PORT }}
-        USERNAME: ${{ secrets.PUBLISH_USERNAME }}
-        KEY: ${{ secrets.PUBLISH_PRIV_KEY }}
+    - name: Predeploy - install SSH key
+      uses: shimataro/ssh-key-action@v2
       with:
-        source: "_html.out/"
-        strip_components: 1
-        target: ${{ secrets.PUBLISH_TARGET_DIR }}
-        #rm: true  # TODO: how to clear it instead?
+        key: ${{ secrets.PUBLISH_PRIV_KEY }}
+        # Generate with: ssh-keyscan -H $HOST
+        known_hosts: ${{ secrets.PUBLISH_KNOWN_HOSTS }}
+    - name: Deploy with rsync
+      run: rsync -avz ./_html.out/ ${{ secrets.PUBLISH_USER }}@${{ secrets.PUBLISH_HOST }}:${{ secrets.PUBLISH_TARGET_DIR }}
