@@ -1,4 +1,4 @@
-# Script for capturing the "dynamic" lock-screen wallpaper-of-the-day on Windows
+# Script for capturing the lock-screen wallpaper-of-the-day on Windows
 
 Windows 10 has a feature where its "lock screen" wallpaper can change every few days,
 displaying an image selected by some people at Microsoft.
