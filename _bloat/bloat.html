@@ -37,10 +37,11 @@ html, body {
 #navhome:hover {
     color: #d44; }
 
-#content time:first-child {
+#navhome + time {
+    color: #999;
     font-size: smaller;
     font-style: italic; }
-time + h1 {
+#content h1:first-child {
     margin-top: 0; }
 h1 {
     line-height: 1.2; } /* for long titles */
@@ -69,11 +70,11 @@ address {
 </style>
 </head><body>
 <a id="navhome" href="..">scribbles by akavel</a>
+<time>2023-10-24</time>
 <main id="content">
     <!-- should get replaced by SSG -->
     <!-- The content below is some dummy stuff for standalone quick-testing. -->
 
-    <time>2023-10-24</time>
     <h1>Test header.</h1>
     <p>Test content.</p>
     <pre>package main

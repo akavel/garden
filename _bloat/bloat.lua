@@ -21,6 +21,10 @@ local function table_transpose(t)
   return r
 end
 
+local function article_date(art)
+    return (art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3'))
+end
+
 local function main()
   local template = html.parse(readfile '_bloat/bloat.html')
 
@@ -34,12 +38,8 @@ local function main()
 
     -- Put the main text of the article in #content node in the template.
     local template = template:clone()
-    -- FIXME: implement below:
-    -- local date_tmpl = template:find('#content time'):clone()
     template:find('#content'):set_children(text)
-    -- FIXME: implement below:
-    -- date_tmpl:find('time'):set_text(datetime) -- see further down
-    -- template:find('#content *'):insert_before(date_tmpl)
+    template:find('#navhome + time'):set_text(article_date(article))
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
@@ -73,8 +73,7 @@ local function main()
       title_slot:set_children(art.html:find 'h1')
       title_slot:set_attr('href', art.slug)
 
-      local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
-      art_tmpl:find('time'):set_text(datetime)
+      art_tmpl:find('time'):set_text(article_date(art))
 
       local tag_tmpl = art_tmpl:find('ul'):eject_children()
       for _, tag in ipairs(art.tags) do
