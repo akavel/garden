@@ -34,7 +34,12 @@ local function main()
 
     -- Put the main text of the article in #content node in the template.
     local template = template:clone()
+    -- FIXME: implement below:
+    -- local date_tmpl = template:find('#content time'):clone()
     template:find('#content'):set_children(text)
+    -- FIXME: implement below:
+    -- date_tmpl:find('time'):set_text(datetime) -- see further down
+    -- template:find('#content *'):insert_before(date_tmpl)
 
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
