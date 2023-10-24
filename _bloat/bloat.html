@@ -52,8 +52,10 @@ p img {
     display: block; margin-left: auto; margin-right: auto; }
 pre {
     padding: 1em;
-    border: 1px solid #ccc;
-    overflow-x: scroll; }
+    border: 1px solid #787878;
+    box-shadow: 5px 5px #646464;
+    overflow-x: auto;
+    scrollbar-color: #ddd #fff; }
 </style>
 </head><body>
 <a id="navhome" href="..">scribbles by akavel</a>
@@ -77,6 +79,34 @@ func main() {
     <p>The standard chunk of <strong>Lorem Ipsum</strong> used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
     <hr />
     <p>Contrary to popular belief, <a href="http://lipsum.com">Lorem Ipsum</a> is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, <em>"Lorem ipsum dolor sit amet.."</em>, comes from a line in section 1.10.32.</p>
+
+    <pre>for _, art in ipairs(articles) do
+    local tags = table_transpose(art.tags)
+    if not tags._drafts then
+      local art_tmpl = art_tmpl:clone()
+
+      local title_slot = art_tmpl:find('h2 a')
+      title_slot:set_children(art.html:find 'h1')
+      title_slot:set_attr('href', art.slug)
+
+      local datetime = art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3')
+      art_tmpl:find('time'):set_text(datetime)
+
+      local tag_tmpl = art_tmpl:find('ul'):eject_children()
+      for _, tag in ipairs(art.tags) do
+        -- print(tag_tmpl:to_string())
+        tag_tmpl:find('li a'):set_text('@'..tag)
+        tag_tmpl:find('li a'):set_attr('href', '@'..tag)
+        art_tmpl:find('ul'):add_children(tag_tmpl)
+      end
+
+      list_slot:add_children(art_tmpl)
+    end
+  end
+
+  -- also some rather long text intended to purposefully overflow horizontal width of a sanely wide page hopefully so that a scrollbar would show or otherwise the behavior with relation to quite long text could be tested
+  -- (or any other kind of text wrapping, trimming, or similar).
+</pre>
 
 
 </main></body>
