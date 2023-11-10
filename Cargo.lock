@@ -327,6 +327,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "garden-render"
+version = "0.0.1"
+dependencies = [
+ "anyhow",
+ "ego-tree",
+ "env_logger",
+ "glob",
+ "log",
+ "markdown-it",
+ "markdown-it-footnote",
+ "markup5ever",
+ "mlua",
+ "peg",
+ "scraper",
+ "thiserror",
+]
+
+[[package]]
 name = "getopts"
 version = "0.2.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -973,24 +991,6 @@ dependencies = [
  "selectors",
  "smallvec",
  "tendril",
-]
-
-[[package]]
-name = "scribbles-render"
-version = "0.0.1"
-dependencies = [
- "anyhow",
- "ego-tree",
- "env_logger",
- "glob",
- "log",
- "markdown-it",
- "markdown-it-footnote",
- "markup5ever",
- "mlua",
- "peg",
- "scraper",
- "thiserror",
 ]
 
 [[package]]

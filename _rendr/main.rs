@@ -1,4 +1,4 @@
-// Scribbles Rendr - converts Markdown files to a HTML+CSS website
+// Garden Rendr - converts Markdown files to a HTML+CSS website
 // Copyright (C) 2023  Mateusz Czapliński
 //
 // This program is free software: you can redistribute it and/or modify
