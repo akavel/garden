@@ -1,4 +1,4 @@
-# Go tuple switch
+# Go pattern: tuple switch
 
 An idiom I discovered a few years ago; I think about it as "poor man's pattern
 matching" in Go:
