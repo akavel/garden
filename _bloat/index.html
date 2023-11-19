@@ -22,17 +22,21 @@ body {
 }
 
 article {
-    margin-top: 1ex;
-    display: grid;
-    grid-template-columns: 11ch 1fr; }
+    padding-left: 2ex;
+    text-indent: -2ex; }
+article .title {
+    color: #000;
+    text-decoration: none;
+    font-size: 110%;
+    font-weight: bold; }
+article .title:hover {
+    color: #44d;
+    text-decoration: underline; }
 article time {
-    margin-top: .5rem;
+    padding: 0 .5ex;
+    color: #999;
     font-style: italic; }
-article h2 {
-    margin: 0;
-    font-size: 1.5rem; }
 article ul.tags {
-    grid-column: 2;
     margin: 0;
     padding: 0;
     display: inline; }
@@ -52,11 +56,11 @@ article ul.tags li {
 
 <div id="articles">
 <article>
-<time>2023-08-01</time>
-<h2 class="title"><a href="foo-bar">Foo bar</a></h2>
-<ul class="tags">
-    <li><a href="@go">@go</a></li>
-</ul>
+    <a href="foo-bar" class="title">Foo bar</a>
+    <time>2023-08-01</time>
+    <ul class="tags">
+        <li><a href="@go">@go</a></li>
+    </ul>
 </article>
 </div>
 

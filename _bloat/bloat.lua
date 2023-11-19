@@ -69,7 +69,7 @@ local function main()
     if not tags._drafts then
       local art_tmpl = art_tmpl:clone()
 
-      local title_slot = art_tmpl:find('h2 a')
+      local title_slot = art_tmpl:find('a.title')
       title_slot:set_children(art.html:find 'h1')
       title_slot:set_attr('href', art.slug)
 
