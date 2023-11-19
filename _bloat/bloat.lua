@@ -43,6 +43,14 @@ local function main()
     template:find('#content'):set_children(text)
     template:find('#navhome + time'):set_text(article_date(article))
 
+    local tags = table_transpose(article.tags)
+    local greenery_kind =
+      tags.seed and 'seed' or
+      tags.bud and 'bud' or
+      tags.ripe and 'ripe' or
+      ''
+    template:find('#navhome + time'):set_attr('class', greenery_kind)
+
     -- Set tags
     local tag_tmpl = template:find('ul.tags'):eject_children()
     for _, tag in ipairs(article.tags) do
