@@ -27,7 +27,7 @@ use html::Html;
 use pathinfo::PathInfo;
 
 const BASE_SOURCES: &str = "*.md";
-const DRAFT_SOURCES: &str = "_drafts/*.md";
+const DRAFT_SOURCES: &str = "@seed/*.md";
 const SCRIPT_PATH: &str = "_bloat/bloat.lua";
 const OUT_DIR: &str = "_html.out";
 

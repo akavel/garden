@@ -43,7 +43,7 @@ impl PathInfo {
             .ok_or(Error::NotUTF8)?
             .to_string();
 
-        let unwrap_normal_component = |c| match c {
+        let extract_normal_component = |c| match c {
             std::path::Component::Normal(s) => Some(s),
             _ => None,
         };
@@ -51,8 +51,8 @@ impl PathInfo {
             .components()
             .rev()
             .skip(1) // skip filename
-            .filter_map(unwrap_normal_component)
-            .map(|s| s.to_str().map(String::from)) // OsStr -> Option<String>
+            .filter_map(extract_normal_component)
+            .map(|o| o.to_str().map(|s| s.trim_start_matches('@').to_string())) // OsStr -> Option<String>
             .collect::<Option<_>>() // Vec<Option<_>> -> Option<Vec<_>>
             .ok_or(Error::NotUTF8)?;
 
