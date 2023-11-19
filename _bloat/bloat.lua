@@ -43,6 +43,15 @@ local function main()
     template:find('#content'):set_children(text)
     template:find('#navhome + time'):set_text(article_date(article))
 
+    -- Set tags
+    local tag_tmpl = template:find('ul.tags'):eject_children()
+    for _, tag in ipairs(article.tags) do
+      -- print(tag_tmpl:to_string())
+      tag_tmpl:find('li a'):set_text('@'..tag)
+      tag_tmpl:find('li a'):set_attr('href', '@'..tag)
+      template:find('ul.tags'):add_children(tag_tmpl)
+    end
+
     -- Set title in the template based on <h1> tag in the article.
     local title = template:find 'html head title'
     local h1 = text:find 'h1'
