@@ -64,8 +64,7 @@ local function render_article(template, article)
   -- FIXME: fix relative links - strip .md etc.
   -- TODO: copy images, css
 
-  -- Write filled template to disk.
-  writefile('_html.out/'..article.slug, template:to_string())
+  return template
 end
 
 local function render_index_entry(art_tmpl, art)
@@ -100,22 +99,61 @@ local function render_index_entry(art_tmpl, art)
   return art_tmpl
 end
 
+local function render_tag(tag_tmpl, tag, articles)
+  -- Set title
+  local title = '@' .. tag .. ' — scribbles by akavel'
+  tag_tmpl:find('html head title'):set_text(title)
+
+  -- Set tag name in h1
+  tag_tmpl:find('#tag'):set_text('@'..tag)
+
+  -- Build list of articles in tag
+  local list_slot = tag_tmpl:find '#articles'
+  local art_tmpl = list_slot:eject_children()
+  for _, art in ipairs(articles) do
+    local entry = render_index_entry(art_tmpl:clone(), art)
+    if entry then
+      list_slot:add_children(entry)
+    end
+  end
+  return tag_tmpl
+end
+
 local function main()
-  local template = html.parse(readfile '_bloat/bloat.html')
+  -- Sort articles, newest first.
+  table.sort(articles, function(a, b) return a.datetime > b.datetime end)
 
   ------
   -- Render articles.
   ------
+  local template = html.parse(readfile '_bloat/bloat.html')
   for _, article in ipairs(articles) do
     print("RENDERING " .. article.slug)
-    render_article(template:clone(), article)
+    local render = render_article(template:clone(), article)
+    writefile('_html.out/'..article.slug, render:to_string())
+  end
+
+  ------
+  -- Render tags pages.
+  ------
+  local tags = {}
+  for _, article in ipairs(articles) do
+    for _, v in ipairs(article.tags) do
+      local t = tags[v] or {}
+      t[#t+1] = article
+      tags[v] = t
+    end
+  end
+  local tag_tmpl = html.parse(readfile '_bloat/tag.html')
+  for tag, arts in pairs(tags) do
+    print("TAG @" .. tag)
+    local render = render_tag(tag_tmpl:clone(), tag, arts)
+    writefile('_html.out/@'..tag, render:to_string())
   end
 
   ------
   -- Render index.
   ------
-  -- Sort articles, newest first.
-  table.sort(articles, function(a, b) return a.datetime > b.datetime end)
   local index = html.parse(readfile '_bloat/index.html')
   local list_slot = index:find '#articles'
   local art_tmpl = list_slot:eject_children()
