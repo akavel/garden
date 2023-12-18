@@ -26,6 +26,31 @@ h1 {
     font-family: sans-serif;
     font-style: italic; }
 
+#areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+#areas li {
+    display: inline;
+    text-align: center;
+    margin: 0 5%;
+    border: 1px solid black;
+    box-shadow: 5px 5px #888;
+}
+#areas li a {
+    color: #aaa;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+}
+#areas li a:hover {
+    color: #d44;
+    text-decoration: underline;
+}
+
 article {
     padding-left: 2ex;
     text-indent: -2ex; }
@@ -74,6 +99,13 @@ address {
     <!-- TODO: add support for RSS feeds; or use some helper service for that -->
 
 <h1>akavel's digital garden</h1>
+
+<ul id="areas">
+    <li><a href="@platter">platter</a></li>
+    <li><a href="@backstage">backstage</a></li>
+    <li><a href="projects">projects</a></li>
+    <li><a href="about">about</a></li>
+</ul>
 
 <div id="articles">
 <article>
