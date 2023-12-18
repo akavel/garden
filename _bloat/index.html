@@ -14,7 +14,8 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: white;
-    padding: 30px; }
+    margin: 0;
+    padding: 30px 20px; }
 @media screen and (min-width: 714px) {
     body {
         width: 700px;
@@ -29,26 +30,34 @@ h1 {
 #areas {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-left: 0;
-    margin-right: 0;
+    column-gap: 2%;
+    margin: 0 0 1.5em 0;
     padding: 0;
 }
 #areas li {
-    display: inline;
+    display: inline-block;
     text-align: center;
     margin: 0 5%;
-    border: 1px solid black;
-    box-shadow: 5px 5px #888;
 }
 #areas li a {
+    display: inline-block;
+    width: 100%;
     color: #aaa;
     font-weight: bold;
     font-style: italic;
     text-decoration: none;
 }
+#areas li.current a {
+    color: black;
+    border-bottom: 2px solid black;
+}
 #areas li a:hover {
     color: #d44;
-    text-decoration: underline;
+    border-bottom: 2px solid #d44;
+}
+#areas li.current a:hover {
+    color: black;
+    border-bottom: 2px solid black;
 }
 
 article {
@@ -101,7 +110,7 @@ address {
 <h1>akavel's digital garden</h1>
 
 <ul id="areas">
-    <li><a href="@platter">platter</a></li>
+    <li class="current"><a href="@platter">platter</a></li>
     <li><a href="@backstage">backstage</a></li>
     <li><a href="projects">projects</a></li>
     <li><a href="about">about</a></li>
