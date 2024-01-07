@@ -181,6 +181,9 @@ local function main()
     local text = html.from_md(readfile('@seed/0000-about.md'))
     tmpl:find('#list'):delete_children()
     tmpl:find('#list + small'):delete_children()
+    tmpl:find('article#text'):add_children(text)
+    tmpl:find('article#text > h1'):delete_children()
+    tmpl:find('article#text > h1'):set_attr('style', 'display:none')
   end)
 end
 
