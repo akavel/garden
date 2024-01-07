@@ -60,37 +60,37 @@ h1 {
     border-bottom: 2px solid black;
 }
 
-article {
+#list article {
     padding-left: 2ex;
     text-indent: -2ex; }
-article .title {
+#list article .title {
     color: #000;
     text-decoration: none;
     font-size: 110%;
     font-weight: bold; }
-article .title:hover {
+#list article .title:hover {
     color: #44d;
     text-decoration: underline; }
-.title.seed { color: #bbb }
-.title.seed:after { content: ' 🌱'; font-size: 60%; }
-.title.seed:hover { text-decoration-style: dotted }
-.title.bud { color: #777 }
-.title.bud:after { content: ' 🌿'; font-size: 60%; }
-.title.bud:hover { text-decoration-style: dashed }
-.title.ripe:after { content: ' 🌳'; font-size: 60%; }
-article time {
+#list .title.seed { color: #bbb }
+#list .title.seed:after { content: ' 🌱'; font-size: 60%; }
+#list .title.seed:hover { text-decoration-style: dotted }
+#list .title.bud { color: #777 }
+#list .title.bud:after { content: ' 🌿'; font-size: 60%; }
+#list .title.bud:hover { text-decoration-style: dashed }
+#list .title.ripe:after { content: ' 🌳'; font-size: 60%; }
+#list article time {
     padding: 0 .5ex;
     color: #999;
     font-style: italic; }
-article ul.tags {
+#list article ul.tags {
     margin: 0;
     padding: 0;
     display: inline; }
-article ul.tags li {
+#list article ul.tags li {
     font-size: .9rem;
     display: inline; }
 
-#articles + small {
+#list + small {
     display: block;
     margin-top: 1.5rem;
     font-size: 70%; }
@@ -116,7 +116,7 @@ address {
     <li><a href="about">about</a></li>
 </ul>
 
-<div id="articles">
+<div id="list">
 <article>
     <a href="foo-bar" class="title">Foo bar</a>
     <time>2023-08-01</time>

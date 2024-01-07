@@ -112,7 +112,7 @@ end
 local function render_index(filename, articles, modifer_f)
   print('INDEX ' .. filename)
   local index = html.parse(readfile '_bloat/index.html')
-  local list_slot = index:find '#articles'
+  local list_slot = index:find '#list'
   local art_tmpl = list_slot:eject_children()
   for _, art in ipairs(articles) do
     local entry = render_index_entry(art_tmpl:clone(), art)
@@ -179,8 +179,8 @@ local function main()
     tmpl:find('#areas > li.current'):set_attr('class', '')
     tmpl:find('#areas > li + li + li'):set_attr('class', 'current')
     local text = html.from_md(readfile('@seed/0000-about.md'))
-    tmpl:find('#articles'):delete_children()
-    tmpl:find('#articles + small'):delete_children()
+    tmpl:find('#list'):delete_children()
+    tmpl:find('#list + small'):delete_children()
   end)
 end
 
