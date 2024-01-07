@@ -26,8 +26,7 @@ mod pathinfo;
 use html::Html;
 use pathinfo::PathInfo;
 
-const BASE_SOURCES: &str = "*.md";
-const DRAFT_SOURCES: &str = "@seed/*.md";
+const SOURCES: &str = "*.md:@seed/*.md";
 const SCRIPT_PATH: &str = "_bloat/bloat.lua";
 const OUT_DIR: &str = "_html.out";
 
@@ -35,9 +34,9 @@ fn main() -> anyhow::Result<()> {
     logging::init_info();
     info!("Hi! 👋😃");
 
-    info!("Scanning {BASE_SOURCES} & {DRAFT_SOURCES}");
-    let paths: Vec<_> = [BASE_SOURCES, DRAFT_SOURCES]
-        .iter()
+    info!("Scanning {SOURCES}");
+    let paths: Vec<_> = SOURCES
+        .split(':')
         .flat_map(|s| glob(s).unwrap())
         .filter_map(|result| match result {
             Err(e) => {
