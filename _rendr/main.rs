@@ -18,6 +18,7 @@ use glob::glob;
 use log::{error, info, warn};
 use mlua::prelude::*;
 use scraper::Html as RawHtml;
+use std::path::PathBuf;
 
 mod html;
 mod logging;
@@ -27,6 +28,7 @@ use html::Html;
 use pathinfo::PathInfo;
 
 const SOURCES: &str = "*.md:@seed/*.md";
+const RAW: &str = "*.pdf:@seed/*.pdf:*.png:@seed/*.png:*.jpg:@seed/*.jpg";
 const SCRIPT_PATH: &str = "_bloat/bloat.lua";
 const OUT_DIR: &str = "_html.out";
 
@@ -57,6 +59,26 @@ fn main() -> anyhow::Result<()> {
     // FIXME: purge target dir before writing
     if let Err(err) = std::fs::create_dir_all(OUT_DIR) {
         error!("Could not create directory {OUT_DIR}: {err}");
+    }
+
+    info!("Copying {RAW}");
+    let raw_files =
+        RAW.split(':')
+            .flat_map(|s| glob(s).unwrap())
+            .filter_map(|result| match result {
+                Err(e) => {
+                    warn!("{e}");
+                    None
+                }
+                Ok(path) => Some(path),
+            });
+    let out_dir = PathBuf::from(OUT_DIR);
+    for f in raw_files {
+        let Some(name) = f.file_name() else {
+            continue;
+        };
+        println!("{f:?} -> {out_dir:?}/{name:?}");
+        std::fs::copy(&f, out_dir.join(name)).unwrap();
     }
 
     let lua = Lua::new();
