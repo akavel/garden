@@ -110,6 +110,7 @@ local function render_tag(tag_tmpl, tag, articles)
 end
 
 local function render_index(filename, articles, modifer_f)
+  print('INDEX ' .. filename)
   local index = html.parse(readfile '_bloat/index.html')
   local list_slot = index:find '#articles'
   local art_tmpl = list_slot:eject_children()
@@ -173,6 +174,13 @@ local function main()
   render_index('_html.out/@backstage', articles, function(tmpl)
     tmpl:find('#areas > li.current'):set_attr('class', '')
     tmpl:find('#areas > li + li'):set_attr('class', 'current')
+  end)
+  render_index('_html.out/about', {}, function(tmpl)
+    tmpl:find('#areas > li.current'):set_attr('class', '')
+    tmpl:find('#areas > li + li + li'):set_attr('class', 'current')
+    local text = html.from_md(readfile('@seed/0000-about.md'))
+    tmpl:find('#articles'):delete_children()
+    tmpl:find('#articles + small'):delete_children()
   end)
 end
 
