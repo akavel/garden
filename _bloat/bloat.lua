@@ -13,14 +13,6 @@ local function writefile(name, content)
   fh:close()
 end
 
-local function table_transpose(t)
-  local r = {}
-  for k, v in pairs(t) do
-    r[v] = k
-  end
-  return r
-end
-
 local function article_date(art)
   return (art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3'))
 end
@@ -34,11 +26,10 @@ local function render_article(template, article)
   template:find('#content'):set_children(text)
   template:find('#navhome + time'):set_text(article_date(article))
 
-  local tags = table_transpose(article.tags)
   local greenery_kind =
-    tags.seed and 'seed' or
-    tags.bud and 'bud' or
-    tags.ripe and 'ripe' or
+    article.tags.seed and 'seed' or
+    article.tags.bud and 'bud' or
+    article.tags.ripe and 'ripe' or
     ''
   template:find('#navhome + time'):set_attr('class', greenery_kind)
 
@@ -73,14 +64,13 @@ local function render_index_entry(art_tmpl, art)
     return nil
   end
 
-  local tags = table_transpose(art.tags)
 
   local title_slot = art_tmpl:find('a.title')
   title_slot:set_children(h1)
   local greenery_kind =
-    tags.seed and 'seed' or
-    tags.bud and 'bud' or
-    tags.ripe and 'ripe' or
+    art.tags.seed and 'seed' or
+    art.tags.bud and 'bud' or
+    art.tags.ripe and 'ripe' or
     ''
   -- TODO: should use :get_attr() instead of hardcoding 'title '
   title_slot:set_attr('class', 'title '..greenery_kind)
@@ -119,6 +109,22 @@ local function render_tag(tag_tmpl, tag, articles)
   return tag_tmpl
 end
 
+local function render_index(filename, articles, modifer_f)
+  local index = html.parse(readfile '_bloat/index.html')
+  local list_slot = index:find '#articles'
+  local art_tmpl = list_slot:eject_children()
+  for _, art in ipairs(articles) do
+    local entry = render_index_entry(art_tmpl:clone(), art)
+    if entry then
+      list_slot:add_children(entry)
+    end
+  end
+  if modifer_f then
+    modifer_f(index)
+  end
+  writefile(filename, index:to_string())
+end
+
 local function main()
   -- Sort articles, newest first.
   table.sort(articles, function(a, b) return a.datetime > b.datetime end)
@@ -129,12 +135,15 @@ local function main()
   local template = html.parse(readfile '_bloat/bloat.html')
   for _, article in ipairs(articles) do
     print("RENDERING " .. article.slug)
+    for _, t in ipairs(article.tags) do
+      article.tags[t] = true
+    end
     local render = render_article(template:clone(), article)
     writefile('_html.out/'..article.slug, render:to_string())
   end
 
   ------
-  -- Render tags pages.
+  -- Render tags index pages.
   ------
   local tags = {}
   for _, article in ipairs(articles) do
@@ -152,18 +161,19 @@ local function main()
   end
 
   ------
-  -- Render index.
+  -- Render main index pages (tabs/areas)
   ------
-  local index = html.parse(readfile '_bloat/index.html')
-  local list_slot = index:find '#articles'
-  local art_tmpl = list_slot:eject_children()
-  for _, art in ipairs(articles) do
-    local entry = render_index_entry(art_tmpl:clone(), art)
-    if entry then
-      list_slot:add_children(entry)
+  local platter_articles = {}
+  for _, a in ipairs(articles) do
+    if a.tags.ripe or a.tags.bud then
+      platter_articles[#platter_articles+1] = a
     end
   end
-  writefile('_html.out/index.html', index:to_string())
+  render_index('_html.out/index.html', platter_articles)
+  render_index('_html.out/@backstage', articles, function(tmpl)
+    tmpl:find('#areas > li.current'):set_attr('class', '')
+    tmpl:find('#areas > li + li'):set_attr('class', 'current')
+  end)
 end
 
 main()
