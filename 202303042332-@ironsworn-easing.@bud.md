@@ -1,4 +1,4 @@
-# Easing into playing *Ironsworn: Starforged*
+# Easing into playing *Starforged* RPG
 
 Some possible ideas and notes for making it easier to get into writing mood
 for *"Ironsworn: Starforged":* 
