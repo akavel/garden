@@ -1,4 +1,11 @@
-# Universal comparator/less pattern for prioritized sorting
+# Go pattern: less — comparator for prioritized sorting
+
+This pattern should work in basically any programming language
+where "less than" functions are used
+to customize sorting/collections.
+It has the benefit of having a regular, structured form,
+and thus making it easy to see if it is written correctly
+(in other words, easy to avoid bugs and easy to review).
 
 ```go
 func Less(a, b T) bool {
