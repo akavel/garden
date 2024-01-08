@@ -22,6 +22,8 @@ func Less(a, b T) bool {
 
 [[TODO]] explain why this is valuable - easy to understand, clear pattern, "less" clearly corresponds to "<" in body
 
-[[TODO]] how to tag this? @go? @programming (with tree tags)? -> maybe for now @go, and think more later?
+<!-- TODO: when I implement "tree tags", possibly move this to @programming -->
 
 [[TODO]] write with `if`s, then for Go explain a `switch` refactoring as better
+
+[[TODO]] add a runnable link to sample code using it in Go playground
