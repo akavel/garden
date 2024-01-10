@@ -3,7 +3,7 @@
 For now in non-chronological order.
 
 - [UP](https://github.com/akavel/up)
-- Wanderer
+- [Wanderer solo-RPG](https://akavel.itch.io/wanderer)
 - dali / hellomello
 - [paper brick](paper-brick); showcase example use with Chrome Hammer: Ascension.
 - eyepicker
