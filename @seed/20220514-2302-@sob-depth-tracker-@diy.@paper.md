@@ -5,7 +5,7 @@ Schematic diagram:
 ![](sob-depth-tracker-diagram.svg)
 
 <!--
-```pikchr
+```pikchr:render
 define tab {line up 3cm; line right 5mm; line down 3cm}
 define tab5 {tab; tab; tab; tab; tab}
 tab5; tab5; tab5; tab; tab

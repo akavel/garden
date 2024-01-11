@@ -340,6 +340,7 @@ dependencies = [
  "markup5ever",
  "mlua",
  "peg",
+ "pikchr",
  "scraper",
  "thiserror",
 ]
@@ -772,6 +773,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "90fcb95eef784c2ac79119d1dd819e162b5da872ce6f3c3abe1e8ca1c082f72b"
 dependencies = [
  "siphasher",
+]
+
+[[package]]
+name = "pikchr"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b430b470a0dfac4e22cd248210e3ef005346acd1ada670d74d6bdcdbab0dc96e"
+dependencies = [
+ "cc",
+ "libc",
 ]
 
 [[package]]

@@ -1,5 +1,5 @@
 // Garden Rendr - converts Markdown files to a HTML+CSS website
-// Copyright (C) 2023  Mateusz Czapliński
+// Copyright (C) 2023-2024  Mateusz Czapliński
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -22,6 +22,7 @@ use std::path::PathBuf;
 
 mod html;
 mod logging;
+mod md_pikchr;
 mod pathinfo;
 
 use html::Html;
@@ -125,9 +126,29 @@ fn main() -> anyhow::Result<()> {
 fn md_to_html(markdown: &str) -> RawHtml {
     let parser = &mut markdown_it::MarkdownIt::new();
     markdown_it::plugins::cmark::add(parser);
+    md_pikchr::add(parser); // TODO: here or earlier?
     markdown_it::plugins::extra::add(parser);
     markdown_it_footnote::add(parser);
     let ast = parser.parse(markdown);
+    // ast.walk(|node, _| {
+    //     let name = node.name();
+    //     let skip = &[
+    //         "::Paragraph",
+    //         "::Text",
+    //         "::Em",
+    //         "::backticks::CodeInline",
+    //         "::Link",
+    //     ];
+    //     for s in skip {
+    //         if name.ends_with(s) { return; }
+    //     }
+    //     println!("  {name:?}");
+    //     use markdown_it::plugins::cmark::block::fence;
+    //     let Some(fence) = node.cast::<fence::CodeFence>() else { return };
+    //     let info = &fence.info;
+    //     let pfx = &fence.lang_prefix;
+    //     println!("<fence> info={info:?} lang_prefix={pfx:?}");
+    // });
     let html = ast.render();
     RawHtml::parse_fragment(&html)
 }
