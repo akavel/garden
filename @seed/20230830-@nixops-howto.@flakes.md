@@ -52,15 +52,21 @@ With, obviously, Flakes wherever possible!
 
 <<TODO[LATER]: howto for NixOS on RackNerd hosting - nix-infect, lowendbox.com>>
 
-```mermaid
-flowchart LR
-    subgraph "👨‍💻 local "
-      L("NixOps")
-    end
-    subgraph "🖥 remote VPS "
-      R("NixOS")
-    end
-    L== SSH ==>R
+```pikchr:render
+Ops: box radius 5px fill white "NixOps" fit
+     arrow right 150% "SSH" above
+OS:  box same "NixOS"
+
+Local: box thin \
+ height 3.5 * Ops.height \
+ color 0xcccc55 fill 0xffffdd \
+ at Ops behind Ops
+line invisible from Local.nw to Local.ne \
+ "👨‍💻 local" below
+
+Remote: box same at OS
+line invisible from Remote.nw to Remote.ne \
+ "🖥 remote VPS " below
 ```
 
 
