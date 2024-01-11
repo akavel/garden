@@ -55,7 +55,10 @@ impl CoreRule for PikchrRule {
             // FIXME: CLASS seems not added to SVG - bug in library?
             let render = Pikchr::render(&fence.content, Some(CLASS), flags).unwrap();
             let svg = render.rendered().to_string();
-            node.replace(PikchrSvg { svg });
+            node.replace(PikchrSvg {
+                svg,
+                w: render.width(),
+            });
         });
     }
 }
@@ -63,10 +66,15 @@ impl CoreRule for PikchrRule {
 #[derive(Debug)]
 pub struct PikchrSvg {
     svg: String,
+    w: isize,
 }
 
 impl NodeValue for PikchrSvg {
     fn render(&self, _: &Node, fmt: &mut dyn Renderer) {
-        fmt.text_raw(&self.svg);
+        let svg = &self.svg;
+        let w = &self.w;
+        fmt.text_raw(&format!(
+            r"<div class='{CLASS}' style='max-width:{w}px'>{svg}</div>"
+        ));
     }
 }
