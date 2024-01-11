@@ -29,7 +29,8 @@ use html::Html;
 use pathinfo::PathInfo;
 
 const SOURCES: &str = "*.md:@seed/*.md";
-const RAW: &str = "favicon.ico:*.pdf:@seed/*.pdf:*.png:@seed/*.png:*.jpg:@seed/*.jpg:*.svg:@seed/*.svg";
+const RAW: &str =
+    "favicon.ico:*.pdf:@seed/*.pdf:*.png:@seed/*.png:*.jpg:@seed/*.jpg:*.svg:@seed/*.svg";
 const SCRIPT_PATH: &str = "_bloat/bloat.lua";
 const OUT_DIR: &str = "_html.out";
 
