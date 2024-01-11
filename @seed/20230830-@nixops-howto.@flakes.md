@@ -62,11 +62,11 @@ Local: box thin \
  color 0xcccc55 fill 0xffffdd \
  at Ops behind Ops
 line invisible from Local.nw to Local.ne \
- "👨‍💻 local" above
+ "💻 local" above
 
 Remote: box same at OS
 line invisible from Remote.nw to Remote.ne \
- "🖥 remote VPS " above
+ "🖥 remote VPS" above
 ```
 
 
