@@ -58,15 +58,15 @@ Ops: box radius 5px fill white "NixOps" fit
 OS:  box same "NixOS"
 
 Local: box thin \
- height 3.5 * Ops.height \
+ height 2.5 * Ops.height \
  color 0xcccc55 fill 0xffffdd \
  at Ops behind Ops
 line invisible from Local.nw to Local.ne \
- "👨‍💻 local" below
+ "👨‍💻 local" above
 
 Remote: box same at OS
 line invisible from Remote.nw to Remote.ne \
- "🖥 remote VPS " below
+ "🖥 remote VPS " above
 ```
 
 
