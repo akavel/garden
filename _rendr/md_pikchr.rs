@@ -52,8 +52,8 @@ impl CoreRule for PikchrRule {
             let flags = Default::default();
             // TODO[LATER]: how to handle errors instead of .unwrap()?
             // TODO: add fence.info.strip_prefix(FENCE_KEYWORD) as class for CSS styling purposes
-            // FIXME: CLASS seems not added to SVG - bug in library?
-            let render = Pikchr::render(&fence.content, Some(CLASS), flags).unwrap();
+            // TODO[LATER]: CLASS seems not added to SVG - bug in library?
+            let render = Pikchr::render(&fence.content, None, flags).unwrap();
             let svg = render.rendered().to_string();
             node.replace(PikchrSvg {
                 svg,
