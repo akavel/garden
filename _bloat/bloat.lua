@@ -1,5 +1,7 @@
 print("hello lua!")
 
+local TITLE_SUFFIX = " — akavel's digital garden"
+
 local function readfile(name)
   local fh = assert(io.open(name))
   local data = assert(fh:read '*a')
@@ -50,7 +52,7 @@ local function render_article(template, article)
   else
       title:set_text(article.slug)
   end
-  title:add_text(' — scribbles by akavel')
+  title:add_text(TITLE_SUFFIX)
 
   -- FIXME: fix relative links - strip .md etc.
   -- TODO: copy images, css
@@ -91,7 +93,7 @@ end
 
 local function render_tag(tag_tmpl, tag, articles)
   -- Set title
-  local title = '@' .. tag .. ' — scribbles by akavel'
+  local title = '@' .. tag .. TITLE_SUFFIX
   tag_tmpl:find('html head title'):set_text(title)
 
   -- Set tag name in h1
