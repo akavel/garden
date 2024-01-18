@@ -13,7 +13,7 @@ For now in non-chronological order.
   character sheet;
   [darkness track papercraft](sob-depth-tracker-diy).
 - a small Sci-Fi LEGO [MOC-77093](https://rebrickable.com/mocs/MOC-77093/akavel/corval-piercer/) (with instructions).
-- [ditaa in Go](https://github.com/akavel/ditaa); (TODO: link also again to the comparison page).
+- [ditaa in Go](https://github.com/akavel/ditaa) (see also: [a visual comparison](http://akavel.github.io/ditaa) to [original](https://github.com/stathissideris/ditaa) ditaa).
 - (old; PL) [eyepicker](publikacja-m13.pdf) - precise eyeball movement analysis for computer control
 
 WIP:
