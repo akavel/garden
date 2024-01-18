@@ -1,7 +1,7 @@
 # Easing into playing *Starforged* RPG
 
 Some possible ideas and notes for making it easier to get into writing mood
-for *"Ironsworn: Starforged":* 
+for *["Ironsworn: Starforged"](https://www.ironswornrpg.com/product-ironsworn-starforged):* 
 
  - a "Soft start" subset of rules: http://redd.it/115xkpe (discussion);
  - see the custom ["Get Unstuck" Session Move](ironsworn-unstuck);
