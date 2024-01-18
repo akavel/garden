@@ -10,6 +10,7 @@ For now in non-chronological order.
   [rules cheatsheet](https://boardgamegeek.com/filepage/265209/akavels-rules-cheatsheet-v11) (TODO: add a copy of the pdf here);
   character sheet;
   [darkness track papercraft](sob-depth-tracker-diy).
+- a small Sci-Fi LEGO [MOC-77093](https://rebrickable.com/mocs/MOC-77093/akavel/corval-piercer/) (with instructions).
 - [ditaa in Go](https://github.com/akavel/ditaa); (TODO: link also again to the comparison page).
 - (old; PL) [eyepicker](publikacja-m13.pdf) - precise eyeball movement analysis for computer control
 
