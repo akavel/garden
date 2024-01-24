@@ -13,8 +13,8 @@ For now in non-chronological order.
   character sheet;
   [darkness track papercraft](sob-depth-tracker-diy).
 - a small Sci-Fi LEGO [MOC-77093](https://rebrickable.com/mocs/MOC-77093/akavel/corval-piercer/) (with instructions).
-- https://akavel.github.io/0catalog/catalog.xml
-  — a personal catalog of Windows apps for [0install](https://0install.net/)
+- a [personal catalog](https://akavel.github.io/0catalog/catalog.xml)
+  of (currently only Windows) apps for [0install](https://0install.net/)
   (a decentralised cross-platform software installation system);
 - [ditaa in Go](https://github.com/akavel/ditaa) (see also: [a visual comparison](http://akavel.github.io/ditaa) to [original](https://github.com/stathissideris/ditaa) ditaa).
 - (old; PL) [eyepicker](publikacja-m13.pdf) - precise eyeball movement analysis for computer control
