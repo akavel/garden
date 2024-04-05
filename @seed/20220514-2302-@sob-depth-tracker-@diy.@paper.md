@@ -2,9 +2,6 @@
 
 Schematic diagram:
 
-![](sob-depth-tracker-diagram.svg)
-
-<!--
 ```pikchr:render
 define tab {line up 3cm; line right 5mm; line down 3cm}
 define tab5 {tab; tab; tab; tab; tab}
@@ -23,4 +20,3 @@ define slit2 {right; slit; line down 7mm invisible; right; slit; line up 7mm inv
 define slit4 {slit2; slit2}
 slit4; slit4; slit4; slit4; slit
 ```
--->

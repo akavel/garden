@@ -54,6 +54,18 @@ local function render_article(template, article)
   end
   title:add_text(TITLE_SUFFIX)
 
+  -- Choose greenery disclaimer to show
+  local hide_greeneries = {seed=true, bud=true, ripe=true}
+  hide_greeneries[greenery_kind] = false
+  for k, v in pairs(hide_greeneries) do
+      if v then
+          local node = template:find('.greenery.'..k)
+          node:delete_children()
+          node:set_attr('class', '')
+          node:set_attr('style', 'display:none')
+      end
+  end
+
   -- FIXME: fix relative links - strip .md etc.
   -- TODO: copy images, css
 
