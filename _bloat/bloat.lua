@@ -26,14 +26,14 @@ local function render_article(template, article)
 
   -- Put the main text of the article in #content node in the template.
   template:find('#content'):set_children(text)
-  template:find('#navhome + time'):set_text(article_date(article))
+  template:find('#navhome + header > time'):set_text(article_date(article))
 
   local greenery_kind =
     article.tags.seed and 'seed' or
     article.tags.bud and 'bud' or
     article.tags.ripe and 'ripe' or
     ''
-  template:find('#navhome + time'):set_attr('class', greenery_kind)
+  template:find('#navhome + header > time'):set_attr('class', greenery_kind)
 
   -- Set tags
   local tag_tmpl = template:find('ul.tags'):eject_children()
