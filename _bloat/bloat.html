@@ -10,7 +10,13 @@
 /* Parts stolen from: http://ghostlevel.net/days/blip.css - thanks J.! */
 
 :root {
-    --body-width: 700px;
+    --body-width: 100%;
+    --pre-padding: 1em;
+}
+@media screen and (min-width: 714px) {
+    :root {
+        --body-width: 700px;
+    }
 }
 
 body {
@@ -19,12 +25,10 @@ body {
     padding-bottom: 10px;
     background-color: white;
     padding: 30px; }
-@media screen and (min-width: 714px) {
-    body > :not(main), main > :not(pre) {
-        max-width: var(--body-width);
-        margin-left: auto;
-        margin-right: auto;
-    }
+body > :not(main), main > :not(pre) {
+    max-width: var(--body-width);
+    margin-left: auto;
+    margin-right: auto;
 }
 html, body {
     margin-top: 0;
@@ -78,7 +82,8 @@ p img {
 ul {
     list-style-type: square; } /* to match <pre> styling */
 pre {
-    padding: 1em;
+    padding: var(--pre-padding);
+    margin: 0 auto;
     border: 1px solid #787878;
     box-shadow: 5px 5px #646464;
     overflow-x: auto;
@@ -86,9 +91,10 @@ pre {
 /* Below: A big hack for giving <pre> width dynamically adjusting to content,
    while keeping it centered horizontally. */
 pre {
-    display: inline-block;        /* adjust width to text inside... */
-    min-width: var(--body-width); /* ...but not narrower than body width... */
-    max-width: 98%;               /* ...and not wider than screen width. */
+    display: inline-block;  /* adjust width to text inside... */
+    min-width:              /* ...but not narrower than body width... */
+        calc(var(--body-width) - 2*var(--pre-padding));
+    max-width: 98%;         /* ...and not wider than screen width. */
 
     /** Evil CSS hackery - thanks: https://stackoverflow.com/a/60553660 **/
     position: relative;
@@ -103,8 +109,9 @@ pre {
 small.greenery {
     display: block;
     margin-top: 3.5rem;
+    margin-right: calc(62% - var(--body-width)/2);
+    margin-left:  calc(50% - var(--body-width)/2);
     font-style: italic;
-    margin-right: 20%;
     font-size: 70%; }
 
 address {
