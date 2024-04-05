@@ -8,6 +8,11 @@
 <style type="text/css">
 /* TODO: better here or linked in separate file? */
 /* Parts stolen from: http://ghostlevel.net/days/blip.css - thanks J.! */
+
+:root {
+    --body-width: 700px;
+}
+
 body {
     font: 1.125rem / 1.4 BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
@@ -15,9 +20,10 @@ body {
     background-color: white;
     padding: 30px; }
 @media screen and (min-width: 714px) {
-    body {
-        width: 700px;
-        margin: 0 auto;
+    body > :not(main), main > :not(pre) {
+        max-width: var(--body-width);
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 html, body {
@@ -38,7 +44,7 @@ html, body {
 #navhome:hover {
     color: #d44; }
 
-#navhome + time {
+header > time {
     color: #999;
     font-size: smaller;
     font-style: italic; }
@@ -77,6 +83,20 @@ pre {
     box-shadow: 5px 5px #646464;
     overflow-x: auto;
     scrollbar-color: #ddd #fff; }
+/* Below: A big hack for giving <pre> width dynamically adjusting to content,
+   while keeping it centered horizontally. */
+pre {
+    display: inline-block;        /* adjust width to text inside... */
+    min-width: var(--body-width); /* ...but not narrower than body width... */
+    max-width: 98%;               /* ...and not wider than screen width. */
+
+    /** Evil CSS hackery - thanks: https://stackoverflow.com/a/60553660 **/
+    position: relative;
+    /* Move the element to the right by 50% of the container's width */
+    left: 50%;
+    /* Calculates 50% of the element's width, and moves it by that */
+    /* amount across the X-axis to the left */
+    transform: translateX(-50%); }
 .pikchr {
     margin-left: auto; margin-right: auto; }
 
@@ -87,10 +107,12 @@ address {
 </style>
 </head><body>
 <a id="navhome" href="..">akavel's digital garden</a>
-<time>2023-10-24</time>
-<ul class="tags">
-    <li><a href="@go">@go</a></li>
-</ul>
+<header>
+    <time>2023-10-24</time>
+    <ul class="tags">
+        <li><a href="@go">@go</a></li>
+    </ul>
+</header>
 <main id="content">
     <!-- should get replaced by SSG -->
     <!-- The content below is some dummy stuff for standalone quick-testing. -->
