@@ -64,13 +64,28 @@ article time {
     padding: 0 .5ex;
     color: #999;
     font-style: italic; }
-article ul.tags {
+
+ul.tags {
     margin: 0;
     padding: 0;
     display: inline; }
-article ul.tags li {
+ul.tags li {
     font-size: .9rem;
     display: inline; }
+
+ul.shorts {
+    background: #eee;
+    padding-top: 1ex; padding-bottom: 1ex; padding-right: 2em;
+    font-size: smaller;
+    list-style: '🙟 '; }
+ul.shorts > li p { display: inline; }
+ul.shorts > li p:after { content: '\2003\2003'; }
+ul.shorts > li ul.tags li {
+    font-size: smaller;
+    font-style: italic; }
+ul.shorts > li a.self-link {
+    text-decoration: none;
+    font-style: italic; }
 
 address {
     margin-top: 3em;
@@ -85,6 +100,7 @@ address {
 <h1>list of articles tagged <span id="tag">@foobar</span></h1>
 
 <div id="articles">
+<div id="article-wrapper">
 <article>
     <a href="foo-bar" class="title">Foo bar</a>
     <time>2023-08-01</time>
@@ -92,6 +108,19 @@ address {
         <li><a href="@go">@go</a></li>
     </ul>
 </article>
+</div>
+<div id="shorts-wrapper">
+<ul class="shorts">
+    <li><p>In Firefox, entering <code>about:config</code>, then enabling <code>browser.urlbar.suggest.calculator</code>
+        (<a href="https://lobste.rs/s/b5tqmm/hidden_features_firefox_2020#c_wkvsfo">via</a>)
+        makes it show results of math expressions typed into URL bar.</p>
+        <ul class="tags">
+            <li><a href="@short">@short</a></li>
+        </ul>
+        <a class="self-link" href="fx-calc">♧</a>
+    </li>
+</ul>
+</div>
 </div>
 
 

@@ -98,21 +98,6 @@ local function render_short_entry(short_tmpl, art)
 
   item_slot:add_children(item)
   return short_tmpl
-
-  -- local item = short_tmpl:find('li'):eject_children()
-  -- short_tmpl:set_children(art.html)
-
-  -- -- delete <p> in the template (TODO: add :delete() method)
-  -- item:find('p'):set_text('')
-  -- item:find('p'):set_attr('style', 'display:none')
-
-  -- render_index_item_tags(item, art)
-
-  -- local self_link_slot = item:find('a.self-link')
-  -- self_link_slot.set_attr('href', art.slug)
-
-  -- short_tmpl:add_children(item)
-  -- return short_tmpl
 end
 
 local function render_index_entry(art_tmpl, art)
@@ -135,41 +120,11 @@ local function render_index_entry(art_tmpl, art)
   art_tmpl:find('time'):set_text(article_date(art))
 
   render_index_item_tags(art_tmpl, art)
-  -- local tag_tmpl = art_tmpl:find('ul'):eject_children()
-  -- for _, tag in ipairs(art.tags) do
-  --   -- print(tag_tmpl:to_string())
-  --   tag_tmpl:find('li a'):set_text('@'..tag)
-  --   tag_tmpl:find('li a'):set_attr('href', '@'..tag)
-  --   art_tmpl:find('ul'):add_children(tag_tmpl)
-  -- end
 
   return art_tmpl
 end
 
-local function render_tag(tag_tmpl, tag, articles)
-  -- Set title
-  local title = '@' .. tag .. TITLE_SUFFIX
-  tag_tmpl:find('html head title'):set_text(title)
-
-  -- Set tag name in h1
-  tag_tmpl:find('#tag'):set_text('@'..tag)
-
-  -- Build list of articles in tag
-  local list_slot = tag_tmpl:find '#articles'
-  local art_tmpl = list_slot:eject_children()
-  for _, art in ipairs(articles) do
-    local entry = render_index_entry(art_tmpl:clone(), art)
-    if entry then
-      list_slot:add_children(entry)
-    end
-  end
-  return tag_tmpl
-end
-
-local function render_index(filename, articles, modifer_f)
-  print('INDEX ' .. filename)
-  local index = html.parse(readfile '_bloat/index.html')
-  local list_slot = index:find '#list'
+local function render_articles_list(list_slot, articles)
   local item_templates = list_slot:eject_children()
 
   local art_tmpl = item_templates:find('#article-wrapper'):eject_children()
@@ -197,6 +152,27 @@ local function render_index(filename, articles, modifer_f)
     list_slot:add_children(shorts)
     shorts = nil
   end
+end
+
+local function render_tag(tag_tmpl, tag, articles)
+  -- Set title
+  local title = '@' .. tag .. TITLE_SUFFIX
+  tag_tmpl:find('html head title'):set_text(title)
+
+  -- Set tag name in h1
+  tag_tmpl:find('#tag'):set_text('@'..tag)
+
+  -- Build list of articles in tag
+  local list_slot = tag_tmpl:find '#articles'
+  render_articles_list(list_slot, articles)
+  return tag_tmpl
+end
+
+local function render_index(filename, articles, modifer_f)
+  print('INDEX ' .. filename)
+  local index = html.parse(readfile '_bloat/index.html')
+  local list_slot = index:find '#list'
+  render_articles_list(list_slot, articles)
   if modifer_f then
     modifer_f(index)
   end
