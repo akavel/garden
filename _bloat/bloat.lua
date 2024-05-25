@@ -94,6 +94,7 @@ local function render_short_entry(short_tmpl, art)
   render_index_item_tags(item, art)
 
   local self_link_slot = item:find('a.self-link')
+  self_link_slot:set_text('♧ ' .. article_date(art))
   self_link_slot:set_attr('href', art.slug)
 
   item_slot:add_children(item)
