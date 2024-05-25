@@ -92,25 +92,17 @@ h1 {
 
 #list ul.shorts {
     font-size: smaller;
-    list-style: '🙟 ';
-    -list-style: '🍀 ';
-    -list-style: '🙦 '; }
+    list-style: '🙟 '; }
 #list ul.shorts > li p {
     display: inline; }
 #list ul.shorts > li p:after {
     content: '\2003\2003'; }
 #list ul.shorts > li ul.tags li {
-    font-size: smaller; font-style: italic; }
+    font-size: smaller;
+    font-style: italic; }
 #list ul.shorts > li a.self-link {
-    -color: 0;
     text-decoration: none;
-    font-style: italic;
-    -display:none;
-    -font-size: smaller }
-/* last <p> before <ul class="tags"> *
-#list ul.shorts li p:has(+ ul.tags) {
-    display: inline;
-} */
+    font-style: italic; }
 
 ul.shorts:before, ul.shorts:after {
     content: '﹏ ⁂ ﹏';
