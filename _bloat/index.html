@@ -91,23 +91,18 @@ h1 {
     display: inline; }
 
 #list ul.shorts {
+    background: #eee;
+    padding-top: 1ex; padding-bottom: 1ex; padding-right: 2em;
     font-size: smaller;
     list-style: '🙟 '; }
-#list ul.shorts > li p {
-    display: inline; }
-#list ul.shorts > li p:after {
-    content: '\2003\2003'; }
+#list ul.shorts > li p { display: inline; }
+#list ul.shorts > li p:after { content: '\2003\2003'; }
 #list ul.shorts > li ul.tags li {
     font-size: smaller;
     font-style: italic; }
 #list ul.shorts > li a.self-link {
     text-decoration: none;
     font-style: italic; }
-
-ul.shorts:before, ul.shorts:after {
-    content: '﹏ ⁂ ﹏';
-    display: block; width: 100%; text-align: center; }
-ul.shorts:after { transform: rotateX(180deg) }
 
 #list + small {
     display: block;

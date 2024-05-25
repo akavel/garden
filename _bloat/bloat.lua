@@ -179,7 +179,6 @@ local function render_index(filename, articles, modifer_f)
   local shorts = nil
   for _, art in ipairs(articles) do
     if art.tags.short then
-      print('SHORT...')
       shorts = shorts or shorts_tmpl:clone()
       local entry = render_short_entry(short_tmpl:clone(), art)
       shorts:find('ul.shorts'):add_children(entry)
