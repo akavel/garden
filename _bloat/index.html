@@ -82,13 +82,35 @@ h1 {
     padding: 0 .5ex;
     color: #999;
     font-style: italic; }
-#list article ul.tags {
+#list * ul.tags {
     margin: 0;
     padding: 0;
     display: inline; }
-#list article ul.tags li {
+#list * ul.tags li {
     font-size: .9rem;
     display: inline; }
+
+#list ul.shorts {
+    font-size: smaller;
+    list-style: '🙟 ';
+    -list-style: '🍀 ';
+    -list-style: '🙦 '; }
+#list ul.shorts > li p {
+    display: inline; }
+#list ul.shorts > li p:after {
+    content: '\2003\2003'; }
+#list ul.shorts > li ul.tags li {
+    font-size: smaller; font-style: italic; }
+#list ul.shorts > li a.self-link {
+    -color: 0;
+    text-decoration: none;
+    font-style: italic;
+    -display:none;
+    -font-size: smaller }
+/* last <p> before <ul class="tags"> *
+#list ul.shorts li p:has(+ ul.tags) {
+    display: inline;
+} */
 
 #list + small {
     display: block;
@@ -135,17 +157,20 @@ address {
         <ul class="tags">
             <li><a href="@short">@short</a></li>
         </ul>
+        <a class="self-link" href="fx-calc">♧</a>
     </li>
     <li><p><a href="https://www.typelit.io">typelit.io</a> (<a href="https://www.jonashietala.se/blog/2023/11/02/i_designed_my_own_keyboard_layout_was_it_worth_it">via</a>): a website to practice typing text (e.g. on a new ergo keyboard) by retyping entire novels.</p>
         <ul class="tags">
             <li><a href="@ergo">@ergo</a></li>
             <li><a href="@short">@short</a></li>
         </ul>
+        <a class="self-link" href="typelit">♤</a>
     </li>
     <li><p><a href="http://catless.ncl.ac.uk/Risks">The RISKS Digest</a> — <em>"Forum on Risks to the Public in Computers and Related Systems"</em> (1st issue from 1985, and still going on).</p>
         <ul class="tags">
             <li><a href="@short">@short</a></li>
         </ul>
+        <a class="self-link" href="risks">♢</a>
     </li>
 </ul>
 <article>
