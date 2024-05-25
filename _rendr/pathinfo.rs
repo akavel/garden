@@ -64,6 +64,7 @@ impl PathInfo {
         let mut info = file_stem::parse_info(stem)?;
         info.tags.append(&mut directory_names);
         info.tags.sort();
+        info.tags.dedup();
 
         Ok(PathInfo { extension, ..info })
     }
