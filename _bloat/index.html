@@ -112,6 +112,21 @@ h1 {
     display: inline;
 } */
 
+ul.shorts:before, ul.shorts:after {
+    -content: '— ⁂ —';
+    content: '———';
+    display: block;
+    -margin-left: auto; -margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+/*
+#list article:has(+ ul.shorts):after,
+#list ul.shorts:has(+ article):after {
+    content: '⁂'; display: block;
+}
+*/
+
 #list + small {
     display: block;
     margin-top: 1.5rem;
