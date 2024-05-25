@@ -72,6 +72,49 @@ local function render_article(template, article)
   return template
 end
 
+local function render_index_item_tags(item_tmpl, art)
+  local tag_tmpl = item_tmpl:find('ul.tags'):eject_children()
+  for _, tag in ipairs(art.tags) do
+    -- print(tag_tmpl:to_string())
+    tag_tmpl:find('li a'):set_text('@'..tag)
+    tag_tmpl:find('li a'):set_attr('href', '@'..tag)
+    item_tmpl:find('ul.tags'):add_children(tag_tmpl)
+  end
+end
+
+local function render_short_entry(short_tmpl, art)
+  local item_slot = short_tmpl:find('li')
+  local item = item_slot:eject_children()
+  item_slot:set_children(art.html)
+
+  -- delete <p> in the template (TODO: add :delete() method)
+  item:find('p'):set_text('')
+  item:find('p'):set_attr('style', 'display:none')
+
+  render_index_item_tags(item, art)
+
+  local self_link_slot = item:find('a.self-link')
+  self_link_slot.set_attr('href', art.slug)
+
+  item_slot:add_children(item)
+  return short_tmpl
+
+  -- local item = short_tmpl:find('li'):eject_children()
+  -- short_tmpl:set_children(art.html)
+
+  -- -- delete <p> in the template (TODO: add :delete() method)
+  -- item:find('p'):set_text('')
+  -- item:find('p'):set_attr('style', 'display:none')
+
+  -- render_index_item_tags(item, art)
+
+  -- local self_link_slot = item:find('a.self-link')
+  -- self_link_slot.set_attr('href', art.slug)
+
+  -- short_tmpl:add_children(item)
+  -- return short_tmpl
+end
+
 local function render_index_entry(art_tmpl, art)
   local h1 = art.html:find 'h1'
   if not h1 then
@@ -91,13 +134,14 @@ local function render_index_entry(art_tmpl, art)
 
   art_tmpl:find('time'):set_text(article_date(art))
 
-  local tag_tmpl = art_tmpl:find('ul'):eject_children()
-  for _, tag in ipairs(art.tags) do
-    -- print(tag_tmpl:to_string())
-    tag_tmpl:find('li a'):set_text('@'..tag)
-    tag_tmpl:find('li a'):set_attr('href', '@'..tag)
-    art_tmpl:find('ul'):add_children(tag_tmpl)
-  end
+  render_index_item_tags(art_tmpl, art)
+  -- local tag_tmpl = art_tmpl:find('ul'):eject_children()
+  -- for _, tag in ipairs(art.tags) do
+  --   -- print(tag_tmpl:to_string())
+  --   tag_tmpl:find('li a'):set_text('@'..tag)
+  --   tag_tmpl:find('li a'):set_attr('href', '@'..tag)
+  --   art_tmpl:find('ul'):add_children(tag_tmpl)
+  -- end
 
   return art_tmpl
 end
@@ -129,11 +173,30 @@ local function render_index(filename, articles, modifer_f)
   local item_templates = list_slot:eject_children()
 
   local art_tmpl = item_templates:find('#article-wrapper'):eject_children()
+  local shorts_tmpl = item_templates:find('#shorts-wrapper'):eject_children()
+  local short_tmpl = shorts_tmpl:find('ul.shorts'):eject_children()
+
+  local shorts = nil
   for _, art in ipairs(articles) do
-    local entry = render_index_entry(art_tmpl:clone(), art)
-    if entry then
-      list_slot:add_children(entry)
+    if art.tags.short then
+      print('SHORT...')
+      shorts = shorts or shorts_tmpl:clone()
+      local entry = render_short_entry(short_tmpl:clone(), art)
+      shorts:find('ul.shorts'):add_children(entry)
+    else -- not short
+      if shorts then
+        list_slot:add_children(shorts)
+        shorts = nil
+      end
+      local entry = render_index_entry(art_tmpl:clone(), art)
+      if entry then
+        list_slot:add_children(entry)
+      end
     end
+  end
+  if shorts then
+    list_slot:add_children(shorts)
+    shorts = nil
   end
   if modifer_f then
     modifer_f(index)
