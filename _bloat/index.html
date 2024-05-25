@@ -113,19 +113,12 @@ h1 {
 } */
 
 ul.shorts:before, ul.shorts:after {
+    content: '_ ⁂ _';
     -content: '— ⁂ —';
-    content: '———';
-    display: block;
-    -margin-left: auto; -margin-right: auto;
-    width: 100%;
-    text-align: center;
-}
-/*
-#list article:has(+ ul.shorts):after,
-#list ul.shorts:has(+ article):after {
-    content: '⁂'; display: block;
-}
-*/
+    -content: '🙡 🙣';
+    -content: '🙡 ⁂ 🙣';
+    display: block; width: 100%; text-align: center; }
+ul.shorts:after { transform: rotateX(180deg) }
 
 #list + small {
     display: block;
