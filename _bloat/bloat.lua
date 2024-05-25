@@ -78,7 +78,6 @@ local function render_index_entry(art_tmpl, art)
     return nil
   end
 
-
   local title_slot = art_tmpl:find('a.title')
   title_slot:set_children(h1)
   local greenery_kind =
@@ -127,7 +126,9 @@ local function render_index(filename, articles, modifer_f)
   print('INDEX ' .. filename)
   local index = html.parse(readfile '_bloat/index.html')
   local list_slot = index:find '#list'
-  local art_tmpl = list_slot:eject_children()
+  local item_templates = list_slot:eject_children()
+
+  local art_tmpl = item_templates:find('#article-wrapper'):eject_children()
   for _, art in ipairs(articles) do
     local entry = render_index_entry(art_tmpl:clone(), art)
     if entry then
