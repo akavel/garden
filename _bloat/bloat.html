@@ -12,6 +12,7 @@
 :root {
     --body-width: 100%;
     --pre-padding: 1em;
+    --pre-x-scaling: .77;
 }
 @media screen and (min-width: 714px) {
     :root {
@@ -92,8 +93,8 @@ pre {
    while keeping it centered horizontally. */
 pre {
     display: inline-block;  /* adjust width to text inside... */
-    min-width:              /* ...but not narrower than body width... */
-        calc(var(--body-width) - 2*var(--pre-padding));
+    min-width:              /* ...but not narrower than body width (plus a bit)... */
+        calc( (var(--body-width) - 2*var(--pre-padding)) / var(--pre-x-scaling) + 1ex);
     max-width: 98%;         /* ...and not wider than screen width. */
 
     /** Evil CSS hackery - thanks: https://stackoverflow.com/a/60553660 **/
@@ -101,8 +102,8 @@ pre {
     /* Move the element to the right by 50% of the container's width */
     left: 50%;
     /* Calculates 50% of the element's width, and moves it by that */
-    /* amount across the X-axis to the left */
-    transform: translateX(-50%); }
+    /* amount across the X-axis to the left; then also scales horizontally */
+    transform: translateX(-50%) scaleX(var(--pre-x-scaling)) ; }
 .pikchr {
     margin-left: auto; margin-right: auto; }
 
