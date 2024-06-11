@@ -10,7 +10,8 @@ Personally, all three aspects were what pulled me to buy this product.
 Especially the first and the second were something I was already having on my mind
 when I accidentally stumbled upon _Forge Horizons_.
 
-**Episodic gameplay:**
+## Episodic gameplay.
+
 The first section of the book introduces a simple set of rules
 on how to start and stop playing _Starforged_ with reduced hassle and overhead.
 To me personally, this is the most important and valuable part of this document.
@@ -29,17 +30,30 @@ a bunch of actors,
 and a way to spark some interaction growing between them.
 This part makes a great use of references to the core _Starforged_ oracles where appropriate.
 
+Finally, having this setup be called _episodic adventures_
+puts me in a frame of mind where I find it easier to allow myself
+_wilful discontinuity_ in gameplay.
+It makes me think of classic science fiction shows like _Star Trek_,
+_X-Files_, etc. - in how their episodes were small and loosely connected.
+This gives me mental license to not worry
+about the burden of consequences of decisions my character makes in the game.
+Because - I can always just decide to "end the episode" when I've had enough!
+The curtain falls down, credits roll.
+And nobody says the next episode has to start immediately afterwards;
+to the contrary!
+The rules give us a brand new location, a brand new set of actors, a brand new inciting incident.
+Our Hero is still alive - so they probably somehow resolved their issues from the end of the last episode.
+How did they do that? Who knows! They're a Hero after all - they have their heroic ways!
+Maybe we'll learn a bit later, get a peek behind the veil - or maybe not!
+For now, we're totally fine to keep it under a convenient shroud of understatement.
 
 
 
 
 
 
-## Episodic gameplay
 
-At this moment, it's the only one I tried yet 
-
-(Buy on:
+(Buy _Forge Horizons_ on:
 [itch.io](https://notwriting.itch.io/forge-horizons),
 [drivethrurpg](https://www.drivethrurpg.com/en/product/398748/forge-horizons).)
 
