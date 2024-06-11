@@ -67,10 +67,41 @@ Even a megalopolis will never be completely uniform,
 with a variety of very different zones and societies.
 Maybe there could be a way to somehow shoehorn
 the Settlement oracles from base _Starforged_ to help define areas in an "ecumenopolis"?
+Just in case, should I find out I need a bit more,
+I can always try pulling some extra oomph from
+the free book of _["Stars Without Number"](
+https://www.drivethrurpg.com/en/product/230009/Stars-Without-Number-Revised-Edition-Free-Version)_.
+Worst case, the rules for "ecumenopolis"
+should work as a really nice mechanism for
+smoothly grafting small bits of material from that resource
+into _Starforged_.
 
+## Machines, Horrors, and Precursors
 
-
-
+The final section of the book is currently the one that
+seems somewhat disappointing to me personally.
+This opinion may change for the better in the future if I try to actually use them:
+the oracles are actually quite rich, big, and interesting.
+The one thing I _personally_ found a big let-down, is that
+the "supernatural horrors" are assumed to be humanoid.
+I'm a huge fan of the lovecraftian style of horror
+(a.k.a. ["cosmic horror"](https://en.wikipedia.org/wiki/Lovecraftian_horror)),
+where the scary is otherworldly, alien, wildly unfamiliar,
+and often humongous in scale.
+To me, this feels especially fitting for _space_ adventures,
+where the protagonist often encounters cosmic-scale objects -
+planets, nebulae, stars, galaxies - and the vastness of space
+is their "normal".
+In such a setting, I'd love to be helped to generate some
+weird monsters of "unspeakable" scale, shape, and composition.
+Making all "supernatural horrors" be only mutated humans feels strangely limiting,
+reminding me somewhat of slapstick, B-grade movies.
+Especially if both the Machines and Precursors oracles actually _do_
+include much more varied sizes and forms.
+The one though I'm having at this stage,
+is that I could try mixing the Creatures oracles from _Starforged_
+with some bits and pieces from the ones in _Forge Horizons_ -
+the "Supernatural powers" one seems to me the most universal and inspiring in this area.
 
 
 (Buy _Forge Horizons_ on:
