@@ -1,16 +1,16 @@
 # Review: Forge Horizons, by Michael Elliott
 
 _Forge Horizons_ is a supplement for the _Ironsworn: Starforged_ role-playing game.
-It is a bundle of three unrelated expansions for the game:
- 1. Episodic gameplay.
- 2. Planets with a bigger population than in vanilla Starforged (up to "tenths of billions").
- 3. Extra oracle sets for: machines, "supernatural horrors", precursors _themselves_ (i.e., precursor creatures).
+It is a bundle containing three distinct expansions:
+ - rules for episodic gameplay;
+ - oracles for planets with a bigger population than in vanilla Starforged (up to "tenths of billions");
+ - extra oracle sets for: machines, "supernatural horrors", Precursors (meaning, the Precursors themselves, as creatures).
 
 Personally, all three aspects were what pulled me to buy this product.
 Especially the first and the second were something I was already having on my mind
 when I accidentally stumbled upon _Forge Horizons_.
 
-## Episodic gameplay.
+## Episodic gameplay
 
 The first section of the book introduces a simple set of rules
 on how to start and stop playing _Starforged_ with reduced hassle and overhead.
@@ -47,6 +47,26 @@ How did they do that? Who knows! They're a Hero after all - they have their hero
 Maybe we'll learn a bit later, get a peek behind the veil - or maybe not!
 For now, we're totally fine to keep it under a convenient shroud of understatement.
 
+## "Ecumenopolis"
+
+The second section of _Forge Horizons_ provides a set of oracles
+for populous city-planets.
+In my eyes, this helps to make the world of _Starforged_ feel bigger,
+and more evocative of the worlds of _Star Wars_ and similar fiction.
+The rules for constructing an "ecumenopolis" trigger
+when, while rolling for a normal planet, a double is rolled (a "match").
+
+The oracles for a megacity form a functional set/sequence,
+in a similar fashion as the ones for a normal planet in base _Starforged_.
+I haven't used them yet myself;
+after initial glance, they look interesting,
+though on the other hand, I feel like they could be slightly richer and bigger.
+Also, I'd love if there was some gentle, evocative guidance
+on how to actually dive deeper into such cities.
+Even a megalopolis will never be completely uniform,
+with a variety of very different zones and societies.
+Maybe there could be a way to somehow shoehorn
+the Settlement oracles from base _Starforged_ to help define areas in an "ecumenopolis"?
 
 
 
