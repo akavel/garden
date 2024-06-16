@@ -39,6 +39,7 @@ This outcome is useless and pointless.
 The point is for you to enjoy the game.
 So, as was said at the beginning of this article:
 _don't let a roll (or any other game mechanic) make you disappointed or anxious_.
+Apply all the time and with impunity.
 
 (Writing this text was triggered by the wording I encountered in
 [a post in r/Solo_Roleplaying](https://old.reddit.com/comments/1dgu658/-/l8sq9i6/) - thanks!
