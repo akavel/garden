@@ -10,7 +10,7 @@ could make you disappointed or anxious,
 _don't make the roll_
 (or follow the rule/mechanic).
 Instead, just go with the result that you feel you enjoy, appreciate, like. 
-That includes arbitrarily choosing, without rolling,
+That includes (but is not limited to) arbitrarily choosing, without rolling,
 a preferred result from the ones listed as roll/rule results.
 
 If you already rolled your dice/applied the rule,
