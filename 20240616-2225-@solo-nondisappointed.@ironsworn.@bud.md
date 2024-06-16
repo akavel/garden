@@ -67,3 +67,5 @@ This video was transformative to me,
 in how it helped me "overcome the hump" in solo roleplaying,
 loosening some anxiousness that I "must do it some specific way"
 that I had in my mind beforehand.)
+
+[💬 Discuss](https://merveilles.town/@akavel/112628756717507196)
