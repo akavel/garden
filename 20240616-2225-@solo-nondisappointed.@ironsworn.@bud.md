@@ -10,6 +10,8 @@ could make you disappointed or anxious,
 _don't make the roll_
 (or follow the rule/mechanic).
 Instead, just go with the result that you feel you enjoy, appreciate, like. 
+That includes arbitrarily choosing, without rolling,
+a preferred result from the ones listed as roll/rule results.
 
 If you already rolled your dice/applied the rule,
 and the result makes you disappointed or anxious,
@@ -40,6 +42,18 @@ The point is for you to enjoy the game.
 So, as was said at the beginning of this article:
 _don't let a roll (or any other game mechanic) make you disappointed or anxious_.
 Apply all the time and with impunity.
+
+If you are afraid that this is cheating:
+your whole narrative is cheating.
+In real world, there is no faster-than-light travel in space.
+In real world, there are no dragons, and they wouldn't be able to fly.
+You cannot perfectly simulate real world in your narrative,
+so you're always cheating in it.
+And that is totally ok.
+That's why it is not called reality simulation,
+but A Story.
+A Story does not have to be realistic.
+It's much nicer when it's enjoyable instead.
 
 (Writing this text was triggered by the wording I encountered in
 [a post in r/Solo_Roleplaying](https://old.reddit.com/comments/1dgu658/-/l8sq9i6/) - thanks!
