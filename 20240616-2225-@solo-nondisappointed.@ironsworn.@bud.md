@@ -59,4 +59,11 @@ It's much nicer when it's enjoyable instead.
 [a post in r/Solo_Roleplaying](https://old.reddit.com/comments/1dgu658/-/l8sq9i6/) - thanks!
 It also takes into account what I learned
 from watching _The Bad Spot_ podcast's Actual Plays of _Ironsworn: Starforged_,
-and from my own bad and good experiences playing _Starforged_.)
+and from my own bad and good experiences playing _Starforged_.
+Another resource that I heartily recommend, is to watch
+_["7 Approaches to Journaling in Solo Roleplaying Games"](
+https://youtu.be/_krWQlYqbzY)_, by Man Alone.
+This video was transformative to me,
+in how it helped me "overcome the hump" in solo roleplaying,
+loosening some anxiousness that I "must do it some specific way"
+that I had in my mind beforehand.)
