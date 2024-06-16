@@ -3,7 +3,9 @@
 Some possible ideas and notes for making it easier to get into writing mood
 for *["Ironsworn: Starforged"](https://www.ironswornrpg.com/product-ironsworn-starforged):* 
 
- - a "Soft start" subset of rules: http://redd.it/115xkpe (discussion);
+ - a "Soft start" subset of rules: [Starforged Moves Starter](https://akavel.itch.io/starforged-moves-starter),
+   based on: http://redd.it/115xkpe (discussion);
+ - See: [Not Disappointed](solo-nondisappointed) - "My Golden Rule for solo roleplaying";
  - see the custom ["Get Unstuck" Session Move](ironsworn-unstuck);
  - writing in pencil may feel less final & obliging;
  - rerolling oracles multiple times is fine —
