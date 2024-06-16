@@ -1,6 +1,6 @@
 # Not Disappointed
 
-The Golden Rule of solo roleplaying:
+My Golden Rule of solo roleplaying:
 
 _**Don't let a roll (or any other game rule/mechanic) make you disappointed or anxious.**_
 
