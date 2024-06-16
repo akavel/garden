@@ -96,13 +96,24 @@ In such a setting, I'd love to be helped to generate some
 weird monsters of "unspeakable" scale, shape, and composition.
 Making all "supernatural horrors" be only mutated humans feels strangely limiting,
 reminding me somewhat of slapstick, B-grade movies.
-Especially if both the Machines and Precursors oracles actually _do_
+Especially if both the Machines and Precursors oracles in the book actually _do_
 include much more varied sizes and forms.
-The one though I'm having at this stage,
+The one thought I'm having at this stage,
 is that I could try mixing the Creatures oracles from _Starforged_
-with some bits and pieces from the ones in _Forge Horizons_ -
+with some bits and pieces from the Horrors oracles in _Forge Horizons_ -
 the "Supernatural powers" one seems to me the most universal and inspiring in this area.
 
+## Conclusion
+
+Overall, I heartily recommend the _Forge Horizons_ supplement.
+The Episodic Adventures rules it introduces are simple
+and transformative to my personal experience with _Starforged_.
+The "Ecumenopolis" mechanics are something I look forward to play with in the future,
+and maybe further tweak on my own.
+The final set of creature oracles is not something
+I am currently especially excited about personally,
+but the whole book is already amazing and well worth the price for me
+even when not considering them at all.
 
 (Buy _Forge Horizons_ on:
 [itch.io](https://notwriting.itch.io/forge-horizons),
