@@ -27,18 +27,39 @@ seems to build up a purely-_RS_ "beginner" palette,
 though I'm not super sure how much it is universal vs.
 tailored at the specific person composing it.
 The components seem to be:
- 1. Misty Morning
- 2. PR176 Permanent \[alizarin] crimson "mixes very nice violets"
- 3. PR149 \[Pereline] Scarlet "a poppy red; not too warm but it would mix beautiful oranges"
- 4. Nickel Azo Yellow "you can't beat those mixes it makes for greens especially"
- 5. \[Periline] Green "deep forest green & mixes wonderfully with the Nickel Azo Yellow"
- 6. Prussian Blue "mixes excellent greens \[...] note: lightfastness concerns - not worried because painting not for display"
- 7. French Ultramarine
- 8. Cobalt Teal
- 9. \[Periline] Violet
- 10. PY74 Hanza Yellow Medium "it really is a yellow yellow"
- 11. Natural Amber Reddish "it's just a really nice brown that I think would mix really well"
- 12. Buff Titanium "a warmer tone gray"
+ 1. PG50☠+PV19 ["Misty Morning"](https://artistpigments.org/brands/roman-szmal-aquarius/vtbgg-misty-morning)
+    Note: what to replace with to avoid toxicity?
+ 2. [PR176](https://artistpigments.org/pigments/PR176?medium=watercolor)
+    ["330 Permanent Alizarin Crimson"](https://artistpigments.org/brands/roman-szmal-aquarius/29c0b-permanent-alizarin-crimson)
+    _"mixes very nice violets"_
+ 3. [PR149](https://artistpigments.org/pigments/PR149?medium=watercolor)
+    ["373 Perylene Scarlet"](https://artistpigments.org/brands/roman-szmal-aquarius/9cfo1-perylene-scarlet)
+    _"a poppy red; not too warm but it would mix beautiful oranges"_
+ 4. [PY150](https://artistpigments.org/pigments/PY150?medium=watercolor)
+    ["308 Nickel Azo Yellow"](https://artistpigments.org/brands/roman-szmal-aquarius/j222m-nickel-azo-yellow)
+    _"you can't beat those mixes it makes for greens especially"_
+ 5. [PBk31](https://artistpigments.org/pigments/PBk31?medium=watercolor)
+    ["409 Perylene Green"](https://artistpigments.org/brands/roman-szmal-aquarius/wfgt8-perylene-green)
+    _"deep forest green & mixes wonderfully with the Nickel Azo Yellow"_
+ 6. [PB27](https://artistpigments.org/pigments/PB27?medium=watercolor)
+    ["219 Prussian Blue"](https://artistpigments.org/brands/roman-szmal-aquarius/dogrv-prussian-blue)
+    _"mixes excellent greens \[...] note: lightfastness concerns - not worried because painting not for display"_
+ 7. [PB29](https://artistpigments.org/pigments/PB29?medium=watercolor)
+    ["221 French Ultramarine"](https://artistpigments.org/brands/roman-szmal-aquarius/qdq5s-french-ultramarine)
+ 8. [PG50☠](https://artistpigments.org/pigments/PG50?medium=watercolor)
+    ["408 Cobalt Teal"](https://artistpigments.org/brands/roman-szmal-aquarius/gx171-cobalt-teal)
+    Note: what to replace with to avoid toxicity?
+ 10. [PV29](https://artistpigments.org/pigments/PV29?medium=watercolor)
+    ["402 Perylene Violet"](https://artistpigments.org/brands/roman-szmal-aquarius/k1ny8-perylene-violet)
+ 11. [PY74](https://artistpigments.org/pigments/PY74?medium=watercolor)
+     ["206 Hansa Yellow Medium"](https://artistpigments.org/brands/roman-szmal-aquarius/s8fmh-hansa-yellow-medium)
+     _"it really is a yellow yellow"_
+ 12. [PBr7](https://artistpigments.org/pigments/PBr7?medium=watercolor)
+     ["137 Natural Umber Reddish"](https://artistpigments.org/brands/roman-szmal-aquarius/2dd0d-natural-umber-reddish)
+     _"it's just a really nice brown that I think would mix really well"_
+ 13. [PW6:1](https://artistpigments.org/pigments/PW6:1?medium=watercolor)
+     ["201 Buff Titanium"](https://artistpigments.org/brands/roman-szmal-aquarius/7k60v-buff-titanium)
+     _"a warmer tone gray"_
 
 I also noted some explorations of a [CMY/K-based beginner/universal palette on the "watercolor-cmy" page](
 watercolor-cmy).
