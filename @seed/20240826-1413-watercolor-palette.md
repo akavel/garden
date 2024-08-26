@@ -75,7 +75,7 @@ Another set, from [a commenter](https://www.youtube.com/@derwood206) on the vide
  11. Transparent Oxide Red
  12. Aquarius Violet
 
-Yet another set, from Lee Angold
+Yet another set, called "Wild Curiosity", from Lee Angold
 ([via](https://leeangold.com/products/lee-angold-x-roman-szmal-palette/),
 [via](https://www.youtube.com/watch?v=qQHthdpwZQg&list=PL2uTdjw8vHEHcVw4PL4DWIwGOYl1UxVSw&index=8)),
 IIUC with official cooperation with Roman Szmal brand (?):
