@@ -80,17 +80,18 @@ Yet another set, from Lee Angold
 [via](https://www.youtube.com/watch?v=qQHthdpwZQg&list=PL2uTdjw8vHEHcVw4PL4DWIwGOYl1UxVSw&index=8)),
 IIUC with official cooperation with Roman Szmal brand (?):
  1. [308 Nickel Azo Yellow](https://artistpigments.org/brands/roman-szmal-aquarius/j222m-nickel-azo-yellow) (PY150)
- 2. 266 Gamboge Hue (PY95)
- 3. 354 Aquarius Orange (DPP)
- 4. 332 Magenta (PR122)
- 5. 359 Potter's Pink (PR233)
- 6. 337 Indanthrone Blue (PB60)
- 7. 414 Cobalt Sea Blue (PB28)
- 8. 344 Ocean Blue (PB15:3 PBr24)
- 9. 234 Naples Yellow Deep (PBr24)
- 10. 132 Cyprus Burnt Umber Deep (PBr7)
- 11. 409 Perylene Green (PBk31)
- 12. 363 Autumn Green (PY150, PR122, PG36) 
+ 2. [266 Gamboge Hue](https://artistpigments.org/brands/roman-szmal-aquarius/8of90-gamboge-hue) (PY95)
+ 3. [354 Aquarius Orange](https://artistpigments.org/brands/roman-szmal-aquarius/8bh77-aquarius-orange) (DPP)
+ 4. [332 Quinacridone Magenta](https://artistpigments.org/brands/roman-szmal-aquarius/96mcs-quinacridone-magenta) (PR122)
+ 5. [359 Potter's Pink](https://artistpigments.org/brands/roman-szmal-aquarius/cdfrs-potter-s-pink) (PR233)
+ 6. [337 Indanthrone Blue](https://artistpigments.org/brands/roman-szmal-aquarius/yh8w7-indanthrone-blue) (PB60)
+ 7. [414 Cobalt Sea Blue](https://artistpigments.org/brands/roman-szmal-aquarius/7bq0o-cobalt-sea-blue) (PB28)
+ 8. [344 Ocean Blue](https://artistpigments.org/brands/roman-szmal-aquarius/my7t2-ocean-blue) (PB15:3 PBr24)
+     Note/question: why not use ["103 Phtalo Blue (Green Shade)"](https://artistpigments.org/brands/roman-szmal-aquarius/9br5m-phtalo-blue-green-shade) instead (PB15:3), and mix it with PBr24 (listed below) manually?
+ 9. [234 Naples Yellow Deep](https://artistpigments.org/brands/roman-szmal-aquarius/xfh3p-naples-yellow-deep) (PBr24)
+ 10. [132 Cyprus Raw Umber Deep](https://artistpigments.org/brands/roman-szmal-aquarius/4kfxo-cyprus-raw-umber-deep) (PBr7)
+ 11. [409 Perylene Green](https://artistpigments.org/brands/roman-szmal-aquarius/wfgt8-perylene-green) (PBk31)
+ 12. [363 Autumn Green](https://artistpigments.org/brands/roman-szmal-aquarius/15mwt-autumn-green) (PY150, PR122, PG36)
 
 I also noted some explorations of a [CMY/K-based beginner/universal palette on the "watercolor-cmy" page](
 watercolor-cmy).
