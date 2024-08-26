@@ -15,7 +15,9 @@ which reportedly has a number of advantages,
 but also results in less "typical watercolors texture".
  Some deeper exploration with some scientific background as well at:
 ["Watercolor Palette Building III: Choosing a CMY Primary Triad"](
-https://youtu.be/e3JKXwY792w).
+https://youtu.be/e3JKXwY792w)
+and the [connected playlist](
+https://www.youtube.com/playlist?list=PL2uTdjw8vHEHcVw4PL4DWIwGOYl1UxVSw).
 
 [PB15:3]: https://artistpigments.org/pigments/PB15:3
 [PR122]: https://artistpigments.org/pigments/PR122
