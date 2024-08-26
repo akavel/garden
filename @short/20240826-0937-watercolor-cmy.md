@@ -13,4 +13,6 @@ Spelled out as _Winsor & Newton_ brand colors, plus their universal pigment name
  Note: those are mostly staining colors,
 which reportedly has a number of advantages,
 but also results in less "typical watercolors texture".
-
+ Some deeper exploration with some scientific background as well at:
+["Watercolor Palette Building III: Choosing a CMY Primary Triad"](
+https://youtu.be/e3JKXwY792w).
