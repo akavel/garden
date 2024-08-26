@@ -3,7 +3,7 @@
 Presumably up to 12 colors.
 
 Question: should it be a "CMY/K" based palette?
-and/or, should it be "warm+cool primary colors"?
+and/or, should it be "warm+cool primary colors" a.k.a. "split primary triad"?
 should it be "pure pigments"?
 
 I was initially recommended the _Walter & Newton (Cotman)_ brand
