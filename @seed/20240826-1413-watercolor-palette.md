@@ -33,21 +33,21 @@ The components seem to be:
     ["330 Permanent Alizarin Crimson"](https://artistpigments.org/brands/roman-szmal-aquarius/29c0b-permanent-alizarin-crimson)
     _"mixes very nice violets"_
  3. [PR149](https://artistpigments.org/pigments/PR149?medium=watercolor)
-    ["373 Perylene Scarlet"](https://artistpigments.org/brands/roman-szmal-aquarius/9cfo1-perylene-scarlet)
+    ["373 Perylene Scarlet"](https://artistpigments.org/p/9cfo1)
     _"a poppy red; not too warm but it would mix beautiful oranges"_
  4. [PY150](https://artistpigments.org/pigments/PY150?medium=watercolor)
-    ["308 Nickel Azo Yellow"](https://artistpigments.org/brands/roman-szmal-aquarius/j222m-nickel-azo-yellow)
+    ["308 Nickel Azo Yellow"](https://artistpigments.org/p/j222m)
     _"you can't beat those mixes it makes for greens especially"_
  5. [PBk31](https://artistpigments.org/pigments/PBk31?medium=watercolor)
-    ["409 Perylene Green"](https://artistpigments.org/brands/roman-szmal-aquarius/wfgt8-perylene-green)
+    ["409 Perylene Green"](https://artistpigments.org/p/wfgt8)
     _"deep forest green & mixes wonderfully with the Nickel Azo Yellow"_
  6. [PB27](https://artistpigments.org/pigments/PB27?medium=watercolor)
-    ["219 Prussian Blue"](https://artistpigments.org/brands/roman-szmal-aquarius/dogrv-prussian-blue)
+    ["219 Prussian Blue"](https://artistpigments.org/p/dogrv)
     _"mixes excellent greens \[...] note: lightfastness concerns - not worried because painting not for display"_
  7. [PB29](https://artistpigments.org/pigments/PB29?medium=watercolor)
-    ["221 French Ultramarine"](https://artistpigments.org/brands/roman-szmal-aquarius/qdq5s-french-ultramarine)
+    ["221 French Ultramarine"](https://artistpigments.org/p/qdq5s)
  8. [PG50☠](https://artistpigments.org/pigments/PG50?medium=watercolor)
-    ["408 Cobalt Teal"](https://artistpigments.org/brands/roman-szmal-aquarius/gx171-cobalt-teal)
+    ["408 Cobalt Teal"](https://artistpigments.org/p/gx171)
     Note: what to replace with to avoid toxicity?
  10. [PV29](https://artistpigments.org/pigments/PV29?medium=watercolor)
     ["402 Perylene Violet"](https://artistpigments.org/brands/roman-szmal-aquarius/k1ny8-perylene-violet)
