@@ -61,5 +61,19 @@ The components seem to be:
      ["201 Buff Titanium"](https://artistpigments.org/brands/roman-szmal-aquarius/7k60v-buff-titanium)
      _"a warmer tone gray"_
 
+Another set, from [a commenter](https://www.youtube.com/@derwood206) on the video above:
+ 1. Buff Titanium
+ 2. Azo Yellow
+ 3. Gamboge Hue
+ 4. Pyrrole Red
+ 5. Quin Pink
+ 6. Indigo Hue
+ 7. French Ultramarine
+ 8. Phthalo Blue Turquoise Shade
+ 9. Autumn Gree
+ 10. Transparent Gold Ochre
+ 11. Transparent Oxide Red
+ 12. Aquarius Violet
+
 I also noted some explorations of a [CMY/K-based beginner/universal palette on the "watercolor-cmy" page](
 watercolor-cmy).
