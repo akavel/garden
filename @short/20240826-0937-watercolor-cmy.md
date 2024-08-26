@@ -2,8 +2,8 @@
 https://youtu.be/vJrEsNalmdU).
 Spelled out as _Winsor & Newton_ brand colors, plus their universal pigment names:
 ☛ _cyan:_ Winsor Blue (green shade) [PB15:3] a.k.a. Phthalocyanine Blue;
-☛ _magenta:_ Quinacridone Magenta [PR122] a.k.a. Azo Yellow Light a.k.a. Benzimidazolone Yellow;
-☛ _yellow:_ Winsor Yellow [PY154];
+☛ _magenta:_ Quinacridone Magenta [PR122];
+☛ _yellow:_ Winsor Yellow [PY154] a.k.a. Azo Yellow Light a.k.a. Benzimidazolone Yellow;
 ☛ _black:_ Payne's Gray [PB15+PBk6+PV19][WN pro Payne's Gray].
  Extra colors for extreme cases - forming a kind of a modified "split primary" palette in the end:
 ☛ _black:_ "Lunar Black" from Daniel Smith [PBk11];
