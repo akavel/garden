@@ -75,5 +75,22 @@ Another set, from [a commenter](https://www.youtube.com/@derwood206) on the vide
  11. Transparent Oxide Red
  12. Aquarius Violet
 
+Yet another set, from Lee Angold
+([via](https://leeangold.com/products/lee-angold-x-roman-szmal-palette/),
+[via](https://www.youtube.com/watch?v=qQHthdpwZQg&list=PL2uTdjw8vHEHcVw4PL4DWIwGOYl1UxVSw&index=8)),
+IIUC with official cooperation with Roman Szmal brand (?):
+ 1. [308 Nickel Azo Yellow](https://artistpigments.org/brands/roman-szmal-aquarius/j222m-nickel-azo-yellow) (PY150)
+ 2. 266 Gamboge Hue (PY95)
+ 3. 354 Aquarius Orange (DPP)
+ 4. 332 Magenta (PR122)
+ 5. 359 Potter's Pink (PR233)
+ 6. 337 Indanthrone Blue (PB60)
+ 7. 414 Cobalt Sea Blue (PB28)
+ 8. 344 Ocean Blue (PB15:3 PBr24)
+ 9. 234 Naples Yellow Deep (PBr24)
+ 10. 132 Cyprus Burnt Umber Deep (PBr7)
+ 11. 409 Perylene Green (PBk31)
+ 12. 363 Autumn Green (PY150, PR122, PG36) 
+
 I also noted some explorations of a [CMY/K-based beginner/universal palette on the "watercolor-cmy" page](
 watercolor-cmy).
