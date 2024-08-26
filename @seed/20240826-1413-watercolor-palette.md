@@ -81,7 +81,9 @@ Yet another set, called "Wild Curiosity", from Lee Angold
 IIUC with official cooperation with Roman Szmal brand (?):
  1. [308 Nickel Azo Yellow](https://artistpigments.org/brands/roman-szmal-aquarius/j222m-nickel-azo-yellow) (PY150)
  2. [266 Gamboge Hue](https://artistpigments.org/brands/roman-szmal-aquarius/8of90-gamboge-hue) (PY95)
- 3. [354 Aquarius Orange](https://artistpigments.org/brands/roman-szmal-aquarius/8bh77-aquarius-orange) (DPP [a.k.a. PO107?](https://old.reddit.com/r/Watercolor/comments/17sz1ny/nonstandard_pigment_codes/))
+ 3. [354 Aquarius Orange](https://artistpigments.org/brands/roman-szmal-aquarius/8bh77-aquarius-orange)
+    (DPP [tentatively PO107?](https://old.reddit.com/r/Watercolor/comments/17sz1ny/nonstandard_pigment_codes/) 
+    a.k.a. [Cosmoray Orange?](https://www.artiscreation.com/orange.html))
  4. [332 Quinacridone Magenta](https://artistpigments.org/brands/roman-szmal-aquarius/96mcs-quinacridone-magenta) (PR122)
  5. [359 Potter's Pink](https://artistpigments.org/brands/roman-szmal-aquarius/cdfrs-potter-s-pink) (PR233)
  6. [337 Indanthrone Blue](https://artistpigments.org/brands/roman-szmal-aquarius/yh8w7-indanthrone-blue) (PB60)
