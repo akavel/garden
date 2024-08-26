@@ -30,7 +30,15 @@ The components seem to be:
  1. Misty Morning
  2. PR176 Permanent \[alizarin] crimson "mixes very nice violets"
  3. PR149 \[Pereline] Scarlet "a poppy red; not too warm but it would mix beautiful oranges"
- 4. Nickel Azo Yellow
+ 4. Nickel Azo Yellow "you can't beat those mixes it makes for greens especially"
+ 5. \[Periline] Green "deep forest green & mixes wonderfully with the Nickel Azo Yellow"
+ 6. Prussian Blue "mixes excellent greens \[...] note: lightfastness concerns - not worried because painting not for display"
+ 7. French Ultramarine
+ 8. Cobalt Teal
+ 9. \[Periline] Violet
+ 10. PY74 Hanza Yellow Medium "it really is a yellow yellow"
+ 11. Natural Amber Reddish "it's just a really nice brown that I think would mix really well"
+ 12. Buff Titanium "a warmer tone gray"
 
 I also noted some explorations of a [CMY/K-based beginner/universal palette on the "watercolor-cmy" page](
 watercolor-cmy).
