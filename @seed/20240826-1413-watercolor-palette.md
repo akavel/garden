@@ -95,5 +95,39 @@ IIUC with official cooperation with Roman Szmal brand (?):
  11. [409 Perylene Green](https://artistpigments.org/brands/roman-szmal-aquarius/wfgt8-perylene-green) (PBk31)
  12. [363 Autumn Green](https://artistpigments.org/brands/roman-szmal-aquarius/15mwt-autumn-green) (PY150, PR122, PG36)
 
+**A _RS_ set that seems well-received and recommended as versatile
+seems to be the "Roman Szmal Urban Sketching set" (12 half-pans),
+also known occasionally as "Marek Bądzyński set"
+(seems to be composed by that artist).**
+The set comprises of:
+ 1. PY138 352 Quinophthalone Yellow
+ 2. PR255 319 Pyrrole Scarlet
+ 3. PR122 332 Quinacridone Magenta
+ 4. PB29 254 Ultramarine Intense
+ 5. PW6+PB15:1 226 Blue Sky
+ 6. PB29+PBr7+PV19 259 Shadow Grey
+ 7. PY110+PG7 252 Sap Green Light
+ 8. PY150+PBr25+PB29 346 Aquarius Green
+ 9. PW6:1 201 Buff Titanium
+ 10. PY43 109 Gold Ochre
+ 11. PBr7 120 Italian Burnt Sienna
+ 12. PBr7 130 Cyprus Burnt Umber Deep
+
+A Schmincke Akademie set (#75750) I got at a decent price,
+described as a "Special Colour Selection":
+ 1. PW6 111 opaque white
+ 2. PY35☠ 224 cadmium yellow hue
+ 3. PR255 332 cadmium red hue
+ 4. PV42 336 magenta
+ 5. PB29 443 ultramarine
+ 6. PB15:3 448 cyan
+ 7. PG7 551 brilliant green
+ 8. PY151+PG7 552 may green
+ 9. PY42 660 yellow ochre
+ 10. PBr7 664 burnt umber terre
+ 11. PB15:1+PB66 442 indigo
+ 12. PBk6 782 black
+
+
 I also noted some explorations of a [CMY/K-based beginner/universal palette on the "watercolor-cmy" page](
 watercolor-cmy).
