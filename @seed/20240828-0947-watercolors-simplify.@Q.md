@@ -25,12 +25,17 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
  - TODO: value study, "mid-tones shape" - exercises how to study?
    - "large, connected shape of middle values"
    - look at the photo/image in black & white
-  
- A ["How to Simplify (...)" video by Ian Roberts](https://www.youtube.com/watch?v=bAcWM6rnnlA):
-  - ~claim: "layers from behind" -
+
+ Some videos by Ian Roberts:
+  - ~claim: "layers from behind" (via ["How to Simplify (...)"](https://www.youtube.com/watch?v=bAcWM6rnnlA)) -
     "structure (inc. cropping & framing) -> value masses ("design") -> actual picture & details fall out from this"
     - structure/cropping&framing: \["what we're attracted to? what grabs our attention? keep it or cut it because distracts?"]
       \["movement of eyesight between main elements; the rest is simple and just supports it"]
     - "focus on big, simple, flat masses of value"
   - from comments: "'See each painting [as an exercise](https://www.youtube.com/watch?v=bAcWM6rnnlA&lc=UgxKCQhvZUGP-oJYgwJ4AaABAg)';
     that way your approach is less precious."
+  - "if it's not helping your painting, it's [hurting it](https://www.youtube.com/watch?v=UezzD9pnK8s)"
+    "our vision is led by our resonance with something out there in the world; for whatever reason! it goes off"
+    (my comment: maybe that's also why painting is vulnerability: because it exposes to people what triggered that resonance in me)
+    - quote from Charles Mingus, a jazz bassist and composer:
+      "Making the simple complicated - is commonplace. Making complicated simple - awesomely simple - that's creativity"
