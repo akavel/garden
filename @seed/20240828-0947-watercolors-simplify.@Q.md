@@ -56,3 +56,7 @@ an manufactures a stronger sense of depth"; also,
 
 (unrelated, for later: ["What Happens When You Don't Plan Before Painting"](
 https://www.youtube.com/watch?v=zh_jbu0Zdo4))
+
+(unrelated, for later:
+[keeping the viewer in the image; also, a note about conventions and rules](
+https://www.youtube.com/watch?v=3-Cc2SxDofk))
