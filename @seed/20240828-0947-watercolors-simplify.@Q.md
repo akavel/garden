@@ -39,3 +39,11 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
     (my comment: maybe that's also why painting is vulnerability: because it exposes to people what triggered that resonance in me)
     - quote from Charles Mingus, a jazz bassist and composer:
       "Making the simple complicated - is commonplace. Making complicated simple - awesomely simple - that's creativity"
+    - my [comment I added](https://www.youtube.com/watch?v=UezzD9pnK8s&lc=Ugymqs08scvwBvB-5jB4AaABAg):
+      "That made me start to think, or maybe start to realize, that
+      this may be the reason why there is vulnerability in painting:
+      because it exposes to people what triggered that resonance in me,
+      and thus publicly displays some very core and intimate part of me.
+      And a part that, intrinsically, will be different in others.
+      Thus making them not understand it, criticize it, have a different view on it -
+      because they may have somewhat different ways how they resonate with the world, and with things in it."
