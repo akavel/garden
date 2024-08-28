@@ -33,6 +33,10 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
    what drew us to the scene in the first place -
    focus on what is important and minimize the rest
    \[note: this seems to match the "structure/composition" stage from Ian Roberts videos].
+   - "edge, contrast, color, and texture -
+     those are the things that will draw you to the area of the painting" -
+     so reducing/increasing them can help steer the focus of the viewer
+     (maximize in the focal area/main area of interest, minimize elsewhere)
  - imply detail (...how?) 
  - TODO: value study, "mid-tones shape" - exercises how to study?
    - "large, connected shape of middle values"
