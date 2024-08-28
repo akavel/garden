@@ -111,3 +111,5 @@ https://www.youtube.com/watch?v=C0OUEHsc8_c
  - hints on practicing & routine
  - https://www.youtube.com/watch?v=sN6HiZQDzA0
    - on rejection as a sign of practice
+https://www.youtube.com/watch?v=C99cN0kBYOY
+ - exaggerate the interesting part a bit 
