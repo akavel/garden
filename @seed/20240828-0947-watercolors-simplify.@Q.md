@@ -109,6 +109,9 @@ https://www.youtube.com/watch?v=yVb66c-o9Eo
 https://www.youtube.com/watch?v=4WwTBkS8rhk
  - example by another artist
 
+https://www.youtube.com/watch?v=3gI0AicMHpQ
+ - experimenting with value studies
+
 ## unrelated, for later
 
 https://www.youtube.com/watch?v=UJ3VbGHooDI
