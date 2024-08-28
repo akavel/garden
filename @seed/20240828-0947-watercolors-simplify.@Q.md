@@ -16,3 +16,12 @@ and again, e.g. for buildings I'm frustrated with how to reduce their complexity
 while keeping their character, or how to call it... 
 for sky/trees, it seems to be simpler with watercolor, as the paint naturally forms "organic" patterns of texture, 
 but buildings tend to have lots of sharp features - how to simplify them?...
+
+Some notes based on some [videos by Matthew White](
+https://www.youtube.com/@learntopaintwatercolor/videos):
+ - squint and look for large shapes ([via](https://www.youtube.com/watch?v=mB6jb5Sgjis));
+   see little shapes in more of a connected way
+ - imply detail (...how?) 
+ - TODO: value study, "mid-tones shape" - exercises how to study?
+   - "large, connected shape of middle values"
+   - look at the photo/image in black & white
