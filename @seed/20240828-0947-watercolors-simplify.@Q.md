@@ -21,6 +21,18 @@ Some notes based on some [videos by Matthew White](
 https://www.youtube.com/@learntopaintwatercolor/videos):
  - squint and look for large shapes ([via](https://www.youtube.com/watch?v=mB6jb5Sgjis));
    see little shapes in more of a connected way
+ - [again](https://www.youtube.com/watch?v=YqfwgMs91lU):
+   squint; look for the large (connected) shapes of the scene (a.k.a. values/midtones?),
+   values that are similar -
+   "we are very good at seeing small details and thinking in terms of them,
+   because we're very familiar with those objects;
+   we try to replicate what we think something looks like, rather than how it actually looks/appears;
+   instead, think in terms of shapes of what we see
+   \[note: this seems to match "design" stage from Ian Roberts videos];
+   finally, focus on the simple statement of the scene,
+   what drew us to the scene in the first place -
+   focus on what is important and minimize the rest
+   \[note: this seems to match the "structure/composition" stage from Ian Roberts videos].
  - imply detail (...how?) 
  - TODO: value study, "mid-tones shape" - exercises how to study?
    - "large, connected shape of middle values"
@@ -62,3 +74,5 @@ https://www.youtube.com/watch?v=zh_jbu0Zdo4))
 https://www.youtube.com/watch?v=3-Cc2SxDofk))
 
 for later: [composition](https://www.youtube.com/watch?v=sopLk4Czp6M)
+
+unrelated, for later: [insights into artistic growth](https://www.youtube.com/watch?v=M0n5ZueR2Ok)
