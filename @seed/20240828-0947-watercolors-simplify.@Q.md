@@ -81,3 +81,10 @@ https://www.youtube.com/watch?v=3-Cc2SxDofk))
 for later: [composition](https://www.youtube.com/watch?v=sopLk4Czp6M)
 
 unrelated, for later: [insights into artistic growth](https://www.youtube.com/watch?v=M0n5ZueR2Ok)
+
+## value study (in watercolors)
+
+https://www.youtube.com/watch?v=7RNYr0q-w8k
+ - squint
+ - "take the reference photo black and white"
+ - "large, middle-connected unifying shape of the scene"
