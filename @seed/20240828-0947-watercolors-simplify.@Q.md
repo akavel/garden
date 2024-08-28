@@ -29,10 +29,11 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
    we try to replicate what we think something looks like, rather than how it actually looks/appears;
    instead, think in terms of shapes of what we see
    \[note: this seems to match "design" stage from Ian Roberts videos];
-   finally, focus on the simple statement of the scene,
+   moreover, focus on the simple statement of the scene,
    what drew us to the scene in the first place -
    focus on what is important and minimize the rest
-   \[note: this seems to match the "structure/composition" stage from Ian Roberts videos].
+   \[note: this seems to match the "structure/composition" stage from Ian Roberts videos];
+   finally, step back (from the painting) often.
    - "edge, contrast, color, and texture -
      those are the things that will draw you to the area of the painting" -
      so reducing/increasing them can help steer the focus of the viewer
