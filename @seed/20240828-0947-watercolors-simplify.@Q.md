@@ -88,3 +88,10 @@ https://www.youtube.com/watch?v=7RNYr0q-w8k
  - squint
  - "take the reference photo black and white"
  - "large, middle-connected unifying shape of the scene"
+
+## unrelated, for later
+
+https://www.youtube.com/watch?v=UJ3VbGHooDI
+ - paint consistency: "tea <-> milk <-> cream <-> butter";
+   they "behave different on a tilted palette, from most runny to non-moving glue-like"
+   - seems to kinda match the "lights <-> midtones <-> details" split
