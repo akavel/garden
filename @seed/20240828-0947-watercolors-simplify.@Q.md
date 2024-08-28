@@ -99,3 +99,5 @@ https://www.youtube.com/watch?v=UJ3VbGHooDI
    - seems to kinda match the "lights <-> midtones <-> details" split
 https://www.youtube.com/watch?v=C0OUEHsc8_c
  - hints on practicing & routine
+ - https://www.youtube.com/watch?v=sN6HiZQDzA0
+   - on rejection as a sign of practice
