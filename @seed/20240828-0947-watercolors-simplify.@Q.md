@@ -60,3 +60,5 @@ https://www.youtube.com/watch?v=zh_jbu0Zdo4))
 (unrelated, for later:
 [keeping the viewer in the image; also, a note about conventions and rules](
 https://www.youtube.com/watch?v=3-Cc2SxDofk))
+
+for later: [composition](https://www.youtube.com/watch?v=sopLk4Czp6M)
