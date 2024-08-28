@@ -25,3 +25,10 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
  - TODO: value study, "mid-tones shape" - exercises how to study?
    - "large, connected shape of middle values"
    - look at the photo/image in black & white
+  
+ A ["How to Simplify (...)" video by Ian Roberts](https://www.youtube.com/watch?v=bAcWM6rnnlA):
+  - ~claim: "layers from behind" -
+    "structure (inc. cropping & framing) -> value masses ("design") -> actual picture & details fall out from this"
+    - structure/cropping&framing: \["what we're attracted to? what grabs our attention? keep it or cut it because distracts?"]
+      \["movement of eyesight between main elements; the rest is simple and just supports it"]
+    - "focus on big, simple, flat masses of value"
