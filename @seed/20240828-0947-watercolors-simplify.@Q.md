@@ -48,7 +48,8 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
       Thus making them not understand it, criticize it, have a different view on it -
       because they may have somewhat different ways how they resonate with the world, and with things in it."
 
-(unrelated: "adding a slight bit of detail to \[some area] of the background
+(unrelated, for later: "adding a slight bit of detail to \[some area] of the background
 creates an interplay between the \[interesting area of foreground and that area of background]
 and thus [manufactures](https://www.youtube.com/watch?v=1XoYZ8KVnVQ)
-an manufactures a stronger sense of depth")
+an manufactures a stronger sense of depth"; also,
+"edges hold our attention")
