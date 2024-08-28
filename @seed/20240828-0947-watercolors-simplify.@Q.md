@@ -38,7 +38,9 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
      those are the things that will draw you to the area of the painting" -
      so reducing/increasing them can help steer the focus of the viewer
      (maximize in the focal area/main area of interest, minimize elsewhere)
- - imply detail (...how?) 
+ - imply detail (...how?)
+ - grab the brush further away from the tip (not like a pen) -
+   less controlled, more open to more interesting ways of using the brush
  - TODO: value study, "mid-tones shape" - exercises how to study?
    - "large, connected shape of middle values"
    - look at the photo/image in black & white
