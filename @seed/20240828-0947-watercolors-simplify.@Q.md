@@ -86,6 +86,9 @@ unrelated, for later: [insights into artistic growth](https://www.youtube.com/wa
 
 ## value study (in watercolors)
 
+("values are the most important thing [because they portray/unlock the light in the scene](
+https://www.youtube.com/watch?v=bEDzZXlfy_U)")
+
 https://www.youtube.com/watch?v=7RNYr0q-w8k
  - squint
  - "take the reference photo black and white"
