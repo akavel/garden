@@ -93,13 +93,18 @@ https://www.youtube.com/watch?v=7RNYr0q-w8k
  - squint
  - "take the reference photo black and white"
  - "large, middle-connected unifying shape of the scene"
+
 https://www.youtube.com/watch?v=x1RqEjru1bk
  - how to create a value study, in one color
+
 https://www.youtube.com/watch?v=6b-ERpv33TU
  - how to paint the large connected middle area of the scene
  - find connections
  - keep the pencil down on the paper most of the time, as much as you can - will help with connectivity
    - pay more attention to the outline of the shape, not what is inside the shape
+
+https://www.youtube.com/watch?v=yVb66c-o9Eo
+ - another example
 
 ## unrelated, for later
 
