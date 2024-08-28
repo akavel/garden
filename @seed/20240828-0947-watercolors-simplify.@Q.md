@@ -53,3 +53,6 @@ creates an interplay between the \[interesting area of foreground and that area 
 and thus [manufactures](https://www.youtube.com/watch?v=1XoYZ8KVnVQ)
 an manufactures a stronger sense of depth"; also,
 "edges hold our attention")
+
+(unrelated, for later: ["What Happens When You Don't Plan Before Painting"](
+https://www.youtube.com/watch?v=zh_jbu0Zdo4))
