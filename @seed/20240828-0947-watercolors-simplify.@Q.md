@@ -32,3 +32,5 @@ https://www.youtube.com/@learntopaintwatercolor/videos):
     - structure/cropping&framing: \["what we're attracted to? what grabs our attention? keep it or cut it because distracts?"]
       \["movement of eyesight between main elements; the rest is simple and just supports it"]
     - "focus on big, simple, flat masses of value"
+  - from comments: "'See each painting [as an exercise](https://www.youtube.com/watch?v=bAcWM6rnnlA&lc=UgxKCQhvZUGP-oJYgwJ4AaABAg)';
+    that way your approach is less precious."
