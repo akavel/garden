@@ -90,6 +90,8 @@ https://www.youtube.com/watch?v=7RNYr0q-w8k
  - squint
  - "take the reference photo black and white"
  - "large, middle-connected unifying shape of the scene"
+https://www.youtube.com/watch?v=x1RqEjru1bk
+ - how to create a value study, in one color
 
 ## unrelated, for later
 
