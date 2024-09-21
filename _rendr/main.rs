@@ -130,6 +130,8 @@ fn md_to_html(markdown: &str) -> RawHtml {
     md_pikchr::add(parser); // TODO: here or earlier?
     markdown_it::plugins::extra::add(parser);
     markdown_it_footnote::add(parser);
+    markdown_it_sub::add(parser);
+    markdown_it_sup::add(parser);
     let ast = parser.parse(markdown);
     // ast.walk(|node, _| {
     //     let name = node.name();
