@@ -26,5 +26,5 @@ All in all, I am impressed by the game; I had some hopes and wishes when buying,
 _([PESOS](https://indieweb.org/PESOS):
 [fb1](https://www.facebook.com/groups/gamesofkilforth/posts/8417461808337142/)
 [fb2](https://www.facebook.com/hallornothingproductions/posts/pfbid02VUU53TGxsqxhQEHTxMtdCQuWAGrXG2pXmcgBwYVJSNqdJrakz5KSXudus8KZ1JQdl)
-bgg^⏳^
+[bgg](https://boardgamegeek.com/thread/3372019/article/44896987#44896987)
 )_
