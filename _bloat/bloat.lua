@@ -82,8 +82,8 @@ local function render_index_item_tags(item_tmpl, art)
   end
 end
 
-local function render_short_entry(short_tmpl, art)
-  local item_slot = short_tmpl:find('li')
+local function render_snip_entry(snip_tmpl, art)
+  local item_slot = snip_tmpl:find('li')
   local item = item_slot:eject_children()
   item_slot:set_children(art.html)
 
@@ -98,7 +98,7 @@ local function render_short_entry(short_tmpl, art)
   self_link_slot:set_attr('href', art.slug)
 
   item_slot:add_children(item)
-  return short_tmpl
+  return snip_tmpl
 end
 
 local function render_index_entry(art_tmpl, art)
@@ -129,19 +129,19 @@ local function render_articles_list(list_slot, articles)
   local item_templates = list_slot:eject_children()
 
   local art_tmpl = item_templates:find('#article-wrapper'):eject_children()
-  local shorts_tmpl = item_templates:find('#shorts-wrapper'):eject_children()
-  local short_tmpl = shorts_tmpl:find('ul.shorts'):eject_children()
+  local snips_tmpl = item_templates:find('#snips-wrapper'):eject_children()
+  local snip_tmpl = snips_tmpl:find('ul.snips'):eject_children()
 
-  local shorts = nil
+  local snips = nil
   for _, art in ipairs(articles) do
-    if art.tags.short then
-      shorts = shorts or shorts_tmpl:clone()
-      local entry = render_short_entry(short_tmpl:clone(), art)
-      shorts:find('ul.shorts'):add_children(entry)
-    else -- not short
-      if shorts then
-        list_slot:add_children(shorts)
-        shorts = nil
+    if art.tags.snip then
+      snips = snips or snips_tmpl:clone()
+      local entry = render_snip_entry(snip_tmpl:clone(), art)
+      snips:find('ul.snips'):add_children(entry)
+    else -- not snip
+      if snips then
+        list_slot:add_children(snips)
+        snips = nil
       end
       local entry = render_index_entry(art_tmpl:clone(), art)
       if entry then
@@ -149,9 +149,9 @@ local function render_articles_list(list_slot, articles)
       end
     end
   end
-  if shorts then
-    list_slot:add_children(shorts)
-    shorts = nil
+  if snips then
+    list_slot:add_children(snips)
+    snips = nil
   end
 end
 
