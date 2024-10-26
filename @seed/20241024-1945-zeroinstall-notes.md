@@ -15,6 +15,10 @@ $ 0install show --xml foo
      - ❌ nope, `0install show` prints: `Unknown command 'show'.` :(
    - is there a matching `$SOME_DIR/0install.net/apps/` directory on Windows?
      - ❌ nope, Linux-only again ([via](https://docs.0install.net/details/file-locations/))
+     - 🤔 possible approximations in `%APPDATA%\0install.net\desktop-integration\...`:
+       - `aliases\` seems to store .exe stubs
+       - `app-list.xml` seems basically same content as `--list-apps`
+       - `stubs\*\` seems to store other .exe stubs (for non-CLI apps?)
   
 Regarding **migrating signing keys** from a Windows machine to another one
 ([via](https://github.com/0install/docs/issues/26#issuecomment-2081639062)):
