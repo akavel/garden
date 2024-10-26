@@ -14,10 +14,24 @@ $ 0install show --xml foo
    - is there `0install show --xml $APP` on Windows?
    - is there a matching `$SOME_DIR/0install.net/apps/` directory on Windows?
   
-Regarding migrating signing keys from a Windows machine to another one
+Regarding **migrating signing keys** from a Windows machine to another one
 ([via](https://github.com/0install/docs/issues/26#issuecomment-2081639062)):
 
 > The various 0install publishing tools all call `gpg` (GnuPG) under the hoods to sign feeds.
 >
 > On Windows GnuPG stores private keys (and other data) in `%appdata%\gnupg` by default.
 > So copying that directory from your old machine to the new one should do the trick.
+
+After installing gnupg e.g. via 0install itself, this would seem to boil down to
+([via](https://unix.stackexchange.com/a/392355)):
+
+```
+On "source" machine:
+$ gpg --export > all.key   # or: gpg --export $ID > single.key
+
+On "destination" machine:
+$ gpg --import all.key     # or: gpg --import single.key
+$ gpg --edit-key $ID trust quit
+5⏎  # "I trust ultimately"
+y⏎  # "Really set this key to ultimate trust?" - "Yes"
+```
