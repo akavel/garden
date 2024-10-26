@@ -32,7 +32,7 @@ $ gpg --export-secret-key > secret.key  # this or above? unsure
 
 On "destination" machine:
 $ gpg --import secret.key     # or: gpg --import all.key ? ...single.key ?
-$ gpg --edit-key $ID trust quit
+$ gpg --edit-key $ID trust quit   # needed or not needed ???
 5⏎  # "I trust ultimately"
 y⏎  # "Really set this key to ultimate trust?" - "Yes"
 $ gpg -K    # list secret keys
