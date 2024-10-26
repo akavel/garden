@@ -36,4 +36,5 @@ $ gpg --edit-key $ID trust quit   # needed or not needed ???
 5⏎  # "I trust ultimately"
 y⏎  # "Really set this key to ultimate trust?" - "Yes"
 $ gpg -K    # list secret keys
+$ gpg --delete-secret-key $UNUSED_KEY
 ```
