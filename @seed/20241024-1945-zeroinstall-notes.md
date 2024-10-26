@@ -12,6 +12,7 @@ $ 0install show --xml foo
 ```
  - TODO: can I do it on Windows as well in the same way?
    - is there `0install show --xml $APP` on Windows?
+     - ✖❌ nope, `0install show` prints: `Unknown command 'show'.` :(
    - is there a matching `$SOME_DIR/0install.net/apps/` directory on Windows?
   
 Regarding **migrating signing keys** from a Windows machine to another one
