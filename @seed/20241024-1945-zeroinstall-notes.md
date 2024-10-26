@@ -13,6 +13,12 @@ $ 0install show --xml foo
  - TODO: can I do it on Windows as well in the same way?
    - is there `0install show --xml $APP` on Windows?
      - ❌ nope, `0install show` prints: `Unknown command 'show'.` :(
+     - 👉 `%LOCALAPPDATA%\0install.net\interfaces\` per-URL seems to store full .xml files,
+       with e.g. `<implementation version="25.6.2" id="sha256new_APRH6BPECHOVOU2E3E65NQDDTTUXVS63A7RRXQ7JSY3LHR2GLONA">`
+       which matches `<manifest-digest ...>` XML contents, as well as the dir name in either
+       `%PROGRAMDATA%\0install.net\implementations\` or
+       `%LOCALAPPDATA%\0install.net\implementations\`
+       (maybe see also: `%APPDATA%\0install.net\injector\implementation-dirs`)
    - is there a matching `$SOME_DIR/0install.net/apps/` directory on Windows?
      - ❌ nope, Linux-only again ([via](https://docs.0install.net/details/file-locations/))
      - 🤔 possible approximations in `%APPDATA%\0install.net\desktop-integration\...`:
