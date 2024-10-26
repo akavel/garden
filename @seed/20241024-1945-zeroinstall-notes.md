@@ -28,10 +28,12 @@ After installing gnupg e.g. via 0install itself, this would seem to boil down to
 ```
 On "source" machine:
 $ gpg --export > all.key   # or: gpg --export $ID > single.key
+$ gpg --export-secret-key > secret.key  # this or above? unsure
 
 On "destination" machine:
-$ gpg --import all.key     # or: gpg --import single.key
+$ gpg --import secret.key     # or: gpg --import all.key ? ...single.key ?
 $ gpg --edit-key $ID trust quit
 5⏎  # "I trust ultimately"
 y⏎  # "Really set this key to ultimate trust?" - "Yes"
+$ gpg -K    # list secret keys
 ```
