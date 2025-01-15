@@ -7,3 +7,5 @@ Those three would be very similar to the three I like
 \[DS Ultramarine Blue PB29, Green Gold PY 150+PY3+PG36, and Transparent Red Oxide PR101],
 from what I can tell.
 A true, vibrant blue + a reddish earth tone + a cool, very light green."_
+Also, another pigment comparison website:
+https://www.handprint.com/HP/WCL/waterfs.html
