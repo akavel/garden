@@ -70,10 +70,14 @@ the Settlement oracles from base _Starforged_ to help define areas in an "ecumen
 Just in case, should I find out I need a bit more,
 I can always try pulling some extra oomph from
 the free book of _["Stars Without Number"](
-https://www.drivethrurpg.com/en/product/230009/Stars-Without-Number-Revised-Edition-Free-Version)_.
+https://www.drivethrurpg.com/en/product/230009/Stars-Without-Number-Revised-Edition-Free-Version)_,
+or the amazing, and similarly free,
+third-party _Starforged_ expansion
+_["Cyberforged"](
+https://the-homebrewster.itch.io/cyberforged)_.
 Worst case, the rules for "ecumenopolis"
 should work as a really nice mechanism for
-smoothly grafting small bits of material from that resource
+smoothly grafting small bits of material from those resources
 into _Starforged_.
 
 ## Machines, Horrors, and Precursors
