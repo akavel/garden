@@ -31,7 +31,11 @@ use pathinfo::PathInfo;
 const SOURCES: &str = "*.md:@seed/*.md:@snip/*.md";
 const RAW: &str =
     "favicon.ico:*.pdf:@seed/*.pdf:*.png:@seed/*.png:*.jpg:@seed/*.jpg:*.svg:@seed/*.svg";
-const SCRIPT_PATH: &str = "_bloat/bloat.lua";
+const SCRIPT: &str = r#"
+local tl = require '_rendr/tl'
+tl.loader()
+require '_bloat/bloat'
+"#;
 const OUT_DIR: &str = "_html.out";
 
 fn main() -> anyhow::Result<()> {
@@ -115,9 +119,10 @@ fn main() -> anyhow::Result<()> {
     }
     lua.globals().set("articles", articles).unwrap();
 
-    // Run Lua script intended to process the articles
-    let script = std::fs::read_to_string(SCRIPT_PATH).unwrap();
-    lua.load(script).set_name(SCRIPT_PATH).exec()?;
+    // Run Lua/Teal script intended to process the articles
+    lua.load(SCRIPT).exec()?;
+    // let script = std::fs::read_to_string(SCRIPT_PATH).unwrap();
+    // lua.load(script).set_name(SCRIPT_PATH).exec()?;
 
     // TODO[LATER]: handle images
 
