@@ -16,7 +16,7 @@
 
 use glob::glob;
 use log::{error, info, warn};
-use mlua::prelude::*;
+use tealr::mlu::mlua::prelude::*;
 use scraper::Html as RawHtml;
 use std::path::PathBuf;
 
