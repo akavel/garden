@@ -10,9 +10,10 @@
 - [Jane's Agenda](https://janesagenda.com) (USA)
 - Martha Stewart (USA)
 - smaller ones in USA:
-  - Notiq
-  - [Cloth & Paper](https://clothandpaper.com)
-  - Inkwell Press
+  - https://clothandpaper.com
+  - https://discboundmarketplace.com/collections
+  - https://inkwellpress.com
+  - https://notiq.com/collections/discbound-planners
   - https://taliaproducts.com
 - Esquoia - defunct??
 
