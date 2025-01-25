@@ -9,6 +9,8 @@
 - [TUL](https://www.officedepot.com/l/brand/tul) (USA Office Depot)
 - [Jane's Agenda](https://janesagenda.com) (USA)
 - Martha Stewart (USA)
+- [William Hannah](https://williamhannah.com) (UK)
+- [Pepper and Cute](https://www.pepperandcute.com) (UK)
 - smaller ones in USA:
   - https://clothandpaper.com
   - https://discboundmarketplace.com/collections
