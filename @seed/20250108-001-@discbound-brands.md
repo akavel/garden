@@ -34,3 +34,6 @@ and the **number of discs** used along the spine.
   - https://www.eagle-stationery.com/disc-binding-series-accessories/
 - unclear geography
   - https://perfect-notebook.com/collections/catalog (US? Israel? elsewhere?)
+ 
+Some other not immediately user-relevant products:
+- https://www.paperfox.eu/paperfox-db-4-discbound-hole-punch.html
