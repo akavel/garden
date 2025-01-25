@@ -513,7 +513,6 @@ dependencies = [
  "markdown-it-sub",
  "markdown-it-sup",
  "markup5ever",
- "mlua 0.9.9",
  "peg",
  "pikchr",
  "scraper",
@@ -988,19 +987,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b8402cab7aefae129c6977bb0ff1b8fd9a04eb5b51efc50a70bea51cda0c7924"
 dependencies = [
  "adler2",
-]
-
-[[package]]
-name = "mlua"
-version = "0.9.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d111deb18a9c9bd33e1541309f4742523bfab01d276bfa9a27519f6de9c11dc7"
-dependencies = [
- "bstr",
- "mlua-sys",
- "num-traits",
- "once_cell",
- "rustc-hash",
 ]
 
 [[package]]
@@ -1708,7 +1694,7 @@ checksum = "b40cd445eebe60baf68b6f711227f3af303bf61d0047497615728bac9f652e38"
 dependencies = [
  "bstr",
  "itertools",
- "mlua 0.10.2",
+ "mlua",
  "serde",
  "serde_json",
  "tealr_derive",

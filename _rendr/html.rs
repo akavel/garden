@@ -20,7 +20,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 use ego_tree::NodeId;
-use tealr::mlu::mlua::prelude::LuaValue;
+use tealr::mlu::mlua::prelude::*;
 use scraper::{Html as RawHtml, Selector};
 use tealr::ToTypename;
 
@@ -60,9 +60,8 @@ impl From<RawHtml> for Html {
     }
 }
 
-impl<'lua> tealr::FromLua<'lua> for Html {
-    // fn from_lua(value: LuaValue<'lua>, _: &'lua tealr::Lua) -> tealr::Result<Self> {
-    fn from_lua(value: LuaValue, _: &tealr::Lua) -> tealr::Result<Self> {
+impl FromLua for Html {
+    fn from_lua(value: LuaValue, _: &Lua) -> tealr::mlu::mlua::Result<Self> {
         match value {
             LuaValue::UserData(ud) => Ok(ud.borrow::<Self>()?.view()),
             _ => Err(LuaError::RuntimeError(format!(
@@ -74,7 +73,6 @@ impl<'lua> tealr::FromLua<'lua> for Html {
 }
 
 impl tealr::mlu::TealData for Html {
-    // fn add_methods<'lua, T: tealr::mlu::TealDataMethods<'lua, Self>>(methods: &mut T) {
     fn add_methods<T: tealr::mlu::TealDataMethods<Self>>(methods: &mut T) {
         methods.add_method("to_string", |_, html, ()| Ok(html.raw.borrow().html()));
 
