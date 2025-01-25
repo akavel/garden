@@ -6,7 +6,7 @@ When trying to compare without buying,
 first of all check **paper sizes**,
 and the **number of discs** used along the spine.
 
-- non-USA
+- non-USA, non-China
   - [Atoma](https://atoma.be) (Belgium) - the one that [started it all](https://en.wikipedia.org/wiki/Disc-binding)
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
@@ -20,14 +20,16 @@ and the **number of discs** used along the spine.
   - [Happy Planner](https://thehappyplanner.com/) (MAMBI)
   - [TUL](https://www.officedepot.com/l/brand/tul) (Office Depot)
   - [Jane's Agenda](https://janesagenda.com)
-  - [Discagenda](https://dokibook.com/Discagenda-c46.html) (Dokibook)
   - Martha Stewart
   - _...smaller (?) ones below..._
   - https://clothandpaper.com
   - https://discboundmarketplace.com/collections
   - https://elevendiscs.com
   - https://inkwellpress.com
+  - https://www.maypaperco.com/collections/discbound
   - https://notiq.com/collections/discbound-planners
   - https://perfect-notebook.com/collections/catalog
   - https://taliaproducts.com
-
+- China
+  - [Discagenda](https://dokibook.com/Discagenda-c46.html) (Dokibook)
+  - https://www.eagle-stationery.com/disc-binding-series-accessories/
