@@ -14,6 +14,7 @@
 - smaller ones in USA:
   - https://clothandpaper.com
   - https://discboundmarketplace.com/collections
+  - https://elevendiscs.com
   - https://inkwellpress.com
   - https://notiq.com/collections/discbound-planners
   - https://taliaproducts.com
