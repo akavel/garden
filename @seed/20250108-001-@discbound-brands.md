@@ -1,5 +1,11 @@
 # Brands of Discbound notebooks & accessories that I'm aware of
 
+Warning: not 100% of those are 100% guaranteed to be 100% compatible.
+Most of them should be, but there happen to be some outliers.
+When trying to compare without buying,
+first of all check **paper sizes**,
+and the **number of discs** used along the spine.
+
 - non-USA
   - [Atoma](https://atoma.be) (Belgium) - the one that [started it all](https://en.wikipedia.org/wiki/Disc-binding)
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
