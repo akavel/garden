@@ -1,35 +1,56 @@
 print("hello teal!")
 
+local record Html
+  userdata
+  to_string: function(self): string
+  clone: function(self): Html
+  find: function(self, selector: string): Html
+  delete_children: function(self)
+  add_children: function(self, from: Html)
+  set_children: function(self, from: Html)
+  eject_children: function(self): Html
+  add_text: function(self, string)
+  set_text: function(self, string)
+  get_text: function(self): string
+  set_attr: function(self, k: string, v: string)
+end
+
+local record html
+  parse: function(html: string): Html
+  from_md: function(md: string): Html
+  new: function(): Html
+end
+
 local record Article
   src: string
   slug: string
   datetime: string
   extension: string
   tags: {string:boolean}  -- HACK: originally comes as {string} !
+  -- below fields are not set by Rust but by this script:
+  html: Html
 end
-
-global articles: {Article}
 
 local TITLE_SUFFIX = " — akavel's digital garden"
 
-local function readfile(name)
+local function readfile(name: string): string
   local fh = assert(io.open(name))
   local data = assert(fh:read '*a')
   fh:close()
   return data
 end
 
-local function writefile(name, content)
+local function writefile(name: string, content: string)
   local fh = assert(io.open(name, 'w'))
   assert(fh:write(content))
   fh:close()
 end
 
-local function article_date(art)
+local function article_date(art: Article): string
   return (art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3'))
 end
 
-local function render_article(template, article)
+local function render_article(template: Html, article: Article): Html
   -- Parse markdown article from disk into HTML.
   local text = html.from_md(readfile(article.src))
   article.html = text
@@ -47,7 +68,7 @@ local function render_article(template, article)
 
   -- Set tags
   local tag_tmpl = template:find('ul.tags'):eject_children()
-  for _, tag in ipairs(article.tags) do
+  for _, tag in ipairs(article.tags as {string}) do
     -- print(tag_tmpl:to_string())
     tag_tmpl:find('li a'):set_text('@'..tag)
     tag_tmpl:find('li a'):set_attr('href', '@'..tag)
@@ -82,9 +103,9 @@ local function render_article(template, article)
   return template
 end
 
-local function render_index_item_tags(item_tmpl, art)
+local function render_index_item_tags(item_tmpl: Html, art: Article)
   local tag_tmpl = item_tmpl:find('ul.tags'):eject_children()
-  for _, tag in ipairs(art.tags) do
+  for _, tag in ipairs(art.tags as {string}) do
     -- print(tag_tmpl:to_string())
     tag_tmpl:find('li a'):set_text('@'..tag)
     tag_tmpl:find('li a'):set_attr('href', '@'..tag)
@@ -92,7 +113,7 @@ local function render_index_item_tags(item_tmpl, art)
   end
 end
 
-local function render_snip_entry(snip_tmpl, art)
+local function render_snip_entry(snip_tmpl: Html, art: Article): Html
   local item_slot = snip_tmpl:find('li')
   local item = item_slot:eject_children()
   item_slot:set_children(art.html)
@@ -111,7 +132,7 @@ local function render_snip_entry(snip_tmpl, art)
   return snip_tmpl
 end
 
-local function render_index_entry(art_tmpl, art)
+local function render_index_entry(art_tmpl: Html, art: Article): Html
   local h1 = art.html:find 'h1'
   if not h1 then
     return nil
@@ -135,14 +156,14 @@ local function render_index_entry(art_tmpl, art)
   return art_tmpl
 end
 
-local function render_articles_list(list_slot, articles)
+local function render_articles_list(list_slot: Html, articles: {Article})
   local item_templates = list_slot:eject_children()
 
   local art_tmpl = item_templates:find('#article-wrapper'):eject_children()
   local snips_tmpl = item_templates:find('#snips-wrapper'):eject_children()
   local snip_tmpl = snips_tmpl:find('ul.snips'):eject_children()
 
-  local snips = nil
+  local snips: Html = nil
   for _, art in ipairs(articles) do
     if art.tags.snip then
       snips = snips or snips_tmpl:clone()
@@ -165,7 +186,7 @@ local function render_articles_list(list_slot, articles)
   end
 end
 
-local function render_tag(tag_tmpl, tag, articles)
+local function render_tag(tag_tmpl: Html, tag: string, articles: {Article}): Html
   -- Set title
   local title = '@' .. tag .. TITLE_SUFFIX
   tag_tmpl:find('html head title'):set_text(title)
@@ -179,7 +200,7 @@ local function render_tag(tag_tmpl, tag, articles)
   return tag_tmpl
 end
 
-local function render_index(filename, articles, modifer_f)
+local function render_index(filename: string, articles: {Article}, modifer_f?: function(tmpl: Html))
   print('INDEX ' .. filename)
   local index = html.parse(readfile '_bloat/index.html')
   local list_slot = index:find '#list'
@@ -191,8 +212,12 @@ local function render_index(filename, articles, modifer_f)
 end
 
 local function main()
+  global articles: {Article}
+
   -- Sort articles, newest first.
-  table.sort(articles, function(a, b) return a.datetime > b.datetime end)
+  table.sort(articles, function(a: Article, b: Article): boolean
+    return a.datetime > b.datetime
+  end)
 
   ------
   -- Render articles.
@@ -235,11 +260,11 @@ local function main()
     end
   end
   render_index('_html.out/index.html', platter_articles)
-  render_index('_html.out/@backstage', articles, function(tmpl)
+  render_index('_html.out/@backstage', articles, function(tmpl: Html)
     tmpl:find('#areas > li.current'):set_attr('class', '')
     tmpl:find('#areas > li + li'):set_attr('class', 'current')
   end)
-  render_index('_html.out/about', {}, function(tmpl)
+  render_index('_html.out/about', {}, function(tmpl: Html)
     tmpl:find('#areas > li.current'):set_attr('class', '')
     tmpl:find('#areas > li + li + li'):set_attr('class', 'current')
     local text = html.from_md(readfile('@seed/0000-about.md'))
