@@ -11,6 +11,7 @@ and the **number of discs** used along the spine.
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK)
+  - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
   - Esquoia - defunct??
   - Clairing (FR Clairefontaine) - defunct??
 - USA
@@ -26,10 +27,10 @@ and the **number of discs** used along the spine.
   - https://discboundmarketplace.com/collections
   - https://elevendiscs.com
   - https://inkwellpress.com
-  - https://www.maypaperco.com/collections/discbound
   - https://notiq.com/collections/discbound-planners
-  - https://perfect-notebook.com/collections/catalog
   - https://taliaproducts.com
 - China
   - [Discagenda](https://dokibook.com/Discagenda-c46.html) (Dokibook)
   - https://www.eagle-stationery.com/disc-binding-series-accessories/
+- unclear geography
+  - https://perfect-notebook.com/collections/catalog (US? Israel? elsewhere?)
