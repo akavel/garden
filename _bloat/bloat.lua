@@ -1,4 +1,14 @@
-print("hello lua!")
+print("hello teal!")
+
+local record Article
+  src: string
+  slug: string
+  datetime: string
+  extension: string
+  tags: {string:boolean}  -- HACK: originally comes as {string} !
+end
+
+global articles: {Article}
 
 local TITLE_SUFFIX = " — akavel's digital garden"
 
@@ -55,7 +65,7 @@ local function render_article(template, article)
   title:add_text(TITLE_SUFFIX)
 
   -- Choose greenery disclaimer to show
-  local hide_greeneries = {seed=true, bud=true, ripe=true}
+  local hide_greeneries: {string:boolean} = {seed=true, bud=true, ripe=true}
   hide_greeneries[greenery_kind] = false
   for k, v in pairs(hide_greeneries) do
       if v then
@@ -190,7 +200,7 @@ local function main()
   local template = html.parse(readfile '_bloat/bloat.html')
   for _, article in ipairs(articles) do
     print("RENDERING " .. article.slug)
-    for _, t in ipairs(article.tags) do
+    for _, t in ipairs(article.tags as {string}) do
       article.tags[t] = true
     end
     local render = render_article(template:clone(), article)
@@ -200,9 +210,9 @@ local function main()
   ------
   -- Render tags index pages.
   ------
-  local tags = {}
+  local tags: {string:{Article}} = {}
   for _, article in ipairs(articles) do
-    for _, v in ipairs(article.tags) do
+    for _, v in ipairs(article.tags as {string}) do
       local t = tags[v] or {}
       t[#t+1] = article
       tags[v] = t

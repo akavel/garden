@@ -34,6 +34,8 @@ const RAW: &str =
 const SCRIPT: &str = r#"
 local tl = require '_rendr/tl'
 tl.loader()
+-- NOTE: per Teal docs, below DOES NOT TYPECHECK!
+-- Typechecking thus needs to be done by hand with: `tl check _bloat/bloat.lua`
 require '_bloat/bloat'
 "#;
 const OUT_DIR: &str = "_html.out";
