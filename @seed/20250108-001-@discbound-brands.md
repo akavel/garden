@@ -36,4 +36,4 @@ and the **number of discs** used along the spine.
   - https://perfect-notebook.com/collections/catalog (US? Israel? elsewhere?)
  
 Some other not immediately user-relevant products:
-- https://www.paperfox.eu/paperfox-db-4-discbound-hole-punch.html
+- https://www.paperfox.eu/paperfox-db-4-discbound-hole-punch.html ([via](https://old.reddit.com/r/Discbound/comments/1i8i68l/i_need_help_from_you_beautiful_people/m8vbkp9/))
