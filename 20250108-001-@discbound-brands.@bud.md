@@ -27,9 +27,11 @@ and the **number of discs** used along the spine.
   - https://clothandpaper.com
   - https://discboundmarketplace.com/collections
   - https://elevendiscs.com
+  - https://grovemade.com/notebooks
   - https://inkwellpress.com
   - https://notiq.com/collections/discbound-planners
   - https://taliaproducts.com
+  - https://ugmonk.com/collections/the-discbound-system
   - numerous merchants on etsy
 - China
   - [Discagenda](https://dokibook.com/Discagenda-c46.html) (Dokibook)
