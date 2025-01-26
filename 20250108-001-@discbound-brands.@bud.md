@@ -43,3 +43,14 @@ and the **number of discs** used along the spine.
  
 Some other not immediately user-relevant products:
 - https://www.paperfox.eu/paperfox-db-4-discbound-hole-punch.html ([via](https://old.reddit.com/r/Discbound/comments/1i8i68l/i_need_help_from_you_beautiful_people/m8vbkp9/))
+
+## Assumed incompatible
+
+**WARNING:** the brands on the list below either are, or seem,
+**incompatible** with the original standard
+as invented by Atoma founders.
+You might still find them useful if you don't need compatibility.
+
+- _[The Jotting Dots](https://thejottingdots.com/collections/discbound-notebook) (India) -
+  [reported incompatible](https://old.reddit.com/r/notebooks/comments/187c7qm/discbound_notebook/kbe79cr/),
+  visual inspection of their photos seems to confirm._
