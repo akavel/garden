@@ -54,6 +54,7 @@ Some other not immediately user-relevant products:
 as invented by Atoma founders.
 You might still find them useful if you don't need compatibility.
 
+- _Filofax Refillable Notebook - notably, the A5 size (only!) is borderline compatible: the wires are slightly off, but elastic enough that they can bend a bit, such that they can accept discbound-punched A5 paper ([via](https://youtu.be/s7sdfPmS2GY?feature=shared&t=845)); the fit is not perfect and paper has a tendency to slip off, but it kinda works; on A4 the size differences are reportedly too big, while the "pocket" reportedly has a weird, nonstandard paper size._
 - _[The Jotting Dots](https://thejottingdots.com/collections/discbound-notebook) (India) - [reported incompatible](https://old.reddit.com/r/notebooks/comments/187c7qm/discbound_notebook/kbe79cr/), visual inspection of their photos seems to confirm._
 
 [💬 Discuss.](https://merveilles.town/@akavel/113891742009177282)
