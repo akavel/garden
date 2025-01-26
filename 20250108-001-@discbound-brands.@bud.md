@@ -30,9 +30,11 @@ and the **number of discs** used along the spine.
   - https://inkwellpress.com
   - https://notiq.com/collections/discbound-planners
   - https://taliaproducts.com
+  - numerous merchants on etsy
 - China
   - [Discagenda](https://dokibook.com/Discagenda-c46.html) (Dokibook)
-  - https://www.eagle-stationery.com/disc-binding-series-accessories/
+  - https://www.eagle-stationery.com/disc-binding-series-accessories
+  - numerous merchants on aliexpress
 - unclear geography
   - https://perfect-notebook.com/collections/catalog (US? Israel? elsewhere?)
  
