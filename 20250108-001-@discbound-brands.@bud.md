@@ -51,6 +51,4 @@ Some other not immediately user-relevant products:
 as invented by Atoma founders.
 You might still find them useful if you don't need compatibility.
 
-- _[The Jotting Dots](https://thejottingdots.com/collections/discbound-notebook) (India) -
-  [reported incompatible](https://old.reddit.com/r/notebooks/comments/187c7qm/discbound_notebook/kbe79cr/),
-  visual inspection of their photos seems to confirm._
+- _[The Jotting Dots](https://thejottingdots.com/collections/discbound-notebook) (India) - [reported incompatible](https://old.reddit.com/r/notebooks/comments/187c7qm/discbound_notebook/kbe79cr/), visual inspection of their photos seems to confirm._
