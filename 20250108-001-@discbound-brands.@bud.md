@@ -12,6 +12,7 @@ and the **number of discs** used along the spine.
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK)
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
+  - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
   - Esquoia - defunct??
   - Clairing (FR Clairefontaine) - defunct??
 - USA
