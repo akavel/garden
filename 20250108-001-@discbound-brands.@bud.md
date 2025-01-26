@@ -23,6 +23,7 @@ and the **number of discs** used along the spine.
   - [Jane's Agenda](https://janesagenda.com)
   - Martha Stewart
   - _...smaller (?) ones below..._
+  - https://cantripsmedia.com
   - https://clothandpaper.com
   - https://discboundmarketplace.com/collections
   - https://elevendiscs.com
