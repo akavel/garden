@@ -12,6 +12,7 @@ and the **number of discs** used along the spine.
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK)
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
+  - [Rosie Papeterie](https://rosiepapeterie.com/apps/bundles/bundle/112179) (Canada)
   - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
   - Esquoia - defunct??
   - Clairing (FR Clairefontaine) - defunct??
@@ -31,6 +32,8 @@ and the **number of discs** used along the spine.
   - https://grovemade.com/notebooks
   - https://inkwellpress.com
   - https://notiq.com/collections/discbound-planners
+  - https://www.plumpaper.com/shop/category/discs
+  - https://sheplans.com/collections/discbound
   - https://taliaproducts.com
   - https://ugmonk.com/collections/the-discbound-system
   - numerous merchants on etsy
