@@ -31,6 +31,7 @@ and the **number of discs** used along the spine.
   - https://elevendiscs.com
   - https://grovemade.com/notebooks
   - https://inkwellpress.com
+  - https://kellofaplan.com
   - https://notiq.com/collections/discbound-planners
   - https://www.plumpaper.com/shop/category/discs
   - https://sheplans.com/collections/discbound
