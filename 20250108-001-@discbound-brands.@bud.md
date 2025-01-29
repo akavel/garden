@@ -11,6 +11,7 @@ and the **number of discs** used along the spine.
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK)
+  - [Novel Notes](https://www.novelnotes.co.uk) ([etsy](https://novellovesnotes.etsy.com)) (UK)
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
   - [Rosie Papeterie](https://rosiepapeterie.com/apps/bundles/bundle/112179) (Canada)
   - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
