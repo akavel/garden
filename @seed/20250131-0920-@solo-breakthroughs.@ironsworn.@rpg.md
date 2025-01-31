@@ -18,7 +18,8 @@ _(the excerpt below is from a [post I wrote](https://old.reddit.com/r/Solo_Rolep
 And for _Starforged_ in particular, also:
 a [cheatsheet of Moves that I created](https://akavel.itch.io/starforged-moves-starter);
 realizing that _Starforged_ mechanics are about
-"simulating the flow of a story" rather than trying to "simulate the 'Real World' (or rather some fantasy one)",
+["simulating the flow of a story"](ironsworn-sim)
+rather than trying to "simulate the 'Real World' (or rather some fantasy one)",
 the latter being doomed to failure
 (because even all our strongest supercomputers taken together struggle to simulate
 something so tiny as the interactions of a bunch of molecules in a single protein);
