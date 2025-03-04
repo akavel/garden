@@ -127,6 +127,7 @@ local function render_index_entry(art_tmpl: Html, art: Article): Html
     art.tags.seed and 'seed' or
     art.tags.bud and 'bud' or
     art.tags.ripe and 'ripe' or
+    art.tags.isle and 'isle' or
     ''
   -- TODO: should use :get_attr() instead of hardcoding 'title '
   title_slot:set_attr('class', 'title '..greenery_kind)
