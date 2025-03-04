@@ -36,14 +36,6 @@ local function render_article(template: Html, article: Article): Html
 
   -- Put the main text of the article in #content node in the template.
   template:find('#content'):set_children(text)
-  template:find('#navhome + header > time'):set_text(article_date(article))
-
-  local greenery_kind =
-    article.tags.seed and 'seed' or
-    article.tags.bud and 'bud' or
-    article.tags.ripe and 'ripe' or
-    ''
-  template:find('#navhome + header > time'):set_attr('class', greenery_kind)
 
   -- Set tags
   local tag_tmpl = template:find('ul.tags'):eject_children()
@@ -64,15 +56,27 @@ local function render_article(template: Html, article: Article): Html
   end
   title:add_text(TITLE_SUFFIX)
 
-  -- Choose greenery disclaimer to show
+  -- Choose greenery disclaimer to show & set time
+  local greenery_kind =
+    article.tags.seed and 'seed' or
+    article.tags.bud and 'bud' or
+    article.tags.ripe and 'ripe' or
+    ''
+  local time = template:find('#navhome + header > time')
+  if time then
+    time:set_text(article_date(article))
+    time:set_attr('class', greenery_kind)
+  end
   local hide_greeneries: {string:boolean} = {seed=true, bud=true, ripe=true}
   hide_greeneries[greenery_kind] = false
   for k, v in pairs(hide_greeneries) do
       if v then
           local node = template:find('.greenery.'..k)
-          node:delete_children()
-          node:set_attr('class', '')
-          node:set_attr('style', 'display:none')
+          if node then
+            node:delete_children()
+            node:set_attr('class', '')
+            node:set_attr('style', 'display:none')
+          end
       end
   end
 
@@ -201,12 +205,14 @@ local function main()
   ------
   -- Render articles.
   ------
-  local template = html.parse(readfile '_bloat/bloat.html')
+  local article_tmpl = html.parse(readfile '_bloat/bloat.html')
+  local isle_tmpl = html.parse(readfile '_bloat/isle.html')
   for _, article in ipairs(articles) do
     print("RENDERING " .. article.slug)
     for _, t in ipairs(article.tags as {string}) do
       article.tags[t] = true
     end
+    local template = article.tags.isle and isle_tmpl or article_tmpl
     local render = render_article(template:clone(), article)
     writefile('_html.out/'..article.slug, render:to_string())
   end

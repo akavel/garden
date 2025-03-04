@@ -28,14 +28,14 @@ mod pathinfo;
 use html::Html;
 use pathinfo::PathInfo;
 
-const SOURCES: &str = "*.md:@seed/*.md:@snip/*.md";
+const SOURCES: &str = "*.md:@isle/*.md:@seed/*.md:@snip/*.md";
 const RAW: &str =
     "favicon.ico:*.pdf:@seed/*.pdf:*.png:@seed/*.png:*.jpg:@seed/*.jpg:*.svg:@seed/*.svg";
 const SCRIPT: &str = r#"
 local tl = require '_rendr/tl'
 tl.loader()
 -- NOTE: per Teal docs, below DOES NOT TYPECHECK!
--- Typechecking thus needs to be done by hand with: `tl check _bloat/bloat.lua`
+-- Typechecking thus needs to be done by hand with: `tl check _bloat/bloat.tl`
 require '_bloat/bloat'
 "#;
 const OUT_DIR: &str = "_html.out";
