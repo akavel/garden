@@ -11,7 +11,9 @@ and the **number of discs** used along the spine.
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK)
+  - [Novel Notes](https://www.novelnotes.co.uk) ([etsy](https://novellovesnotes.etsy.com)) (UK)
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
+  - [Rosie Papeterie](https://rosiepapeterie.com/apps/bundles/bundle/112179) (Canada)
   - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
   - Esquoia - defunct??
   - Clairing (FR Clairefontaine) - defunct??
@@ -30,7 +32,10 @@ and the **number of discs** used along the spine.
   - https://elevendiscs.com
   - https://grovemade.com/notebooks
   - https://inkwellpress.com
+  - https://kellofaplan.com
   - https://notiq.com/collections/discbound-planners
+  - https://www.plumpaper.com/shop/category/discs
+  - https://sheplans.com/collections/discbound
   - https://taliaproducts.com
   - https://ugmonk.com/collections/the-discbound-system
   - numerous merchants on etsy
@@ -51,4 +56,7 @@ Some other not immediately user-relevant products:
 as invented by Atoma founders.
 You might still find them useful if you don't need compatibility.
 
+- _Filofax Refillable Notebook - notably, the A5 size (only!) is borderline compatible: the wires are slightly off, but elastic enough that they can bend a bit, such that they can accept discbound-punched A5 paper ([via](https://youtu.be/s7sdfPmS2GY?feature=shared&t=845)); the fit is not perfect and paper has a tendency to slip off, but it kinda works; on A4 the size differences are reportedly too big, while the "pocket" reportedly has a weird, nonstandard paper size._
 - _[The Jotting Dots](https://thejottingdots.com/collections/discbound-notebook) (India) - [reported incompatible](https://old.reddit.com/r/notebooks/comments/187c7qm/discbound_notebook/kbe79cr/), visual inspection of their photos seems to confirm._
+
+[💬 Discuss.](https://merveilles.town/@akavel/113891742009177282)
