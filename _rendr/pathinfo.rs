@@ -122,7 +122,7 @@ peg::parser! { grammar file_stem() for str {
     rule tag() -> String
         = "@" w:word() { w }
     rule word() -> String
-        = slice:$( ['a'..='z']+ / ['A'..='Z']+ ) { slice.to_string() }
+        = slice:$( ['a'..='z' | 'A'..='Z'] ['a'..='z' | 'A'..='Z' | '0'..='9']* ) { slice.to_string() }
     rule digits() -> String
         = slice:$( ['0'..='9']+ ) ['.'|'-'] { slice.to_string() }
 }}

@@ -31,3 +31,6 @@ pikchr = "0.1.3"
 scraper = "0.17.1"
 tealr = { version = "0.10.0", features = ["mlua_lua54", "mlua_vendored", "mlua_error-send"] }
 thiserror = "1.0.47"
+
+[profile.dev]
+opt-level = 1  # slightly faster runs
