@@ -9,5 +9,6 @@ Try "Maxim DS2712" (or "DS2710")
 ## fanless, USBC-powered MiniPC
 
 - "Mele 4C - N series" e.g. "Quieter 4C N100"? ([via](https://redd.it/1jgd7rr)) "Quieter2Q"? ([via](https://redd.it/vlyz96))
+  - some [problems with USBC-PD if running off USB-C powerbank](https://old.reddit.com/r/MiniPCs/comments/1esw8w3/mele_mini_quieter_4c/lpy806e/)
 - "Topton"? ([via](https://redd.it/1jgd7rr))
 
