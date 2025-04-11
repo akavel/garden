@@ -1,3 +1,5 @@
+# Clawtype
+
 ## NiMH charging
 
 Try "Maxim DS2712" (or "DS2710") 
