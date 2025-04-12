@@ -22,3 +22,8 @@ Try "Maxim DS2712" (or "DS2710")
 [r/ErgoMobileComputers](https://redd.it/1jrg6ti),
 [r/PeripheralDesign](https://redd.it/1jsx7p9),
 [mastodon](https://merveilles.town/@akavel/114278656676862031)
+
+## alternatives
+
+- characorder 2 (via: TODO)
+  - [some review but of CC1, and at least some they claim to have since addressed](https://www.youtube.com/watch?v=IxCm86IbLok)
