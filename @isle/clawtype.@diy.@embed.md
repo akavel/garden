@@ -1,5 +1,9 @@
 # Clawtype
 
+[Firmware (GPL; GH)](https://github.com/akavel/clawtype).
+
+[Design](https://www.printables.com/model/1231156-clawtype).
+
 ## NiMH charging
 
 Try "Maxim DS2712" (or "DS2710") 
