@@ -12,3 +12,13 @@ Try "Maxim DS2712" (or "DS2710")
   - some [problems with USBC-PD if running off USB-C powerbank](https://old.reddit.com/r/MiniPCs/comments/1esw8w3/mele_mini_quieter_4c/lpy806e/)
 - "Topton"? ([via](https://redd.it/1jgd7rr))
 
+## v2.1 discussions
+
+[HN](https://news.ycombinator.com/item?id=43588420),
+[lobste.rs](https://lobste.rs/s/o0xmgd/clawtype_custom_wearable_chorded),
+[r/ErgoMechKeyboards](https://redd.it/1jrg5ul),
+[r/cyberdeck](https://redd.it/1jwrnkv),
+[r/Xreal](https://redd.it/1jrfupe),
+[r/ErgoMobileComputers](https://redd.it/1jrg6ti),
+[r/PeripheralDesign](https://redd.it/1jsx7p9),
+[mastodon](https://merveilles.town/@akavel/114278656676862031)
