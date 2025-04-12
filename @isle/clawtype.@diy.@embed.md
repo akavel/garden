@@ -23,6 +23,10 @@ Try "Maxim DS2712" (or "DS2710")
 [r/PeripheralDesign](https://redd.it/1jsx7p9),
 [mastodon](https://merveilles.town/@akavel/114278656676862031)
 
+## Chordite
+- [John W. McKown's patent](https://patents.google.com/patent/US6429854)
+- the [chordite.com page on WebArchive](https://web.archive.org/web/20220201061603/http://chordite.com/)
+
 ## alternatives
 
 - characorder 2 (via: TODO)
