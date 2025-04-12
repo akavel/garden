@@ -1,8 +1,8 @@
 # Clawtype
 
-[Firmware (GPL; GH)](https://github.com/akavel/clawtype).
+[Firmware (AGPL; GH)](https://github.com/akavel/clawtype).
 
-[Design](https://www.printables.com/model/1231156-clawtype).
+[Structural Design](https://www.printables.com/model/1231156-clawtype).
 
 ## NiMH charging
 
