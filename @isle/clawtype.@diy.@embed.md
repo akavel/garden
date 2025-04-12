@@ -10,6 +10,8 @@ Try "Maxim DS2712" (or "DS2710")
 ([via](https://youtu.be/S9PUO_Uw158),
 [via](https://hackaday.com/2024/12/02/the-automatic-battery-charger-you-never-knew-you-needed/)).
 
+TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-and-battery-cells-controllers_112884/?params=2613:1503863;550:1925651,1834448&productListOrderBy=1000014)
+
 ## fanless, USBC-powered MiniPC
 
 - "Mele 4C - N series" e.g. "Quieter 4C N100"? ([via](https://redd.it/1jgd7rr)) "Quieter2Q"? ([via](https://redd.it/vlyz96))
