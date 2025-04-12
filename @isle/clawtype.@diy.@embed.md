@@ -26,4 +26,4 @@ Try "Maxim DS2712" (or "DS2710")
 ## alternatives
 
 - characorder 2 (via: TODO)
-  - [some review but of CC1, and at least some they claim to have since addressed](https://www.youtube.com/watch?v=IxCm86IbLok)
+  - [some review but of CC1, and at least some they claim to have since addressed](https://www.youtube.com/watch?v=IxCm86IbLok) ([via](https://old.reddit.com/r/typing/comments/1c0oi1s/how_fast_is_the_charachorder_compared_to/ll5h3bi/))
