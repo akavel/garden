@@ -8,9 +8,24 @@
 
 ### software/firmware based
 
+Software-based charger logic written in Rust
+should be portavke enough to easily upload
+to any current or future generic microcontroller.
+
+Long-term goal is:
+- can charge from 5V supplied by USB
+- can detect reverse polarity
+- can fast-charge (though at first could try just trickle-charge)
+- 1 AA cell charging is enough
+- can detect LiPo (and either reject or also charge appropriately)
+- main device can run off USB while the battery is charging,
+- then transparently switch to NiMH power source when USB is disconnected (and reverse)
+
 Promising-looking writeups and software:
 - https://github.com/msillano/NiMH_charger_logger
 - https://github.com/stawel/cheali-charger/blob/master/docs/nimh_nicd_charging.md
+h Wikipedia has some actually useful looking info about NiMH charging:
+  https://en.wikipedia.org/wiki/Nickel%E2%80%93metal_hydride_battery
 - not strictly a charger but still an interesting writeup:
   https://github.com/MarkusWandel/battery-tester
 
