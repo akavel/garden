@@ -6,6 +6,25 @@
 
 ## NiMH charging
 
+### software/firmware based
+
+Promising-looking writeups and software:
+- https://github.com/msillano/NiMH_charger_logger
+- https://github.com/stawel/cheali-charger/blob/master/docs/nimh_nicd_charging.md
+- not strictly a charger but still an interesting writeup:
+  https://github.com/MarkusWandel/battery-tester
+
+Not about charging at all,
+but an interesting writeup about NiMH batteries:
+https://github.com/dwyl/home/issues/209
+
+
+### based on specialized ICs
+
+Issue here is those seem to regularly go out of market,
+and already rare desins based on those on the web
+thus become difficult to reuse.
+
 Try "Maxim DS2712" (or "DS2710") 
 ([via](https://youtu.be/S9PUO_Uw158),
 [via](https://hackaday.com/2024/12/02/the-automatic-battery-charger-you-never-knew-you-needed/)).
