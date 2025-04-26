@@ -67,7 +67,7 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     with 0.5mm pitch connectors and breakout boards existing for various pin-widths and easily available.
   - LS010B7DH04
   - LS011B7DH03 - 1.08" ~32x14mm outline, 160x68px;
-    seems used in the popular "nano!view" display module;
+    used in the popular "[nice!view](https://nicekeyboards.com/docs/nice-view/#specifications)" display module;
   - LS012B7DD01
   - LS012B7DD06 (rgb) / LS012B7DD06A (rgb) / LS012B7DH06A (?) - (round??)
   - LS013B7DD02 (rgb)
