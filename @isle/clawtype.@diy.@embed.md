@@ -82,8 +82,9 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     needs 5V :(
   - LS014B7DD01 (rgb, round??) - 1.39" ~39x38mm outline, 280x280px;
   - LS018B7DH02 - 1.8" ~42x31mm outline, 303x230px;
-  - LS021B7DD02 - (rgb) 2.13" 320x240px seems colored and not easily available :(
-    didn't check datasheet for voltages
+  - LS021B7DD02 (rgb) - 2.13" 320x240px;
+    ([datasheet](https://sharpsecd.com/static/media/LS021B7DD02_Spec_LCP-0620032_201201.77219fa4.pdf))
+    needs 5V :(
   - LS027B7DH01 / LS027B7DH01A - 2.7" ~63x43mm (outline) 400x240px;
     from [datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1272/LS027B7DH01_Rev_Jun_2010.pdf)
     it seems they need 5V
