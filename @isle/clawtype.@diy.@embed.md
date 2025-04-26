@@ -69,7 +69,9 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
   - LS011B7DH03 - 1.08" ~32x14mm outline, 160x68px;
     used in the popular "[nice!view](https://nicekeyboards.com/docs/nice-view/#specifications)" display module;
   - LS012B7DD01
-  - LS012B7DD06 (rgb) / LS012B7DD06A (rgb) / LS012B7DH06A (?) - (round??)
+  - LS012B7DD06A (rgb, round) / LS012B7DD06 (?) / LS012B7DH06A (?) - 1.19" 240x240px;
+    ([datasheet](https://sharpsecd.com/static/media/Sharp-LCD-Specification-LS012B7DD06A-12-2-19.4b439705.pdf))
+    needs 5V :(
   - LS013B7DH05 - 1.26" ~30x25mm outline, 168x144px;
     ([datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2328/LS013B7DH05.pdf))
     seems 3.3V based
