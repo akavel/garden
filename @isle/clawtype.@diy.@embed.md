@@ -63,14 +63,15 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     The FPC/FFC seems to be a standard, with 0.5mm pitch,
     with connectors and breakout boards existing for various pin-widths and easily available.
   - LS010B7DH04
-  - LS011B7DH03
+  - LS011B7DH03 - 1.08" ~32x14mm outline, 160x68px;
+    seems used in the popular "nano!view" display module;
   - LS012B7DD01
   - LS012B7DD06 (rgb?) / LS012B7DD06A (rgb) / LS012B7DH06A (?)
   - LS013B7DD02 (rgb)
-  - LS013B7DH05
-  - LS013B7DH03
-  - LS014B7DD01 (rgb)
-  - LS018B7DH02
+  - LS013B7DH05 - 1.26" ~30x25mm outline, 168x144px; (TODO: look more into it; what voltages?)
+  - LS013B7DH03 - 1.28" ~31x27mm outline, 128x128px;
+  - LS014B7DD01 (rgb, round??) - 1.39" ~39x38mm outline, 280x280px;
+  - LS018B7DH02 - 1.8" ~42x31mm outline, 303x230px;
   - LS021B7DD02 - (rgb) 2.13" 320x240px seems colored and not easily available :(
     didn't check datasheet for voltages
   - LS027B7DH01 / LS027B7DH01A - 2.7" ~63x43mm (outline) 400x240px;
