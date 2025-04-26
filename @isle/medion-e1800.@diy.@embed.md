@@ -1,5 +1,16 @@
 # "Medion Life E1800" teardown
 
+## other brands
+
+Based on a search of the "SB1024H" marking
+found on the pulse sensor's connector tape,
+and then a visual comparison of the results,
+the following smartwatch brands & models might be the same device:
+
+- "Medion Life E1800" (obviously - that's the one I tore down)
+- "iGET FIT F4" ([mention](https://iget.eu/sites/data/nositelnosti/ce/ce_declaration_of_conformity_fit%20f4%20silver.pdf))
+- "Everis Neptune E4002" ([mention](https://play.google.com/store/apps/details?id=com.oplayer.everisapp&hl=en))
+
 ## display
 
 ([Question on r/hardwarehacking](https://redd.it/1k8lzl9))
