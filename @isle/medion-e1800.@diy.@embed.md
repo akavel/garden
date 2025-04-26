@@ -28,7 +28,9 @@ The elastic tape seems to have the markings:
 
 _Update:_ based on googling, the third element of the first part
 is most probably rather HRS3300,
-as this seems to be a popular heart rate sensor.
+as this seems to be a [known](https://docs.rs/hrs3300) heart rate
+[sensor](https://files.pine64.org/doc/datasheet/pinetime/HRS3300%20Heart%20Rate%20Sensor.pdf).
+And "H-R-S" can be an acronym of a "Heart Rate Sensor".
 Thus, the markings are probably rather:
 
     AB220-SB1024H-HRS3300 FPC-V1.0-20171215
