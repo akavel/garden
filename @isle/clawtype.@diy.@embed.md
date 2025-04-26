@@ -57,18 +57,20 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
 - "Nokia 5110 LCD" 84x48 px, b&w, 3.3V
 - "Sharp memory LCDs" ([specs overview](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/lcd202009e.pdf))
   - the first number in their name seems to indicate size (diagonal?) in inches - e.g.: "LS027..." -> 2.7"
-  - the connection seems to be "SPI over (10-pin?) FPC" (or "...over FFC")
+  - the connection seems to be "SPI over (10-pin? 0.5mm?) FPC" (or "...FFC")
     where FPC seems to mean "[flexible printed circuit](https://en.wikipedia.org/wiki/Flexible_printed_circuit)"
     and FFC to mean "[flexible flat cable](https://en.wikipedia.org/wiki/Flexible_flat_cable)".
-    The FPC/FFC seems to be a standard, with 0.5mm pitch,
-    with connectors and breakout boards existing for various pin-widths and easily available.
+    The FPC/FFC seems to be standardized,
+    with 0.5mm pitch connectors and breakout boards existing for various pin-widths and easily available.
   - LS010B7DH04
   - LS011B7DH03 - 1.08" ~32x14mm outline, 160x68px;
     seems used in the popular "nano!view" display module;
   - LS012B7DD01
   - LS012B7DD06 (rgb) / LS012B7DD06A (rgb) / LS012B7DH06A (?) - (round??)
   - LS013B7DD02 (rgb)
-  - LS013B7DH05 - 1.26" ~30x25mm outline, 168x144px; (TODO: look more into it; what voltages?)
+  - LS013B7DH05 - 1.26" ~30x25mm outline, 168x144px;
+    ([datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2328/LS013B7DH05.pdf))
+    seems 3.3V based
   - LS013B7DH03 - 1.28" ~31x27mm outline, 128x128px;
   - LS014B7DD01 (rgb, round??) - 1.39" ~39x38mm outline, 280x280px;
   - LS018B7DH02 - 1.8" ~42x31mm outline, 303x230px;
@@ -81,6 +83,7 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     [Reportedly](https://forum.digikey.com/t/ls027b7dh01-vs-ls027b7dh01a/5682),
     the "...A" suffix should indicate up to 2 bad pixels per display, whereas non-A should indicate zero
     ([or untested](https://forum.digikey.com/t/sharp-lq057q3dc03-tft-lcd-module-a-last-suffix/4820)?).
+- WeAct Studio ePaper 1.54" 200x200px, I think it supports partial refresh?
 
 ## v2.1 discussions
 
