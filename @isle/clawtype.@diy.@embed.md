@@ -24,7 +24,7 @@ Long-term goal is:
 Promising-looking writeups and software:
 - https://github.com/msillano/NiMH_charger_logger
 - https://github.com/stawel/cheali-charger/blob/master/docs/nimh_nicd_charging.md
-h Wikipedia has some actually useful looking info about NiMH charging:
+- Wikipedia has some actually useful looking info about NiMH charging:
   https://en.wikipedia.org/wiki/Nickel%E2%80%93metal_hydride_battery
 - not strictly a charger but still an interesting writeup:
   https://github.com/MarkusWandel/battery-tester
@@ -62,7 +62,12 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     and FFC to mean "[flexible flat cable](https://en.wikipedia.org/wiki/Flexible_flat_cable)".
     The FPC/FFC seems to be a standard, with 0.5mm pitch,
     with connectors and breakout boards existing for various pin-widths and easily available.
-  - LS027B7DH01 / LS027B7DH01A - 2.7"; from datasheet it seems they need 5V :(
+  - LS021B7DD02 - 2.13" 320x240px seems colored and not easily available :(
+    didn't check datasheet for voltages
+  - LS027B7DH01 / LS027B7DH01A - 2.7" ~63x43mm (outline) 400x240px;
+    from [datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1272/LS027B7DH01_Rev_Jun_2010.pdf)
+    it seems they need 5V
+    (so [an extra boost converter from 3.3v](https://www.tindie.com/products/kuzyatech/sharp-memory-lcd-breakout-a2/)) :(
     [Reportedly](https://forum.digikey.com/t/ls027b7dh01-vs-ls027b7dh01a/5682),
     the "...A" suffix should indicate up to 2 bad pixels per display, whereas non-A should indicate zero
     ([or untested](https://forum.digikey.com/t/sharp-lq057q3dc03-tft-lcd-module-a-last-suffix/4820)?).
