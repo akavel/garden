@@ -83,7 +83,9 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     [Reportedly](https://forum.digikey.com/t/ls027b7dh01-vs-ls027b7dh01a/5682),
     the "...A" suffix should indicate up to 2 bad pixels per display, whereas non-A should indicate zero
     ([or untested](https://forum.digikey.com/t/sharp-lq057q3dc03-tft-lcd-module-a-last-suffix/4820)?).
-- WeAct Studio ePaper 1.54" 200x200px, I think it supports partial refresh?
+- WeAct Studio ePaper ([github](https://github.com/WeActStudio/WeActStudio.EpaperModule))
+  - 1.54" ~50x33mm module outline, 200x200px, seems 3.3V;
+    I think it supports partial refresh?
 
 ## v2.1 discussions
 
