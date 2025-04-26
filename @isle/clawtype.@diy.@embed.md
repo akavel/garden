@@ -52,6 +52,18 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
   - some [problems with USBC-PD if running off USB-C powerbank](https://old.reddit.com/r/MiniPCs/comments/1esw8w3/mele_mini_quieter_4c/lpy806e/)
 - "Topton"? ([via](https://redd.it/1jgd7rr))
 
+## fun with low-power displays
+
+- "Nokia 5110 LCD" 84x48 px, b&w, 3.3V
+- "Sharp memory LCDs"
+  - the first number in their name seems to indicate size (diagonal?) in inches - e.g.: "LS027..." -> 2.7"
+  - the connection seems to be "SPI over (10-pin?) FPC" (or "...over FFC")
+    where FPC seems to mean "[flexible printed circuit](https://en.wikipedia.org/wiki/Flexible_printed_circuit)"
+    and FFC to mean "[flexible flat cable](https://en.wikipedia.org/wiki/Flexible_flat_cable)".
+    The FPC/FFC seems to be a standard, with 0.5mm pitch,
+    with connectors and breakout boards existing for various pin-widths and easily available.
+  - LS027B7DH01 / LS027B7DH01A (what's the difference?) - 2.7"; from datasheet it seems they need 5V :(
+
 ## v2.1 discussions
 
 [HN](https://news.ycombinator.com/item?id=43588420),
