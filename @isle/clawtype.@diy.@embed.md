@@ -72,6 +72,9 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     ([datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2328/LS013B7DH05.pdf))
     seems 3.3V based
   - LS013B7DH03 - 1.28" ~31x27mm outline, 128x128px;
+  - LS013B7DH06 (rgb) - 1.33" ~32x27mm outline ~24x24mm active, 128x128px;
+    ([datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/734/LS013B7DH06_Spec.pdf))
+    needs 5V :(
   - LS014B7DD01 (rgb, round??) - 1.39" ~39x38mm outline, 280x280px;
   - LS018B7DH02 - 1.8" ~42x31mm outline, 303x230px;
   - LS021B7DD02 - (rgb) 2.13" 320x240px seems colored and not easily available :(
