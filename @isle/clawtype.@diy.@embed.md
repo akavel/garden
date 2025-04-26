@@ -65,7 +65,7 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
   - LS010B7DH04
   - LS011B7DH03
   - LS012B7DD01
-  - LS012B7DD06A (rgb)
+  - LS012B7DD06 (rgb?) / LS012B7DD06A (rgb) / LS012B7DH06A (?)
   - LS013B7DD02 (rgb)
   - LS013B7DH05
   - LS013B7DH03
