@@ -46,6 +46,28 @@ Try "Maxim DS2712" (or "DS2710")
 
 TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-and-battery-cells-controllers_112884/?params=2613:1503863;550:1925651,1834448&productListOrderBy=1000014)
 
+
+## preci-dip
+
+I have trouble finding a good keyword name
+for this thing that seems vaguely matching
+various following names:
+
+- preci-dip sockets & pins?
+- machined goldpin/pin/dip sockets & pins?
+- mill-max dip sockets & pins?
+
+They seem to have lower profile
+than generic square-shaped sockets+goldpins,
+as exemplified in corne keyboard builds
+where a LiPo battery seems to fit inbetween.
+But I can't find more details,
+and also (how) do pins
+(male headers)
+look/work/differ on those.
+
+
+
 ## fanless, USBC-powered MiniPC
 
 - "Mele 4C - N series" e.g. "Quieter 4C N100"? ([via](https://redd.it/1jgd7rr)) "Quieter2Q"? ([via](https://redd.it/vlyz96))
