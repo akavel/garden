@@ -66,7 +66,7 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
   - LS011B7DH03 - 1.08" ~32x14mm outline, 160x68px;
     seems used in the popular "nano!view" display module;
   - LS012B7DD01
-  - LS012B7DD06 (rgb?) / LS012B7DD06A (rgb) / LS012B7DH06A (?)
+  - LS012B7DD06 (rgb) / LS012B7DD06A (rgb) / LS012B7DH06A (?) - (round??)
   - LS013B7DD02 (rgb)
   - LS013B7DH05 - 1.26" ~30x25mm outline, 168x144px; (TODO: look more into it; what voltages?)
   - LS013B7DH03 - 1.28" ~31x27mm outline, 128x128px;
