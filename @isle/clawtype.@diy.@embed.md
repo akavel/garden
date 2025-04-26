@@ -62,7 +62,10 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     and FFC to mean "[flexible flat cable](https://en.wikipedia.org/wiki/Flexible_flat_cable)".
     The FPC/FFC seems to be a standard, with 0.5mm pitch,
     with connectors and breakout boards existing for various pin-widths and easily available.
-  - LS027B7DH01 / LS027B7DH01A (what's the difference?) - 2.7"; from datasheet it seems they need 5V :(
+  - LS027B7DH01 / LS027B7DH01A - 2.7"; from datasheet it seems they need 5V :(
+    [Reportedly](https://forum.digikey.com/t/ls027b7dh01-vs-ls027b7dh01a/5682),
+    the "...A" suffix should indicate up to 2 bad pixels per display, whereas non-A should indicate zero
+    ([or untested](https://forum.digikey.com/t/sharp-lq057q3dc03-tft-lcd-module-a-last-suffix/4820)?).
 
 ## v2.1 discussions
 
