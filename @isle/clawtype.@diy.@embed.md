@@ -55,14 +55,23 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
 ## fun with low-power displays
 
 - "Nokia 5110 LCD" 84x48 px, b&w, 3.3V
-- "Sharp memory LCDs"
+- "Sharp memory LCDs" ([specs overview](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/lcd202009e.pdf))
   - the first number in their name seems to indicate size (diagonal?) in inches - e.g.: "LS027..." -> 2.7"
   - the connection seems to be "SPI over (10-pin?) FPC" (or "...over FFC")
     where FPC seems to mean "[flexible printed circuit](https://en.wikipedia.org/wiki/Flexible_printed_circuit)"
     and FFC to mean "[flexible flat cable](https://en.wikipedia.org/wiki/Flexible_flat_cable)".
     The FPC/FFC seems to be a standard, with 0.5mm pitch,
     with connectors and breakout boards existing for various pin-widths and easily available.
-  - LS021B7DD02 - 2.13" 320x240px seems colored and not easily available :(
+  - LS010B7DH04
+  - LS011B7DH03
+  - LS012B7DD01
+  - LS012B7DD06A (rgb)
+  - LS013B7DD02 (rgb)
+  - LS013B7DH05
+  - LS013B7DH03
+  - LS014B7DD01
+  - LS018B7DH02
+  - LS021B7DD02 - (rgb) 2.13" 320x240px seems colored and not easily available :(
     didn't check datasheet for voltages
   - LS027B7DH01 / LS027B7DH01A - 2.7" ~63x43mm (outline) 400x240px;
     from [datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1272/LS027B7DH01_Rev_Jun_2010.pdf)
