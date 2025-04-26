@@ -55,7 +55,10 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
 ## fun with low-power displays
 
 - "Nokia 5110 LCD" 84x48 px, b&w, 3.3V
-- "Sharp memory LCDs" ([specs overview](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/lcd202009e.pdf))
+- "Sharp memory LCDs"
+  ([specs overview](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/lcd202009e.pdf);
+  [digikey search](https://www.digikey.pl/pl/products/filter/lcd-oled-grafikk/107?s=N4IgjCBcoLQdIDGUBmBDANgZwKYBoQB7KAbRABYAmAVhAF0BfBggNilAEsATKEOABggEADgBdeIAgEdRAT15h%2BkkHOE5eaLMiZA),
+  filter by Sharp)
   - the first number in their name seems to indicate size (diagonal?) in inches - e.g.: "LS027..." -> 2.7"
   - the connection seems to be "SPI over (10-pin? 0.5mm?) FPC" (or "...FFC")
     where FPC seems to mean "[flexible printed circuit](https://en.wikipedia.org/wiki/Flexible_printed_circuit)"
