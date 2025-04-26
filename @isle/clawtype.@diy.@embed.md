@@ -84,8 +84,9 @@ TME search for [1+ NiMH charging ICs](https://www.tme.eu/pl/en/katalog/battery-a
     the "...A" suffix should indicate up to 2 bad pixels per display, whereas non-A should indicate zero
     ([or untested](https://forum.digikey.com/t/sharp-lq057q3dc03-tft-lcd-module-a-last-suffix/4820)?).
 - WeAct Studio ePaper ([github](https://github.com/WeActStudio/WeActStudio.EpaperModule))
-  - 1.54" ~50x33mm module outline, 200x200px, seems 3.3V;
-    I think it supports partial refresh?
+  - 1.54" ~50x33mm module outline, 27x27mm active area, 200x200px, seems 3.3V;
+    ([datasheet](https://github.com/WeActStudio/WeActStudio.EpaperModule/blob/master/Doc/ZJY200200-0154DAAMFGN.pdf))
+    I think it supports partial refresh? not sure yet what is the power consumption
 
 ## v2.1 discussions
 
