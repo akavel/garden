@@ -57,6 +57,9 @@ various following names:
 - machined goldpin/pin/dip sockets & pins?
 - mill-max dip sockets & pins?
 
+A [TME search](https://www.tme.eu/pl/katalog/listwy-i-gniazda-kolkowe_112937/?params=426:1443986;419:1444489_raster-stykow:2-54mm;wersja-zlacza:toczone-styki&productListOrderBy=1000014)
+that seems to give relevant results.
+
 They seem to have lower profile
 than generic square-shaped sockets+goldpins,
 as exemplified in corne keyboard builds
