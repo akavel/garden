@@ -17,4 +17,8 @@
   with some extra angled lines
   and dots at corners marking rivets in drawn plates of steel.
 
+### other inspiration
+
+- "[flathammer](https://old.reddit.com/r/5Parsecs/comments/15ita0i/decided_to_play_5parsecs_in_2d_with_home_made/)"
+  for 5pfh
   
