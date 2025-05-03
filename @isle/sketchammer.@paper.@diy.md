@@ -12,5 +12,9 @@
   alien typography,
   fake glass lines,
   and black inset outlines everywhere.
+- [cardboard terrain for Five Parsecs From Home](https://old.reddit.com/r/5Parsecs/comments/18viyf6/cardboard_terrain_for_my_campaign/) -
+  inspired by "Mos Cardboard" as linked above,
+  with some extra angled lines
+  and dots at corners marking rivets in drawn plates of steel.
 
   
