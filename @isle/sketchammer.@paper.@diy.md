@@ -17,8 +17,16 @@
   with some extra angled lines
   and dots at corners marking rivets in drawn plates of steel.
 
+### characters
+
+- "[Homemade Paper Crew](https://old.reddit.com/r/5Parsecs/comments/1fg5jxj/homemade_paper_crew/)" -
+  black sketches on white paper,
+  drawn from reference,
+  having faces without features (no eyes, mouths, noses).
+
 ### other inspiration
 
 - "[flathammer](https://old.reddit.com/r/5Parsecs/comments/15ita0i/decided_to_play_5parsecs_in_2d_with_home_made/)"
   for 5pfh
+  
   
