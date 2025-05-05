@@ -9,8 +9,14 @@ Decentralization tech, NON-cryptocoin.
   ([via](https://github.com/n0-computer/iroh-willow),
   [via](https://social.coop/@smallcircles/114235543072645958)) -
   tries to compare Willow vs.
-  IPFS, Veilid, Secure Scuttlebutt, Hypercore/Dat,
-  p2panda, ppppp, Nostr, Earthstar.
+  [IPFS](https://ipfs.tech),
+  [Veilid](https://veilid.com),
+  [Secure Scuttlebutt](https://scuttlebutt.nz),
+  [Hypercore/Dat](https://hypercore-protocol.org),
+  [p2panda](https://p2panda.org),
+  [ppppp](https://github.com/staltz/ppppp-sync),
+  Nostr,
+  [Earthstar](https://earthstar-project.org).
   Which also makes it a nice list
   of modern _decent_ tech attempts.
 - https://github.com/n0-computer/awesome-iroh
