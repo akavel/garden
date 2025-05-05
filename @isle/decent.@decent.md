@@ -23,7 +23,7 @@ Decentralization tech, NON-cryptocoin.
     [Dat](https://dat-ecosystem.org)
     ([old](https://datproject.org)),
     [Hypercore](https://github.com/hypercore-protocol), and
-    [Holepunch/Pear(s)](https://hypercore-protocol.orgl?
+    [Holepunch/Pear(s)](https://hypercore-protocol.org)?
 - https://github.com/n0-computer/awesome-iroh
   ([via](https://www.iroh.computer/blog/road-to-1-0),
   [via](https://news.ycombinator.com/item?id=39027630),
