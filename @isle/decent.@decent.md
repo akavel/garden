@@ -19,6 +19,7 @@ Decentralization tech, NON-cryptocoin.
   [via](https://www.google.com/search?q=ipfs%20successor))
 - https://www.iroh.computer
 - https://www.open-archive.org/pdf/how_to_use_save_2025.pdf
+ ([via](https://github.com/OpenArchive/save-dweb-backend))
 - https://delta.chat/en/2024-11-20-webxdc-realtime
 - https://p2panda.org
   ([via](https://github.com/p2panda/p2panda))
