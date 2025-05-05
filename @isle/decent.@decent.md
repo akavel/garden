@@ -12,10 +12,22 @@ Decentralization tech, NON-cryptocoin.
   p2panda, ppppp, Nostr, Earthstar.
   Which also makes it a nice list
   of modern _decent_ tech attempts.
+- https://github.com/n0-computer/awesome-iroh
+  ([via](https://www.iroh.computer/blog/road-to-1-0),
+  [via](https://news.ycombinator.com/item?id=39027630),
+  [via](https://www.google.com/search?q=ipfs%20successor))
+- https://www.iroh.computer
 - https://delta.chat/en/2024-11-20-webxdc-realtime
 - https://p2panda.org
+  ([via](https://github.com/p2panda/p2panda))
 
 ### related mastodon users
 
 - https://post.lurk.org/@gwil (Earthstar, Willow)
 - https://mastodon.social/@n0iroh (Iroh)
+
+
+## mesh networking
+
+LoRa; Meshtastic
+
