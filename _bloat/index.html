@@ -31,7 +31,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 2%;
-    margin: 0 0 1.5em 0;
+    margin: 0;
     padding: 0;
 }
 #areas li {
@@ -59,6 +59,24 @@ h1 {
     color: black;
     border-bottom: 2px solid black;
 }
+
+#tags {
+    margin: .2em 0 1.5em 0;
+    padding: 0;
+    line-height: 1.2;
+}
+#tags li {
+    display: inline;
+    font-size: .85rem;
+    font-style: italic;
+}
+#tags li a {
+    text-decoration: none;
+    color: #44d;
+}
+#tags li a:hover {
+    color: #d44;
+    text-decoration: underline; }
 
 #list article {
     padding-left: 2ex;
@@ -92,6 +110,7 @@ ul.tags {
 ul.tags li {
     font-size: .9rem;
     display: inline; }
+ul.tags li a:hover { color: #d44; }
 
 ul.snips {
     background: #eee;
@@ -107,7 +126,7 @@ ul.snips > li a.self-link {
     font-size: smaller;
     color: #999;
     text-decoration: none; }
-ul.snips > li a.self-link:hover {
+ul.snips > li a:hover {
     color: #d44;
     text-decoration: underline; }
 
@@ -139,6 +158,10 @@ address {
     <li><a href="@backstage">backstage</a></li>
     <!--li><a href="projects">projects</a></li-->
     <li><a href="about">about</a></li>
+</ul>
+
+<ul id="tags">
+    <li><a href="@go">@go</a></li>
 </ul>
 
 <div id="list">

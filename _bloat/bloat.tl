@@ -140,6 +140,29 @@ local function render_index_entry(art_tmpl: Html, art: Article): Html
   return art_tmpl
 end
 
+local function render_tags_list(list_slot: Html, articles: {Article})
+  local tags: {string} = {}
+  local uniq: {string:boolean} = {}
+  for _, art in ipairs(articles) do
+    for _, t in ipairs(art.tags as {string}) do
+      if not uniq[t] then
+        uniq[t] = true
+        tags[#tags+1] = t
+      end
+    end
+  end
+  table.sort(tags, function(a, b)
+    return a:lower() < b:lower()
+  end)
+
+  local tag_tmpl = list_slot:eject_children()
+  for _, tag in ipairs(tags) do
+    tag_tmpl:find('li a'):set_text('@'..tag)
+    tag_tmpl:find('li a'):set_attr('href', '@'..tag)
+    list_slot:add_children(tag_tmpl)
+  end
+end
+
 local function render_articles_list(list_slot: Html, articles: {Article})
   local item_templates = list_slot:eject_children()
 
@@ -187,6 +210,8 @@ end
 local function render_index(filename: string, articles: {Article}, modifer_f?: function(tmpl: Html))
   print('INDEX ' .. filename)
   local index = html.parse(readfile '_bloat/index.html')
+  local tags_slot = index:find '#tags'
+  render_tags_list(tags_slot, articles)
   local list_slot = index:find '#list'
   render_articles_list(list_slot, articles)
   if modifer_f then
