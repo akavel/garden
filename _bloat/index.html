@@ -77,6 +77,14 @@ h1 {
 #tags li a:hover {
     color: #d44;
     text-decoration: underline; }
+#tags li a::after {
+    font-size: 70%;
+    font-style: normal;
+}
+#tags li a[href="@seed"]::after { content: "🌱"; }
+#tags li a[href="@bud"]::after { content: "🌿"; }
+#tags li a[href="@ripe"]::after { content: "🌳"; }
+#tags li a[href="@isle"]::after { content: "🏝️"; }
 
 #list article {
     padding-left: 2ex;
