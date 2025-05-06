@@ -151,7 +151,7 @@ local function render_tags_list(list_slot: Html, articles: {Article})
       end
     end
   end
-  table.sort(tags, function(a, b)
+  table.sort(tags, function(a: string, b: string): boolean
     return a:lower() < b:lower()
   end)
 
