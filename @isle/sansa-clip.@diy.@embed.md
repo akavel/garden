@@ -30,19 +30,20 @@ Helpful videos and posts I found:
   ([via](https://hackaday.com/2018/11/21/battery-swap-keeps-sansa-clip-chugging/),
   [via](https://hackaday.com/tag/sansa-clip/)) -
   some notable quotes:
-  - _"The OEM battery measures 30mm x 36mm x 3mm (...)
-    it is possible to find a battery slightly smaller that will fit. At 30mm x 30mm x 3mm, the 303030 is a good fit. (...)
-    **These batteries only have 2 wires whilst the original has 3.**
-    At first this seemed an issue, as the third wire is generally used for an internal temperature sensor,
-    and a lot electronics refuse to work without one. (...)
-    **Luckily, it seems the third wire isn't actually required on the Sansa.**
-    After trimming the wires and soldering the new battery onto the board, the device was able to boot. (...)
-    For anyone attempting this repair who encounters any issues charging,
-    it may be related to the lack of a 3rd wire on the new battery's IC.
-    If this is the case, it should be possible to
-    [fix this](https://electronics.stackexchange.com/questions/152053/replace-3-wires-tablet-battery-with-2-wires-one/152058#152058)
-    by soldering a 10kilo ohm resistor between the T pin and ground.
-    Just remember to take care when playing with batteries.
+  
+  _"The OEM battery measures 30mm x 36mm x 3mm (...)
+  it is possible to find a battery slightly smaller that will fit. At 30mm x 30mm x 3mm, the 303030 is a good fit. (...)
+  **These batteries only have 2 wires whilst the original has 3.**
+  At first this seemed an issue, as the third wire is generally used for an internal temperature sensor,
+  and a lot electronics refuse to work without one. (...)
+  **Luckily, it seems the third wire isn't actually required on the Sansa.**
+  After trimming the wires and soldering the new battery onto the board, the device was able to boot. (...)
+  For anyone attempting this repair who encounters any issues charging,
+  it may be related to the lack of a 3rd wire on the new battery's IC.
+  If this is the case, it should be possible to
+  [fix this](https://electronics.stackexchange.com/questions/152053/replace-3-wires-tablet-battery-with-2-wires-one/152058#152058)
+  by soldering a 10kilo ohm resistor between the T pin and ground.
+  Just remember to take care when playing with batteries."_
 
 - "[If We Can Do It, So Can You - Sansa Clip+ Battery Replacement](https://youtu.be/ramuFlFGSr8)" -
   they found some 3-wire battery;
