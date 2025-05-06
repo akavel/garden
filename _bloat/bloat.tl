@@ -228,6 +228,34 @@ local function main()
     return a.datetime > b.datetime
   end)
 
+  -- "auto-tags" / tags hierarchy
+  local autotags: {string:string} = {
+    cpp = "prog",
+    flakes = "nix",
+    go = "prog",
+    ironsworn = "rpg",
+    knitting = "diy",
+    nixops = "nix",
+    rust = "prog",
+    sob = "boardgaming",
+  }
+  for _, a in ipairs(articles) do
+    local add = {}
+    for _, t in ipairs(a.tags as {string}) do
+      add[t] = false
+      local auto = autotags[t]
+      if auto and add[auto] == nil then
+        add[auto] = true
+      end
+    end
+    for t, ok in pairs(add) do
+      if ok then
+        local tags = a.tags as {string}
+        tags[#tags+1] = t
+      end
+    end
+  end
+
   ------
   -- Render articles.
   ------
