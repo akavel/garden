@@ -14,6 +14,38 @@ _"The bossa bootloader expects that all application code (i.e. not the bootloade
 _That is, when the bootloader finishes it starts executing at address 0x10000._
 ([via](https://github.com/tock/tock/tree/e1a744a4bb01f3f865616d9d5c31e1db9001bba9/boards/nano33ble#getting-started))
 
+From one guy's sample blinky project I found on github for Nano-33-BLE,
+I copy-pasted the following `memory.x` file,
+which seemed to work for me
+with the builtin bossa bootloader:
+```
+MEMORY
+{
+  FLASH (rx) : ORIGIN = 0x10000, LENGTH = 0xf0000
+  RAM_NVIC (rwx) : ORIGIN = 0x20000000, LENGTH = 0x100
+  RAM_CRASH_DATA (rwx) : ORIGIN = (0x20000000 + 0x100), LENGTH = 0x100
+  RAM (rwx) : ORIGIN = ((0x20000000 + 0x100) + 0x100), LENGTH = (0x40000 - (0x100 + 0x100))
+}
+OUTPUT_FORMAT ("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
+```
+([via](https://github.com/NorbertSzydlik/rust-arduino-nano-33-ble/blob/50c97b32cc5e115ca8ef50ab08eba4f05170cad7/memory.x))
+
+
+## SoftDevice
+
+According to an example in the embassy project,
+the SoftDevice S140 (v7.3.0)
+expects the user application to start at 0x27000
+and RAM at 0x2002_0000:
+```
+  /* These values correspond to the NRF52840 with Softdevices S140 7.3.0 */
+  /*
+     FLASH : ORIGIN = 0x00027000, LENGTH = 868K
+     RAM : ORIGIN = 0x20020000, LENGTH = 128K
+  */
+```
+([via](https://github.com/embassy-rs/embassy/blob/ca5ebe859a40af38a889553334afbcc22cf1aba7/examples/nrf52840/memory.x#L7-L11))
+
 
 
 ## JTAG/... Debug connection
