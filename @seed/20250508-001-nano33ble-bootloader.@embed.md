@@ -30,6 +30,22 @@ OUTPUT_FORMAT ("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
 ```
 ([via](https://github.com/NorbertSzydlik/rust-arduino-nano-33-ble/blob/50c97b32cc5e115ca8ef50ab08eba4f05170cad7/memory.x))
 
+The above seems to match basically verbatim
+the linker script of the official
+Arduino "Core" for the board
+(showing only the beginning here):
+```
+MEMORY
+{
+  FLASH (rx) : ORIGIN = 0x10000, LENGTH = 0xf0000
+  RAM_NVIC (rwx) : ORIGIN = 0x20000000, LENGTH = 0x100
+  RAM_CRASH_DATA (rwx) : ORIGIN = (0x20000000 + 0x100), LENGTH = 0x100
+  RAM (rwx) : ORIGIN = ((0x20000000 + 0x100) + 0x100), LENGTH = (0x40000 - (0x100 + 0x100))
+}
+OUTPUT_FORMAT ("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
+```
+([via](https://github.com/arduino/ArduinoCore-mbed/blob/376aabf3487c85c4f4fc1cfbf2eee922b0c10085/variants/ARDUINO_NANO33BLE/linker_script.ld#L1-L8))
+
 
 ## SoftDevice
 
