@@ -3,6 +3,7 @@
 Decentralization tech, NON-cryptocoin.
 
 
+
 ## iroh-related links dump
 
 - https://willowprotocol.org/more/compare
@@ -47,7 +48,23 @@ Decentralization tech, NON-cryptocoin.
 - https://mstdn.social/@OpenArchive
 
 
+
+## other non-iroh post-ipfs projects not mentioned above
+
+- interpeer?
+  ([via](https://merveilles.town/@djm/113460953201748311)) -
+  their website confuses me though as to specifics
+
+
+
 ## mesh networking
 
 LoRa; Meshtastic
+
+
+
+## local-first computing
+
+- https://www.inkandswitch.com
+  and https://automerge.org
 
