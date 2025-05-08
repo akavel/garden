@@ -52,7 +52,7 @@ and RAM at 0x2002_0000:
 
 For emergency programming or bootloader re-flashing,
 a "normal" JTAG/SWD debug interface is available as well with some effort.
-The bottom of the Nano33BLE board has the following 5 debug pads at the "radio" ("ublox") end:
+The bottom of the Nano33BLE board has the following 5 debug pads underneath the "radio" ("ublox") end:
 
     |         |
     |  o o o  |
