@@ -111,3 +111,5 @@ I plan to also put them on this website at some point in the future,
 but in the meantime, if you want them without signing up to Rebrickable,
 please [message me on Mastodon](https://merveilles.town/@akavel),
 and I'll send them to you.
+
+[💬 Discuss.](https://merveilles.town/@akavel/114767669131115394)
