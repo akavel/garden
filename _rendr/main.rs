@@ -29,8 +29,25 @@ use html::Html;
 use pathinfo::PathInfo;
 
 const SOURCES: &str = "*.md:@isle/*.md:@seed/*.md:@snip/*.md";
-const RAW: &str =
-    "favicon.ico:*.pdf:@seed/*.pdf:*.png:@seed/*.png:*.jpg:@seed/*.jpg:*.svg:@seed/*.svg";
+const RAW: &'static [&'static str] = &[
+    "favicon.ico",
+    "*.pdf",
+    "*.png",
+    "*.jpg",
+    "*.svg",
+    "@seed/*.pdf",
+    "@seed/*.png",
+    "@seed/*.jpg",
+    "@seed/*.svg",
+    // "raw/*.pdf",
+    // "raw/*.png",
+    // "raw/*.jpg",
+    // "raw/*.svg",
+    // "raw/*/*.pdf",
+    // "raw/*/*.png",
+    // "raw/*/*.jpg",
+    // "raw/*/*.svg",
+];
 const SCRIPT: &str = r#"
 local tl = require '_rendr/tl'
 tl.loader()
@@ -69,9 +86,9 @@ fn main() -> anyhow::Result<()> {
         error!("Could not create directory {OUT_DIR}: {err}");
     }
 
-    info!("Copying {RAW}");
+    info!("Copying {RAW:?}");
     let raw_files =
-        RAW.split(':')
+        RAW.iter()
             .flat_map(|s| glob(s).unwrap())
             .filter_map(|result| match result {
                 Err(e) => {
