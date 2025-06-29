@@ -113,3 +113,9 @@ please [message me on Mastodon](https://merveilles.town/@akavel),
 and I'll send them to you.
 
 [💬 Discuss.](https://merveilles.town/@akavel/114767669131115394)
+(or, on:
+[rebrickable](https://rebrickable.com/mocs/MOC-226031/akavel/blacktron-instigator/#comments),
+[r/lego](https://old.reddit.com/r/lego/comments/1llf4f0/blacktron_instigator/),
+[r/afol](https://old.reddit.com/r/AFOL/comments/1lleul2/blacktron_instigator/),
+[r/blacktron](https://old.reddit.com/r/blacktron/comments/1lmjp5h/blacktron_instigator_a_remoc_of_alienator_for_the/)
+)
