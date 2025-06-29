@@ -20,7 +20,6 @@
 
 // gallery-1 first attempt:
 // LATER: let's try this image syntax: ![<alt-text>](<url-no-spaces> width=123 height=456 "optional title")
-// LATER: make clicking open full size image
 // LATER: add support for figure+figcaption
 // LATER: add support for alt-text
 
@@ -101,15 +100,17 @@ impl NodeValue for GalleryRow {
         fmt.open("div", &[("class", CLASS.to_owned())]);
         fmt.cr();
         for img in &self.images {
-            // fmt.open("a", &[("href", img.url.clone())]);
+            fmt.open("a", &[
+                ("href", img.url.clone()),
+                ("style", format!("flex-grow:calc({}/{})", img.w, img.h)),
+            ]);
             // FIXME: handle .title
             fmt.self_close("img", &[
                 ("src", img.url.clone()),
                 ("width", img.w.to_string()),
                 ("height", img.h.to_string()),
-                ("style", format!("flex-grow:calc({}/{})", img.w, img.h)),
             ]);
-            // fmt.close("a");
+            fmt.close("a");
             fmt.cr();
         }
         fmt.close("div");
