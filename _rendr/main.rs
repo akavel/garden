@@ -22,6 +22,7 @@ use std::path::PathBuf;
 
 mod html;
 mod logging;
+mod md_gallery_row;
 mod md_pikchr;
 mod pathinfo;
 
@@ -39,14 +40,14 @@ const RAW: &'static [&'static str] = &[
     "@seed/*.png",
     "@seed/*.jpg",
     "@seed/*.svg",
-    // "raw/*.pdf",
-    // "raw/*.png",
-    // "raw/*.jpg",
-    // "raw/*.svg",
-    // "raw/*/*.pdf",
-    // "raw/*/*.png",
-    // "raw/*/*.jpg",
-    // "raw/*/*.svg",
+    "raw/*.pdf",
+    "raw/*.png",
+    "raw/*.jpg",
+    "raw/*.svg",
+    "raw/*/*.pdf",
+    "raw/*/*.png",
+    "raw/*/*.jpg",
+    "raw/*/*.svg",
 ];
 const SCRIPT: &str = r#"
 local tl = require '_rendr/tl'
@@ -55,7 +56,7 @@ tl.loader()
 -- Typechecking thus needs to be done by hand with: `tl check _bloat/bloat.tl`
 require '_bloat/bloat'
 "#;
-const OUT_DIR: &str = "_html.out";
+pub(crate) const OUT_DIR: &str = "_html.out";
 
 fn main() -> anyhow::Result<()> {
     logging::init_info();
@@ -152,6 +153,7 @@ fn md_to_html(markdown: &str) -> RawHtml {
     let parser = &mut markdown_it::MarkdownIt::new();
     markdown_it::plugins::cmark::add(parser);
     md_pikchr::add(parser); // TODO: here or earlier?
+    md_gallery_row::add(parser); // TODO: here or earlier?
     markdown_it::plugins::extra::add(parser);
     markdown_it_footnote::add(parser);
     markdown_it_sub::add(parser);

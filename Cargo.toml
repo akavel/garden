@@ -15,6 +15,7 @@ anyhow = "1.0.75"
 ego-tree = "0.6.2"
 env_logger = "0.10.0"
 glob = "0.3.1"
+imagesize = { version = "0.14.0", features = ["jpeg", "png"] }
 log = "0.4.20"
 # Chosen due to extensibility & mentioning source-map info availability
 # (offsets in source text).
