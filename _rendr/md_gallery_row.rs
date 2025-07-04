@@ -64,11 +64,37 @@ impl CoreRule for GalleryRowRule {
                     return;
                 };
                 let path = img_dir.join(&image.url);
-                let Ok(size) = imagesize::size(path) else {
+                let Ok(mut size) = imagesize::size(&path) else {
                     return;
                 };
 
+                // Try making a thumbnail of the image.
+                // TODO(LATER): make the thumbnails after all images in the row are collected,
+                // sizing them proportionally
+                let mut thumb_url = image.url.clone();
+                if let Ok(image_reader) = image::ImageReader::open(&path)
+                    && let Ok(image_data) = image_reader.decode()
+                {
+                    const MAXW: u32 = 1000;
+                    const MAXH: u32 = 1000;
+                    println!(" (thumbnailing {})", &image.url);
+                    let thumb = image_data.resize(MAXW, MAXH, image::imageops::FilterType::CatmullRom);
+                    // TODO(LATER): handle subdirectory urls as well
+                    let new_thumb_url = "thumb.".to_owned() + &image.url;
+                    let thumb_path = img_dir.join(&new_thumb_url);
+                    if let Ok(_) = thumb.save(&thumb_path)
+                        && let Ok(orig_meta) = std::fs::metadata(&path)
+                        && let Ok(thumb_meta) = std::fs::metadata(&thumb_path)
+                        && (thumb_meta.len() as f32) / (orig_meta.len() as f32) < 0.75
+                    {
+                        thumb_url = new_thumb_url;
+                        size.width = thumb.width() as usize;
+                        size.height = thumb.height() as usize;
+                    }
+                }
+
                 images.push(ImgInfo {
+                    thumb_url,
                     url: image.url.clone(),
                     // title: image.title,
                     w: size.width,
@@ -84,6 +110,7 @@ impl CoreRule for GalleryRowRule {
 
 #[derive(Debug)]
 struct ImgInfo {
+    thumb_url: String,
     url: String,
     // title: Option<String>,
     w: usize,
@@ -106,7 +133,7 @@ impl NodeValue for GalleryRow {
             ]);
             // FIXME: handle .title
             fmt.self_close("img", &[
-                ("src", img.url.clone()),
+                ("src", img.thumb_url.clone()),
                 ("width", img.w.to_string()),
                 ("height", img.h.to_string()),
             ]);
