@@ -32,3 +32,38 @@ I assume it'd completely consume everything I have left in the half-pans, and st
 At the time of writing, I haven't tested it in the field yet;
 the one thing I'm somewhat concerned about at the moment is that it doesn't have too much space for mixing paints.
 I wonder if I should somehow procure some extra piece of plastic (?) for more mixing space.
+
+I was happy to confirm that the Pocket palette fits perfectly
+into a Traveler's Notebook Passport size "004 Zipper Case" insert.
+I was even more happy to when I found a way to also fit
+a brush pen into this pocket setup.
+I've done it with a Sakura Koi Water Brush Large (#8).
+This brush splits into two parts,
+one of them is a closeable water container body/handle,
+the other is a screw-on brush tip.
+The water container part amazingly is able to fit
+into the Zipper Case along with the Art Toolkit pocket palette.
+The other half, with the brush tip,
+is now attached to the notebook through a
+Leuchtturm Pen Loop.
+Some other accessories visible in the photos
+are an Ohto Minimo mechanical pencil,
+and a 32mm Medium size binder clip
+from the Tools To Liveby brand.
+
+![](P_20250813_091333.jpg)
+![](P_20250813_091201.jpg)
+
+![](P_20250813_091259.jpg)
+![](P_20250813_091318.jpg)
+
+The back pocket also contains a small plastic bag
+intended for use as an emergency protection from rain.
+
+For the time being, I intend to try using this set without a cover.
+I bought a rather pretty one from Etsy,
+but I found that it's surprisingly large.
+It increases the bulk and height of the set enough,
+that I don't currently find it comfortable for carrying in a back pocket.
+Whereas the coverless version seems doable.
+Time will tell whether it's going to work in practice for me at all.
