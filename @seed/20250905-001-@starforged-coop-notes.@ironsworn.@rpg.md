@@ -50,11 +50,11 @@ in a way they don't like, etc.)
 > including the fact that any type of progress track can be shared.
 > The main detail it doesn't clarify is that each kind of progress track has a slightly different approach to sharing it:
 >
-> - Vows - one PC does Swear an Iron Vow
-> - Connections - one PC does Make A Connection
-> - Combat - each PC does Enter the Fray separately
+> - Vows - one PC does _Swear an Iron Vow_
+> - Connections - one PC does _Make A Connection_
+> - Combat - each PC does _Enter the Fray_ separately
 > - Expeditions - there is no separate move to create the track
-> - Scene Challenges - one PC does Begin The Scene, but there is no roll, so it doesn't really matter who does it
+> - Scene Challenges - one PC does _Begin The Scene_, but there is no roll, so it doesn't really matter who does it
 
 ## Other notes
 
