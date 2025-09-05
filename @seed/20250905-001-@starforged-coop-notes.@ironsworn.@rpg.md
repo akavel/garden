@@ -42,6 +42,20 @@ in general the Player making the roll has the final say.
 (As long as it does not affect the other Player's character
 in a way they don't like, etc.)
 
+## Shared Progress Tracks
+
+(From _EdgeOfDreams_, [via](https://discord.com/channels/437120373436186625/470610967823384577/1413582693345792132))
+
+> The section labeled "Sharing Progress Tracks With Allies" (pg. 43) covers a lot,
+> including the fact that any type of progress track can be shared.
+> The main detail it doesn't clarify is that each kind of progress track has a slightly different approach to sharing it:
+>
+> - Vows - one PC does Swear an Iron Vow
+> - Connections - one PC does Make A Connection
+> - Combat - each PC does Enter the Fray separately
+> - Expeditions - there is no separate move to create the track
+> - Scene Challenges - one PC does Begin The Scene, but there is no roll, so it doesn't really matter who does it
+
 ## Other notes
 
 (From _EdgeOfDreams_) "Even if I know more about the rules than you (for now),
@@ -63,14 +77,3 @@ actively searching for input from the other player to contribute"
 
 (From myself) "a "yes, and..." attitude is the good rule of a thumb, as in general improv"
 
-## Shared Progress Tracks
-
-(From _EdgeOfDreams_, [via](https://discord.com/channels/437120373436186625/470610967823384577/1413582693345792132))
-
-> The section labeled "Sharing Progress Tracks With Allies" covers a lot, including the fact that any type of progress track can be shared. The main detail it doesn't clarify is that each kind of progress track has a slightly different approach to sharing it:
->
-> - Vows - one PC does Swear an Iron Vow
-> - Connections - one PC does Make A Connection
-> - Combat - each PC does Enter the Fray separately
-> - Expeditions - there is no separate move to create the track
-> - Scene Challenges - one PC does Begin The Scene, but there is no roll, so it doesn't really matter who does it
