@@ -41,3 +41,24 @@ on interpreting the result of a roll or an oracle,
 in general the Player making the roll has the final say.
 (As long as it does not affect the other Player's character
 in a way they don't like, etc.)
+
+## Other notes
+
+(From _EdgeOfDreams_) "Even if I know more about the rules than you (for now),
+I am only a facilitator and fellow player, not the GM.
+We both have equal power to make decisions about the story."
+
+(From _dude w/ the pronouns..._) "ask the fellow player a lot
+for input on generating the ideas, oracle rolls, etc. exchange NPCs together, and share the load of the work -
+actively searching for input from the other player to contribute"
+
+(From _HellFell_) "if someone has companion assets, the other should ask for permission to use them in their fiction (as in their responses, character building etc). Plus the onwer of the asset should be able to edit anything with no further discussion and no questions asked. Its their asset so they get the final say."
+
+(From _HellFell_) "check with each other what do you want from a game. Someone wants these things. Another wants those things. The job is to balance all these things so everyone gets to experience what they want. (Combat, exploration, connection gameplay etc)"
+
+(From myself) "say what again I now find obvious, but for sure is not: that we can retcon any and everything when we want - though probably might be good to get mutual agreement - but that it's "allowed" and that I do it all the time in my soloing"
+(basically, the _Change Your Fate_ Move)
+
+(From myself) "try to describe Vows as "story arcs", in that the rank is a choice of "how many pages" rather than actually "difficulty""
+
+(From myself) "a "yes, and..." attitude is the good rule of a thumb, as in general improv"
