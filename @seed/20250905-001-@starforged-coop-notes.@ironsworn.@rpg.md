@@ -31,9 +31,5 @@ right after introducing the initial drama,
 a.k.a. the inciting incident.
 
 **Connections.**
-The rulebook does not seem to talk about Connections in co-op play.
-My first thoughts are,
-that it makes sense for each Player to track their Connections separately,
-even to the same NPC.
-That's because relationships between people develop very differently,
-even in close-knit groups.
+According to the Rulebook (pg. 162),
+_"a connection can be shared--in which case you track progress on that connection together."_
