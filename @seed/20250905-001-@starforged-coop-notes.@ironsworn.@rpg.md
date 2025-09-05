@@ -3,7 +3,7 @@
 **Shared Iron Vows.** The *Swear an Iron Vow* Move can be used to swear a shared vow.
 The vow does not have to be equally exciting for both Players,
 ["they might also be something that one is committed to, with other PCs agreeing to help them in that quest."](
-https://old.reddit.com/r/Ironsworn/comments/1n6n5lm/confused_around_inventing_shared_vows_in_coop/nc30ycw/).
+https://old.reddit.com/r/Ironsworn/comments/1n6n5lm/confused_around_inventing_shared_vows_in_coop/nc30ycw/)
 In a shared vow, *one* Player makes the initial Move,
 but both Players share the Progress Tracker,
 and both Players gain XP (if any) when the vow is *Fulfilled*.
