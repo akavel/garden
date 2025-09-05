@@ -33,3 +33,11 @@ a.k.a. the inciting incident.
 **Connections.**
 According to the Rulebook (pg. 162),
 _"a connection can be shared--in which case you track progress on that connection together."_
+
+**Interpretation Disagreements.**
+It's a good idea to propose
+that in case of different views
+on interpreting the result of a roll or an oracle,
+in general the Player making the roll has the final say.
+(As long as it does not affect the other Player's character
+in a way they don't like, etc.)
