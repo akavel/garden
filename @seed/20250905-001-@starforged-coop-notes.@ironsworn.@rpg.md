@@ -1,5 +1,11 @@
 # Notes on playing *Ironsworn: Starforged* co-op
 
+**Supply.**
+A single Supply value is shared between Players.
+When the value changes for one Player,
+each other Player should also adjust it.
+(Rulebook pg. 48)
+
 **Shared Iron Vows.** The *Swear an Iron Vow* Move can be used to swear a shared vow.
 The vow does not have to be equally exciting for both Players,
 ["they might also be something that one is committed to, with other PCs agreeing to help them in that quest."](
