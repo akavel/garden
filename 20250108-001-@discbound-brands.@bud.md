@@ -33,10 +33,12 @@ and the **number of discs** used along the spine.
   - https://grovemade.com/notebooks
   - https://inkwellpress.com
   - https://kellofaplan.com
+  - https://www.liveloveposh.com/collections/planner-accessories-1
   - https://myndology.com
   - https://notiq.com/collections/discbound-planners
   - https://www.plumpaper.com/shop/category/discs
   - https://sheplans.com/collections/discbound
+  - https://shoprongrong.com/pages/build-your-planner
   - https://taliaproducts.com
   - https://ugmonk.com/collections/the-discbound-system
   - numerous merchants on etsy
