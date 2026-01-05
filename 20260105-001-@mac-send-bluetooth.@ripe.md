@@ -1,4 +1,4 @@
-# Right-click Send via Bluetooth on Mac
+# Right-click to send via Bluetooth on Mac
 
 Thanks to u/Ayamykee [on r/mac](https://www.reddit.com/r/mac/comments/1b686xk/comment/mpqxvsu/):
 
