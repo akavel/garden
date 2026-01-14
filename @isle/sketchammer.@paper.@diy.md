@@ -16,6 +16,7 @@
   inspired by "Mos Cardboard" as linked above,
   with some extra angled lines
   and dots at corners marking rivets in drawn plates of steel.
+- [various "lo-fi" inspirations for Five Parsecs From Home](https://boardgamegeek.com/image/9335371/five-parsecs-from-home-solo-adventure-wargaming?commentid=13298878#comment13298878)
 
 ### characters
 
