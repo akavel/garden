@@ -35,7 +35,9 @@ Now, a module will have `foo-bar` in its `pkgs`.
 
 ## 2. Passing inputs via `extraSpecialArgs`
 
-This is reportedly based on a similar mechanism in NixOS, called `specialArgs`.
+This is reportedly based on a [similar mechanism in NixOS](
+https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-flake-and-module-system#pass-non-default-parameters-to-submodules),
+called `specialArgs`.
 I haven't tried it yet, but from what I understand,
 it should allow to pass extra stuff as arguments to modules.
 The stuff passed can be anything, doesn't have to be a package.
