@@ -67,12 +67,15 @@ as argument to any modules:
 ## 3. Passing inputs via `_module.args`
 
 I also haven't tried it yet.
-This pattern seems the newest, and unified between
-NixOS, home-manager, and flake-parts (I think).
+This pattern seems the newest, and the same in
+[NixOS][] and [home-manager][].
 It's somewhat similar to variant 2 above
 (i.e. `extraSpecialArgs`), but more "local".
 I think it may be also "order dependant",
 and I'm not sure in what way things get overridden if they're repeated.
+
+[NixOS]: https://nixos.org/manual/nixos/stable/options#opt-_module.args
+[home-manager]: https://nix-community.github.io/home-manager/options.xhtml#opt-_module.args
 
 This has the benefit that it allows
 communication _between modules_.
