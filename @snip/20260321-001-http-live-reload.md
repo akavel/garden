@@ -1,0 +1,2 @@
+_"[devf](https://code.pfad.fr/devf/) provides livereload webserver [wrapper] for developers [serving] a reverse proxy while injecting some JS to support livereloading."_
+([via](https://lobste.rs/c/ho9s6g))
