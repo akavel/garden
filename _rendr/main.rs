@@ -22,6 +22,7 @@ use std::path::PathBuf;
 
 mod html;
 mod logging;
+mod md_attrs;
 mod md_gallery_row;
 mod md_pikchr;
 mod pathinfo;
@@ -152,6 +153,7 @@ fn main() -> anyhow::Result<()> {
 fn md_to_html(markdown: &str) -> RawHtml {
     let parser = &mut markdown_it::MarkdownIt::new();
     markdown_it::plugins::cmark::add(parser);
+    md_attrs::add(parser); // TODO: here or earlier?
     md_pikchr::add(parser); // TODO: here or earlier?
     md_gallery_row::add(parser); // TODO: here or earlier?
     markdown_it::plugins::extra::add(parser);
