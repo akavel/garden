@@ -90,11 +90,11 @@ local function inject_toc(oldtext: Html): Html
         return ul, idx
       elseif h.depth > depth then
         local sub, newidx = build_ul(idx, depth+1)
-        ul:find'ul':add_children(sub)
+        ul:find'ul':add(sub)
         idx = newidx
       else
         print(('.'):rep(depth) .. h.id .. ' ' .. h.text)
-        local li = li:clone():find'li'
+        local li = li:clone()
         local a = li:find'a'
         a:set_text(h.text)
         a:set_attr('href', '#'..h.id)
@@ -112,7 +112,7 @@ local function inject_toc(oldtext: Html): Html
 
 
   local text = html.new()
-  text:add_children(h1:clone())
+  text:add(h1:clone())
   h1:delete()
 
   local rest = oldtext:eject_children()

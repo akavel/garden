@@ -126,13 +126,15 @@ impl tealr::mlu::TealData for Html {
 
         methods.add_method("add", |_, html, (src,): (Html,)| {
             let src_id = src.id_or_root();
-            let src_raw = src.raw.borrow();
-            let src_node_clone = src_raw.tree.get_mut(src_id).unwrap().clone_subtree(); // FIXME: unwrap
+            let mut src_raw = src.raw.borrow_mut();
+            let mut src_node = src_raw.tree.get_mut(src_id).unwrap(); // FIXME: unwrap
+            let mut src_node_clone = src_node.clone_subtree();
 
-            let mut dst_raw = html.raw.borrow_mut();
             let dst_id = html.id_or_root();
-            let dst_node_ref = dst_raw.tree.get_mut(dst_id).unwrap(); // FIXME: unwrap
-            dst_node_ref.append_subtree(*src_node_clone.tree());
+            let mut dst_raw = html.raw.borrow_mut();
+            let mut dst_node_ref = dst_raw.tree.get_mut(dst_id).unwrap(); // FIXME: unwrap
+            // FIXME: fugly mess, too many cloning
+            dst_node_ref.append_subtree(src_node_clone.tree().clone());
             Ok(())
         });
 
