@@ -11,6 +11,7 @@ local record Article
 end
 
 local TITLE_SUFFIX = " — akavel's digital garden"
+local OUT_PREFIX = "_html.out/"
 
 local function readfile(name: string): string
   local fh = assert(io.open(name))
@@ -23,6 +24,15 @@ local function writefile(name: string, content: string)
   local fh = assert(io.open(name, 'w'))
   assert(fh:write(content))
   fh:close()
+end
+
+local function file_exists(name: string): boolean
+  local fh = io.open(name, 'r')
+  if fh then
+    fh:close()
+    return true
+  end
+  return false
 end
 
 local function article_date(art: Article): string
@@ -119,6 +129,18 @@ local function render_index_entry(art_tmpl: Html, art: Article): Html
   local h1 = art.html:find 'h1'
   if not h1 then
     return nil
+  end
+
+  local showcase_img = art.html:find 'img.showcase'
+  if showcase_img then
+    local img_src = showcase_img:get_attr('src')
+    local thumb_src = 'thumb.' .. img_src
+    if file_exists(OUT_PREFIX..thumb_src) then
+      img_src = thumb_src
+    end
+    print('  FOUND SHOWCASE IMG FOR: ' .. art.slug .. ': ' .. img_src)
+    art_tmpl:find('article'):set_attr('class', 'imaged')
+    art_tmpl:find('article'):set_attr('style', 'background-image: var(--imaged-gradient), url("'..img_src..'");')
   end
 
   local title_slot = art_tmpl:find('a.title')
@@ -268,7 +290,7 @@ local function main()
     end
     local template = article.tags.isle and isle_tmpl or article_tmpl
     local render = render_article(template:clone(), article)
-    writefile('_html.out/'..article.slug, render:to_string())
+    writefile(OUT_PREFIX..article.slug, render:to_string())
   end
 
   ------

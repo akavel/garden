@@ -10,7 +10,7 @@
 3. Staple the "Harmonicas" inside the covers.
 4. Bend the covers outside where the "Harmonicas" end.
 
-![P_20230803_121619](sob-cardholder-10.jpg)
+![P_20230803_121619](sob-cardholder-10.jpg) {.showcase}
 ![P_20230803_121753](sob-cardholder-11.jpg)
 ![P_20230803_121711](sob-cardholder-12.jpg)
 

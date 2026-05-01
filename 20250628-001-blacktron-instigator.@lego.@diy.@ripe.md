@@ -2,7 +2,7 @@
 
 ![](P_20250627_194340_1.jpg)
 ![](P_20250627_195820_1.jpg)
-![](blacktron-instigator-v1-pose1-colf-int3.png)
+![](blacktron-instigator-v1-pose1-colf-int3.png) {.showcase}
 
 > Universally condemned as the ugliest and most wretched device
 > to ever fly people to Space -

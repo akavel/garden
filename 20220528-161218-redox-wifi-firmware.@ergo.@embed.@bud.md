@@ -22,7 +22,7 @@ The rest of the tool, for me at least, seemed fairly intuitive. The only aspects
 
 To have a backup copy of the customized layout, it's also useful to download a `.json` file with the design. This can be done through clicking the button on the left of the `keymap.json` label. Due to some unexpected circumstances, in the end the `.json` file with the keymap would show up to be quite useful for me in the later steps of this story.
 
-![](redoxw-get-json.png)
+![](redoxw-get-json.png) {.showcase}
 
 ## Step 2: Flashing the custom layout (success… but failure)
 

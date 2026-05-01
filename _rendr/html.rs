@@ -16,19 +16,27 @@
 
 //! The module contains functions for parsing and editing HTML trees.
 
-use std::cell::RefCell;
+use std::{cell::RefCell, sync::Arc};
 use std::rc::Rc;
 
 use ego_tree::NodeId;
 use tealr::mlu::mlua::prelude::*;
 use scraper::{Html as RawHtml, Selector};
 use tealr::ToTypename;
+use thiserror::Error;
 
 #[derive(Clone, tealr::mlu::UserData, ToTypename)]
 pub struct Html {
     raw: Rc<RefCell<RawHtml>>,
     node_id: Option<NodeId>,
 }
+
+#[derive(Error, Debug)]
+pub enum HtmlError {
+    #[error("not an HTML element")]
+    NotAnElement,
+}
+
 
 impl Html {
     fn view(&self) -> Self {
@@ -164,8 +172,21 @@ impl tealr::mlu::TealData for Html {
             Ok(())
         });
 
-        // TODO: get_text(id) -> String  // concatenated from whole subtree
-        // TODO: get_attr(id, String) -> String
+        methods.add_method("get_attr", |_, html, (k,): (String,)| {
+            let id = html.id_or_root();
+            let raw = html.raw.borrow();
+            let node = raw.tree.get(id).unwrap(); // FIXME: unwrap
+            use scraper::Node;
+            let Node::Element(el) = node.value() else {
+                return Err(LuaError::ExternalError(Arc::new(HtmlError::NotAnElement)));
+            };
+            use markup5ever::{LocalName, Namespace, QualName};
+            let attr = QualName::new(None, Namespace::from(""), LocalName::from(k));
+            let Some((_, val)) = el.attrs.iter().find(|(k, _)| **k == attr) else {
+                return Ok(None);
+            };
+            Ok(Some(val.to_string()))
+        });
     }
 }
 

@@ -8,7 +8,7 @@ an "Urban Sketchers" a.k.a. "Urban Sketching"
 12-color palette from the Polish Aquarius/Roman Szmal brand.)
 
 ![](P_20250812_194031.jpg)
-![](P_20250812_194149.jpg)
+![](P_20250812_194149.jpg) {.showcase}
 
 I would say, based on my attempt,
 that working with dry paint when moving them is less messy and less lossy than with wet.
