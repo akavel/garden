@@ -32,14 +32,14 @@ The whole idea was inspired by someone's post
 on the Ironsworn discord
 (unfortunately I no longer remember whose).
 Big thanks to the person who shared that idea!
-(If you're the person, or know who that was
-and can send me a link to prove it,
-I'd be super grateful and happy to update this post!
-The best way to reach me is probably on mastodon
-as [@akavel@merveilles.town](https://merveilles.town/@akavel),
-or on Ironsworn discord as `@akavel.`
-I'm also happy to add links to other such systems
-you might know!)
+_(If you're that person, or know who that was_
+_and can send me a link to prove it,_
+_I'd be super grateful and happy to update this post!_
+_The best way to reach me is probably on mastodon_
+_as [@akavel@merveilles.town](https://merveilles.town/@akavel),_
+_or on Ironsworn discord as `@akavel.`_
+_I'm also happy to add links to other such systems_
+_you might know!)_
 
 As an extra, here are various drafts and in-progress sketches and notes
 I made while designing and testing the sigils:
