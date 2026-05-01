@@ -252,11 +252,14 @@ local function main()
 
   -- "auto-tags" / tags hierarchy
   local autotags: {string:{string}} = {
+    c = {"prog"},
     cpp = {"prog"},
+    discbound = {"paper", "diy"},
     flakes = {"nix"},
     go = {"prog"},
     ironsworn = {"rpg", "solo"},
     knitting = {"diy"},
+    nix = {"prog"},  -- not all nix is @linux, e.g. nix expression language
     nixops = {"nix"},
     rust = {"prog"},
     sob = {"boardgaming"},
