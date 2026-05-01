@@ -9,7 +9,7 @@ Below, I want to try and document especially those aspects of the procedure whic
 [game]: http://www.epistorygame.com/
 
 
-## Step 1: Designing a custom layout of keys
+## Step 1: Designing a custom layout of keys {#designing-layout}
 
 I already played a bit with the [QMK Configurator online tool][cfg] before. Thus I knew, that the first thing I need to do, is to find the `Keyboard` field, and select the `redox_w` keyboard there &mdash; this is the codename used throughout the QMK set of tools to refer to the [Redox Wireless keyboard][redoxw].
 
@@ -24,7 +24,7 @@ To have a backup copy of the customized layout, it's also useful to download a `
 
 ![](redoxw-get-json.png) {.showcase}
 
-## Step 2: Flashing the custom layout (success… but failure)
+## Step 2: Flashing the custom layout (success… but failure) {#flashing-layout}
 
 Flashing the downloaded `.hex` file proved to be much less obvious, even with the awesome set of tools provided by the QMK project. I don't really want to think how much effort it would require *without* those tools, and I'm super grateful to all the contributors of QMK for making it what it is now!
 
@@ -94,11 +94,11 @@ Flash complete
 
 Unfortunately, after reconnecting the keyboard, it wouldn't work. I tried pressing various keys, but nothing happened.
 
-## Step 3: Flashing the original firmware.
+## Step 3: Flashing the original firmware. {#flashing-original-firmware}
 
 Fortunately for me, [the original firmware is available online](https://github.com/mattdibi/redox-keyboard/blob/1ba788b0fee34c757ecb16d632d9c9d8d463de16/redox-w/firmware/qmk_redox_w_default.hex). After repeating the procedure from the "Step 2: Flashing..." section above, I was happy to see the keyboard responding again.
 
-## Step 4: Debugging
+## Step 4: Debugging {#debugging}
 
 Given that I knew that the original firmware worked, I wanted to see if I could compile some older version of QMK and get it to work after flashing. Seeing that this would require installing more complex dependencies, but also noticing that the `qmk_firmware` repository contains a `shell.nix` file in its root directory, I switched to my secondary Linux machine with Nix. (In fact, it is specifically NixOS.)
 
@@ -122,7 +122,7 @@ After copying the new `.hex` file back to the Windows machine, I tried flashing 
 
 (Note: the specific commit listed in the snippet above was not something I magically discovered; I tested a number of recent commits that changed the `redox_w` directory in the repository.)
 
-## Extras: LEDs
+## Extras: LEDs {#leds}
 
 The receiver dongle of the Redox Wireless keyboard (i.e. the thing that is actually plugged into the USB port of the computer) comes with 4 LEDs. Interestingly, the QMK Configurator online tool does not seem to currently support this feature, as far as I know. To use it, a snippet like below [needs to be added](https://github.com/mattdibi/redox-keyboard/issues/93#issuecomment-1073316313) to the `keymap.c` file before the `qmk compile` command is executed:
 
@@ -170,6 +170,6 @@ bool led_update_user(led_t led_state)
 EOF
 ```
 
-## Extras: Issue report
+## Extras: Issue report {#issue-report}
 
 After I tracked the breaking commit, I opened an issue on the `qmk_firmware` repository. It got quickly and correctly closed as a duplicate of an existing issue [#16553](https://github.com/qmk/qmk_firmware/issues/16553). It shows up that more people tracked this down before too, and even started working on some potential fix PRs. Since then, when building my subsequent layout revisions, I switched to using the `master` branch, merged by hand with [PR #17203](https://github.com/qmk/qmk_firmware/pull/17203) (`git fetch origin pull/17203/head:pr17203; git merge pr17203`). Seems to work fine for me as well!

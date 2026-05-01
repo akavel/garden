@@ -80,7 +80,12 @@ peg::parser! { grammar attrs_pattern() for str {
 
     // Lowest-level "words" parsers.
     rule word() -> String
-        = slice:$( ['a'..='z' | 'A'..='Z'] ['a'..='z' | 'A'..='Z' | '0'..='9']* ) { slice.to_string() }
+        = slice:$( start_char() next_char()* ) { slice.to_string() }
+        // = slice:$( ['a'..='z' | 'A'..='Z'] ['a'..='z' | 'A'..='Z' | '0'..='9']* ) { slice.to_string() }
+    rule start_char() -> char
+        = c:['a'..='z' | 'A'..='Z' | '-' | '_'] { c }
+    rule next_char() -> char
+        = c:(start_char() / ['0'..='9']) { c }
     rule whitespace() -> String
         = slice:$( [ ' ' | '\t' ]+ ) { slice.to_string() }
 }}
@@ -159,5 +164,27 @@ mod test {
         let root = md.parse(input);
         let html = root.render();
         assert_eq!(html.trim(), r#"<p><img class="class1 class2" src="url" alt="alt"></p>"#);
+    }
+
+    #[test]
+    fn header_id_after() {
+        let input = "# header{#id}";
+        let mut md = markdown_it::MarkdownIt::new();
+        markdown_it::plugins::cmark::add(&mut md);
+        add(&mut md);
+        let root = md.parse(input);
+        let html = root.render();
+        assert_eq!(html.trim(), r#"<h1 id="id">header</h1>"#);
+    }
+
+    #[test]
+    fn header_id_before() {
+        let input = "# {#id}header";
+        let mut md = markdown_it::MarkdownIt::new();
+        markdown_it::plugins::cmark::add(&mut md);
+        add(&mut md);
+        let root = md.parse(input);
+        let html = root.render();
+        assert_eq!(html.trim(), r#"<h1 id="id">header</h1>"#);
     }
 }

@@ -42,6 +42,23 @@ end
 local function render_article(template: Html, article: Article): Html
   -- Parse markdown article from disk into HTML.
   local text = html.from_md(readfile(article.src))
+
+  -- [[
+  local h1 = text:find'h1'
+  if h1 then
+    local h1copy = h1:clone()
+    h1:delete()
+    local rest = text:eject_children()
+    text = html.new()
+    text:add_children(h1copy)
+    text:add_children(rest)
+    text:each('h2,h3,h4,h5,h6', function(h)
+      print('   H: '..h:get_tag()..'#'..(h:get_attr'id' or '')..' '..h:get_text())
+    end)
+    print'   ----'
+  end
+  --]]
+
   article.html = text
 
   -- Put the main text of the article in #content node in the template.

@@ -85,13 +85,42 @@ impl tealr::mlu::TealData for Html {
         methods.add_method("to_string", |_, html, ()| Ok(html.raw.borrow().html()));
 
         methods.add_method("clone", |_, html, ()| {
-            Ok(Html::from(html.raw.borrow().clone()))
+            let Some(src_id) = html.node_id else {
+                return Ok(Html::from(html.raw.borrow().clone()));
+            };
+            let src_raw = html.raw.borrow_mut();
+            let src_node = src_raw.tree.get(src_id).unwrap().value().clone(); // FIXME: unwrap
+            let mut new = RawHtml::new_document();
+            let new_id = new.tree.root_mut().append(src_node).id();
+            add_children(&mut new, new_id, &src_raw, src_id);
+            // println!("\nSRC: {:?}\n\nNEW: {:?}\n", src_raw.tree, new.tree);
+            Ok(Html::from(new))
         });
 
         methods.add_method("find", |_, html, (selector,): (String,)| {
             let maybe_id = node_id_by_selector(&html.raw.borrow(), &selector);
             let maybe_html = maybe_id.map(|id| html.view_with_id(id));
             Ok(maybe_html)
+        });
+
+        methods.add_method("each", |_, html, (selector, callback): (String, LuaFunction)| {
+            // let raw = html.raw.borrow_mut();
+            let Ok(selector) = Selector::parse(&selector) else {
+                return Ok(()); // FIXME: error message
+            };
+            let ids = html.raw.borrow_mut().select(&selector).map(|n| n.id()).collect::<Vec<_>>();
+            for id in ids {
+                let view = html.view_with_id(id);
+                callback.call::<()>(view)?;
+            }
+            Ok(())
+        });
+
+        methods.add_method("delete", |_, html, ()| {
+            let id = html.id_or_root();
+            let mut raw = html.raw.borrow_mut();
+            raw.tree.get_mut(id).unwrap().detach(); // FIXME: unwrap
+            Ok(())
         });
 
         methods.add_method_mut("delete_children", |_, html, ()| {
@@ -157,6 +186,17 @@ impl tealr::mlu::TealData for Html {
         methods.add_method("get_text", |_, html, ()| {
             let id = html.id_or_root();
             Ok(get_text(&html.raw.borrow(), id))
+        });
+
+        methods.add_method("get_tag", |_, html, ()| {
+            let id = html.id_or_root();
+            let raw = html.raw.borrow();
+            let node = raw.tree.get(id).unwrap(); // FIXME: unwrap
+            use scraper::Node::*;
+            match node.value() {
+                Element(el) => Ok(Some(el.name.local.to_string())),
+                _ => Ok(None),
+            }
         });
 
         methods.add_method_mut("set_attr", |_, html, (k, v): (String, String)| {
