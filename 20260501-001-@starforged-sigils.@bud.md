@@ -56,3 +56,6 @@ And below you can see some examples of using them in actual gameplay notes:
 _(By the way -_
 _should you be curious about the progress track in the last image,_
 _it's my other creation: [Starforged Vows stamp](https://akavel.itch.io/starforged-vow-stamp).)_
+
+[💬 Discuss.](https://merveilles.town/@akavel/116499309338633368)
+
