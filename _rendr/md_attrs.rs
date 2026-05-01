@@ -39,7 +39,7 @@ impl InlineRule for AttrsScanner {
     fn run(state: &mut markdown_it::parser::inline::InlineState) -> Option<(Node, usize)> {
         let input = &state.src[state.pos..state.pos_max];
         let (attrs, length) = attrs_pattern::attrs_with_length(input).ok()?;
-        println!("PARSED: {attrs:?}");
+        println!(" PARSED: {attrs:?}");
         Some((
             Node::new(Attrs::new(attrs)),
             length,
@@ -98,7 +98,7 @@ impl CoreRule for AttrsApplier {
         walk_reverse_mut(root, |node| {
             // If Attrs found, steal them into last_attrs temporary storage.
             if let Some(attrs) = node.cast_mut::<Attrs>() {
-                println!("FOUND ATTRS: {attrs:?}");
+                println!(" FOUND ATTRS: {attrs:?}");
                 std::mem::swap(&mut last_attrs, &mut attrs.attrs);
                 return;
             }
