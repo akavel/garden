@@ -251,31 +251,39 @@ local function main()
   end)
 
   -- "auto-tags" / tags hierarchy
-  local autotags: {string:string} = {
-    cpp = "prog",
-    flakes = "nix",
-    go = "prog",
-    ironsworn = "rpg",
-    knitting = "diy",
-    nixops = "nix",
-    rust = "prog",
-    sob = "boardgaming",
+  local autotags: {string:{string}} = {
+    cpp = {"prog"},
+    flakes = {"nix"},
+    go = {"prog"},
+    ironsworn = {"rpg", "solo"},
+    knitting = {"diy"},
+    nixops = {"nix"},
+    rust = {"prog"},
+    sob = {"boardgaming"},
+    starforged = {"ironsworn"},
   }
   for _, a in ipairs(articles) do
-    local add = {}
-    for _, t in ipairs(a.tags as {string}) do
-      add[t] = false
-      local auto = autotags[t]
-      if auto and add[auto] == nil then
-        add[auto] = true
+    repeat
+      local add = {}
+      local finished = true
+      for _, t in ipairs(a.tags as {string}) do
+        add[t] = false -- no need to add t, already present
       end
-    end
-    for t, ok in pairs(add) do
-      if ok then
-        local tags = a.tags as {string}
-        tags[#tags+1] = t
+      for _, t in ipairs(a.tags as {string}) do
+        for _, new in ipairs(autotags[t] or {}) do
+          if add[new] == nil then -- not already present
+            add[new] = true
+            finished = false
+          end
+        end
       end
-    end
+      for t, ok in pairs(add) do
+        if ok then
+          local tags = a.tags as {string}
+          tags[#tags+1] = t
+        end
+      end
+    until finished
   end
 
   ------
