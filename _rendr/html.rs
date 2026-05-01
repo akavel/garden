@@ -167,7 +167,11 @@ impl tealr::mlu::TealData for Html {
             if let Node::Element(el) = dst.value() {
                 use markup5ever::{LocalName, Namespace, QualName};
                 let attr = QualName::new(None, Namespace::from(""), LocalName::from(k));
-                el.attrs.insert(attr, v.into());
+                el.attrs.sort_by(|a, b| a.0.cmp(&b.0));
+                match el.attrs.binary_search_by(|el| el.0.cmp(&attr)) {
+                    Ok(i) => el.attrs[i].1 = v.into(),
+                    Err(i) => el.attrs.insert(i, (attr, v.into())),
+                }
             }
             Ok(())
         });
@@ -182,7 +186,7 @@ impl tealr::mlu::TealData for Html {
             };
             use markup5ever::{LocalName, Namespace, QualName};
             let attr = QualName::new(None, Namespace::from(""), LocalName::from(k));
-            let Some((_, val)) = el.attrs.iter().find(|(k, _)| **k == attr) else {
+            let Some((_, val)) = el.attrs.iter().find(|(k, _)| *k == attr) else {
                 return Ok(None);
             };
             Ok(Some(val.to_string()))
