@@ -57,19 +57,27 @@ local function inject_toc(oldtext: Html): Html
   end
   local headers: {Header} = {}
   oldtext:each('h2,h3,h4,h5,h6', function(h)
-    local id = h:get_attr'id'
-    if not id then
-      return
-    end
     local it = {
-      id = id,
+      id = h:get_attr'id',
       depth = h:get_tag():sub(2) + 0,
       text = h:get_text(),
     }
+    print('   H'..it.depth..'#'..(it.id or '')..' '..it.text)
+    if not it.id then
+      return
+    end
     headers[#headers+1] = it
-    print('   H: '..it.depth..'#'..it.id..' '..it.text)
   end)
+  if #headers == 0 then
+    return oldtext
+  end
 
+  -- Start building new article text - first, header
+  local text = html.new()
+  text:add(h1:clone())
+  h1:delete()
+
+  -- Render and add ToC (Table of Contents)
   local toc = html_fragment [[
     <div id="toc">
       <em>Table of Contents</em>
@@ -81,7 +89,6 @@ local function inject_toc(oldtext: Html): Html
   local li = html_fragment [[
     <li><a href="#"></a></li>
   ]]
-
   local function build_ul(idx: integer, depth: integer): Html
     local ul = ul:clone()
     while true do
@@ -90,10 +97,10 @@ local function inject_toc(oldtext: Html): Html
         return ul, idx
       elseif h.depth > depth then
         local sub, newidx = build_ul(idx, depth+1)
-        ul:find'ul':add(sub)
+        ul:find'ul':add_children(sub)
         idx = newidx
       else
-        print(('.'):rep(depth) .. h.id .. ' ' .. h.text)
+        print('   '..('.'):rep(depth) .. h.id .. ' ' .. h.text)
         local li = li:clone()
         local a = li:find'a'
         a:set_text(h.text)
@@ -106,23 +113,10 @@ local function inject_toc(oldtext: Html): Html
 
   toc:find'#toc':add_children(
     build_ul(1, 2))
-  -- local depth = 2
-  -- for _, h in ipairs(headers) do
-  --   if 
-
-
-  local text = html.new()
-  text:add(h1:clone())
-  h1:delete()
-
-  local rest = oldtext:eject_children()
-
   text:add_children(toc)
-  text:add_children(rest)
-  -- text:each('h2,h3,h4,h5,h6', function(h)
-  --   print('   H: '..h:get_tag()..'#'..(h:get_attr'id' or '')..' '..h:get_text())
-  -- end)
-  print'   ----'
+
+  text:add_children(oldtext:eject_children())
+
   return text
 end
 

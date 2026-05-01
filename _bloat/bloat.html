@@ -62,9 +62,35 @@ ul.tags {
 ul.tags li {
     font-size: .9rem;
     display: inline; }
+
+#toc {
+  float: right;
+  width: 13em;
+  margin: 0 1em 0 1em;
+  padding: 0 1em 1em 1em;
+  border-left: 2px dotted #d44;
+  font-size: 90%;
+}
+#toc em {
+  color: #aaa;
+  font-weight: bold; }
+#toc ul {
+  padding-left: 1em;
+  list-style: "❧ ";
+  margin: 0; }
+#toc li {
+  text-align: left; }
+#toc li::marker {
+  color: #d44; }
+#toc li a {
+  color: #000;
+  letter-spacing: -2%;
+  text-decoration: underline #aaa; }
+#toc li a:hover {
+  color: #d44; }
+
 #content h1:first-child {
     margin-top: 0; }
-
 h1 {
     line-height: 1.2; } /* for long titles */
 h2 {
