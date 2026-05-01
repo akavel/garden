@@ -47,7 +47,7 @@ OUTPUT_FORMAT ("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
 ([via](https://github.com/arduino/ArduinoCore-mbed/blob/376aabf3487c85c4f4fc1cfbf2eee922b0c10085/variants/ARDUINO_NANO33BLE/linker_script.ld#L1-L8))
 
 
-## SoftDevice
+## SoftDevice {#softdevice}
 
 According to an example in the embassy project,
 the SoftDevice S140 (v7.3.0)
@@ -64,7 +64,7 @@ and RAM at 0x2002_0000:
 
 
 
-## JTAG/... Debug connection
+## JTAG/... Debug connection {#jtag-debug-conn}
 
 For emergency programming or bootloader re-flashing,
 a "normal" JTAG/SWD debug interface is available as well with some effort.

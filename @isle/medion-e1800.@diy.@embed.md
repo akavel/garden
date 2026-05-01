@@ -1,6 +1,6 @@
 # "Medion Life E1800" teardown
 
-## other brands
+## other brands {#other-brands}
 
 Based on a search of the "SB1024H" marking
 found on the pulse sensor's connector tape,
@@ -13,7 +13,7 @@ the following smartwatch brands & models might be the same device:
 
 The "SB" prefix may possibly be an abbreviation/acronym of "SmartBand".
 
-## display
+## display {#display}
 
 ([Question on r/hardwarehacking](https://redd.it/1k8lzl9))
 
@@ -22,7 +22,7 @@ The back side seems to show the following markings:
     R096HQ1501A(L?)
     180913 A2 P(O?)
 
-## pulse/heart rate sensor
+## pulse/heart rate sensor {#pulse-sensor}
 
 The elastic tape seems to have the markings:
 

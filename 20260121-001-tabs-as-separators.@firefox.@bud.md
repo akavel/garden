@@ -10,16 +10,16 @@ Based on:
 - https://old.reddit.com/r/FirefoxCSS/wiki/index/tutorials
 - https://old.reddit.com/r/firefox/comments/w3zm85/any_extension_or_workaround_to_add/
 
-## 1. Enable `userChrome.css`
+## {#enable-userchrome} 1. Enable `userChrome.css`
 
 In `about:config`, search for `toolkit.legacyUserProfileCustomizations.stylesheets`
 and toggle it to `true` by double-clicking it.
 
-## 2. Find default profile directory path
+## 2. Find default profile directory path {#find-default-profile-path}
 
 Go to `about:support`, find and copy the path from _'Profile folder'_ (under _'Application Basics'_).
 
-## 3. Create `userChrome.css`
+## {#create-userchrome} 3. Create `userChrome.css`
 
 1. Open the Profile folder path (as copied in the step above),
    create sub-folder named `chrome` (must be lowercase!).

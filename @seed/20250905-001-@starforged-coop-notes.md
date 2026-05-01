@@ -48,7 +48,7 @@ in general the Player making the roll has the final say.
 (As long as it does not affect the other Player's character
 in a way they don't like, etc.)
 
-## Shared Progress Tracks
+## Shared Progress Tracks {#shared-progress-tracks}
 
 (From _EdgeOfDreams_, [via](https://discord.com/channels/437120373436186625/470610967823384577/1413582693345792132))
 
@@ -62,7 +62,7 @@ in a way they don't like, etc.)
 > - Expeditions - there is no separate move to create the track
 > - Scene Challenges - one PC does _Begin The Scene_, but there is no roll, so it doesn't really matter who does it
 
-## Other notes
+## Other notes {#other-notes}
 
 (From _EdgeOfDreams_) "Even if I know more about the rules than you (for now),
 I am only a facilitator and fellow player, not the GM.

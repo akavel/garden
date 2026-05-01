@@ -4,7 +4,7 @@ Decentralization tech, NON-cryptocoin.
 
 
 
-## iroh-related links dump
+## iroh-related links dump {#iroh-related-links}
 
 - https://willowprotocol.org/more/compare
   ([via](https://github.com/n0-computer/iroh-willow),
@@ -41,7 +41,7 @@ Decentralization tech, NON-cryptocoin.
   https://github.com/redecentralize/alternative-internet
 
 
-### related mastodon users
+### related mastodon users {#related-mastodon-users}
 
 - https://mastodon.social/@n0iroh (Iroh)
 - https://post.lurk.org/@gwil (Earthstar, Willow)
@@ -49,7 +49,7 @@ Decentralization tech, NON-cryptocoin.
 
 
 
-## other non-iroh post-ipfs projects not mentioned above
+## other non-iroh post-ipfs projects not mentioned above {#other-non-iroh-post-ipfs-projects}
 
 - interpeer?
   ([via](https://merveilles.town/@djm/113460953201748311)) -
@@ -57,13 +57,13 @@ Decentralization tech, NON-cryptocoin.
 
 
 
-## mesh networking
+## mesh networking {#mesh-networking}
 
 LoRa; Meshtastic
 
 
 
-## local-first computing
+## local-first computing {#local-first-computing}
 
 - https://www.inkandswitch.com
   and https://automerge.org

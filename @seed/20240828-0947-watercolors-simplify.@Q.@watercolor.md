@@ -84,7 +84,7 @@ for later: [composition](https://www.youtube.com/watch?v=sopLk4Czp6M)
 
 unrelated, for later: [insights into artistic growth](https://www.youtube.com/watch?v=M0n5ZueR2Ok)
 
-## value study (in watercolors)
+## value study (in watercolors) {#value-study}
 
 ("values are the most important thing [because they portray/unlock the light in the scene](
 https://www.youtube.com/watch?v=bEDzZXlfy_U)")
@@ -112,7 +112,7 @@ https://www.youtube.com/watch?v=4WwTBkS8rhk
 https://www.youtube.com/watch?v=3gI0AicMHpQ
  - experimenting with value studies
 
-## unrelated, for later
+## unrelated, for later {#unrelated-for-later}
 
 https://www.youtube.com/watch?v=UJ3VbGHooDI
  - paint consistency: "tea <-> milk <-> cream <-> butter";
