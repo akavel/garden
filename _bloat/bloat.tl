@@ -35,30 +35,101 @@ local function file_exists(name: string): boolean
   return false
 end
 
+local function html_fragment(html_text: string): Html
+  return html.parse('<div>'..html_text..'</div>'):find'div'
+end
+
 local function article_date(art: Article): string
   return (art.datetime:gsub('(%d%d%d%d)(%d%d)(%d%d).*', '%1-%2-%3'))
+end
+
+local function inject_toc(oldtext: Html): Html
+  local h1 = oldtext:find'h1'
+  if not h1 then
+    return oldtext
+  end
+
+  -- Extract headers, but only if they have id='...' attribute
+  local type Header = record
+    id: string
+    depth: integer
+    text: string
+  end
+  local headers: {Header} = {}
+  oldtext:each('h2,h3,h4,h5,h6', function(h)
+    local id = h:get_attr'id'
+    if not id then
+      return
+    end
+    local it = {
+      id = id,
+      depth = h:get_tag():sub(2) + 0,
+      text = h:get_text(),
+    }
+    headers[#headers+1] = it
+    print('   H: '..it.depth..'#'..it.id..' '..it.text)
+  end)
+
+  local toc = html_fragment [[
+    <div id="toc">
+      <em>Table of Contents</em>
+    </div>
+  ]]
+  local ul = html_fragment [[
+    <ul></ul>
+  ]]
+  local li = html_fragment [[
+    <li><a href="#"></a></li>
+  ]]
+
+  local function build_ul(idx: integer, depth: integer): Html
+    local ul = ul:clone()
+    while true do
+      local h = headers[idx]
+      if not h or h.depth < depth then
+        return ul, idx
+      elseif h.depth > depth then
+        local sub, newidx = build_ul(idx, depth+1)
+        ul:find'ul':add_children(sub)
+        idx = newidx
+      else
+        print(('.'):rep(depth) .. h.id .. ' ' .. h.text)
+        local li = li:clone():find'li'
+        local a = li:find'a'
+        a:set_text(h.text)
+        a:set_attr('href', '#'..h.id)
+        ul:find'ul':add_children(li)
+        idx = idx + 1
+      end
+    end
+  end
+
+  toc:find'#toc':add_children(
+    build_ul(1, 2))
+  -- local depth = 2
+  -- for _, h in ipairs(headers) do
+  --   if 
+
+
+  local text = html.new()
+  text:add_children(h1:clone())
+  h1:delete()
+
+  local rest = oldtext:eject_children()
+
+  text:add_children(toc)
+  text:add_children(rest)
+  -- text:each('h2,h3,h4,h5,h6', function(h)
+  --   print('   H: '..h:get_tag()..'#'..(h:get_attr'id' or '')..' '..h:get_text())
+  -- end)
+  print'   ----'
+  return text
 end
 
 local function render_article(template: Html, article: Article): Html
   -- Parse markdown article from disk into HTML.
   local text = html.from_md(readfile(article.src))
-
-  -- [[
-  local h1 = text:find'h1'
-  if h1 then
-    local h1copy = h1:clone()
-    h1:delete()
-    local rest = text:eject_children()
-    text = html.new()
-    text:add_children(h1copy)
-    text:add_children(rest)
-    text:each('h2,h3,h4,h5,h6', function(h)
-      print('   H: '..h:get_tag()..'#'..(h:get_attr'id' or '')..' '..h:get_text())
-    end)
-    print'   ----'
-  end
-  --]]
-
+  text = inject_toc(text)
   article.html = text
 
   -- Put the main text of the article in #content node in the template.
@@ -155,7 +226,7 @@ local function render_index_entry(art_tmpl: Html, art: Article): Html
     if file_exists(OUT_PREFIX..thumb_src) then
       img_src = thumb_src
     end
-    print('  FOUND SHOWCASE IMG FOR: ' .. art.slug .. ': ' .. img_src)
+    -- print('  FOUND SHOWCASE IMG FOR: ' .. art.slug .. ': ' .. img_src)
     art_tmpl:find('article'):set_attr('class', 'imaged')
     art_tmpl:find('article'):set_attr('style', 'background-image: var(--imaged-gradient), url("'..img_src..'");')
   end

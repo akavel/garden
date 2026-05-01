@@ -91,10 +91,11 @@ impl tealr::mlu::TealData for Html {
             let src_raw = html.raw.borrow_mut();
             let src_node = src_raw.tree.get(src_id).unwrap().value().clone(); // FIXME: unwrap
             let mut new = RawHtml::new_document();
+            // TODO: try just using src_node.clone_subtree()
             let new_id = new.tree.root_mut().append(src_node).id();
             add_children(&mut new, new_id, &src_raw, src_id);
             // println!("\nSRC: {:?}\n\nNEW: {:?}\n", src_raw.tree, new.tree);
-            Ok(Html::from(new))
+            Ok(Html::from(new).view_with_id(new_id))
         });
 
         methods.add_method("find", |_, html, (selector,): (String,)| {
@@ -120,6 +121,18 @@ impl tealr::mlu::TealData for Html {
             let id = html.id_or_root();
             let mut raw = html.raw.borrow_mut();
             raw.tree.get_mut(id).unwrap().detach(); // FIXME: unwrap
+            Ok(())
+        });
+
+        methods.add_method("add", |_, html, (src,): (Html,)| {
+            let src_id = src.id_or_root();
+            let src_raw = src.raw.borrow();
+            let src_node_clone = src_raw.tree.get_mut(src_id).unwrap().clone_subtree(); // FIXME: unwrap
+
+            let mut dst_raw = html.raw.borrow_mut();
+            let dst_id = html.id_or_root();
+            let dst_node_ref = dst_raw.tree.get_mut(dst_id).unwrap(); // FIXME: unwrap
+            dst_node_ref.append_subtree(*src_node_clone.tree());
             Ok(())
         });
 

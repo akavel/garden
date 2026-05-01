@@ -110,7 +110,7 @@ impl CoreRule for AttrsApplier {
             if node.is::<Text>() {
                 return;
             }
-            println!("APPLYING TO NODE: {node:?}");
+            // println!("APPLYING TO NODE: {node:?}");
             apply_attrs(node, &mut last_attrs);
         });
     }
