@@ -10,7 +10,7 @@ Personally, all three aspects were what pulled me to buy this product.
 Especially the first and the second were something I was already having on my mind
 when I accidentally stumbled upon _Forge Horizons_.
 
-## Episodic gameplay
+## Episodic gameplay {#episodic-gameplay}
 
 The first section of the book introduces a simple set of rules
 on how to start and stop playing _Starforged_ with reduced hassle and overhead.
@@ -47,7 +47,7 @@ How did they do that? Who knows! They're a Hero after all - they have their hero
 Maybe we'll learn a bit later, get a peek behind the veil - or maybe not!
 For now, we're totally fine to keep it under a convenient shroud of understatement.
 
-## "Ecumenopolis"
+## "Ecumenopolis" {#ecumenopolis}
 
 The second section of _Forge Horizons_ provides a set of oracles
 for populous city-planets.
@@ -80,7 +80,7 @@ should work as a really nice mechanism for
 smoothly grafting small bits of material from those resources
 into _Starforged_.
 
-## Machines, Horrors, and Precursors
+## Machines, Horrors, and Precursors {#machines-horrors-precursors}
 
 The final section of the book is currently the one that
 seems somewhat disappointing to me personally.
@@ -107,7 +107,7 @@ is that I could try mixing the Creatures oracles from _Starforged_
 with some bits and pieces from the Horrors oracles in _Forge Horizons_ -
 the "Supernatural powers" one seems to me the most universal and inspiring in this area.
 
-## Conclusion
+## Conclusion {#conclusion}
 
 Overall, I heartily recommend the _Forge Horizons_ supplement.
 The Episodic Adventures rules it introduces are simple

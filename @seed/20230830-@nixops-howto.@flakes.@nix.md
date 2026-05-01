@@ -70,7 +70,7 @@ line invisible from Remote.nw to Remote.ne \
 ```
 
 
-## Installing NixOps on a local machine with Nix
+## Installing NixOps on a local machine with Nix {#installing-nixops}
 
 Unfortunately, the recommended `nix-env -i nixops`
 (or rather, on my all-in experimental Nix tech machine: `nix profile install nixpkgs#nixops`)
@@ -111,7 +111,7 @@ index 464d6d1..ac1cab4 100644
 ```
 
 
-## Deploying "hello world" nginx website with NixOps 2.0 + Flakes
+## Deploying "hello world" nginx website with NixOps 2.0 + Flakes {#deploying-nginx-website}
 
 The nice added benefit of NixOps 2.0
 (making me really happy that I actually was forced to use it)
@@ -143,7 +143,7 @@ that I managed to get to work and deploy on my remote machine without making it 
 To break it down into steps for easier understanding,
 we can start with...
 
-### Phase 1: Barebones Flake scaffolding for NixOps 2.0
+### Phase 1: Barebones Flake scaffolding for NixOps 2.0 {#barebones-flake}
 
 ```nix
 {
@@ -202,7 +202,7 @@ I had to then call `nixops delete` to keep just one "deployment" in the DB
 and save myself some trouble
 (otherwise NixOps doesn't know which "deployment" to use as the default one).
 
-### Phase 2: Adding the first machine, without losing SSH connectivity
+### Phase 2: Adding the first machine, without losing SSH connectivity {#adding-first-machine}
 
 Ok, from the title you may have guessed what happened to me...
 After I happily added some basic config for my machine and managed to deploy it,
@@ -301,7 +301,7 @@ Now, I could finally run it:
     $ nixops deploy
 
 
-### Phase 3: Nginx "hello world"
+### Phase 3: Nginx "hello world" {#nginx-hello-world}
 
 To make Nginx run with its default *"Welcome to Nginx!"* page, the following changes were needed:
 

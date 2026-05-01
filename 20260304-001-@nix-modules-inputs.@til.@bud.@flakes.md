@@ -8,7 +8,7 @@ The examples bellow assume that
 you added a new input named `foo-bar` into your main `flake.nix`,
 for example: `inputs.foo-bar.url = "..."`.
 
-## 1. Passing packages via overlays
+## 1. Passing packages via overlays {#via-overlays}
 
 This is the "classic" pattern, harking back to non-flakes NixOS.
 Assuming that the newly imported `foo-bar` flake defines _a package_,
@@ -33,7 +33,7 @@ you can add it into an overlay like so:
 ```
 Now, a module will have `foo-bar` in its `pkgs`.
 
-## 2. Passing inputs via `extraSpecialArgs`
+## {#via-extraspecialargs} 2. Passing inputs via `extraSpecialArgs`
 
 This is reportedly based on a [similar mechanism in NixOS](
 https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-flake-and-module-system#pass-non-default-parameters-to-submodules),
@@ -66,7 +66,7 @@ as argument to any modules:
 ...
 ```
 
-## 3. Passing inputs via `_module.args`
+## {#via-moduleargs} 3. Passing inputs via `_module.args`
 
 I also haven't tried it yet.
 This pattern seems the newest, and the same in
