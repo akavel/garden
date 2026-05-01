@@ -1,6 +1,6 @@
 # _Ironsworn: Starforged_ session notation sigils
 
-![](P_20260501_130836_1.jpg)
+![](P_20260501_160351_1.jpg)
 
 The sigils cover a variety of technical terms/concepts
 in _Ironsworn: Starforged_,
@@ -10,9 +10,7 @@ Notably, this includes:
   - mechanical stuff:
     - roll results (e.g. Strong Hit; Miss with a Match)
     - character stats (e.g. Edge, Heart, Iron)
-    - condition meters (e.g. Momentum, Spirit) - note:
-      I haven't invented a sigil for Health yet!
-      it's not easy when a heart is already occupied by the Heart stat...
+    - condition meters (e.g. Momentum, Health, Spirit)
     - some notable moves
       (e.g. Swear an Iron Vow; progress-related; expedition-related)
     - some other commonly encountered and noteworthy mechanical stuff
@@ -26,7 +24,7 @@ Notably, this includes:
 
 An annotated list of the sigils, in a graphical form:
 
-![](P_20260501_130836_2.jpg) {.showcase}
+![](P_20260501_155916_2.jpg) {.showcase}
 
 The whole idea was inspired by someone's post
 on the Ironsworn discord
