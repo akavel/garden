@@ -29,6 +29,7 @@ const CLASS: &str = "gallery-row";
 use std::path::Path;
 
 use markdown_it::parser::core::CoreRule;
+use markdown_it::parser::inline::Text;
 use markdown_it::plugins::cmark::{
     inline::{image::Image, newline::Softbreak},
     block::paragraph::Paragraph,
@@ -60,7 +61,19 @@ impl CoreRule for GalleryRowRule {
                     continue;
                 }
                 // println!("  {:?}", child.node_type);
+                if child.is::<crate::md_attrs::Attrs>() {
+                    // println!(" GALLERY ATTRS");
+                    continue;
+                }
+                if let Some(text) = child.cast::<Text>() {
+                    if text.content.trim().is_empty() {
+                        continue;
+                    }
+                }
                 let Some(image) = child.cast::<Image>() else {
+                    if images.len() > 0 {
+                        println!(" GALLERY BREAK: {child:?}");
+                    }
                     return;
                 };
                 let path = img_dir.join(&image.url);
@@ -93,12 +106,24 @@ impl CoreRule for GalleryRowRule {
                     }
                 }
 
+                let extra_attrs = child.attrs
+                    .iter()
+                    .filter_map(|(k, v)| match *k {
+                        "width" | "height" | "src" => None,
+                        _ => Some((*k, v.clone())),
+                    })
+                    .collect::<Vec<_>>();
+                if extra_attrs.len() > 0 {
+                    println!(" GALLERY EXTRA ATTRS: {extra_attrs:?}");
+                }
+
                 images.push(ImgInfo {
                     thumb_url,
                     url: image.url.clone(),
                     // title: image.title,
                     w: size.width,
                     h: size.height,
+                    extra_attrs,
                 });
                 // println!("  GAL?: {} {:?} {:?}", image.url, image.title, imagesize::size(path));
             }
@@ -115,6 +140,7 @@ struct ImgInfo {
     // title: Option<String>,
     w: usize,
     h: usize,
+    extra_attrs: Vec<(&'static str, String)>,
 }
 
 #[derive(Debug)]
@@ -132,11 +158,11 @@ impl NodeValue for GalleryRow {
                 ("style", format!("flex-grow:calc({}/{})", img.w, img.h)),
             ]);
             // FIXME: handle .title
-            fmt.self_close("img", &[
-                ("src", img.thumb_url.clone()),
-                ("width", img.w.to_string()),
-                ("height", img.h.to_string()),
-            ]);
+            let mut attrs = img.extra_attrs.clone();
+            attrs.push(("src", img.thumb_url.clone()));
+            attrs.push(("width", img.w.to_string()));
+            attrs.push(("height", img.h.to_string()));
+            fmt.self_close("img", &attrs);
             fmt.close("a");
             fmt.cr();
         }

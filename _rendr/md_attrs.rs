@@ -25,8 +25,10 @@ use markdown_it::parser::inline::{InlineRule, Text};
 use markdown_it::{MarkdownIt, Node, NodeValue};
 
 pub fn add(md: &mut MarkdownIt) {
+    use markdown_it::parser::inline::builtin::InlineParserRule;
     md.inline.add_rule::<AttrsScanner>().after_all();
-    md.add_rule::<AttrsApplier>().after_all();
+    // md.add_rule::<AttrsScanner>().before::<AttrsApplier>();
+    md.add_rule::<AttrsApplier>().after::<InlineParserRule>().before::<crate::md_gallery_row::GalleryRowRule>();
 }
 
 pub struct AttrsScanner;
