@@ -32,7 +32,7 @@ The whole idea was inspired by someone's post
 on the Ironsworn discord
 (unfortunately I no longer remember whose).
 Big thanks to the person who shared that idea!
-(If you're reading this, or know who that was
+(If you're the person, or know who that was
 and can send me a link to prove it,
 I'd be super grateful and happy to update this post!
 The best way to reach me is probably on mastodon
