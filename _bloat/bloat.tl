@@ -284,6 +284,7 @@ local function main()
         end
       end
     until finished
+    table.sort(a.tags)
   end
 
   ------
