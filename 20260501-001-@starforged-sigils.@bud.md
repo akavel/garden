@@ -39,7 +39,7 @@ _The best way to reach me is probably on mastodon_
 _as [@akavel@merveilles.town](https://merveilles.town/@akavel),_
 _or on Ironsworn discord as `@akavel.`_
 _I'm also happy to add links to other such systems_
-_you might know!)_
+_if anyone of you knows some!)_
 
 As an extra, here are various drafts and in-progress sketches and notes
 I made while designing and testing the sigils:
