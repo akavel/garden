@@ -1,6 +1,6 @@
 # _Ironsworn: Starforged_ session notation sigils
 
-![](P_20260501_130836_1.jpg) {.showcase}
+![](P_20260501_130836_1.jpg)
 
 The sigils cover a variety of technical terms/concepts
 in _Ironsworn: Starforged_,
@@ -26,7 +26,7 @@ Notably, this includes:
 
 An annotated list of the sigils, in a graphical form:
 
-![](P_20260501_130836_2.jpg)
+![](P_20260501_130836_2.jpg) {.showcase}
 
 The whole idea was inspired by someone's post
 on the Ironsworn discord
