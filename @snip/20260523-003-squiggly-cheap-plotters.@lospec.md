@@ -13,3 +13,7 @@ it seems fundamentally limited to very squiggly lines.
 (I wonder why? Would need to read more.)
 But on the other hand, it seems super cheap!
 I really should try building one.
+A different plotter design (non-radial),
+with seemingly better quality,
+but somewhat bigger:
+https://www.thingiverse.com/thing:4796222
