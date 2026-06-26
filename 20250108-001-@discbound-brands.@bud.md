@@ -10,7 +10,7 @@ and the **number of discs** used along the spine.
   - [Atoma](https://atoma.be) (Belgium) - the one that [started it all](https://en.wikipedia.org/wiki/Disc-binding)
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
-  - [William Hannah](https://williamhannah.com) (UK)
+  - [William Hannah](https://williamhannah.com) (UK) - unfortunately [winding down, expected closure at 31 July 2026](https://williamhannah.com/pages/announcements)
   - [Novel Notes](https://www.novelnotes.co.uk) ([etsy](https://novellovesnotes.etsy.com)) (UK)
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
   - [Rosie Papeterie](https://rosiepapeterie.com/apps/bundles/bundle/112179) (Canada)
@@ -33,6 +33,7 @@ and the **number of discs** used along the spine.
   - https://grovemade.com/notebooks
   - https://inkwellpress.com
   - https://kellofaplan.com
+  - https://laureldenise.com/collections/discbound
   - https://www.liveloveposh.com/collections/planner-accessories-1
   - https://myndology.com
   - https://notiq.com/collections/discbound-planners
