@@ -9,14 +9,16 @@ and the **number of discs** used along the spine.
 - non-USA, non-China
   - [Atoma](https://atoma.be) (Belgium) - the one that [started it all](https://en.wikipedia.org/wiki/Disc-binding)
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
+  - Vario-Zipp / Polyvision (EU) by Oxford / Elba (Hamelin group) - mostly foil pockets for A4 sheets, thus slightly bigger at 12 discs ([example](https://www.my-oxford-shop.de/ringmappen-und-zubehoer-kg25.aspx))
+  - ADOC system / Bind-ex (Belgium, EU) by Aurora.be
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK) - unfortunately [winding down, expected closure at 31 July 2026](https://williamhannah.com/pages/announcements)
   - [Novel Notes](https://www.novelnotes.co.uk) ([etsy](https://novellovesnotes.etsy.com)) (UK)
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
   - [Rosie Papeterie](https://rosiepapeterie.com/apps/bundles/bundle/112179) (Canada)
   - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
-  - Esquoia - defunct??
-  - Clairing (FR Clairefontaine) - defunct??
+  - (Esquoia - defunct??)
+  - (Clairing / (FR Clairefontaine) - defunct??)
 - USA
   - Rollabind - defunct??
   - [Arc](https://www.staples.com/sbd/cre/marketing/arc/index.html) (Staples)
