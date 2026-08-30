@@ -15,7 +15,7 @@ and the **number of discs** used along the spine.
   - [William Hannah](https://williamhannah.com) (UK) - unfortunately [winding down, expected closure at 31 July 2026](https://williamhannah.com/pages/announcements)
   - [Novel Notes](https://www.novelnotes.co.uk) ([etsy](https://novellovesnotes.etsy.com)) (UK)
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
-  - [Rosie Papeterie](https://rosiepapeterie.com/apps/bundles/bundle/112179) (Canada)
+  - [Rosie Papeterie](https://rosiepapeterie.com/search?q=discbound) (Canada)
   - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
   - (Esquoia - defunct??)
   - (Clairing / (FR Clairefontaine) - defunct??)
