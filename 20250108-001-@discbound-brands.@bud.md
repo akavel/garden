@@ -15,7 +15,6 @@ and the **number of discs** used along the spine.
   - Grafo In (Spain) by [Grafoplas](https://www.grafoplas.com) - foil pockets for A4 sheets, 12 discs
   - ADOC system / Bind-ex (Belgium, EU) by Aurora.be
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
-  - [William Hannah](https://williamhannah.com) (UK) - unfortunately [winding down, expected closure at 31 July 2026](https://williamhannah.com/pages/announcements)
   - [Novel Notes](https://www.novelnotes.co.uk) ([etsy](https://novellovesnotes.etsy.com)) (UK)
   - [Talia](https://mintra.eg/collections/talia) (Egypt) [by](https://www.proportiondesign.com/project/talia-stationery-branding-identity) Mintra; also available through distributors elsewhere (e.g. [Portugal](https://noteonline.pt/collections/talia-1), [USA](https://mintrausa.com/search?q=talia))
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
@@ -23,6 +22,7 @@ and the **number of discs** used along the spine.
   - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
   - (Esquoia - defunct??)
   - (Clairing / (FR Clairefontaine) - defunct??)
+  - ([William Hannah](https://williamhannah.com) (UK) - unfortunately [wound down](https://williamhannah.com/pages/announcements))
 - USA
   - Rollabind - defunct??
   - [Arc](https://www.staples.com/sbd/cre/marketing/arc/index.html) (Staples)
