@@ -17,6 +17,7 @@ and the **number of discs** used along the spine.
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK) - unfortunately [winding down, expected closure at 31 July 2026](https://williamhannah.com/pages/announcements)
   - [Novel Notes](https://www.novelnotes.co.uk) ([etsy](https://novellovesnotes.etsy.com)) (UK)
+  - [Talia](https://mintra.eg/collections/talia) (Egypt) [by](https://www.proportiondesign.com/project/talia-stationery-branding-identity) Mintra; also available through distributors elsewhere (e.g. [Portugal](https://noteonline.pt/collections/talia-1), [USA](https://mintrausa.com/search?q=talia))
   - [May Paper Co.](https://www.maypaperco.com/collections/discbound) (Australia)
   - [Rosie Papeterie](https://rosiepapeterie.com/search?q=discbound) (Canada)
   - [Hemlock & Oak](https://www.hemlockandoak.com/collections/planner-inserts) (Canada) - inserts only?
@@ -46,7 +47,7 @@ and the **number of discs** used along the spine.
   - https://sheplans.com/collections/discbound
   - https://shoprongrong.com/pages/build-your-planner
   - https://ugmonk.com/collections/the-discbound-system
-  - https://mintrausa.com/search?q=talia (was taliaproducts.com, but seems now to have changed website; winding down that product line?)
+  - https://mintrausa.com/search?q=talia (was taliaproducts.com) - actually ultimately an Egyptian brand, see above
   - numerous merchants on etsy
 - China
   - [Discagenda](https://dokibook.com/Discagenda-c46.html) (Dokibook)
