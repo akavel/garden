@@ -9,6 +9,7 @@ and the **number of discs** used along the spine.
 - non-USA, non-China
   - [Atoma](https://atoma.be) (Belgium) - the one that [started it all](https://en.wikipedia.org/wiki/Disc-binding)
   - Caderno Inteligente ([Brasil](https://www.cadernointeligente.com.br) & [Portugal](https://cadernointeligente.pt))
+  - [Carchivo Ingeniox](https://carchivo.com/en/19-ingeniox) (Spain)
   - Vario-Zipp / Polyvision (EU) by Oxford / Elba (Hamelin group) - mostly foil pockets for A4 sheets, thus slightly bigger at 12 discs ([example](https://www.my-oxford-shop.de/ringmappen-und-zubehoer-kg25.aspx))
   - ADOC system / Bind-ex (Belgium, EU) by Aurora.be
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
