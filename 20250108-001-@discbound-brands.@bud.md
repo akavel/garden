@@ -12,6 +12,7 @@ and the **number of discs** used along the spine.
   - [Carchivo Ingeniox](https://carchivo.com/en/19-ingeniox) (Spain)
   - [Classroommates](https://ambar.pt/search?q=classroommates) (Portugal)
   - Vario-Zipp / Polyvision (EU) by Oxford / Elba (Hamelin group) - mostly foil pockets for A4 sheets, thus slightly bigger at 12 discs ([example](https://www.my-oxford-shop.de/ringmappen-und-zubehoer-kg25.aspx))
+  - Grafo In (Spain) by [Grafoplas](https://www.grafoplas.com) - foil pockets for A4 sheets, 12 discs
   - ADOC system / Bind-ex (Belgium, EU) by Aurora.be
   - [Pepper and Cute](https://www.pepperandcute.com) (UK)
   - [William Hannah](https://williamhannah.com) (UK) - unfortunately [winding down, expected closure at 31 July 2026](https://williamhannah.com/pages/announcements)
