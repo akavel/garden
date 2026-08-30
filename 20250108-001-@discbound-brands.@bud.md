@@ -42,8 +42,8 @@ and the **number of discs** used along the spine.
   - https://www.plumpaper.com/shop/category/discs
   - https://sheplans.com/collections/discbound
   - https://shoprongrong.com/pages/build-your-planner
-  - https://taliaproducts.com
   - https://ugmonk.com/collections/the-discbound-system
+  - https://mintrausa.com/search?q=talia (was taliaproducts.com, but seems now to have changed website; winding down that product line?)
   - numerous merchants on etsy
 - China
   - [Discagenda](https://dokibook.com/Discagenda-c46.html) (Dokibook)
