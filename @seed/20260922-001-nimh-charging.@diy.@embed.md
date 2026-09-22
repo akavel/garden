@@ -2,9 +2,25 @@
 
 *WORK IN PROGRESS NOTES*
 
-(see also: [clawtype](clawtype)]
+(see also: [clawtype](clawtype))
 
 ## software/firmware based {#software-firmware-based}
+
+### @bigclivedotcom
+
+I asked [a question on Mastodon](https://merveilles.town/@akavel/117314143744202236).
+Right after posting it, and also in the only till now useful answer,
+I discovered some videos on bigclivedotcom's youtube channel.
+The most important introductory one is:
+- [Charging NiMH cells - smart vs dumb chargers](https://www.youtube.com/watch?v=5yFwhWeqyq4)
+
+Another super useful one from the same channel:
+- [Simple NiMH battery charger (with PCB files)](https://www.youtube.com/watch?v=wVnAH17f4jg)
+
+The guy has a website at https://bigclive.com,
+and it looks like there's also a subreddit r/BigCliveDotCom.
+
+### other notes
 
 Software-based charger logic written in Rust
 should be portable enough to easily upload
