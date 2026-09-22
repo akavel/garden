@@ -36,6 +36,8 @@ Long-term goal is:
 - then transparently switch to NiMH power source when USB is disconnected (and reverse)
 
 Promising-looking writeups and software:
+- https://lygte-info.dk/info/batteryChargingNiMH%20UK.html ([via](https://lygte-info.dk/info/indexBatteriesAndChargers%20UK.html),
+  [via](https://www.reddit.com/r/BigCliveDotCom/s/ocYEPoJztP))
 - https://github.com/msillano/NiMH_charger_logger
 - https://github.com/stawel/cheali-charger/blob/master/docs/nimh_nicd_charging.md
 - Wikipedia has some actually useful looking info about NiMH charging:
